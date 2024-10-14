@@ -1,0 +1,69 @@
+﻿<Window x:Class="GenosStore.View.AuthorizationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenosStore.View"
+        mc:Ignorable="d"
+        Width="800"
+        Height="1000"  
+        Title="Авторизация"
+        HorizontalAlignment="Center"
+        Background="Transparent"
+        Icon="/Images/Icon/icon-app.png"
+        >
+    <Border CornerRadius="12" BorderThickness="4" Background="Black">
+        <Border.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF7DFFCD"/>
+                <GradientStop Color="#FFA0CDFF" Offset="1"/>
+                <GradientStop Color="#FF80F0FF" Offset="0.498"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid x:Name="UsernameLabel">
+            <Grid.Background>
+                <ImageBrush Opacity="0.4" Stretch="UniformToFill">
+                    <ImageBrush.ImageSource>
+                        <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/EgrZver/AppData/Local/Microsoft/VisualStudio/17.0_2d5203ab/Designer/Cache/1596015078x86DD/Images/auth-bg.png"/>
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Style>
+                <Style/>
+            </Grid.Style>
+            <Image x:Name="GenosStoreLogo" Grid.Column="2" HorizontalAlignment="Center" Height="501" Margin="0,42,0,0" VerticalAlignment="Top" Width="330" Source="/Images/logo.png"/>
+            <Label x:Name="GenosStoreLabel" Grid.Column="2" Content="GENOS STORE" HorizontalAlignment="Center" Margin="0,556,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="48" FontWeight="Bold" Foreground="White" Height="65" Width="366"/>
+            <TextBox x:Name="UsernameTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="88,661,0,0" VerticalAlignment="Top" Width="272" Height="40" FontFamily="Arial" FontSize="24" Foreground="White" Background="Transparent" BorderThickness="0,0,0,2" AcceptsReturn="True" AutomationProperties.HelpText="A?" CaretBrush="White"/>
+            <Image x:Name="UserIcon" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="41,661,0,0" VerticalAlignment="Top" Width="40" Source="/Images/Icon/icon-user.png"/>
+            <Label x:Name="UserLabel" Grid.Column="2" Content="Имя пользователя" HorizontalAlignment="Left" Margin="41,637,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" Height="24" Width="113"/>
+
+            <TextBox
+                x:Name="PasswordTextBox"
+                Grid.Column="2"
+                HorizontalAlignment="Left"
+                Margin="88,726,0,0"
+                TextWrapping="NoWrap"
+                VerticalAlignment="Top"
+                Width="272" Height="40"
+                FontFamily="Arial"
+                FontSize="24"
+                Foreground="White"
+                Background="Transparent"
+                BorderThickness="0,0,0,2"
+                AcceptsReturn="False" CaretBrush="White"/>
+
+            <Image x:Name="PasswordIcon" Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="41,726,0,0" VerticalAlignment="Top" Width="40" Source="/Images/Icon/icon-key.png"/>
+            <Label x:Name="PasswordLabel" Grid.Column="2" Content="Пароль" HorizontalAlignment="Left" Margin="41,710,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" Height="24" Width="52"/>
+
+
+            <Button Grid.Column="2" Content="Fucking log in" HorizontalAlignment="Left" Margin="88,829,0,0" VerticalAlignment="Top" Background="#FF6BFFDA" Height="74" Width="232" FontFamily="Arial" FontSize="22"/>
+
+        </Grid>
+    </Border>
+</Window>
