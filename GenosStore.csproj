@@ -119,8 +119,69 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Entity\Base\Named.cs" />
+    <Compile Include="Model\Entity\Base\WithModel.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\Certificate80Plus.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\ComputerCaseTypesize.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\CoolerMaterial.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\CPUSocket.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\Definition.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\KeyboardType.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\KeyboardTypesize.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\MatrixType.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\MotherboardFormFactor.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\PCIEVersion.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\RAMType.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\Underlight.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\Vendor.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\VesaSize.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\VideoPort.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\ComputerCase.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\ComputerComponent.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\CPU.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\CPUCooler.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\Display.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\GraphicsCard.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\HDD.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\Keyboard.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\Motherboard.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\Mouse.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\NVMeSSD.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\PowerSupply.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\RAM.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\SataSSD.cs" />
+    <Compile Include="Model\Entity\Item\Item.cs" />
+    <Compile Include="Model\Entity\Item\ItemType.cs" />
+    <Compile Include="Model\Entity\Item\PreparedAssembly.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\AudioChipset.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\CPUCore.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\DiskDrive.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\GPU.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\MotherboardChipset.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\NetworkAdapter.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\SimpleComputerComponent.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\SimpleComputerComponentType.cs" />
+    <Compile Include="Model\Entity\Item\ComputerComponent\SSD.cs" />
+    <Compile Include="Model\Entity\Item\SimpleComputerComponent\SSDController.cs" />
+    <Compile Include="Model\Entity\Orders\ActiveDiscount.cs" />
+    <Compile Include="Model\Entity\Orders\BankCard.cs" />
+    <Compile Include="Model\Entity\Orders\BankSystem.cs" />
+    <Compile Include="Model\Entity\Orders\Cart.cs" />
+    <Compile Include="Model\Entity\Orders\Discount.cs" />
+    <Compile Include="Model\Entity\Orders\Order.cs" />
+    <Compile Include="Model\Entity\Orders\OrderedItem.cs" />
+    <Compile Include="Model\Entity\Orders\OrderStatus.cs" />
+    <Compile Include="Model\Entity\User\Administrator.cs" />
+    <Compile Include="Model\Entity\User\Customer.cs" />
+    <Compile Include="Model\Entity\User\IndividualEntity.cs" />
+    <Compile Include="Model\Entity\User\LegalEntity.cs" />
+    <Compile Include="Model\Entity\User\UserType.cs" />
+    <Compile Include="Model\Entity\User\User.cs" />
     <Compile Include="View\AuthorizationView.xaml.cs">
       <DependentUpon>AuthorizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterPageView.xaml.cs">
+      <DependentUpon>RegisterPageView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +196,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AuthorizationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegisterPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,7 +232,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>

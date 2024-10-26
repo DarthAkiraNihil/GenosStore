@@ -10,23 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GenosStore.View {
 	/// <summary>
-	/// Логика взаимодействия для AuthorizationView.xaml
+	/// Логика взаимодействия для RegisterPageView.xaml
 	/// </summary>
-	public partial class AuthorizationView : Window {
-		public AuthorizationView() {
+	public partial class RegisterPageView : Page {
+		public RegisterPageView() {
 			InitializeComponent();
-		}
-
-		private void closeButton_Click(object sender, RoutedEventArgs e) {
-			Application.Current.Shutdown();
-		}
-
-		private void minimizeButton_Click(object sender, RoutedEventArgs e) {
-			WindowState = WindowState.Minimized;
 		}
 	}
 }

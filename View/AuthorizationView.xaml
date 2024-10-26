@@ -11,6 +11,8 @@
         HorizontalAlignment="Center"
         Background="Transparent"
         Icon="/Images/Icon/icon-app.png"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="true" WindowStyle="None" ResizeMode="NoResize"
         >
     <Border CornerRadius="12" BorderThickness="4" Background="Black">
         <Border.BorderBrush>
@@ -20,7 +22,10 @@
                 <GradientStop Color="#FF80F0FF" Offset="0.498"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
-        <Grid x:Name="UsernameLabel">
+        <Grid x:Name="Main">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Grid.Background>
                 <ImageBrush Opacity="0.4" Stretch="UniformToFill">
                     <ImageBrush.ImageSource>
@@ -62,7 +67,12 @@
             <Label x:Name="PasswordLabel" Grid.Column="2" Content="Пароль" HorizontalAlignment="Left" Margin="41,710,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" Height="24" Width="52"/>
 
 
-            <Button Grid.Column="2" Content="Fucking log in" HorizontalAlignment="Left" Margin="88,829,0,0" VerticalAlignment="Top" Background="#FF6BFFDA" Height="74" Width="232" FontFamily="Arial" FontSize="22"/>
+            <Button Grid.Column="2" Content="Fucking log in" HorizontalAlignment="Center" Margin="0,808,0,0" VerticalAlignment="Top" Background="#FF6BFFDA" Height="74" Width="232" FontFamily="Arial" FontSize="22"/>
+            <Button x:Name="closeButton" Grid.Column="3" Content="X" HorizontalAlignment="Left" Margin="162,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="closeButton_Click"/>
+            <Button x:Name="minimizeButton" Grid.Column="3" Content="-" HorizontalAlignment="Left" Margin="133,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="minimizeButton_Click"/>
+            <Label x:Name="windowTitle" Content="Login" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
+            <Button x:Name="registerButton" Grid.Column="2" Content="Button" HorizontalAlignment="Center" Margin="0,924,0,0" VerticalAlignment="Top"/>
+
 
         </Grid>
     </Border>
