@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Orders {
-	internal class Discount {
+	public class Discount {
 		public long Id { get; set; }
 		public List<Item.Item> ForItems { get; set; }
 

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
-	internal class CPUCooler: ComputerComponent {
+	[Table("public.CPUCoolers")]
+	public class CPUCooler: ComputerComponent {
 		public override ItemType Type => ItemType.CPUCooler;
 
 		public long MaxFanRPM { get; set; }

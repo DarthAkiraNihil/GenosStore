@@ -2,12 +2,14 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Orders {
-	internal class Order {
+	[Table("public.Orders")]
+	public class Order {
 		public long Id { get; set; }
 		public Customer Customer { get; set; }
 

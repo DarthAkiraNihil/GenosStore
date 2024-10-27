@@ -6,8 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
-	internal abstract class ComputerComponent: Item {
-		public long Id { get; set; }
+	public abstract class ComputerComponent: Item {
 		public double TDP { get; set; }
 		public int VendorId { get; set; }
 

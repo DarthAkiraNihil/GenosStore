@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.User {
-	internal class LegalEntity: Customer {
+	[Table("public.LegalEntities")]
+	public class LegalEntity: Customer {
 		public override UserType UserType => UserType.LegalEntity;
 
 		public long INN { get; set; }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Orders {
-	internal class BankCard {
+	[Table("public.BankCards")]
+	public class BankCard {
 		public int Id { get; set; }
 		public long Number { get; set; }
 		public BankSystem BankSystem { get; protected set; }

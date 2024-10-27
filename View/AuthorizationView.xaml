@@ -29,7 +29,7 @@
             <Grid.Background>
                 <ImageBrush Opacity="0.4" Stretch="UniformToFill">
                     <ImageBrush.ImageSource>
-                        <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="file:///C:/Users/EgrZver/AppData/Local/Microsoft/VisualStudio/17.0_2d5203ab/Designer/Cache/1596015078x86DD/Images/auth-bg.png"/>
+                        <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="/Images/auth-bg.png"/>
                     </ImageBrush.ImageSource>
                 </ImageBrush>
             </Grid.Background>

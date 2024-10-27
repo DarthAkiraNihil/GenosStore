@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.User {
-	internal abstract class Customer: User {
-		public List<Order> Orders;
-		public List<BankCard> BankCards;
+	public abstract class Customer: User {
+		public List<Order> Orders {  get; set; }
+		public List<BankCard> BankCards {  get; set; }
 		public Cart Cart { get; set; }
 
 		public Customer() {

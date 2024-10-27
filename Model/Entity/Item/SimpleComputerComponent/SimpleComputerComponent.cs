@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
-	internal abstract class SimpleComputerComponent: WithModel {
+	public abstract class SimpleComputerComponent: WithModel {
 		public long Id { get; set; }
 		public abstract SimpleComputerComponentType Type { get; }
 	}

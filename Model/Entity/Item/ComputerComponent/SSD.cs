@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
-	internal abstract class SSD: DiskDrive {
+	public abstract class SSD: DiskDrive {
 		public int TBW { get; set; }
 		public float DWPD { get; set; }
 		public byte BitsForCell { get; set; }
