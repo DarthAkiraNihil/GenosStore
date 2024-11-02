@@ -1,0 +1,55 @@
+﻿<Page x:Name="AuthPage"
+      x:Class="GenosStore.View.AuthRegister.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GenosStore.View.AuthRegister"
+      mc:Ignorable="d" d:DesignWidth="763.115"
+      Title="AuthorizationPage" Height="896">
+
+    <StackPanel x:Name="Main">
+        <StackPanel x:Name="LogoSector">
+            <Image x:Name="GenosStoreLogo" HorizontalAlignment="Center" Height="501" Margin="0,42,0,0" VerticalAlignment="Top" Width="330" Source="/Images/logo.png"/>
+            <Label x:Name="GenosStoreLabel" Content="GENOS STORE" FontFamily="Arial" FontSize="48" FontWeight="Bold" Foreground="White" Height="65" Width="366"/>
+        </StackPanel>
+        <StackPanel x:Name="FormFields">
+            <Grid x:Name="Username" Height="76" Width="343">
+                <Image x:Name="UserIcon" HorizontalAlignment="Left" Height="40" Margin="10,23,0,0" VerticalAlignment="Top" Width="40" Source="/Images/Icon/icon-user.png"/>
+                <Label x:Name="UserLabel" Content="Имя пользователя" HorizontalAlignment="Left" Margin="4,-1,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" Height="24" Width="113"/>
+                <TextBox
+                    x:Name="UsernameTextBox"
+                    HorizontalAlignment="Left"
+                    Margin="62,26,0,0"
+                    TextWrapping="NoWrap"
+                    VerticalAlignment="Top"
+                    Width="272" Height="40"
+                    FontFamily="Arial"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False" CaretBrush="White"/>
+            </Grid>
+            <Grid x:Name="Password" Width="343" Height="58">
+                <Image x:Name="PasswordIcon" HorizontalAlignment="Left" Height="40" Margin="10,18,0,0" VerticalAlignment="Top" Width="40" Source="/Images/Icon/icon-key.png"/>
+                <Label x:Name="PasswordLabel" Content="Пароль" HorizontalAlignment="Left" Margin="4,-6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" Height="24" Width="52"/>
+                <TextBox
+                    x:Name="PasswordTextBox"
+                    HorizontalAlignment="Left"
+                    Margin="61,0,0,0"
+                    TextWrapping="NoWrap"
+                    VerticalAlignment="Center"
+                    Width="272" Height="40"
+                    FontFamily="Arial"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False" CaretBrush="White"/>
+            </Grid>
+        </StackPanel>
+        <Button Content="Fucking log in" Background="#FF6BFFDA" Height="74" Width="232" FontFamily="Arial" FontSize="22"/>
+        <Button x:Name="registerButton" Content="Button" Width="137"/>
+    </StackPanel>
+</Page>

@@ -1,0 +1,52 @@
+﻿<Window x:Class="GenosStore.View.AppWindows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:GenosStore.ViewModel"
+        mc:Ignorable="d"
+        Width="800"
+        Height="1000"  
+        Title="Авторизация"
+        HorizontalAlignment="Center"
+        Background="Transparent"
+        Icon="/Images/Icon/icon-app.png"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="true" WindowStyle="None" ResizeMode="NoResize">
+    <Border x:Name="WindowBorder" CornerRadius="12" BorderThickness="4" Background="Black">
+        <Border.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF7DFFCD"/>
+                <GradientStop Color="#FFA0CDFF" Offset="1"/>
+                <GradientStop Color="#FF80F0FF" Offset="0.498"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <StackPanel x:Name="Main">
+            <StackPanel.Background>
+                <ImageBrush Opacity="0.4" Stretch="UniformToFill">
+                    <ImageBrush.Transform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="4" Y="-620"/>
+                        </TransformGroup>
+                    </ImageBrush.Transform>
+                    <ImageBrush.ImageSource>
+                        <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="/Images/auth-bg.png"/>
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </StackPanel.Background>
+
+            <Grid x:Name="WindowHeader">
+                <Button x:Name="closeButton" Content="X" HorizontalAlignment="Left" Margin="758,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="closeButton_Click"/>
+                <Button x:Name="minimizeButton" Content="-" HorizontalAlignment="Left" Margin="729,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="minimizeButton_Click"/>
+                <Label x:Name="windowTitle" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
+            </Grid>
+            <Frame x:Name="MainFrame" Content="MainFrame" Height="946" Width="741"/>
+            <Button x:Name="Test" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="195,800,0,0" VerticalAlignment="Top" Command="{Binding AuthorizeCommand}"/>
+
+        </StackPanel>
+    </Border>
+</Window>
