@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GenosStore.Model.Entity.Item {
+	[Table("public.PreparedAssemblies")]
 	public class PreparedAssembly: Item {
 		public override ItemType Type => ItemType.PreparedAssembly;
 

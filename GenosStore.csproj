@@ -123,6 +123,22 @@
     <Compile Include="Migrations\202410271906532_Initial.Designer.cs">
       <DependentUpon>202410271906532_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410280451308_ItemsFix.cs" />
+    <Compile Include="Migrations\202410280451308_ItemsFix.Designer.cs">
+      <DependentUpon>202410280451308_ItemsFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410280455418_DiskSCCFix.cs" />
+    <Compile Include="Migrations\202410280455418_DiskSCCFix.Designer.cs">
+      <DependentUpon>202410280455418_DiskSCCFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410280459058_SSDFix.cs" />
+    <Compile Include="Migrations\202410280459058_SSDFix.Designer.cs">
+      <DependentUpon>202410280459058_SSDFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410280501049_SSDFix2.cs" />
+    <Compile Include="Migrations\202410280501049_SSDFix2.Designer.cs">
+      <DependentUpon>202410280501049_SSDFix2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -226,6 +242,18 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202410271906532_Initial.resx">
       <DependentUpon>202410271906532_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410280451308_ItemsFix.resx">
+      <DependentUpon>202410280451308_ItemsFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410280455418_DiskSCCFix.resx">
+      <DependentUpon>202410280455418_DiskSCCFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410280459058_SSDFix.resx">
+      <DependentUpon>202410280459058_SSDFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410280501049_SSDFix2.resx">
+      <DependentUpon>202410280501049_SSDFix2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

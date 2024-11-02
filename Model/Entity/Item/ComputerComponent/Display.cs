@@ -1,4 +1,5 @@
 ﻿using System;
+using GenosStore.Model.Entity.Item.Characteristic;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		public int MaxUpdateFrequency { get; set; }
 		public VesaSize VesaSize { get; set; }
 		public double ScreedDiagonal;
+
+		public virtual Definition Definition { get; set; }
 	}
 }

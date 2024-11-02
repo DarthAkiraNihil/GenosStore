@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.NVMeSSDs")]
-	public class NVMeSSD: ComputerComponent {
+	public class NVMeSSD: SSD {
 		public override ItemType Type => ItemType.NVMeSSD;
 	}
 }
