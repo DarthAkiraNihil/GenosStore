@@ -1,0 +1,105 @@
+﻿<Page x:Name="RegIndividualPage"
+      x:Class="GenosStore.View.AuthRegister.RegisterIndividualPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GenosStore.View.AuthRegister"
+      mc:Ignorable="d" 
+      d:DesignWidth="764" Height="896"
+      Title="RegisterIndividualPage">
+
+    <StackPanel x:Name="FormFields" Height="360" Width="400">
+        <Grid x:Name="Name" Height="60" Width="400">
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0"/>
+            <Label Content="Ися" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Bottom"/>
+            <TextBox
+                HorizontalAlignment="Left"
+                TextWrapping="Wrap"
+                Text="TextBox"
+                VerticalAlignment="Top"
+                Width="348"
+                Height="40"
+                FontFamily="Arial"
+                FontSize="24"
+                Foreground="White"
+                Background="Transparent"
+                BorderThickness="0,0,0,2"
+                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
+        </Grid>
+        <Grid x:Name="Surname"  Height="60" Width="400">
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0"/>
+            <Label Content="Ися" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Bottom"/>
+            <TextBox
+    HorizontalAlignment="Left"
+    TextWrapping="Wrap"
+    Text="TextBox"
+    VerticalAlignment="Top"
+    Width="348"
+    Height="40"
+    FontFamily="Arial"
+    FontSize="24"
+    Foreground="White"
+    Background="Transparent"
+    BorderThickness="0,0,0,2"
+    AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
+        </Grid>
+        <Grid x:Name="Email"  Height="60" Width="400">
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0"/>
+            <Label Content="Ися" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Bottom"/>
+            <TextBox
+    HorizontalAlignment="Left"
+    TextWrapping="Wrap"
+    Text="TextBox"
+    VerticalAlignment="Top"
+    Width="348"
+    Height="40"
+    FontFamily="Arial"
+    FontSize="24"
+    Foreground="White"
+    Background="Transparent"
+    BorderThickness="0,0,0,2"
+    AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
+        </Grid>
+        <Grid x:Name="Password"  Height="60" Width="400">
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0"/>
+            <Label Content="Ися" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Bottom"/>
+            <TextBox
+    HorizontalAlignment="Left"
+    TextWrapping="Wrap"
+    Text="TextBox"
+    VerticalAlignment="Top"
+    Width="348"
+    Height="40"
+    FontFamily="Arial"
+    FontSize="24"
+    Foreground="White"
+    Background="Transparent"
+    BorderThickness="0,0,0,2"
+    AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
+        </Grid>
+        <Grid x:Name="RepeatPassword"  Height="60" Width="400">
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0"/>
+            <Label Content="Ися" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Bottom"/>
+            <TextBox
+    HorizontalAlignment="Left"
+    TextWrapping="Wrap"
+    Text="TextBox"
+    VerticalAlignment="Top"
+    Width="348"
+    Height="40"
+    FontFamily="Arial"
+    FontSize="24"
+    Foreground="White"
+    Background="Transparent"
+    BorderThickness="0,0,0,2"
+    AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
+        </Grid>
+        <Button Content="Button" Height="30" Command="{Binding RegisterCommand}"/>
+        <Grid>
+            <Button Content="Button" Height="30" Margin="195,0,0,0" Command="{Binding BackToAuthCommand}"/>
+            <Button Content="Button" Height="30" Margin="0,0,205,0" Command="{Binding RegisterLegalCommand}"/>
+        </Grid>
+        
+    </StackPanel>
+</Page>

@@ -7,6 +7,7 @@ namespace GenosStore.View.AppWindows
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
 		private void closeButton_Click(object sender, RoutedEventArgs e) {

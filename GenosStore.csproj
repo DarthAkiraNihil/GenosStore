@@ -217,6 +217,9 @@
     <Compile Include="Utility\AbstractViewModel.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="ViewModel\AuthorizationViewModel.cs" />
+    <Compile Include="ViewModel\AuthRegister\AuthorizationPageModel.cs" />
+    <Compile Include="ViewModel\AuthRegister\RegisterIndividualPageModel.cs" />
+    <Compile Include="ViewModel\AuthRegister\RegisterLegalPageModel.cs" />
     <Compile Include="View\AppWindows\AuthRegisterWindow.xaml.cs">
       <DependentUpon>AuthRegisterWindow.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,12 @@
     </Compile>
     <Compile Include="View\AuthRegister\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AuthRegister\RegisterIndividualPage.xaml.cs">
+      <DependentUpon>RegisterIndividualPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AuthRegister\RegisterLegalPage.xaml.cs">
+      <DependentUpon>RegisterLegalPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +250,14 @@
     <Page Include="View\AppWindows\AuthRegisterWindow.xaml" />
     <Page Include="View\AppWindows\MainWindow.xaml" />
     <Page Include="View\AuthRegister\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AuthRegister\RegisterIndividualPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AuthRegister\RegisterLegalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

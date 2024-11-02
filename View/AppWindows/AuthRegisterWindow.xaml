@@ -45,7 +45,7 @@
                 <Button x:Name="MinimizeButton" Content="-" HorizontalAlignment="Left" Margin="729,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="minimizeButton_Click"/>
                 <Label x:Name="WindowTitle" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
             </Grid>
-            <Frame x:Name="MainFrame" Content="MainFrame" Height="946" Width="741"/>
+            <Frame x:Name="MainFrame" Content="MainFrame" Height="946" Width="741" NavigationUIVisibility="Hidden"/>
             <Button x:Name="Test" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="195,800,0,0" VerticalAlignment="Top" Command="{Binding AuthorizeCommand}"/>
 
         </StackPanel>

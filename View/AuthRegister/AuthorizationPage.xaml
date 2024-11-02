@@ -5,8 +5,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GenosStore.View.AuthRegister"
-      mc:Ignorable="d" d:DesignWidth="763.115"
-      Title="AuthorizationPage" Height="896">
+      mc:Ignorable="d" d:DesignWidth="764" Height="896"
+      Title="AuthorizationPage">
 
     <StackPanel x:Name="Main">
         <StackPanel x:Name="LogoSector">
@@ -49,7 +49,7 @@
                     AcceptsReturn="False" CaretBrush="White"/>
             </Grid>
         </StackPanel>
-        <Button Content="Fucking log in" Background="#FF6BFFDA" Height="74" Width="232" FontFamily="Arial" FontSize="22"/>
-        <Button x:Name="registerButton" Content="Button" Width="137"/>
+        <Button Content="Fucking log in" Background="#FF6BFFDA" Height="74" Width="232" FontFamily="Arial" FontSize="22" Command="{Binding AuthorizeCommand}"/>
+        <Button x:Name="registerButton" Content="Button" Width="137" Command="{Binding RegisterCommand}"/>
     </StackPanel>
 </Page>

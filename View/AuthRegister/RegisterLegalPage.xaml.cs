@@ -16,12 +16,12 @@ using GenosStore.ViewModel.AuthRegister;
 
 namespace GenosStore.View.AuthRegister {
 	/// <summary>
-	/// Логика взаимодействия для AuthorizationPage.xaml
+	/// Логика взаимодействия для RegisterLegalPage.xaml
 	/// </summary>
-	public partial class AuthorizationPage : Page {
-		public AuthorizationPage() {
+	public partial class RegisterLegalPage : Page {
+		public RegisterLegalPage() {
 			InitializeComponent();
-			DataContext = new AuthorizationPageModel();
+			DataContext = new RegisterLegalPageModel();
 		}
 	}
 }

@@ -16,12 +16,13 @@ using GenosStore.ViewModel.AuthRegister;
 
 namespace GenosStore.View.AuthRegister {
 	/// <summary>
-	/// Логика взаимодействия для AuthorizationPage.xaml
+	/// Логика взаимодействия для RegisterIndividualPage.xaml
 	/// </summary>
-	public partial class AuthorizationPage : Page {
-		public AuthorizationPage() {
+	public partial class RegisterIndividualPage : Page {
+		public RegisterIndividualPage() {
 			InitializeComponent();
-			DataContext = new AuthorizationPageModel();
+			MessageBox.Show("EGGOG");
+			DataContext = new RegisterIndividualPageModel();
 		}
 	}
 }
