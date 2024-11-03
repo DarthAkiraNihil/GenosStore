@@ -15,6 +15,11 @@ namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 		public int VendorId { get; set; }
 
 		public virtual Vendor Vendor { get; set; }
+	
+		public List<Motherboard> Motherboards { get; set; }
 
+		public CPUCore() {
+			Motherboards = new List<Motherboard>();
+		}
 	}
 }

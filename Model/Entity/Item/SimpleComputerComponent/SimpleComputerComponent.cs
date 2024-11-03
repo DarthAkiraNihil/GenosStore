@@ -10,6 +10,8 @@ namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 	[Table("public.SimpleComputerComponents")]
 	public abstract class SimpleComputerComponent: WithModel {
 		public long Id { get; set; }
-		public abstract SimpleComputerComponentType Type { get; }
+		public int SimpleComputerComponentTypeId { get; set; }
+		
+		public virtual SimpleComputerComponentType Type { get; }
 	}
 }

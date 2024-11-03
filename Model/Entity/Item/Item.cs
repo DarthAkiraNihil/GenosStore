@@ -14,9 +14,11 @@ namespace GenosStore.Model.Entity.Item {
 		public double Price { get; set; }
 		public string PathToImage { get; set; }
 		public string Description { get; set; }
-		public abstract ItemType Type { get; }
+		//public abstract ItemType Type { get; }
 		public int? ActiveDiscountId { get; set; }
+		public int ItemTypeId { get; set; }
 
 		public virtual ActiveDiscount ActiveDiscount { get; set; }
+		public virtual ItemType ItemType { get; set; }
 	}
 }

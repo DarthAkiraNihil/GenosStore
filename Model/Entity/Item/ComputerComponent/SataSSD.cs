@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.SataSSDs")]
 	public class SataSSD: SSD {
-		public override ItemType Type => ItemType.SataSSD;
+		
 	}
 }

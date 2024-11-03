@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 	[Table("public.MotherboardChipsets")]
 	public class MotherboardChipset: SimpleComputerComponent {
-		public override SimpleComputerComponentType Type => SimpleComputerComponentType.MotherboardChipset;
+		
 	}
 }

@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 	[Table("public.SSDControllers")]
 	public class SSDController: SimpleComputerComponent {
-		public override SimpleComputerComponentType Type => SimpleComputerComponentType.SSDController;
+		
 	}
 }

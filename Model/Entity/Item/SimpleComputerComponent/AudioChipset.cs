@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 	[Table("public.AudioChipsets")]
 	public class AudioChipset: SimpleComputerComponent {
-		public override SimpleComputerComponentType Type => SimpleComputerComponentType.AudioChipset;
+		
 	}
 	
 }

@@ -14,6 +14,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		public byte BitsForCell { get; set; }
 
 		public int SSDControllerId { get; set; }
+		
 		public virtual SSDController SSDController { get; set; }
 
 	}

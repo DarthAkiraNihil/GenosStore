@@ -11,10 +11,14 @@ namespace GenosStore.Model.Entity.Orders {
 	[Table("public.Orders")]
 	public class Order {
 		public long Id { get; set; }
-		public Customer Customer { get; set; }
+		public int CustomerId { get; set; }
+		
+		public virtual Customer Customer { get; set; }
 
-		public List<OrderedItem> Items { get; set; }
-		public OrderStatus Status { get; set; }
+		//public List<OrderedIem> Items { get; set; }
+		public int OrderStatusId { get; set; }
+		public virtual OrderStatus Status { get; set; }
+		
 		public DateTime CreatedAt { get; set; }
 	}
 }

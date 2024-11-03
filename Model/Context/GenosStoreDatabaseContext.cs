@@ -58,7 +58,7 @@ namespace GenosStore.Model.Context {
 		// order
 
 		public DbSet<Order> Orders { get; set; }
-		public DbSet<OrderedItem> OrderedItems { get; set; }
+		public DbSet<OrderItems> OrderedItems { get; set; }
 		public DbSet<Discount> Discounts { get; set; }
 		public DbSet<ActiveDiscount> ActiveDiscounts { get; set; }
 		public DbSet<BankCard> BankCards { get; set; }
@@ -95,7 +95,7 @@ namespace GenosStore.Model.Context {
 				typeof(IndividualEntity),
 				typeof(LegalEntity),
 				typeof(Order),
-				typeof(OrderedItem),
+				typeof(OrderItems),
 				//typeof(Discount),
 				typeof(ActiveDiscount),
 				typeof(BankCard),
@@ -116,23 +116,29 @@ namespace GenosStore.Model.Context {
 
 			modelBuilder.Entity<Item>().
 				HasOptional (i => i.ActiveDiscount);
+			
+			var preparedAssemblyEntity = modelBuilder.Entity<PreparedAssembly>();
 
-			modelBuilder.Entity<PreparedAssembly>()
-				.HasOptional(a => a.Display);
+			preparedAssemblyEntity.HasRequired(a => a.CPU);
+			preparedAssemblyEntity.HasRequired(a => a.Motherboard);
+			preparedAssemblyEntity.HasRequired(a => a.GraphicsCard);
+			preparedAssemblyEntity.HasRequired(a => a.PowerSupply);
+			preparedAssemblyEntity.HasRequired(a => a.ComputerCase);
+			preparedAssemblyEntity.HasRequired(a => a.CPUCooler);
+			
+			preparedAssemblyEntity.HasOptional(a => a.Display);
+			preparedAssemblyEntity.HasOptional(a => a.Keyboard);
+			preparedAssemblyEntity.HasOptional(a => a.Mouse);
 
-			modelBuilder.Entity<PreparedAssembly>()
-				.HasOptional(a => a.Keyboard);
-			modelBuilder.Entity<PreparedAssembly>()
-				.HasOptional(a => a.Mouse);
-
-			modelBuilder.Entity<PreparedAssembly>()
+			preparedAssemblyEntity
 				.HasMany(a => a.RAM)
 				.WithMany(r => r.PreparedAssemblies); //
 
-			modelBuilder.Entity<PreparedAssembly>()
+			preparedAssemblyEntity
 				.HasMany(a => a.Disks)
 				.WithMany(d => d.PreparedAssemblies); //
 
+			
 			modelBuilder.Entity<Order>()
 				.HasMany(o => o.Items)
 				.WithMany(i => i.Orders);

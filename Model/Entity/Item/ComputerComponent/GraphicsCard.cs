@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GenosStore.Model.Entity.Item.Characteristic;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.GraphicsCards")]
 	public class GraphicsCard: ComputerComponent {
-		public override ItemType Type => ItemType.GraphicsCard;
 
 		public int GPUId { get; set; }
 		public int VideoRAM { get; set; }
@@ -18,5 +18,9 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		public byte UsedSlots { get; set; }
 
 		public virtual GPU GPU { get; set; }
+
+		public GraphicsCard() {
+			VideoPorts = new List<VideoPort>();
+		}
 	}
 }

@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 	[Table("public.NetworkAdapters")]
 	public class NetworkAdapter: SimpleComputerComponent {
-		public override SimpleComputerComponentType Type => SimpleComputerComponentType.NetworkAdapter;
+		
 	}
 }

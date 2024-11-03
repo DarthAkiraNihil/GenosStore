@@ -9,15 +9,18 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.Displays")]
 	public class Display: ComputerComponent {
-		public override ItemType Type => ItemType.Display;
-
+		
 		public int DefinitionId { get; set; }
-		public MatrixType MatrixType { get; set; }
-		public Underlight UnderlightType { get; set; }
+		public int MatrixTypeId { get; set; }
+		public int UnderlightId { get; set; }
+		public int VesaSizeId { get; set; }
 		public int MaxUpdateFrequency { get; set; }
-		public VesaSize VesaSize { get; set; }
+		
 		public double ScreedDiagonal;
 
 		public virtual Definition Definition { get; set; }
+		public virtual MatrixType MatrixType { get; set; }
+		public virtual Underlight UnderlightType { get; set; }
+		public virtual VesaSize VesaSize { get; set; }
 	}
 }

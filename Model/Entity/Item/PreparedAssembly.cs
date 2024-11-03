@@ -10,8 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace GenosStore.Model.Entity.Item {
 	[Table("public.PreparedAssemblies")]
 	public class PreparedAssembly: Item {
-		public override ItemType Type => ItemType.PreparedAssembly;
-
+		
 		public int CPUId { get; set; } 
 		public int MotherboardId { get; set; }
 		public int GraphicsCardId { get; set; }
@@ -35,7 +34,7 @@ namespace GenosStore.Model.Entity.Item {
 		
 		public virtual Display Display { get; set; }
 		[Required]
-		public virtual ComputerCase ComputerCase { get; }
+		public virtual ComputerCase ComputerCase { get; set; }
 		public virtual Keyboard Keyboard { get; set; }
 		public virtual Mouse Mouse { get; set; }
 		[Required]

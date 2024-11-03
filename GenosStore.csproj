@@ -163,6 +163,7 @@
     <Compile Include="Model\Entity\Item\Characteristic\CoolerMaterial.cs" />
     <Compile Include="Model\Entity\Item\Characteristic\CPUSocket.cs" />
     <Compile Include="Model\Entity\Item\Characteristic\Definition.cs" />
+    <Compile Include="Model\Entity\Item\Characteristic\DPIMode.cs" />
     <Compile Include="Model\Entity\Item\Characteristic\KeyboardType.cs" />
     <Compile Include="Model\Entity\Item\Characteristic\KeyboardTypesize.cs" />
     <Compile Include="Model\Entity\Item\Characteristic\MatrixType.cs" />
@@ -204,9 +205,8 @@
     <Compile Include="Model\Entity\Orders\BankCard.cs" />
     <Compile Include="Model\Entity\Orders\BankSystem.cs" />
     <Compile Include="Model\Entity\Orders\Cart.cs" />
-    <Compile Include="Model\Entity\Orders\Discount.cs" />
     <Compile Include="Model\Entity\Orders\Order.cs" />
-    <Compile Include="Model\Entity\Orders\OrderedItem.cs" />
+    <Compile Include="Model\Entity\Orders\OrderItems.cs" />
     <Compile Include="Model\Entity\Orders\OrderStatus.cs" />
     <Compile Include="Model\Entity\User\Administrator.cs" />
     <Compile Include="Model\Entity\User\Customer.cs" />
