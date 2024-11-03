@@ -5,7 +5,7 @@ namespace GenosStore.Model.Entity.Orders {
 
 	[Table("public.BankSystems")]
 	public class BankSystem: Named {
-		
+		public long Id { get; set; }
 	}
 	// public enum BankSystem {
 	// 	Visa,

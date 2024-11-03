@@ -9,6 +9,6 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.VesaSizes")]
 	public class VesaSize: Named {
-
+		public long Id { get; set; }
 	}
 }

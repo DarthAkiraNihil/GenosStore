@@ -11,6 +11,6 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.MatrixTypes")]
 	public class MatrixType: Named {
-
+		public long Id { get; set; }
 	}
 }

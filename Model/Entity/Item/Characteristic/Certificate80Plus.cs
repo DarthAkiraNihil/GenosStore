@@ -13,7 +13,7 @@ using GenosStore.Model.Entity.Base;
 
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.Certificates80Plus")]
-	public class Certiticate80Plus: Named {
-
+	public class Certificate80Plus: Named {
+		public long Id { get; set; }
 	}
 }

@@ -15,7 +15,7 @@ namespace GenosStore.Model.Entity.Orders {
 		
 		public virtual Customer Customer { get; set; }
 
-		//public List<OrderedIem> Items { get; set; }
+		public List<OrderItems> Items { get; set; }
 		public int OrderStatusId { get; set; }
 		public virtual OrderStatus Status { get; set; }
 		

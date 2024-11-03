@@ -20,7 +20,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 
 		public virtual Definition Definition { get; set; }
 		public virtual MatrixType MatrixType { get; set; }
-		public virtual Underlight UnderlightType { get; set; }
+		public virtual Underlight Underlight { get; set; }
 		public virtual VesaSize VesaSize { get; set; }
 	}
 }

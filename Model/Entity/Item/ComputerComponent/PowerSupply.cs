@@ -15,6 +15,6 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		public int PowerOutput { get; set; }
 		public int Certiticate80PlusId { get; set; }
 		
-		public virtual Certiticate80Plus Certificate80Plus { get; set; }
+		public virtual Certificate80Plus Certificate80Plus { get; set; }
 	}
 }

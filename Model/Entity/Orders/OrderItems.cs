@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Orders {
 	[Table("public.OrderedItems")]
 	public class OrderItems {
+		public long Id { get; set; }
 		public int OrderId { get; set; }
 		public int ItemId { get; set; }
 		

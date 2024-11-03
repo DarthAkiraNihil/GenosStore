@@ -10,6 +10,6 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.DCPUSocket")]
 	public class CPUSocket: Named {
-		
+		public long Id { get; set; }
 	}
 }

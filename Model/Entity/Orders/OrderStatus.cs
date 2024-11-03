@@ -16,6 +16,6 @@ namespace GenosStore.Model.Entity.Orders {
 
 	[Table("public.OrderStatus")]
 	public class OrderStatus: Named {
-		
+		public long Id { get; set; }
 	}
 }

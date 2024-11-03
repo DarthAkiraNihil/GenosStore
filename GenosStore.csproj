@@ -154,6 +154,10 @@
     <Compile Include="Migrations\202410280501049_SSDFix2.Designer.cs">
       <DependentUpon>202410280501049_SSDFix2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411031713599_EnumToTable.cs" />
+    <Compile Include="Migrations\202411031713599_EnumToTable.Designer.cs">
+      <DependentUpon>202411031713599_EnumToTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -286,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410280501049_SSDFix2.resx">
       <DependentUpon>202410280501049_SSDFix2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411031713599_EnumToTable.resx">
+      <DependentUpon>202411031713599_EnumToTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

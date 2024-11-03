@@ -11,6 +11,6 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 	[Table("public.SimpleComputerComponentTypes")]
 	public class SimpleComputerComponentType: Named {
-		
+		public long Id { get; set; }
 	}
 }

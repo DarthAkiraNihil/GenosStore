@@ -12,6 +12,6 @@ namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
 		public long Id { get; set; }
 		public int SimpleComputerComponentTypeId { get; set; }
 		
-		public virtual SimpleComputerComponentType Type { get; }
+		public virtual SimpleComputerComponentType Type { get; set; }
 	}
 }

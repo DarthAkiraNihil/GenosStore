@@ -13,6 +13,7 @@ using GenosStore.Model.Entity.Item.ComputerComponent;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.VideoPorts")]
 	public class VideoPort: Named {
+		public long Id { get; set; }
 		
 		public List<GraphicsCard> GraphicsCards { get; set; }
 		public List<Motherboard> Motherboards { get; set; }
