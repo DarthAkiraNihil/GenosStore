@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:GenosStore"
              StartupUri="View/AppWindows/AuthRegisterWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Utility/Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

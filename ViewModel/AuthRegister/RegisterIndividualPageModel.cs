@@ -31,9 +31,9 @@ namespace GenosStore.ViewModel.AuthRegister
             Navigate("View/AuthRegister/AuthorizationPage.xaml");
         }
 
-        private void RegisterLegal(object parameter)
-        {
-        }
+        private void RegisterLegal(object parameter) {
+			Navigate("View/AuthRegister/RegisterLegalPage.xaml");
+		}
         
 
         private bool CanRegister(object parameter) {
@@ -44,8 +44,7 @@ namespace GenosStore.ViewModel.AuthRegister
             return true;
         }
 
-        private bool CanRegisterLegal(object parameter)
-        {
+        private bool CanRegisterLegal(object parameter) {
             return true;
         }
         

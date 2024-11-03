@@ -40,7 +40,7 @@
                 </ImageBrush>
             </StackPanel.Background>
 
-            <Grid x:Name="WindowHeader">
+            <Grid x:Name="WindowHeader" MouseDown="OnMouseDown">
                 <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Left" Margin="758,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="closeButton_Click"/>
                 <Button x:Name="MinimizeButton" Content="-" HorizontalAlignment="Left" Margin="729,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="minimizeButton_Click"/>
                 <Label x:Name="WindowTitle" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>

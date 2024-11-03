@@ -8,48 +8,66 @@
       mc:Ignorable="d" d:DesignWidth="764" Height="896"
       Title="AuthorizationPage">
 
-    <StackPanel x:Name="Main">
+    <StackPanel x:Name="Main" VerticalAlignment="Center" HorizontalAlignment="Center">
         <StackPanel x:Name="LogoSector">
             <Image x:Name="GenosStoreLogo" HorizontalAlignment="Center" Height="501" Margin="0,42,0,0" VerticalAlignment="Top" Width="330" Source="/Images/logo.png"/>
             <Label x:Name="GenosStoreLabel" Content="GENOS STORE" FontFamily="Arial" FontSize="48" FontWeight="Bold" Foreground="White" Height="65" Width="366"/>
         </StackPanel>
         <StackPanel x:Name="FormFields">
-            <Grid x:Name="Username" Height="76" Width="343">
-                <Image x:Name="UserIcon" HorizontalAlignment="Left" Height="40" Margin="10,23,0,0" VerticalAlignment="Top" Width="40" Source="/Images/Icon/icon-user.png"/>
-                <Label x:Name="UserLabel" Content="Имя пользователя" HorizontalAlignment="Left" Margin="4,-1,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" Height="24" Width="113"/>
+            <Grid x:Name="Username" Height="84" Width="343">
+                <Image x:Name="UserIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource UserIcon}"/>
+                <Label Content="Имя пользователя" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
                 <TextBox
-                    x:Name="UsernameTextBox"
                     HorizontalAlignment="Left"
-                    Margin="62,26,0,0"
-                    TextWrapping="NoWrap"
+                    TextWrapping="Wrap"
                     VerticalAlignment="Top"
-                    Width="272" Height="40"
+                    Width="348"
+                    Height="40"
                     FontFamily="Arial"
                     FontSize="24"
                     Foreground="White"
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
-                    AcceptsReturn="False" CaretBrush="White"/>
+                    AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
+                <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
+                    </Label.Foreground>
+                </Label>
             </Grid>
-            <Grid x:Name="Password" Width="343" Height="58">
-                <Image x:Name="PasswordIcon" HorizontalAlignment="Left" Height="40" Margin="10,18,0,0" VerticalAlignment="Top" Width="40" Source="/Images/Icon/icon-key.png"/>
-                <Label x:Name="PasswordLabel" Content="Пароль" HorizontalAlignment="Left" Margin="4,-6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" Height="24" Width="52"/>
+            <Grid x:Name="Password" Width="343" Height="84">
+                <Image x:Name="PasswordIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource PasswordIcon}"/>
+                <Label Content="Пароль" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
                 <TextBox
-                    x:Name="PasswordTextBox"
                     HorizontalAlignment="Left"
-                    Margin="61,0,0,0"
-                    TextWrapping="NoWrap"
-                    VerticalAlignment="Center"
-                    Width="272" Height="40"
+                    TextWrapping="Wrap"
+                    VerticalAlignment="Top"
+                    Width="348"
+                    Height="40"
                     FontFamily="Arial"
                     FontSize="24"
                     Foreground="White"
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
-                    AcceptsReturn="False" CaretBrush="White"/>
+                    AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
+                <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
+                    </Label.Foreground>
+                </Label>
             </Grid>
         </StackPanel>
-        <Button Content="Fucking log in" Background="#FF6BFFDA" Height="74" Width="232" FontFamily="Arial" FontSize="22" Command="{Binding AuthorizeCommand}"/>
-        <Button x:Name="registerButton" Content="Button" Width="137" Command="{Binding RegisterCommand}"/>
+        <Button Content="Авторизация" Background="#FF6BFFDA" Height="53" Width="232" FontFamily="Arial" FontSize="22" Command="{Binding AuthorizeCommand}" Margin="0,8,0,0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="16"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="registerButton" Content="Нет аккаунта? - Зарегистрироваться!" Width="230" Command="{Binding RegisterCommand}" FontFamily="Arial" Background="#00A98D8D" BorderBrush="#00707070" Margin="0,8,0,0">
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </Button.Foreground>
+        </Button>
     </StackPanel>
 </Page>

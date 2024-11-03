@@ -4,6 +4,9 @@ using System.Windows;
 using GenosStore.View.AuthRegister;
 
 using static GenosStore.Utility.AbstractViewModel;
+using GenosStore.ViewModel.AuthRegister;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace GenosStore.View.AppWindows
 {
@@ -13,11 +16,17 @@ namespace GenosStore.View.AppWindows
         {
             InitializeComponent();
 
+            AuthorizationPageModel.Close += this.Close;
+
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
+                MessageBox.Show("PASSO");
 				MainFrame.Navigate(new Uri(x.Url, UriKind.Relative));
+
+                ((Page)MainFrame.Content).DataContext.ToString();
 			});
 
             MainFrame.Content = new AuthorizationPage();
+            
 		}
         
         private void closeButton_Click(object sender, RoutedEventArgs e) {
@@ -27,5 +36,11 @@ namespace GenosStore.View.AppWindows
         private void minimizeButton_Click(object sender, RoutedEventArgs e) {
             WindowState = WindowState.Minimized;
         }
-    }
+
+		private void OnMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
+			if (e.LeftButton == MouseButtonState.Pressed) {
+				DragMove();
+			}
+		}
+	}
 }

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace GenosStore.View.AppWindows
 {
@@ -16,6 +17,12 @@ namespace GenosStore.View.AppWindows
 
 		private void minimizeButton_Click(object sender, RoutedEventArgs e) {
 			WindowState = WindowState.Minimized;
+		}
+
+		private void OnMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
+			if (e.LeftButton == MouseButtonState.Pressed) {
+				DragMove();
+			}
 		}
 	}
 }
