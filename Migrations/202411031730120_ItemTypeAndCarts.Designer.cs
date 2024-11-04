@@ -7,13 +7,13 @@ namespace GenosStore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class SSDFix2 : IMigrationMetadata
+    public sealed partial class ItemTypeAndCarts : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SSDFix2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ItemTypeAndCarts));
         
         string IMigrationMetadata.Id
         {
-            get { return "202410280501049_SSDFix2"; }
+            get { return "202411031730120_ItemTypeAndCarts"; }
         }
         
         string IMigrationMetadata.Source

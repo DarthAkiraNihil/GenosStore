@@ -86,9 +86,11 @@ namespace GenosStore.Model.Context {
 			
 			//modelBuilder.Entity<Named>().HasRequired(n => n.Name);
 			//modelBuilder.Entity<WithModel>().HasRequired(w => w.Model);
+
+			var itemEntity = modelBuilder.Entity<Item>();
 			
-			modelBuilder.Entity<Item>().
-				HasOptional (i => i.ActiveDiscount);
+			itemEntity.HasOptional (i => i.ActiveDiscount);
+			itemEntity.HasRequired(i => i.ItemType);
 			
 			var preparedAssemblyEntity = modelBuilder.Entity<PreparedAssembly>();
 
@@ -228,16 +230,20 @@ namespace GenosStore.Model.Context {
 			var bankCardEntity = modelBuilder.Entity<BankCard>();
 
 			bankCardEntity.HasRequired(c => c.BankSystem);
+
+			var cartEntiry = modelBuilder.Entity<Cart>();
 			
-			modelBuilder.Entity<Cart>()
-			            .HasKey(c => c.CustomerId);
+			cartEntiry.HasKey(c => c.CustomerId);
+			cartEntiry.HasMany(c => c.Items)
+			          .WithMany(i => i.Carts);
 			
-			modelBuilder.Entity<Customer>()
+			var customerEntity = modelBuilder.Entity<Customer>();
+			
+			customerEntity
 			            .HasRequired(c => c.Cart)
 			            .WithRequiredPrincipal(c => c.Customer);
 			
-			modelBuilder.Entity<Customer>()
-			            .HasMany(c => c.Orders);
+			customerEntity.HasMany(c => c.Orders);
 
 			modelBuilder.Entity<Order>()
 			            .HasMany(o => o.Items);

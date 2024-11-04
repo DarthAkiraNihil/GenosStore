@@ -17,8 +17,14 @@ namespace GenosStore.Model.Entity.Item {
 		//public abstract ItemType Type { get; }
 		public int? ActiveDiscountId { get; set; }
 		public int ItemTypeId { get; set; }
+		
+		public List<Cart> Carts { get; set; }
 
 		public virtual ActiveDiscount ActiveDiscount { get; set; }
 		public virtual ItemType ItemType { get; set; }
+
+		public Item() {
+			Carts = new List<Cart>();
+		}
 	}
 }
