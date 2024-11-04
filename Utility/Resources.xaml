@@ -9,6 +9,12 @@
     <BitmapImage x:Key="OfficeIcon" UriSource="/Images/Icon/icon-office.png" />
     <BitmapImage x:Key="HomeIcon" UriSource="/Images/Icon/icon-home.png" />
     <BitmapImage x:Key="DocumentIcon" UriSource="/Images/Icon/icon-document.png" />
+    <BitmapImage x:Key="CartIcon" UriSource="/Images/Icon/icon-cart.png" />
+
+    <BitmapImage x:Key="CartIcon240" UriSource="/Images/Icon/240/icon-cart.png" />
+    <BitmapImage x:Key="HistoryIcon240" UriSource="/Images/Icon/240/icon-history.png" />
+    <BitmapImage x:Key="ListIcon240" UriSource="/Images/Icon/240/icon-list.png" />
+    <BitmapImage x:Key="WalletIcon240" UriSource="/Images/Icon/240/icon-wallet.png" />
 
     <BitmapImage x:Key="STDBG" UriSource="/Images/auth-bg.png" />
     <BitmapImage x:Key="Logo" UriSource="/Images/logo.png" />

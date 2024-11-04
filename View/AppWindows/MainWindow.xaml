@@ -1,4 +1,4 @@
-﻿<Window x:Class="GenosStore.View.AppWindows.MainWindow"
+﻿<Window x:Name="window" x:Class="GenosStore.View.AppWindows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -45,7 +45,7 @@
                 </Grid>
                 <Label x:Name="windowTitle" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
             </Grid>
-            <Frame x:Name="MainFrame" Height="745" Width="1162"/>
+            <Frame x:Name="MainFrame" Width="{Binding Width, ElementName=window}" HorizontalAlignment="Center" Height="{Binding Height, ElementName=window}"/>
             <Button x:Name="Test" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="195,800,0,0" VerticalAlignment="Top" Command="{Binding AuthorizeCommand}"/>
 
         </StackPanel>

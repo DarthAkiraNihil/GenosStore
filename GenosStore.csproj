@@ -146,6 +146,14 @@
     <Compile Include="Migrations\202411031739342_OrderItemsFix.Designer.cs">
       <DependentUpon>202411031739342_OrderItemsFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411041429119_OrderStatus.cs" />
+    <Compile Include="Migrations\202411041429119_OrderStatus.Designer.cs">
+      <DependentUpon>202411041429119_OrderStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202411041430453_OrderStatusFix.cs" />
+    <Compile Include="Migrations\202411041430453_OrderStatusFix.Designer.cs">
+      <DependentUpon>202411041430453_OrderStatusFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -231,6 +239,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\Main\ItemCataloguePage.xaml.cs">
+      <DependentUpon>ItemCataloguePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="Utility\Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +260,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AuthRegister\RegisterLegalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Main\ItemCataloguePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Main\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -272,6 +294,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411031739342_OrderItemsFix.resx">
       <DependentUpon>202411031739342_OrderItemsFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411041429119_OrderStatus.resx">
+      <DependentUpon>202411041429119_OrderStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411041430453_OrderStatusFix.resx">
+      <DependentUpon>202411041430453_OrderStatusFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -301,7 +329,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\Admin\" />
-    <Folder Include="View\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icon\icon-badge.png" />
@@ -311,6 +338,15 @@
     <Resource Include="Images\Icon\icon-document.png" />
     <Resource Include="Images\Icon\icon-home.png" />
     <Resource Include="Images\Icon\icon-office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon\icon-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon\240\icon-cart.png" />
+    <Resource Include="Images\Icon\240\icon-history.png" />
+    <Resource Include="Images\Icon\240\icon-list.png" />
+    <Resource Include="Images\Icon\240\icon-wallet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

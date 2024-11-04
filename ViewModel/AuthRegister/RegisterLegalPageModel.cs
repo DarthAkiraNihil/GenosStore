@@ -20,15 +20,15 @@ namespace GenosStore.ViewModel.AuthRegister {
 		}
 
 		private void Register(object parameter) {
-			Navigate("View/AuthRegister/AuthorizationPage.xaml");
+			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize");
 		}
 
 		private void BackToAuth(object parameter) {
-			Navigate("View/AuthRegister/AuthorizationPage.xaml");
+			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize");
 		}
 
 		private void RegisterIndividual(object parameter) {
-			Navigate("View/AuthRegister/RegisterIndividualPage.xaml");
+			Navigate("View/AuthRegister/RegisterIndividualPage.xaml", "RegisterIndividual");
 		}
 
 

@@ -20,8 +20,10 @@ namespace GenosStore.View.AppWindows
 
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
                 MessageBox.Show("PASSO");
-				MainFrame.Navigate(new Uri(x.Url, UriKind.Relative));
+				MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
 
+				WindowTitle.Content = x.Title;
+					
                 ((Page)MainFrame.Content).DataContext.ToString();
 			});
 

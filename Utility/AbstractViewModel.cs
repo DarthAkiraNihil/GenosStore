@@ -10,8 +10,8 @@ namespace GenosStore.Utility {
 		public AbstractViewModel() {}
 
 		public string Title { get; set; }
-		public void Navigate(string url) {
-			Messenger.Default.Send<NavigateArgs>(new NavigateArgs(url));
+		public void Navigate(string url, string title) {
+			Messenger.Default.Send<NavigateArgs>(new NavigateArgs(url, title));
 		}
 
 		public class NavigateArgs {
@@ -19,11 +19,13 @@ namespace GenosStore.Utility {
 
 			}
 
-			public NavigateArgs(string url) {
-				Url = url;
+			public NavigateArgs(string url, string title) {
+				URL = url;
+				Title = title;
 			}
 
-			public string Url { get; set; }
+			public string URL { get; set; }
+			public string Title { get; set; }
 		}
 	}
 }

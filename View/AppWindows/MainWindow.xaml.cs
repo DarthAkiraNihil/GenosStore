@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using GenosStore.View.Main;
+using System.Windows;
 using System.Windows.Input;
 
 namespace GenosStore.View.AppWindows
@@ -8,7 +9,7 @@ namespace GenosStore.View.AppWindows
         public MainWindow()
         {
             InitializeComponent();
-            
+			MainFrame.Content = new MainPage();
         }
 
 		private void closeButton_Click(object sender, RoutedEventArgs e) {

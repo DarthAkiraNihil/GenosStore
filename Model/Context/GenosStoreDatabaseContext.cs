@@ -247,6 +247,9 @@ namespace GenosStore.Model.Context {
 
 			modelBuilder.Entity<Order>()
 			            .HasMany(o => o.Items);
+			
+			modelBuilder.Entity<Order>()
+			            .HasRequired(o => o.OrderStatus);
 
 			var orderItemsEntity = modelBuilder.Entity<OrderItems>();
 			

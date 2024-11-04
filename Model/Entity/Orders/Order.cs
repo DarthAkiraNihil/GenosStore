@@ -17,7 +17,7 @@ namespace GenosStore.Model.Entity.Orders {
 
 		public List<OrderItems> Items { get; set; }
 		public int OrderStatusId { get; set; }
-		public virtual OrderStatus Status { get; set; }
+		public virtual OrderStatus OrderStatus { get; set; }
 		
 		public DateTime CreatedAt { get; set; }
 	}

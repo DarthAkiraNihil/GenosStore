@@ -31,7 +31,7 @@ namespace GenosStore.ViewModel.AuthRegister
 		}
 
         private void Register(object parameter) {
-            Navigate("View/AuthRegister/RegisterIndividualPage.xaml");
+            Navigate("View/AuthRegister/RegisterIndividualPage.xaml", "Authorize");
         }
 
         private bool CanAuthorize(object parameter) {
