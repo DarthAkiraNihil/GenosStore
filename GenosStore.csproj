@@ -154,6 +154,10 @@
     <Compile Include="Migrations\202411041430453_OrderStatusFix.Designer.cs">
       <DependentUpon>202411041430453_OrderStatusFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411051657541_FixNoModelInItem.cs" />
+    <Compile Include="Migrations\202411051657541_FixNoModelInItem.Designer.cs">
+      <DependentUpon>202411051657541_FixNoModelInItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -216,10 +220,14 @@
     <Compile Include="Model\Entity\User\User.cs" />
     <Compile Include="Utility\AbstractViewModel.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
+    <Compile Include="ViewModel\AppWindows\MainWindowModel.cs" />
     <Compile Include="ViewModel\AuthorizationViewModel.cs" />
     <Compile Include="ViewModel\AuthRegister\AuthorizationPageModel.cs" />
     <Compile Include="ViewModel\AuthRegister\RegisterIndividualPageModel.cs" />
     <Compile Include="ViewModel\AuthRegister\RegisterLegalPageModel.cs" />
+    <Compile Include="ViewModel\ItemList\MotherboardsListModel.cs" />
+    <Compile Include="ViewModel\Main\ItemCatalogueModel.cs" />
+    <Compile Include="ViewModel\Main\MainPageModel.cs" />
     <Compile Include="View\AppWindows\AuthRegisterWindow.xaml.cs">
       <DependentUpon>AuthRegisterWindow.xaml</DependentUpon>
     </Compile>
@@ -238,6 +246,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\ItemList\MotherboardsPage.xaml.cs">
+      <DependentUpon>MotherboardsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\MotherboardPage.xaml.cs">
+      <DependentUpon>MotherboardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\ItemCataloguePage.xaml.cs">
       <DependentUpon>ItemCataloguePage.xaml</DependentUpon>
@@ -260,6 +274,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AuthRegister\RegisterLegalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\MotherboardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\MotherboardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -301,6 +323,9 @@
     <EmbeddedResource Include="Migrations\202411041430453_OrderStatusFix.resx">
       <DependentUpon>202411041430453_OrderStatusFix.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411051657541_FixNoModelInItem.resx">
+      <DependentUpon>202411051657541_FixNoModelInItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -328,6 +353,8 @@
     <Resource Include="Images\Icon\icon-app.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Fonts\" />
+    <Folder Include="ViewModel\ItemPage\" />
     <Folder Include="View\Admin\" />
   </ItemGroup>
   <ItemGroup>

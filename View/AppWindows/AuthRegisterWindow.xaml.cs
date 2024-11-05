@@ -19,12 +19,10 @@ namespace GenosStore.View.AppWindows
             AuthorizationPageModel.Close += this.Close;
 
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
-                MessageBox.Show("PASSO");
 				MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
 
 				WindowTitle.Content = x.Title;
-					
-                ((Page)MainFrame.Content).DataContext.ToString();
+				
 			});
 
             MainFrame.Content = new AuthorizationPage();

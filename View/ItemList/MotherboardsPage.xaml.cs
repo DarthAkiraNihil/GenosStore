@@ -1,4 +1,4 @@
-﻿using GenosStore.ViewModel.Main;
+﻿using GenosStore.ViewModel.ItemList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GenosStore.View.Main {
+namespace GenosStore.View.ItemList {
 	/// <summary>
-	/// Логика взаимодействия для itemCatalogue.xaml
+	/// Логика взаимодействия для MotherboardsPage.xaml
 	/// </summary>
-	public partial class itemCatalogue : Page {
-		public itemCatalogue() {
+	public partial class MotherboardsPage : Page {
+		public MotherboardsPage() {
 			InitializeComponent();
-			DataContext = new ItemCatalogueModel();
+			DataContext = new MotherboardsListModel();
+		}
+
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e) {
+
 		}
 	}
 }

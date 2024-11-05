@@ -4,6 +4,8 @@ using System.Windows.Media.Animation;
 using GenosStore.View.AppWindows;
 using GenosStore.Utility;
 using System;
+using GenosStore.Model.Context;
+using GenosStore.Model.Entity.Item.ComputerComponent;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
@@ -24,6 +26,10 @@ namespace GenosStore.ViewModel.AuthRegister
 		}
 
         private void Authorize(object parameter) {
+            var c = new GenosStoreDatabaseContext();
+            var mb = new Motherboard();
+
+            
             var mainView = new MainWindow();// { DataContext = new MainViewModel(user) };
 			mainView.Show();
             Close?.Invoke();

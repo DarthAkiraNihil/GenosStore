@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GenosStore.Model.Entity.Base;
 
 namespace GenosStore.Model.Entity.Item {
 	[Table("public.Items")]
-	public abstract class Item {
+	public abstract class Item: WithModel {
 		public int Id { get; set; }
 
 		public double Price { get; set; }

@@ -1,0 +1,503 @@
+﻿<Page x:Name="MotherboardsList" x:Class="GenosStore.View.ItemList.MotherboardsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GenosStore.View.ItemList"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1162"
+      Title="MotherboardsPage"
+      >
+
+    <DockPanel>
+
+        <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
+
+            <Label DockPanel.Dock="Top" FontSize="24" FontFamily="Arial" Content="Материнские платы" FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+
+            <DockPanel DockPanel.Dock="Bottom" Background="#4C000000" Width="400">
+
+                <Label DockPanel.Dock="Top" FontSize="16" FontFamily="Arial" Content="Фильтры">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+
+                <ScrollViewer DockPanel.Dock="Bottom">
+
+                    <StackPanel>
+
+                        <Expander x:Name="Price" Header="Цена" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <StackPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="От: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="До: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander x:Name="TDP" Header="Потребляемая мощность" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <StackPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="От: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="До: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander x:Name="Vendor" Header="Производитель" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <ListBox>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Expander>
+
+                        <Expander x:Name="FormFactor" Header="Форм-фактор" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <ListBox>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Expander>
+
+                        <Expander x:Name="CPUSocket" Header="Сокет процессора" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <ListBox>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Expander>
+
+                        <Expander x:Name="SupportedCPUCore" Header="Поддерживаемые ядра процессоров" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <ListBox>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Expander>
+
+                        <Expander x:Name="SupportedRAM" Header="Поддерживаемые типи оперативной памяти" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <ListBox>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Expander>
+
+                        <Expander x:Name="RAMSlots" Header="Количество слотов оперативной памяти" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <StackPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="От: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="До: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander x:Name="PCIeCount" Header="Количество слотов PCI-e" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <StackPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="От: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="До: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander x:Name="HasNMVeSupport" Header="Наличие поддержки NVMe" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <ListBox>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Expander>
+
+                        <Expander x:Name="SataCount" Header="Количество портов Sata" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <StackPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="От: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="До: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander x:Name="USBCount" Header="Количество портов USB" FontFamily="Arial" FontSize="16">
+                            <Expander.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Expander.Foreground>
+                            <StackPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="От: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                                <DockPanel>
+
+                                    <Label Content="До: " FontSize="14" DockPanel.Dock="Left" >
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                        <TextBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.BorderBrush>
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                        </TextBox.SelectionBrush>
+                                        <TextBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                        </TextBox.Foreground>
+                                    </TextBox>
+
+                                </DockPanel>
+
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+
+                </ScrollViewer>
+
+            </DockPanel>
+
+
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Right">
+
+            <DockPanel DockPanel.Dock="Top">
+
+                <Button Width="32" Height="32" DockPanel.Dock="Right" HorizontalAlignment="Right" BorderBrush="#00707070">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/Icon/icon-app.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Label DockPanel.Dock="Left" Content="Поиск:" FontFamily="Arial" FontSize="20" Background="{x:Null}" Width="80" HorizontalAlignment="Left">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+
+                <TextBox Height="36" DockPanel.Dock="Left" FontSize="22" FontFamily="Arial" Background="Transparent" BorderThickness="0,0,0,2">
+                    <TextBox.SelectionBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.SelectionBrush>
+                    <TextBox.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </TextBox.Foreground>
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+
+            </DockPanel>
+
+            <ListBox DockPanel.Dock="Bottom" Background="Transparent" BorderBrush="#00ABADB3">
+
+                <DockPanel x:Name="Mock" Height="120">
+
+                    <Image Source="{StaticResource ListIcon240}" DockPanel.Dock="Left"/>
+
+                    
+
+                    <DockPanel DockPanel.Dock="Right" VerticalAlignment="Center">
+                        <Button Width="160" Height="40" Content="Купить" DockPanel.Dock="Top" HorizontalAlignment="Right" Command="{Binding ToItemPageCommand}"/>
+
+                        <Label Content="1000 rur" HorizontalAlignment="Center" FontFamily="Arial" FontSize="22" Background="#00000000" FontWeight="Bold">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Label.Foreground>
+                        </Label>
+
+                    </DockPanel>
+
+                    <DockPanel DockPanel.Dock="Left">
+
+                        <Label Content="MOCK MOTHERBOARD"/>
+
+                    </DockPanel>
+
+                </DockPanel>
+
+            </ListBox>
+
+
+
+        </DockPanel>
+
+    </DockPanel>
+
+</Page>

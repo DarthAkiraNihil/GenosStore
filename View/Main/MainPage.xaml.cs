@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GenosStore.ViewModel.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace GenosStore.View.Main {
 	public partial class MainPage : Page {
 		public MainPage() {
 			InitializeComponent();
+			DataContext = new MainPageModel();
 		}
 	}
 }

@@ -11,7 +11,7 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="560">
         <Grid>
             <StackPanel Width="240" HorizontalAlignment="Left">
-                <Button Height="240" Width="240" Background="#00DDDDDD" BorderBrush="#01707070">
+                <Button Height="240" Width="240" Background="#00DDDDDD" BorderBrush="#01707070" Command="{Binding ToCatalogueCommand}">
                     <Image Source="{StaticResource ListIcon240}" />
                 </Button>
                 <Label Content="Каталог товаров" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">

@@ -1,4 +1,4 @@
-﻿<Window x:Name="window" x:Class="GenosStore.View.AppWindows.MainWindow"
+﻿<Window x:Name="MainWindowView" x:Class="GenosStore.View.AppWindows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,11 +8,15 @@
         d:DesignWidth="1200" d:DesignHeight="800"
         Title="Авторизация"
         HorizontalAlignment="Center"
-        Background="Transparent"
+        Background="Black"
         Icon="/Images/Icon/icon-app.png"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="true" WindowStyle="None" ResizeMode="CanResizeWithGrip">
-    <Border x:Name="WindowBorder" CornerRadius="12" BorderThickness="4" Background="Black">
+        AllowsTransparency="true" WindowStyle="None" ResizeMode="CanResizeWithGrip" MinWidth="600" MinHeight="800"
+        >
+    <Border x:Name="WindowBorder" CornerRadius="12" BorderThickness="4">
+        <Border.Background>
+            <ImageBrush Opacity="0.4" Stretch="UniformToFill" ImageSource="/Images/auth-bg.png"/>
+        </Border.Background>
         <Border.BorderBrush>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF7DFFCD"/>
@@ -21,33 +25,36 @@
             </LinearGradientBrush>
         </Border.BorderBrush>
 
-        <StackPanel x:Name="Main">
-            <StackPanel.Background>
-                <ImageBrush Opacity="0.4" Stretch="UniformToFill">
-                    <ImageBrush.Transform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="1" ScaleY="1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform X="4" Y="-620"/>
-                        </TransformGroup>
-                    </ImageBrush.Transform>
-                    <ImageBrush.ImageSource>
-                        <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="/Images/auth-bg.png"/>
-                    </ImageBrush.ImageSource>
-                </ImageBrush>
-            </StackPanel.Background>
+        <DockPanel x:Name="Main">
 
-            <Grid x:Name="WindowHeader" MouseDown="OnMouseDown">
+            <Grid x:Name="WindowHeader" MouseDown="OnMouseDown" DockPanel.Dock="Top">
                 <Grid HorizontalAlignment="Right" Width="1192">
                     <Button x:Name="closeButton" Content="X" HorizontalAlignment="Left" VerticalAlignment="Center" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="closeButton_Click" Margin="1165,0,0,0"/>
                     <Button x:Name="minimizeButton" Content="-" HorizontalAlignment="Left" VerticalAlignment="Center" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="minimizeButton_Click" Margin="1138,0,0,0"/>
                 </Grid>
                 <Label x:Name="windowTitle" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
             </Grid>
-            <Frame x:Name="MainFrame" Width="{Binding Width, ElementName=window}" HorizontalAlignment="Center" Height="{Binding Height, ElementName=window}"/>
-            <Button x:Name="Test" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="195,800,0,0" VerticalAlignment="Top" Command="{Binding AuthorizeCommand}"/>
+            <StackPanel x:Name="Navigation" Orientation="Horizontal" DockPanel.Dock="Top">
+                <Button x:Name="HomeButton" Width="32" Height="32" Background="#00DDDDDD" BorderBrush="#00707070">
+                    <Image Source="{StaticResource CartIcon}" />
+                </Button>
+                <Button x:Name="CatalogueButton" Width="32" Height="32" Background="#00DDDDDD" BorderBrush="#00707070">
+                    <Image Source="{StaticResource CartIcon}" />
+                </Button>
+                <Button x:Name="SearchButton" Width="32" Height="32" Background="#00DDDDDD" BorderBrush="#00707070">
+                    <Image Source="{StaticResource CartIcon}" />
+                </Button>
+                <Button x:Name="BankCardsButton" Width="32" Height="32" Background="#00DDDDDD" BorderBrush="#00707070">
+                    <Image Source="{StaticResource CartIcon}" />
+                </Button>
+                <Button x:Name="HistoryButton" Width="32" Height="32" Background="#00DDDDDD" BorderBrush="#00707070">
+                    <Image Source="{StaticResource CartIcon}" />
+                </Button>
 
-        </StackPanel>
+            </StackPanel>
+
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+        </DockPanel>
     </Border>
 </Window>
