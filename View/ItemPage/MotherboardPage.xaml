@@ -5,10 +5,376 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GenosStore.View.ItemPage"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="746" d:DesignWidth="1162"
       Title="Motherboard">
 
-    <Grid>
-        
-    </Grid>
+    <DockPanel x:Name="Main">
+
+        <DockPanel DockPanel.Dock="Top">
+
+            <Image DockPanel.Dock="Left" Width="400" Height="400" HorizontalAlignment="Left" Source="/Images/logo.png"/>
+
+            <DockPanel>
+
+                <Label DockPanel.Dock="Top" Content="MOCK MOTHERBOARD" FontWeight="Bold" FontFamily="Arial" FontSize="48">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                    <Label.Background>
+                        <SolidColorBrush/>
+                    </Label.Background>
+                </Label>
+
+                <Label DockPanel.Dock="Top" Content="MOCK MODEL" FontFamily="Arial" FontSize="24">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+
+                <TextBlock DockPanel.Dock="Top" FontFamily="Arial" FontSize="16">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </TextBlock.Foreground>
+                    MOCK DESCRIPTION LORE IPSUM DOLOR SIT AMET
+                </TextBlock>
+
+                <DockPanel DockPanel.Dock="Bottom" Height="80" VerticalAlignment="Bottom">
+
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                        </Label.Foreground>
+                        MOCK PRICE
+                    </Label>
+
+                    <Button Width="256" HorizontalAlignment="Right" BorderBrush="#00707070" FontFamily="Arial" FontSize="48" Content="Купить" Margin="0,0,10,0">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="16"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Foreground>
+                            <SolidColorBrush Color="White"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Button.Background>
+                    </Button>
+                </DockPanel>
+
+            </DockPanel>
+
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Bottom">
+
+            <Label DockPanel.Dock="Top" Content="Характеристики:" FontSize="24" FontWeight="Bold" FontFamily="Arial">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+
+            </Label>
+
+            <DockPanel DockPanel.Dock="Left">
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Производитель: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="MOCK" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Потребляемая мощность: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Форм-фактор: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Сокет процессора: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Чипсет: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Поддерживаемые ядра процессоров: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Поддерживаемые типы ОЗУ: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Left">
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Кол-во слотов ОЗУ: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Кол-во каналов ОЗУ: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Макс. частота ОЗУ: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Кол-во слотов PCI-e: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Версия PCI-e: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Наличие поддержки NVMe: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Кол-во слотов M2: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Left">
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Кол-во портов SATA: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Кол-во портов USB: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Видео-порты: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Кол-во портов RJ-45: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Количество цифровых аудио-портов: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Аудиочипсет: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Сетевой адаптер: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Сетевой скорость сетевого адаптера: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label Content="AAAABBB" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" Margin="0,-5,0,1">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+            </DockPanel>
+
+
+        </DockPanel>
+
+    </DockPanel>
 </Page>

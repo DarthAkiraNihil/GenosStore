@@ -10,7 +10,7 @@
 
     <StackPanel x:Name="Main" VerticalAlignment="Center" HorizontalAlignment="Center">
         <StackPanel x:Name="LogoSector">
-            <Image x:Name="GenosStoreLogo" HorizontalAlignment="Center" Height="501" Margin="0,42,0,0" VerticalAlignment="Top" Width="330" Source="/Images/logo.png"/>
+            <Image x:Name="GenosStoreLogo" HorizontalAlignment="Center" Height="501" Margin="0,42,0,0" VerticalAlignment="Top" Width="330" Source="/Images/Icon/icon-app.png"/>
             <Label x:Name="GenosStoreLabel" Content="GENOS STORE" FontFamily="Arial" FontSize="48" FontWeight="Bold" Foreground="White" Height="65" Width="366"/>
         </StackPanel>
         <StackPanel x:Name="FormFields">
