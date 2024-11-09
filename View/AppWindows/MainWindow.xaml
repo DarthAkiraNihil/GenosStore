@@ -33,7 +33,7 @@
                 <ImageBrush ImageSource="/Images/auth-bg.png" Stretch="UniformToFill" Opacity="0.4"/>
             </DockPanel.Background>
 
-            <DockPanel x:Name="WindowTab" DockPanel.Dock="Top">
+            <DockPanel x:Name="WindowHeader" DockPanel.Dock="Top">
                 <Button x:Name="CloseButton"
                     DockPanel.Dock="Right"
                     Content="{materialDesign:PackIcon WindowClose}"
@@ -41,6 +41,21 @@
                     Background="#00000000"
                     BorderThickness="0,0,0,1"
                     Click="closeButton_Click"
+                    >
+                    <Button.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Button.Foreground>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Button.BorderBrush>
+                </Button>
+                <Button x:Name="MaximizeButton"
+                    DockPanel.Dock="Right"
+                    Content="{materialDesign:PackIcon WindowMaximize}"
+                    ToolTip="Icon"
+                    Background="#00000000"
+                    BorderThickness="0,0,0,1"
+                    Click="maximizeButton_Click"
                     >
                     <Button.Foreground>
                         <SolidColorBrush Color="{DynamicResource Cyan}"/>
@@ -60,9 +75,87 @@
                 <Label x:Name="WindowTitle" DockPanel.Dock="Left" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
             </DockPanel>
 
-            <DockPanel x:Name="MainFramePanel" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            <DockPanel DockPanel.Dock="Top">
+
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+
             </DockPanel>
+
+            <Frame DockPanel.Dock="Bottom" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 
         </DockPanel>
 

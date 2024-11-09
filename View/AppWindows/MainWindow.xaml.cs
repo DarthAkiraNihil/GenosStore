@@ -28,6 +28,12 @@ namespace GenosStore.View.AppWindows
 			WindowState = WindowState.Minimized;
 		}
 
+		private void maximizeButton_Click(object sender, RoutedEventArgs e) {
+			if (this.WindowState == WindowState.Normal)
+				this.WindowState = WindowState.Maximized;
+			else this.WindowState = WindowState.Normal;
+		}
+
 		private void OnMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
 			if (e.LeftButton == MouseButtonState.Pressed) {
 				DragMove();
