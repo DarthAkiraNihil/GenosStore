@@ -4,186 +4,376 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:GenosStore.View.AuthRegister"
       mc:Ignorable="d" 
-      d:DesignWidth="764" Height="896"
+      d:DesignWidth="400"
+      d:DesignHeight="900"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
       Title="RegisterLegalPage">
 
-    <StackPanel x:Name="FormFields" Width="456" HorizontalAlignment="Center" VerticalAlignment="Center" Height="722">
-        <Label Content="Регистрация как юридическое лицо" FontFamily="Arial" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" Background="Transparent"/>
-        <Grid x:Name="Email" Height="84" Width="400">
-            <Image x:Name="EmailIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource EmailIcon}"/>
-            <Label Content="Электронная почта" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
-            <TextBox
-                HorizontalAlignment="Left"
-                TextWrapping="Wrap"
-                VerticalAlignment="Top"
-                Width="348"
-                Height="40"
-                FontFamily="Arial"
-                FontSize="24"
-                Foreground="White"
+    <DockPanel x:Name="FormFields" Margin="8,8,8,8">
+
+        <Label
+            DockPanel.Dock="Top"
+            Content="Регистрация как юридическое лицо"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Foreground="White"
+            FontWeight="Bold"
+            Background="Transparent"
+            />
+
+        <DockPanel x:Name="EmailField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="EmailLabel"
+                Content="Имя"
+                DockPanel.Dock="Top"
                 Background="Transparent"
-                BorderThickness="0,0,0,2"
-                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
-            <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="AccountCircle" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="EmailInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="EmailError"
+                DockPanel.Dock="Bottom"
+                Content=""
+                HorizontalAlignment="Left"
+                >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                 </Label.Foreground>
             </Label>
-        </Grid>
-        <Grid x:Name="INN" Height="84" Width="400">
-            <Image x:Name="INNIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource DocumentIcon}"/>
-            <Label Content="ИНН" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
-            <TextBox
-                HorizontalAlignment="Left"
-                TextWrapping="Wrap"
-                VerticalAlignment="Top"
-                Width="348"
-                Height="40"
-                FontFamily="Arial"
-                FontSize="24"
-                Foreground="White"
+
+        </DockPanel>
+
+        <DockPanel x:Name="INNField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="INNLabel"
+                Content="Фамилия"
+                DockPanel.Dock="Top"
                 Background="Transparent"
-                BorderThickness="0,0,0,2"
-                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
-            <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="AccountOutline" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="INNInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="INNError"
+                DockPanel.Dock="Bottom"
+                Content=""
+                HorizontalAlignment="Left"
+                >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                 </Label.Foreground>
             </Label>
-        </Grid>
-        <Grid x:Name="KPP" Height="84" Width="400">
-            <Image x:Name="KPPIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource DocumentIcon}"/>
-            <Label Content="КПП" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
-            <TextBox
-                HorizontalAlignment="Left"
-                TextWrapping="Wrap"
-                VerticalAlignment="Top"
-                Width="348"
-                Height="40"
-                FontFamily="Arial"
-                FontSize="24"
-                Foreground="White"
+
+        </DockPanel>
+
+        <DockPanel x:Name="KPPField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="KPPLabel"
+                Content="Электронная почта"
+                DockPanel.Dock="Top"
                 Background="Transparent"
-                BorderThickness="0,0,0,2"
-                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
-            <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="EmailBox" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="KPPInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="KPPError"
+                DockPanel.Dock="Bottom"
+                Content=""
+                HorizontalAlignment="Left"
+                >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                 </Label.Foreground>
             </Label>
-        </Grid>
-        
-        <Grid x:Name="PhysicalAddress" Height="84" Width="400">
-            <Image x:Name="PhysicalAddressIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource HomeIcon}"/>
-            <Label Content="Физический адрес" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
-            <TextBox
-                HorizontalAlignment="Left"
-                TextWrapping="Wrap"
-                VerticalAlignment="Top"
-                Width="348"
-                Height="40"
-                FontFamily="Arial"
-                FontSize="24"
-                Foreground="White"
+
+        </DockPanel>
+
+        <DockPanel x:Name="PhysicalAddressField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="PhysicalAddressLabel"
+                Content="Пароль"
+                DockPanel.Dock="Top"
                 Background="Transparent"
-                BorderThickness="0,0,0,2"
-                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
-            <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="Key" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="PhysicalAddressInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="PhysicalAddressError"
+                DockPanel.Dock="Bottom"
+                Content=""
+                HorizontalAlignment="Left"
+                >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                 </Label.Foreground>
             </Label>
-        </Grid>
-        <Grid x:Name="LegalAddress" Height="84" Width="400">
-            <Image x:Name="LegalAddressIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource OfficeIcon}"/>
-            <Label Content="Юридический адрес" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
-            <TextBox
-                HorizontalAlignment="Left"
-                TextWrapping="Wrap"
-                VerticalAlignment="Top"
-                Width="348"
-                Height="40"
-                FontFamily="Arial"
-                FontSize="24"
-                Foreground="White"
+
+        </DockPanel>
+
+        <DockPanel x:Name="LegalAddressField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="LegalAddressLabel"
+                Content="Повторите пароль"
+                DockPanel.Dock="Top"
                 Background="Transparent"
-                BorderThickness="0,0,0,2"
-                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
-            <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="KeyOutline" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="LegalAddressInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="LegalAddressError"
+                DockPanel.Dock="Bottom"
+                Content=""
+                HorizontalAlignment="Left"
+                >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                 </Label.Foreground>
             </Label>
-        </Grid>
-        <Grid x:Name="Password" Height="84" Width="400">
-            <Image x:Name="PasswordIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource PasswordIcon}"/>
-            <Label Content="Пароль" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
-            <TextBox
-                HorizontalAlignment="Left"
-                TextWrapping="Wrap"
-                VerticalAlignment="Top"
-                Width="348"
-                Height="40"
-                FontFamily="Arial"
-                FontSize="24"
-                Foreground="White"
+
+        </DockPanel>
+
+        <DockPanel x:Name="PasswordField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="PasswordLabel"
+                Content="Пароль"
+                DockPanel.Dock="Top"
                 Background="Transparent"
-                BorderThickness="0,0,0,2"
-                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
-            <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="Key" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="PasswordInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="PasswordError"
+                DockPanel.Dock="Bottom"
+                Content=""
+                HorizontalAlignment="Left"
+                >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                 </Label.Foreground>
             </Label>
-        </Grid>
-        <Grid x:Name="RepeatPassword" Height="84" Width="400">
-            <Image x:Name="RepeatPasswordIcon" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,20,0,0" Source="{StaticResource PasswordIcon}"/>
-            <Label Content="Повторите пароль" HorizontalAlignment="Left" Margin="0,0,0,37" VerticalAlignment="Top" FontFamily="Arial" Background="Transparent" Foreground="White"/>
-            <TextBox
-                HorizontalAlignment="Left"
-                TextWrapping="Wrap"
-                VerticalAlignment="Top"
-                Width="348"
-                Height="40"
-                FontFamily="Arial"
-                FontSize="24"
-                Foreground="White"
+
+        </DockPanel>
+
+        <DockPanel x:Name="RepeatPasswordField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="RepeatPasswordLabel"
+                Content="Повторите пароль"
+                DockPanel.Dock="Top"
                 Background="Transparent"
-                BorderThickness="0,0,0,2"
-                AcceptsReturn="False" CaretBrush="White" Margin="52,20,0,0"/>
-            <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Arial">
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="KeyOutline" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="RepeatPasswordInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="RepeatPasswordError"
+                DockPanel.Dock="Bottom"
+                Content=""
+                HorizontalAlignment="Left"
+                >
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                 </Label.Foreground>
             </Label>
-        </Grid>
-        <Button Content="Зарегистрироваться" Height="47" Command="{Binding RegisterCommand}" Background="{DynamicResource CyanBrush}" Margin="0,18,0,0" FontFamily="Arial" FontSize="20">
+
+        </DockPanel>
+
+        <Button
+        DockPanel.Dock="Top"
+        Content="Зарегистрироваться" 
+        Height="48"
+        Command="{Binding RegisterCommand}"
+        FontSize="20" Margin="8,0,8,0">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="16"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="228*"/>
-                <ColumnDefinition Width="228*"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="Назад к авторизации" Height="30" Command="{Binding BackToAuthCommand}" Width="228" Background="#00DDDDDD" BorderBrush="#00707070" HorizontalAlignment="Left" Grid.ColumnSpan="2" FontFamily="Arial">
+
+        <DockPanel DockPanel.Dock="Top" VerticalAlignment="Top">
+            <Button
+            DockPanel.Dock="Left"
+            Content="Назад к авторизации"
+            Height="30"
+            Command="{Binding BackToAuthCommand}"
+            Background="#00DDDDDD"
+            BorderBrush="#00707070"
+            HorizontalAlignment="Left"
+            >
                 <Button.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Button.Foreground>
             </Button>
-            <Button Content="Я - физическое лицо" Height="30" Command="{Binding RegisterIndividualCommand}" Grid.ColumnSpan="2" Width="228" Background="#00DDDDDD" BorderBrush="#00707070" HorizontalAlignment="Right" FontFamily="Arial">
+            <Button
+            DockPanel.Dock="Right"
+            Content="Я - физическое лицо"
+            Height="30" Command="{Binding RegisterIndividualCommand}"
+            Background="#00DDDDDD"
+            BorderBrush="#00707070"
+            HorizontalAlignment="Right"
+            >
                 <Button.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Button.Foreground>
             </Button>
-        </Grid>
+        </DockPanel>
 
+    </DockPanel>
 
-
-    </StackPanel>
+ 
 </Page>

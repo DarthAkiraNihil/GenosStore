@@ -8,11 +8,11 @@
       xmlns:local="clr-namespace:GenosStore.View.AuthRegister"
       mc:Ignorable="d"
       d:DesignWidth="400"
-      d:DesignHeight="600"
+      d:DesignHeight="900"
       FontFamily="{materialDesign:MaterialDesignFont}" 
       Title="AuthorizationPage">
 
-    <DockPanel x:Name="Main" Margin="8,8,8,8">
+    <DockPanel x:Name="Main" Margin="8,8,8,8" VerticalAlignment="Center">
 
         <Button
             x:Name="RegisterButton"
@@ -52,6 +52,7 @@
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
                     <TextBox
+                        x:Name="UsernameInput"
                         DockPanel.Dock="Right"
                         TextWrapping="NoWrap"
                         FontSize="24"
@@ -67,6 +68,7 @@
                 </DockPanel>
 
                 <Label
+                    x:Name="UsernameError"
                     DockPanel.Dock="Bottom"
                     Content=""
                     HorizontalAlignment="Left"
