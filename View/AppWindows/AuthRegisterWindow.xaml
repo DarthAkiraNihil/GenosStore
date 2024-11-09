@@ -7,8 +7,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:GenosStore.ViewModel"
         mc:Ignorable="d"
-        Width="600"
-        Height="900"  
+        Width="400"
+        Height="750"  
         Title="Авторизация"
         HorizontalAlignment="Center"
         Background="Transparent"
@@ -59,7 +59,7 @@
             </DockPanel>
 
             <DockPanel x:Name="MainFramePanel" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
             </DockPanel>
 
         </DockPanel>

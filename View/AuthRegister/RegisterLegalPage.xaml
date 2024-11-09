@@ -8,11 +8,11 @@
       xmlns:local="clr-namespace:GenosStore.View.AuthRegister"
       mc:Ignorable="d" 
       d:DesignWidth="400"
-      d:DesignHeight="900"
+      d:DesignHeight="750"
       FontFamily="{materialDesign:MaterialDesignFont}" 
       Title="RegisterLegalPage">
 
-    <DockPanel x:Name="FormFields" Margin="8,8,8,8">
+    <DockPanel x:Name="FormFields" Margin="8,8,8,8" VerticalAlignment="Center">
 
         <Label
             DockPanel.Dock="Top"
