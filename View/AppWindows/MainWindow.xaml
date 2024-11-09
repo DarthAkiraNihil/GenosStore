@@ -11,6 +11,8 @@
         Background="Black"
         Icon="/Images/Icon/icon-app.png"
         WindowStartupLocation="CenterScreen"
+        Style="{StaticResource MaterialDesignWindow}"
+        SizeToContent="WidthAndHeight"
         AllowsTransparency="true" WindowStyle="None" ResizeMode="CanResizeWithGrip" MinWidth="600" MinHeight="800"
         >
     <Border x:Name="WindowBorder" CornerRadius="12" BorderThickness="4">

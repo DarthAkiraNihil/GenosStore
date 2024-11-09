@@ -27,6 +27,20 @@
                     </Label.Foreground>
                 </Label>
 
+                <DockPanel DockPanel.Dock="Bottom" Height="60">
+                    <Button DockPanel.Dock="Left" FontSize="24" FontFamily="Arial" Content="Применить фильтры">
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button DockPanel.Dock="Right" FontFamily="Arial" FontSize="16" Content="Сбросить фильтры" Foreground="White">
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Button.Background>
+
+                    </Button>
+                </DockPanel>
+
                 <ScrollViewer DockPanel.Dock="Bottom">
 
                     <StackPanel>
@@ -471,7 +485,7 @@
 
                     <Image Source="{StaticResource ListIcon240}" DockPanel.Dock="Left"/>
 
-                    
+
 
                     <DockPanel DockPanel.Dock="Right" VerticalAlignment="Center">
                         <Button Width="160" Height="40" Content="Купить" DockPanel.Dock="Top" HorizontalAlignment="Right" Command="{Binding ToItemPageCommand}"/>
@@ -486,7 +500,11 @@
 
                     <DockPanel DockPanel.Dock="Left">
 
-                        <Label Content="MOCK MOTHERBOARD"/>
+                        <Label Content="MOCK MOTHERBOARD" FontFamily="Arial" FontSize="22">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                            </Label.Foreground>
+                        </Label>
 
                     </DockPanel>
 

@@ -4,50 +4,65 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:GenosStore.ViewModel"
         mc:Ignorable="d"
-        Width="800"
-        Height="1000"  
+        Width="400"
+        Height="700"  
         Title="Авторизация"
         HorizontalAlignment="Center"
         Background="Transparent"
         Icon="/Images/Icon/icon-app.png"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="true" WindowStyle="None" ResizeMode="NoResize">
+        Style="{StaticResource MaterialDesignWindow}"
+        AllowsTransparency="true" WindowStyle="None" ResizeMode="NoResize"
+       >
     <Border x:Name="WindowBorder" CornerRadius="12" BorderThickness="4" Background="Black">
         <Border.BorderBrush>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF7DFFCD"/>
-                <GradientStop Color="#FFA0CDFF" Offset="1"/>
-                <GradientStop Color="#FF80F0FF" Offset="0.498"/>
+                <GradientStop Color="{DynamicResource Cyan}"/>
+                <GradientStop Color="{DynamicResource PaleBlue}" Offset="1"/>
+                <GradientStop Color="#FF80F0FF" Offset="0.5"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
 
-        <StackPanel x:Name="Main">
-            <StackPanel.Background>
-                <ImageBrush Opacity="0.4" Stretch="UniformToFill">
-                    <ImageBrush.Transform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="1" ScaleY="1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform X="4" Y="-620"/>
-                        </TransformGroup>
-                    </ImageBrush.Transform>
-                    <ImageBrush.ImageSource>
-                        <BitmapImage CacheOption="OnLoad" CreateOptions="IgnoreImageCache" UriSource="/Images/auth-bg.png"/>
-                    </ImageBrush.ImageSource>
-                </ImageBrush>
-            </StackPanel.Background>
+        <DockPanel x:Name="Main">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="/Images/auth-bg.png" Stretch="UniformToFill" Opacity="0.4"/>
+            </DockPanel.Background>
 
-            <Grid x:Name="WindowHeader" MouseDown="OnMouseDown">
-                <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Left" Margin="758,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="closeButton_Click"/>
-                <Button x:Name="MinimizeButton" Content="-" HorizontalAlignment="Left" Margin="729,7,0,0" VerticalAlignment="Top" Width="24" FontSize="14" Background="#00000000" BorderBrush="#FF00FFF9" Foreground="#FF00FFED" BorderThickness="0,0,0,1" Click="minimizeButton_Click"/>
-                <Label x:Name="WindowTitle" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
-            </Grid>
-            <Frame x:Name="MainFrame" Content="MainFrame" Height="946" Width="741" NavigationUIVisibility="Hidden"/>
-            <Button x:Name="Test" Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="195,800,0,0" VerticalAlignment="Top" Command="{Binding AuthorizeCommand}"/>
+            <DockPanel x:Name="WindowTab" DockPanel.Dock="Top">
+                <Button x:Name="CloseButton"
+                        DockPanel.Dock="Right"
+                        Content="{materialDesign:PackIcon WindowClose}"
+                        ToolTip="Icon"
+                        Background="#00000000"
+                        BorderThickness="0,0,0,1"
+                        Click="closeButton_Click"
+                        >
+                    <Button.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Button.Foreground>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Button.BorderBrush>
+                </Button>
+                <Button x:Name="MinimizeButton"
+                        DockPanel.Dock="Right"
+                        Content="{materialDesign:PackIcon WindowMinimize}"
+                        Background="#00000000"
+                        BorderBrush="#FF00FFF9"
+                        Foreground="#FF00FFED"
+                        BorderThickness="0,0,0,1"
+                        Click="minimizeButton_Click"/>
+                <Label x:Name="WindowTitle" DockPanel.Dock="Left" Content="Main" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Foreground="#FF00FFD6" FontFamily="Arial" FontSize="14"/>
+            </DockPanel>
 
-        </StackPanel>
+            <DockPanel x:Name="MainFramePanel" DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            </DockPanel>
+
+        </DockPanel>
+
     </Border>
 </Window>
