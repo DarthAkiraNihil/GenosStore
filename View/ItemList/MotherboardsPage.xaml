@@ -494,40 +494,26 @@
 
             </DockPanel>
 
-            <ListBox DockPanel.Dock="Bottom" Background="Transparent" BorderBrush="#00ABADB3">
+            <ListBox
+                x:Name="listBox"
+                DockPanel.Dock="Bottom"
+                Background="Transparent"
+                BorderBrush="#00ABADB3"
+                ItemsSource="{Binding Motherboards}"
+                ItemTemplate="{StaticResource ItemListElement}"
+                >
 
-                <DockPanel x:Name="Mock" Height="120">
-
-                    <Image Source="{StaticResource ListIcon240}" DockPanel.Dock="Left"/>
-
-
-
-                    <DockPanel DockPanel.Dock="Right" VerticalAlignment="Center">
-                        <Button Width="160" Height="40" Content="Купить" DockPanel.Dock="Top" HorizontalAlignment="Right" Command="{Binding ToItemPageCommand}"/>
-
-                        <Label Content="1000 rur" HorizontalAlignment="Center" FontSize="22" Background="#00000000" FontWeight="Bold">
-                            <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                            </Label.Foreground>
-                        </Label>
-
-                    </DockPanel>
-
-                    <DockPanel DockPanel.Dock="Left">
-
-                        <Label Content="MOCK MOTHERBOARD" FontSize="22">
-                            <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                            </Label.Foreground>
-                        </Label>
-
-                    </DockPanel>
-
-                </DockPanel>
+                <ListBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </ListBox.Foreground>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="120" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
 
             </ListBox>
-
-
 
         </DockPanel>
 

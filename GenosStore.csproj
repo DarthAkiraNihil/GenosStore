@@ -231,6 +231,10 @@
     <Compile Include="Utility\CheckableItem.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="Utility\Utilities.cs" />
+    <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
+    <Compile Include="View\Admin\DBEditPage.xaml.cs">
+      <DependentUpon>DBEditPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AppWindows\MainWindowModel.cs" />
     <Compile Include="ViewModel\AuthorizationViewModel.cs" />
     <Compile Include="ViewModel\AuthRegister\AuthorizationPageModel.cs" />
@@ -274,6 +278,14 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Utility\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utility\Templates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\DBEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -372,9 +384,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="ViewModel\Admin\" />
     <Folder Include="ViewModel\ItemPage\" />
-    <Folder Include="View\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icon\icon-badge.png" />

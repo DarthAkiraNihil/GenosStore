@@ -3,6 +3,7 @@ using GenosStore.View.Main;
 using System;
 using System.Windows;
 using System.Windows.Input;
+using GenosStore.View.Admin;
 using static GenosStore.Utility.AbstractViewModel;
 
 namespace GenosStore.View.AppWindows
@@ -16,7 +17,7 @@ namespace GenosStore.View.AppWindows
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
 				MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
 			});
-
+			//MainFrame.Content = new DBEditPage();
 			MainFrame.Content = new MainPage();
         }
 

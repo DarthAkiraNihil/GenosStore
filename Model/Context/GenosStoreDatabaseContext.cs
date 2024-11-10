@@ -15,6 +15,7 @@ namespace GenosStore.Model.Context {
 
 		// enum
 
+		public DbSet<ItemType> ItemTypes { get; set; }
 		public DbSet<Certificate80Plus> Certificates80Plus { get; set; }
 		public DbSet<ComputerCaseTypesize> ComputerCaseTypesize { get; set; }
 		public DbSet<CoolerMaterial> ColerMaterials { get; set; }
