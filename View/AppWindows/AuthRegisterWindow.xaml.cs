@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using System;
+using System.Reflection;
 using System.Windows;
 using GenosStore.View.AuthRegister;
 
@@ -7,6 +8,7 @@ using static GenosStore.Utility.AbstractViewModel;
 using GenosStore.ViewModel.AuthRegister;
 using System.Windows.Controls;
 using System.Windows.Input;
+using GenosStore.Services;
 
 namespace GenosStore.View.AppWindows
 {
@@ -14,20 +16,26 @@ namespace GenosStore.View.AppWindows
     {
         public AuthRegisterWindow()
         {
-            InitializeComponent();
+	        InitializeComponent();
 
             AuthorizationPageModel.Close += this.Close;
 
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
-				MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
+
+				MainFrame.Content = PageResolverService.Resolve(x.URL, x.ViewModel);
+
+				//MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
+
+				//((Page)MainFrame.Content).DataContext = x.ViewModel;
+				//MessageBox.Show(((Page)MainFrame.Content).DataContext.ToString());
 
 				WindowTitle.Content = x.Title;
 				
 			});
 
-            MainFrame.Content = new AuthorizationPage();
-            
-		}
+			MainFrame.Content = new AuthorizationPage() { DataContext = new AuthorizationPageModel()};
+
+        }
         
         private void closeButton_Click(object sender, RoutedEventArgs e) {
             Application.Current.Shutdown();

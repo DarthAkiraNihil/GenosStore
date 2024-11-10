@@ -21,7 +21,7 @@ namespace GenosStore.View.AuthRegister {
 	public partial class AuthorizationPage : Page {
 		public AuthorizationPage() {
 			InitializeComponent();
-			DataContext = new AuthorizationPageModel();
+			//DataContext = new AuthorizationPageModel();
 		}
 	}
 }

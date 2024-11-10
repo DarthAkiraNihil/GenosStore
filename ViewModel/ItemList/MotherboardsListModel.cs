@@ -15,7 +15,7 @@ using GenosStore.Model.Entity.Item.SimpleComputerComponent;
 using GenosStore.Utility;
 
 namespace GenosStore.ViewModel.ItemList {
-	public class MotherboardsListModel: AbstractViewModel, INotifyPropertyChanged {
+	public class MotherboardsListModel: AbstractViewModel {
 		
 		private readonly RelayCommand _toItemPageCommand;
 		private readonly RelayCommand _applyFiltersCommand;
@@ -38,8 +38,8 @@ namespace GenosStore.ViewModel.ItemList {
 
 		private void ToItemPage(object parameter) {
 			int id = (int) parameter;
-			MessageBox.Show(id.ToString());
-			Navigate("View/ItemPage/MotherboardPage.xaml", "");
+			
+			Navigate("View/ItemPage/MotherboardPage.xaml", "", id);
 		}
 
 		private bool CanToItemPage(object parameter) {
@@ -52,13 +52,6 @@ namespace GenosStore.ViewModel.ItemList {
 
 		private bool CanApplyFilters(object parameter) {
 			return true;
-		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged(string propertyName) {
-			if (PropertyChanged != null)
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 
 		public MotherboardsListModel() {

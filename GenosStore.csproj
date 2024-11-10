@@ -227,11 +227,14 @@
     <Compile Include="Model\Entity\User\LegalEntity.cs" />
     <Compile Include="Model\Entity\User\UserType.cs" />
     <Compile Include="Model\Entity\User\User.cs" />
+    <Compile Include="Services\PageResolverService.cs" />
     <Compile Include="Utility\AbstractViewModel.cs" />
     <Compile Include="Utility\CheckableItem.cs" />
+    <Compile Include="Utility\ItemPageViewModel.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
     <Compile Include="View\Admin\DBEditPage.xaml.cs">
       <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>
@@ -384,7 +387,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="ViewModel\ItemPage\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icon\icon-badge.png" />

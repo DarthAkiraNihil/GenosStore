@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace GenosStore.ViewModel.Main {
-	public class MainPageModel: AbstractViewModel, INotifyPropertyChanged {
+	public class MainPageModel: AbstractViewModel {
 
 		private RelayCommand _toCatalogueCommand;
 		public RelayCommand ToCatalogueCommand {
@@ -16,18 +16,12 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		private void ToCatalogue(object parameter) {
-			Navigate("View/Main/ItemCataloguePage.xaml", "");
+			Navigate("View/Main/ItemCataloguePage.xaml", "",
+				new ItemCatalogueModel());
 		}
 
 		private bool CanToCatalogue(object parameter) {
 			return true;
-		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged(string propertyName) {
-			if (PropertyChanged != null)
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 
 		public MainPageModel() {

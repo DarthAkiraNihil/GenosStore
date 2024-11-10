@@ -2,7 +2,7 @@
 using System.ComponentModel;
 
 namespace GenosStore.ViewModel.AuthRegister {
-    public class RegisterLegalPageModel: AbstractViewModel, INotifyPropertyChanged {
+    public class RegisterLegalPageModel: AbstractViewModel {
 		private RelayCommand _registerCommand;
 		private RelayCommand _backToAuthCommand;
 		private RelayCommand _registerIndividualCommand;
@@ -20,15 +20,15 @@ namespace GenosStore.ViewModel.AuthRegister {
 		}
 
 		private void Register(object parameter) {
-			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize");
+			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
 		}
 
 		private void BackToAuth(object parameter) {
-			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize");
+			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
 		}
 
 		private void RegisterIndividual(object parameter) {
-			Navigate("View/AuthRegister/RegisterIndividualPage.xaml", "RegisterIndividual");
+			Navigate("View/AuthRegister/RegisterIndividualPage.xaml", "RegisterIndividual", new RegisterIndividualPageModel());
 		}
 
 
@@ -42,15 +42,6 @@ namespace GenosStore.ViewModel.AuthRegister {
 
 		private bool CanRegisterIndividual(object parameter) {
 			return true;
-		}
-
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged(string propertyName) {
-			if (PropertyChanged != null)
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 
 		public RegisterLegalPageModel() {

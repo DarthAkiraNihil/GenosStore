@@ -4,7 +4,7 @@ using GenosStore.Utility;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
-    public class RegisterIndividualPageModel: AbstractViewModel, INotifyPropertyChanged
+    public class RegisterIndividualPageModel: AbstractViewModel
     {
         private RelayCommand _registerCommand;
         private RelayCommand _backToAuthCommand;
@@ -24,15 +24,15 @@ namespace GenosStore.ViewModel.AuthRegister
         }
 
         private void Register(object parameter) {
-            Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize");
+            Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
         }
         
         private void BackToAuth(object parameter) {
-            Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize");
+            Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
         }
 
         private void RegisterLegal(object parameter) {
-			Navigate("View/AuthRegister/RegisterLegalPage.xaml", "RegisterLegal");
+			Navigate("View/AuthRegister/RegisterLegalPage.xaml", "RegisterLegal", new RegisterLegalPageModel());
 		}
         
 
@@ -48,15 +48,6 @@ namespace GenosStore.ViewModel.AuthRegister
             return true;
         }
         
-        
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged(string propertyName) {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public RegisterIndividualPageModel() {
             _registerCommand = new RelayCommand(Register, CanRegister);
             _backToAuthCommand = new RelayCommand(BackToAuth, CanBackToAuth);

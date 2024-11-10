@@ -21,7 +21,7 @@ namespace GenosStore.ViewModel {
 
 		private void Login(object parameter) {
 			MessageBox.Show("PENIS");
-			Navigate("View/RegisterPageView.xaml", "");
+			Navigate("View/RegisterPageView.xaml", "", null);
 		}
 
 		private bool CanLogin(object parameter) {

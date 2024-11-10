@@ -12,9 +12,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Admin {
-	internal class DBEditPageModel: AbstractViewModel, INotifyPropertyChanged {
+	internal class DBEditPageModel: AbstractViewModel {
 		private readonly RelayCommand _toItemPageCommand;
 		private readonly RelayCommand _applyFiltersCommand;
 
@@ -35,7 +36,7 @@ namespace GenosStore.ViewModel.Admin {
 		}
 
 		private void ToItemPage(object parameter) {
-			Navigate("View/ItemPage/MotherboardPage.xaml", "");
+			Navigate("View/ItemPage/MotherboardPage.xaml", "", new MotherboardsListModel());
 		}
 
 		private bool CanToItemPage(object parameter) {
@@ -49,16 +50,7 @@ namespace GenosStore.ViewModel.Admin {
 		private bool CanApplyFilters(object parameter) {
 			return true;
 		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged(string propertyName) {
-			if (PropertyChanged != null) {
-				MessageBox.Show("UPD");
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-
+		
 		public DBEditPageModel() {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Main {
 	public class ItemCatalogueModel: AbstractViewModel, INotifyPropertyChanged {
@@ -15,7 +16,8 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		private void ToMotherboards(object parameter) {
-			Navigate("View/ItemList/MotherboardsPage.xaml", "");
+			Navigate("View/ItemList/MotherboardsPage.xaml", "",
+				new MotherboardsListModel());
 		}
 
 		private bool CanToMotherboards(object parameter) {

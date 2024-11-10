@@ -4,10 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GenosStore.View.ItemPage"
+      xmlns:itemPage="clr-namespace:GenosStore.ViewModel.ItemPage"
       mc:Ignorable="d" 
       d:DesignHeight="746" d:DesignWidth="1162"
       Title="Motherboard">
 
+    <Page.DataContext>
+        <itemPage:MotherboardPageModel/>
+    </Page.DataContext>
     <DockPanel x:Name="Main">
 
         <DockPanel DockPanel.Dock="Top">

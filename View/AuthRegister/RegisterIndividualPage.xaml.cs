@@ -21,8 +21,9 @@ namespace GenosStore.View.AuthRegister {
 	public partial class RegisterIndividualPage : Page {
 		public RegisterIndividualPage() {
 			InitializeComponent();
-			MessageBox.Show("EGGOG");
-			DataContext = new RegisterIndividualPageModel();
+			
+			//MessageBox.Show("EGGOG");
+			//DataContext = new RegisterIndividualPageModel();
 		}
 	}
 }
