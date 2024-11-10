@@ -156,12 +156,14 @@
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
-                            <ListBox>
+                            <ListBox ItemsSource="{Binding Vendors}">
+                                <ListBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                </ListBox.Foreground>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel>
-                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
-                                        </StackPanel>
+                                        <CheckBox Content="{Binding Path=Item.Name}" IsChecked="{Binding Path=IsChecked}">
+                                        </CheckBox>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
@@ -172,9 +174,13 @@
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
                             <ListBox ItemsSource="{Binding MotherboardFormFactors}">
+                                <ListBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                </ListBox.Foreground>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <CheckBox Content="{Binding Path=Item.Name}" IsChecked="{Binding Path=IsChecked}"/>
+                                        <CheckBox Content="{Binding Path=Item.Name}" IsChecked="{Binding Path=IsChecked}">
+                                        </CheckBox>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
@@ -184,12 +190,14 @@
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
-                            <ListBox>
+                            <ListBox ItemsSource="{Binding CPUSockets}">
+                                <ListBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                </ListBox.Foreground>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel>
-                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
-                                        </StackPanel>
+                                        <CheckBox Content="{Binding Path=Item.Name}" IsChecked="{Binding Path=IsChecked}">
+                                        </CheckBox>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
@@ -199,12 +207,14 @@
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
-                            <ListBox>
+                            <ListBox ItemsSource="{Binding CPUCores}">
+                                <ListBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                </ListBox.Foreground>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel>
-                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
-                                        </StackPanel>
+                                        <CheckBox Content="{Binding Path=Item.Name}" IsChecked="{Binding Path=IsChecked}">
+                                        </CheckBox>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
@@ -214,12 +224,14 @@
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
-                            <ListBox>
+                            <ListBox ItemsSource="{Binding RAMTypes}">
+                                <ListBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                </ListBox.Foreground>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel>
-                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
-                                        </StackPanel>
+                                        <CheckBox Content="{Binding Path=Item.Name}" IsChecked="{Binding Path=IsChecked}">
+                                        </CheckBox>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
