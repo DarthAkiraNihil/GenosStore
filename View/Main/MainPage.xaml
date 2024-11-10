@@ -7,6 +7,7 @@
       xmlns:local="clr-namespace:GenosStore.View.Main"
       mc:Ignorable="d" 
       d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
       Title="MainPage">
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="560">

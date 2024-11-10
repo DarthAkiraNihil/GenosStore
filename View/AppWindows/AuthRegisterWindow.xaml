@@ -15,6 +15,7 @@
         Icon="/Images/Icon/icon-app.png"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource MaterialDesignWindow}"
+        FontFamily="{materialDesign:MaterialDesignFont}" 
         AllowsTransparency="true" WindowStyle="None" ResizeMode="NoResize"
        >
     <Border x:Name="WindowBorder" CornerRadius="12" BorderThickness="4" Background="Black">
