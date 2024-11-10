@@ -30,7 +30,7 @@
                 </Label>
 
                 <DockPanel DockPanel.Dock="Bottom" Height="48">
-                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48">
+                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}">
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </Button.Background>
@@ -171,12 +171,10 @@
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
-                            <ListBox>
+                            <ListBox ItemsSource="{Binding MotherboardFormFactors}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel>
-                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
-                                        </StackPanel>
+                                        <CheckBox Content="{Binding Path=Item.Name}" IsChecked="{Binding Path=IsChecked}"/>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
