@@ -5,7 +5,7 @@ namespace GenosStore.Model.Repository.Interface.Base {
         ISupportsCreate<T>,
         ISupportsGet<T>,
         ISupportsList<T>,
-        ISupportsEdit<T>,
+        ISupportsUpdate<T>,
         ISupportsDelete where T: class {
         
     }

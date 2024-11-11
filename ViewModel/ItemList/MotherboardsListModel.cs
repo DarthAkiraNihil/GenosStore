@@ -12,6 +12,7 @@ using GenosStore.Model.Context;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
+using GenosStore.Model.Repository.Implementation.PostgreSQL;
 using GenosStore.Utility;
 
 namespace GenosStore.ViewModel.ItemList {
@@ -58,7 +59,7 @@ namespace GenosStore.ViewModel.ItemList {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
 			
-			var context = new GenosStoreDatabaseContext();
+			//var context = new GenosStoreDatabaseContext();
 
 			//var ac = new MotherboardChipset();
 			//ac.Model = "Intel H610";
@@ -144,14 +145,17 @@ namespace GenosStore.ViewModel.ItemList {
 
 			//MessageBox.Show("SIMPLEDIMPLE 2!");
 
-			Vendors = Utilities.ConvertToCheckableCollection(context.Vendors.ToList());
-			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(context.MotherboardFormFactors.ToList());
-			CPUSockets = Utilities.ConvertToCheckableCollection(context.CPUSockets.ToList());
-			CPUCores = Utilities.ConvertToCheckableCollection(context.CPUCores.ToList());
-			RAMTypes = Utilities.ConvertToCheckableCollection(context.RAMTypes.ToList());
-			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(context.MotherboardFormFactors.ToList());
+			var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
+			
 
-			Motherboards = new ObservableCollection<Motherboard>(context.Motherboards.ToList());
+			Vendors = Utilities.ConvertToCheckableCollection(dbAccessor.Vendors.List());
+			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.MotherboardFormFactors.List());
+			CPUSockets = Utilities.ConvertToCheckableCollection(dbAccessor.CPUSockets.List());
+			CPUCores = Utilities.ConvertToCheckableCollection(dbAccessor.CPUCores.List());
+			RAMTypes = Utilities.ConvertToCheckableCollection(dbAccessor.RAMTypes.List());
+			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.MotherboardFormFactors.List());
+
+			Motherboards = new ObservableCollection<Motherboard>(dbAccessor.Motherboards.List());
 
 
 		}

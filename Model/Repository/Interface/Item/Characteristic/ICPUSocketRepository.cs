@@ -2,7 +2,7 @@
 using GenosStore.Model.Repository.Interface.Base;
 
 namespace GenosStore.Model.Repository.Interface.Item.Characteristic {
-    public interface ICPUSocketRepository: IRepository<VideoPort> {
+    public interface ICPUSocketRepository: IRepository<CPUSocket> {
 		
     }
 }

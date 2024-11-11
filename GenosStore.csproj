@@ -47,8 +47,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework6.Npgsql, Version=6.4.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework6.Npgsql.6.4.3\lib\net461\EntityFramework6.Npgsql.dll</HintPath>
+    <Reference Include="EntityFramework6.Npgsql, Version=6.3.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework6.Npgsql.6.3.0\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -80,8 +80,8 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql, Version=6.0.11.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>packages\Npgsql.6.0.11\lib\netstandard2.0\Npgsql.dll</HintPath>
+    <Reference Include="Npgsql, Version=4.1.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>packages\Npgsql.4.1.1\lib\net461\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -227,7 +227,64 @@
     <Compile Include="Model\Entity\User\LegalEntity.cs" />
     <Compile Include="Model\Entity\User\UserType.cs" />
     <Compile Include="Model\Entity\User\User.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\GenosStoreRepositoriesPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\Certificate80PlusRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\ComputerCaseTypesizeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\CoolerMaterialRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\CPUSocketRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\DefinitionRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\DPIModeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\KeyboardTypeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\KeyboardTypesizeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\MatrixTypeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\MotherboardFormFactorRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\PCIEVersionRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\RAMTypeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\UnderlightRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\VendorRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\VesaSizeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\VideoPortRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\ComputerCaseRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\ComputerComponentRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\CPUCoolerRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\CPURepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\DiskDriveRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\DisplayRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\GraphicsCardRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\HDDRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\KeyboardRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\MotherboardRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\MouseRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\NVMeSSDRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\PowerSupplyRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\RAMRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\SataSSDRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ComputerComponent\SSDRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ItemRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\ItemTypeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\PreparedAssemblyRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\AudioChipsetRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\CPUCoreRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\GPURepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\MotherboardChipsetRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\NetworkAdapterRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\SimpleComputerComponentRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\SimpleComputerComponentTypeRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\SimpleComputerComponent\SSDControllerRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\ActiveDiscountRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\BankCardRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\BankSystemRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\CartRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderItemsRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderStatusRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\User\AdministratorRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\User\CustomerRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\User\IndividualEntityRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\User\LegalEntityRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\User\UserRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Interface\Base\IRepository.cs" />
+    <Compile Include="Model\Repository\Interface\IGenosStoreRepositories.cs" />
     <Compile Include="Model\Repository\Interface\Item\Characteristic\ICertificate80PlusRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\Characteristic\IComputerCaseTypesizeRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\Characteristic\ICoolerMaterialRepository.cs" />
@@ -260,9 +317,9 @@
     <Compile Include="Model\Repository\Interface\Item\ComputerComponent\IRAMRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\ComputerComponent\ISataSSDRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\ComputerComponent\ISSDRepository.cs" />
-    <Compile Include="Model\Repository\Interface\Item\Item.cs" />
-    <Compile Include="Model\Repository\Interface\Item\ItemType.cs" />
-    <Compile Include="Model\Repository\Interface\Item\PreparedAssembly.cs" />
+    <Compile Include="Model\Repository\Interface\Item\IItemRepository.cs" />
+    <Compile Include="Model\Repository\Interface\Item\IItemTypeRepository.cs" />
+    <Compile Include="Model\Repository\Interface\Item\IPreparedAssemblyRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\SimpleComputerComponent\IAudioChipsetRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\SimpleComputerComponent\ICPUCoreRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\SimpleComputerComponent\IGPURepository.cs" />
@@ -289,7 +346,7 @@
     <Compile Include="Utility\ItemPageViewModel.cs" />
     <Compile Include="Utility\Operations\ISupportsCreate.cs" />
     <Compile Include="Utility\Operations\ISupportsDelete.cs" />
-    <Compile Include="Utility\Operations\ISupportsEdit.cs" />
+    <Compile Include="Utility\Operations\ISupportsUpdate.cs" />
     <Compile Include="Utility\Operations\ISupportsGet.cs" />
     <Compile Include="Utility\Operations\ISupportsList.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
@@ -448,7 +505,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Model\Repository\Implementation\PostgreSQL\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icon\icon-badge.png" />
@@ -473,10 +529,10 @@
     <PropertyGroup>
       <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
+    <Error Condition="!Exists('packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets'))" />
   </Target>
-  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
   <Import Project="packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
+  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>

@@ -17,8 +17,8 @@ namespace GenosStore.Model.Context {
 
 		public DbSet<ItemType> ItemTypes { get; set; }
 		public DbSet<Certificate80Plus> Certificates80Plus { get; set; }
-		public DbSet<ComputerCaseTypesize> ComputerCaseTypesize { get; set; }
-		public DbSet<CoolerMaterial> ColerMaterials { get; set; }
+		public DbSet<ComputerCaseTypesize> ComputerCaseTypesizes { get; set; }
+		public DbSet<CoolerMaterial> CoolerMaterials { get; set; }
 		public DbSet<CPUSocket> CPUSockets { get; set; }
 		public DbSet<KeyboardTypesize> KeyboardTypesizes { get; set; }
 		public DbSet<KeyboardType> KeyboardTypes { get; set; }
@@ -80,6 +80,8 @@ namespace GenosStore.Model.Context {
 		public DbSet<OrderItems> OrderedItems { get; set; }
 		public DbSet<ActiveDiscount> ActiveDiscounts { get; set; }
 		public DbSet<BankCard> BankCards { get; set; }
+		public DbSet<Cart> Carts { get; set; }
+		public DbSet<OrderStatus> OrderStatuses { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
 
