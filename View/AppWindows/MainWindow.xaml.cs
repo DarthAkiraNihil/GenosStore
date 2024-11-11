@@ -7,6 +7,7 @@ using GenosStore.View.Admin;
 using static GenosStore.Utility.AbstractViewModel;
 using System.Windows.Controls;
 using GenosStore.Utility;
+using GenosStore.Services;
 
 namespace GenosStore.View.AppWindows
 {
@@ -17,13 +18,7 @@ namespace GenosStore.View.AppWindows
             InitializeComponent();
 
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
-				MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
-				((Page)MainFrame.Content).DataContext = x.ViewModel;
-
-				if (((Page)MainFrame.Content).DataContext is ItemPageViewModel) {
-					var context = (ItemPageViewModel)((Page)MainFrame.Content).DataContext;
-					context.ItemId = x.Id;
-				}
+				MainFrame.Content = PageResolverService.Resolve(x.URL, x.ViewModel);
 			});
 			//MainFrame.Content = new DBEditPage();
 			MainFrame.Content = new MainPage();
