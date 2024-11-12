@@ -13,7 +13,7 @@ using GenosStore.ViewModel.ItemList;
 using GenosStore.ViewModel.Main;
 
 namespace GenosStore.Services {
-	public class PageResolverService {
+	public class PageResolver {
 
 		private static Dictionary<string, Func<AbstractViewModel, Page>> _resolveDict = new Dictionary<string, Func<AbstractViewModel, Page>>() {
 			{"View/AuthRegister/AuthorizationPage.xaml",  v => new AuthorizationPage() { DataContext = v } },

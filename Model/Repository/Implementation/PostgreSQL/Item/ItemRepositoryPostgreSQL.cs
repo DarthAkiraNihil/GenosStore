@@ -1,41 +1,74 @@
-﻿// using System.Collections.Generic;
-// using System.Data.Entity;
-// using System.Linq;
-// using GenosStore.Model.Context;
-// using GenosStore.Model.Entity.Item.SimpleComputerComponent;
-// using GenosStore.Model.Repository.Interface.Item;
-// using GenosStore.Model.Repository.Interface.Item.SimpleComputerComponent;
-//
-// namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Item {
-//     public class ItemRepositoryPostgreSQL: IItemRepository {
-//
-//         private readonly GenosStoreDatabaseContext _context;
-//         
-//         public ItemRepositoryPostgreSQL(GenosStoreDatabaseContext context) {
-//             _context = context;
-//         }
-//
-//         public List<Item> List() {
-//             return _context.Items.ToList();
-//         }
-//
-//         public Item Get(int id) {
-//             return _context.Items.Find(id);
-//         }
-//
-//         public void Create(Item item) {
-//             _context.Items.Add(item);
-//         }
-//
-//         public void Update(Item item) {
-//             _context.Entry(item).State = EntityState.Modified;
-//         }
-//
-//         public void Delete(int id) {
-//             Item item = _context.Items.Find(id);
-//             if (item != null)
-//                 _context.Items.Remove(item);
-//         }
-//         
-//     }
-// }
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using GenosStore.Model.Context;
+using GenosStore.Model.Entity.Item.SimpleComputerComponent;
+using GenosStore.Model.Repository.Implementation.PostgreSQL.Item.Characteristic;
+using GenosStore.Model.Repository.Implementation.PostgreSQL.Item.ComputerComponent;
+using GenosStore.Model.Repository.Implementation.PostgreSQL.Item.SimpleComputerComponent;
+using GenosStore.Model.Repository.Interface.Item;
+using GenosStore.Model.Repository.Interface.Item.Characteristic;
+using GenosStore.Model.Repository.Interface.Item.ComputerComponent;
+using GenosStore.Model.Repository.Interface.Item.SimpleComputerComponent;
+
+namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Item {
+    public class ItemRepositoryPostgreSQL: IItemRepository {
+
+        private GenosStoreDatabaseContext _context;
+
+        private CharacteristicRepositoryPostgreSQL _characteristics;
+        private ComputerComponentRepositoryPostgreSQL _computerComponents;
+        private SimpleComputerComponentRepositoryPostgreSQL _simpleComputerComponents;
+        private ItemTypeRepositoryPostgreSQL _itemTypes;
+        private PreparedAssemblyRepositoryPostgreSQL _preparedAssemblies;
+        
+        public ItemRepositoryPostgreSQL(GenosStoreDatabaseContext context) {
+            _context = context;
+        }
+        
+        public ICharacteristicRepository Characteristics {
+            get {
+                if (_characteristics == null) {
+                    _characteristics = new CharacteristicRepositoryPostgreSQL(_context);
+                }
+                return _characteristics;
+            }
+        }
+        
+        public IComputerComponentRepository ComputerComponents {
+            get {
+                if (_computerComponents == null) {
+                    _computerComponents = new ComputerComponentRepositoryPostgreSQL(_context);
+                }
+                return _computerComponents;
+            }
+        }
+        
+        public ISimpleComputerComponentRepository SimpleComputerComponents {
+            get {
+                if (_simpleComputerComponents == null) {
+                    _simpleComputerComponents = new SimpleComputerComponentRepositoryPostgreSQL(_context);
+                }
+                return _simpleComputerComponents;
+            }
+        }
+
+        public IItemTypeRepository ItemTypes {
+            get {
+                if (_itemTypes == null) {
+                    _itemTypes = new ItemTypeRepositoryPostgreSQL(_context);
+                }
+                return _itemTypes;
+            }
+        }
+        public IPreparedAssemblyRepository PreparedAssemblies {
+            get {
+                if (_preparedAssemblies == null) {
+                    _preparedAssemblies = new PreparedAssemblyRepositoryPostgreSQL(_context);
+                }
+                return _preparedAssemblies;
+            }
+        }
+        
+    }
+}

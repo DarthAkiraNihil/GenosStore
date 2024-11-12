@@ -148,14 +148,14 @@ namespace GenosStore.ViewModel.ItemList {
 			var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
 			
 
-			Vendors = Utilities.ConvertToCheckableCollection(dbAccessor.Vendors.List());
-			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.MotherboardFormFactors.List());
-			CPUSockets = Utilities.ConvertToCheckableCollection(dbAccessor.CPUSockets.List());
-			CPUCores = Utilities.ConvertToCheckableCollection(dbAccessor.CPUCores.List());
-			RAMTypes = Utilities.ConvertToCheckableCollection(dbAccessor.RAMTypes.List());
-			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.MotherboardFormFactors.List());
+			Vendors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.Vendors.List());
+			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
+			CPUSockets = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.CPUSockets.List());
+			CPUCores = Utilities.ConvertToCheckableCollection(dbAccessor.Items.SimpleComputerComponents.CPUCores.List());
+			RAMTypes = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.RAMTypes.List());
+			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
 
-			Motherboards = new ObservableCollection<Motherboard>(dbAccessor.Motherboards.List());
+			Motherboards = new ObservableCollection<Motherboard>(dbAccessor.Items.ComputerComponents.Motherboards.List());
 
 
 		}

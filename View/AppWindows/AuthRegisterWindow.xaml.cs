@@ -22,7 +22,7 @@ namespace GenosStore.View.AppWindows
 
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
 
-				MainFrame.Content = PageResolverService.Resolve(x.URL, x.ViewModel);
+				MainFrame.Content = PageResolver.Resolve(x.URL, x.ViewModel);
 
 				//MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
 

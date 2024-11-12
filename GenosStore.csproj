@@ -229,6 +229,7 @@
     <Compile Include="Model\Entity\User\User.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\GenosStoreRepositoriesPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\Certificate80PlusRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\CharacteristicRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\ComputerCaseTypesizeRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\CoolerMaterialRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\CPUSocketRepositoryPostgreSQL.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\BankCardRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\BankSystemRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\CartRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderEntitiesRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderItemsRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderStatusRepositoryPostgreSQL.cs" />
@@ -282,10 +284,12 @@
     <Compile Include="Model\Repository\Implementation\PostgreSQL\User\CustomerRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\User\IndividualEntityRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\User\LegalEntityRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\User\UserEntitiesRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\User\UserRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Interface\Base\IRepository.cs" />
     <Compile Include="Model\Repository\Interface\IGenosStoreRepositories.cs" />
     <Compile Include="Model\Repository\Interface\Item\Characteristic\ICertificate80PlusRepository.cs" />
+    <Compile Include="Model\Repository\Interface\Item\Characteristic\ICharacteristicRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\Characteristic\IComputerCaseTypesizeRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\Characteristic\ICoolerMaterialRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\Characteristic\ICPUSocketRepository.cs" />
@@ -332,6 +336,7 @@
     <Compile Include="Model\Repository\Interface\Orders\IBankCardRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IBankSystemRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\ICartRepository.cs" />
+    <Compile Include="Model\Repository\Interface\Orders\IOrderEntitiesRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IOrderItemsRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IOrderRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IOrderStatusRepository.cs" />
@@ -339,8 +344,9 @@
     <Compile Include="Model\Repository\Interface\User\ICustomerRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IIndividualEntityRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\ILegalEntityRepository.cs" />
+    <Compile Include="Model\Repository\Interface\User\IUserEntitiesRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IUserRepository.cs" />
-    <Compile Include="Services\PageResolverService.cs" />
+    <Compile Include="Services\PageResolver.cs" />
     <Compile Include="Utility\AbstractViewModel.cs" />
     <Compile Include="Utility\CheckableItem.cs" />
     <Compile Include="Utility\ItemPageViewModel.cs" />
@@ -505,6 +511,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
+    <Folder Include="Services\Implementation\" />
+    <Folder Include="Services\Interface\EntityAccess\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Icon\icon-badge.png" />

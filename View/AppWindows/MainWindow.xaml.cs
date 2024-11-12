@@ -18,7 +18,7 @@ namespace GenosStore.View.AppWindows
             InitializeComponent();
 
 			Messenger.Default.Register<NavigateArgs>(this, (x) => {
-				MainFrame.Content = PageResolverService.Resolve(x.URL, x.ViewModel);
+				MainFrame.Content = PageResolver.Resolve(x.URL, x.ViewModel);
 			});
 			//MainFrame.Content = new DBEditPage();
 			MainFrame.Content = new MainPage();
