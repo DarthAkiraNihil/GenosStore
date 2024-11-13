@@ -1,15 +1,22 @@
-﻿using GenosStore.Model.Entity.Item.Characteristic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Item.ComputerComponent {
-	public abstract class ComputerComponent: Item {
-		public double TDP { get; set; }
-		public int VendorId { get; set; }
-
-		public virtual Vendor Vendor { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.ComputerComponents {
+    public interface IComputerComponentService {
+        IComputerCaseService ComputerCases { get; }
+        ICPUCoolerService CPUCoolers { get; }
+        ICPUService CPUs { get; }
+        IDiskDriveService DiskDrives { get; }
+        IDisplayService Displays { get; }
+        IGraphicsCardService GraphicsCards { get; }
+        IHDDService HDDs { get; }
+        IKeyboardService Keyboards { get; }
+        IMotherboardService Motherboards { get; }
+        IMouseService Mouses { get; }
+        INVMeSSDService NVMeSSDs { get; }
+        IPowerSupplyService PowerSupplies { get; }
+        IRAMService RAMs { get; }
+        ISataSSDService SataSSDs { get; }
+        ISSDService SSDs { get; }
+    }
 }

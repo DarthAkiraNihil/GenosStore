@@ -1,24 +1,8 @@
-﻿using GenosStore.Model.Entity.User;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenosStore.Model.Entity.Orders;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Orders {
-	[Table("public.Orders")]
-	public class Order {
-		public long Id { get; set; }
-		public int CustomerId { get; set; }
+namespace GenosStore.Services.Interface.EntityAccess.Orders {
+    public interface IOrderService: IStandardService<Order> {
 		
-		public virtual Customer Customer { get; set; }
-
-		public List<OrderItems> Items { get; set; }
-		public int OrderStatusId { get; set; }
-		public virtual OrderStatus OrderStatus { get; set; }
-		
-		public DateTime CreatedAt { get; set; }
-	}
+    }
 }

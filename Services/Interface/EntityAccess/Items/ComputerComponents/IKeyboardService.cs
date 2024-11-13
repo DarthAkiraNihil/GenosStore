@@ -1,22 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GenosStore.Model.Entity.Item.Characteristic;
+﻿using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Item.ComputerComponent {
-	[Table("public.Keyboards")]
-	public class Keyboard: ComputerComponent {
+namespace GenosStore.Services.Interface.EntityAccess.Items.ComputerComponents {
+    public interface IKeyboardService: IStandardService<Keyboard> {
 		
-		public int KeyboardTypesizeId { get; set; }
-		public bool HasRGBLighting { get; set; }
-		public int KeyboardTypeId { get; set; }
-		public bool IsWireless { get; set; }
-		
-		public KeyboardTypesize Typesize { get; set; }
-		public KeyboardType KeyboardType { get; set; }
-
-	}
+    }
 }

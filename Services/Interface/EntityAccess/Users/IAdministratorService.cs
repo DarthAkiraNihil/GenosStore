@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenosStore.Model.Entity.User;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.User {
-	[Table("public.Administrators")]
-	public class Administrator: User {
-
-		public override UserType UserType {
-			get {
-				return UserType.Administrator;
-			}
-		}
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Users {
+    public interface IAdministratorService: IStandardService<Administrator> {
+		
+    }
 }

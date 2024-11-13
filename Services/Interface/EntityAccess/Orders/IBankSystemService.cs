@@ -1,17 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
+﻿using GenosStore.Model.Entity.Orders;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Orders {
-
-	[Table("public.BankSystems")]
-	public class BankSystem: Named {
-		public long Id { get; set; }
-	}
-	// public enum BankSystem {
-	// 	Visa,
-	// 	MasterCard,
-	// 	UnionPay,
-	// 	JBC,
-	// 	Mir
-	// }
+namespace GenosStore.Services.Interface.EntityAccess.Orders {
+    public interface IBankSystemService: IEnumService<BankSystem> {
+		
+    }
 }

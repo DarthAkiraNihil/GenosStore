@@ -1,15 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
+﻿using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Services.Interface.Base;
 
-// public enum ComputerCaseTypesize {
-// 	MiniTower,
-// 	MidTower,
-// 	BigTower,
-// }
-
-namespace GenosStore.Model.Entity.Item.Characteristic {
-	[Table("public.ComputerCaseTypesizes")]
-	public class ComputerCaseTypesize: Named {
-		public long Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+    public interface IComputerCaseTypesizeService: IEnumService<ComputerCaseTypesize> {
+		
+    }
 }

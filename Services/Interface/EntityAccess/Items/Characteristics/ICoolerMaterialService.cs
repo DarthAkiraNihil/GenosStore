@@ -1,14 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
+﻿using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Services.Interface.Base;
 
-// public enum CoolerMaterial {
-// 	Cooper,
-// 	Aluminium
-// }
-
-namespace GenosStore.Model.Entity.Item.Characteristic {
-	[Table("public.CoolerMaterials")]
-	public class CoolerMaterial: Named {
-		public long Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+    public interface ICoolerMaterialService: IEnumService<CoolerMaterial> {
+		
+    }
 }

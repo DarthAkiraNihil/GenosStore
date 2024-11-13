@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GenosStore.Model.Entity.Item.Characteristic;
+﻿using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Item.ComputerComponent {
-	[Table("public.PowerSupplies")]
-	public class PowerSupply: ComputerComponent {
+namespace GenosStore.Services.Interface.EntityAccess.Items.ComputerComponents {
+    public interface IPowerSupplyService: IStandardService<PowerSupply> {
 		
-		public byte SataPorts { get; set; }
-		public byte MolexPorts { get; set; }
-		public int PowerOutput { get; set; }
-		public int Certiticate80PlusId { get; set; }
-		
-		public virtual Certificate80Plus Certificate80Plus { get; set; }
-	}
+    }
 }

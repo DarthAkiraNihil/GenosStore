@@ -1,21 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
+﻿using GenosStore.Model.Entity.Orders;
+using GenosStore.Services.Interface.Base;
 
-// public enum OrderStatus {
-// 	Created,
-// 	Confirmed,
-// 	AwaitsPayment,
-// 	Paid,
-// 	Processing,
-// 	Delivering,
-// 	Recieved,
-// 	Canceled
-// }
-
-namespace GenosStore.Model.Entity.Orders {
-
-	[Table("public.OrderStatus")]
-	public class OrderStatus: Named {
-		public long Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Orders {
+    public interface IOrderStatusService: IEnumService<OrderStatus> {
+		
+    }
 }

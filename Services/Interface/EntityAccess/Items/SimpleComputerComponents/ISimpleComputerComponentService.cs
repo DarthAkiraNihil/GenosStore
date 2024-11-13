@@ -1,17 +1,14 @@
-﻿using GenosStore.Model.Entity.Base;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenosStore.Model.Entity.Item.SimpleComputerComponent;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
-	[Table("public.SimpleComputerComponents")]
-	public abstract class SimpleComputerComponent: WithModel {
-		public long Id { get; set; }
-		public int SimpleComputerComponentTypeId { get; set; }
-		
-		public virtual SimpleComputerComponentType Type { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.SimpleComputerComponents {
+    public interface ISimpleComputerComponentService {
+        ISSDControllerService SSDControllers { get; }
+        ISimpleComputerComponentTypeService SimpleComputerComponentTypes { get; }
+        INetworkAdapterService NetworkAdapters { get; }
+        IMotherboardChipsetService MotherboardChipsets { get; }
+        IGPUService GPUs { get; }
+        ICPUCoreService CPUCores { get; }
+        IAudioChipsetService AudioChipsets { get; }
+    }
 }

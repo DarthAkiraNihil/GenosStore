@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Utility.Operations;
 
-namespace GenosStore.Model.Entity.Item.Characteristic {
-	[Table("public.Definitions")]
-	public class Definition {
-		public int Id { get; set; }
-		public int Width { get; set; }
-		public int Height { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+    public interface IDefinitionService: ISupportsGet<Certificate80Plus> {
+        Definition GetStandard();
+    }
 }

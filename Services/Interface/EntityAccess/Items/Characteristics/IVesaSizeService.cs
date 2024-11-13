@@ -1,14 +1,8 @@
-﻿// public enum VesaSize {
-// 	Vesa100x100,
-// 	vesa120x120,
-// }
+﻿using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Services.Interface.Base;
 
-using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
-
-namespace GenosStore.Model.Entity.Item.Characteristic {
-	[Table("public.VesaSizes")]
-	public class VesaSize: Named {
-		public long Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+    public interface IVesaSizeService: IEnumService<VesaSize> {
+		
+    }
 }

@@ -1,7 +1,8 @@
-﻿namespace GenosStore.Model.Entity.User {
-	public enum UserType {
-		IndividualEntity,
-		LegalEntity,
-		Administrator
-	}
-}
+﻿// using GenosStore.Model.Entity.User;
+// using GenosStore.Services.Interface.Base;
+//
+// namespace GenosStore.Services.Interface.EntityAccess.Users {
+//     public interface IUserTypeService: IEnumService<UserType> {
+// 		
+//     }
+// }

@@ -1,19 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
+﻿using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Services.Interface.Base;
 
-// public enum Certificate80Plus {
-// 	None,
-// 	Standard,
-// 	Bronze,
-// 	Silver,
-// 	Gold,
-// 	Platinum,
-// 	Titanium
-// }
-
-namespace GenosStore.Model.Entity.Item.Characteristic {
-	[Table("public.Certificates80Plus")]
-	public class Certificate80Plus: Named {
-		public long Id { get; set; }
+namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+	public interface ICertificate80PlusService: IEnumService<Certificate80Plus> {
+		
 	}
 }

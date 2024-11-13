@@ -1,16 +1,8 @@
-﻿// public enum KeyboardTypesize {
-// 	TKL,
-// 	Percent60,
-// 	Full,
-// 	FullPlusNumpad
-// }
+﻿using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Services.Interface.Base;
 
-using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
-
-namespace GenosStore.Model.Entity.Item.Characteristic {
-	[Table("public.KeyboardTypesizes")]
-	public class KeyboardTypesize: Named {
-		public long Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+    public interface IKeyboardTypesizeService: IEnumService<KeyboardTypesize> {
+		
+    }
 }

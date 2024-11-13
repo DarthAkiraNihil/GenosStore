@@ -1,16 +1,8 @@
-﻿// public enum SimpleComputerComponentType {
-// 	MotherboardChipset,
-// 	AudioChipset,
-// 	NetworkAdapter,
-// 	SSDController
-// }
+﻿using GenosStore.Model.Entity.Item.SimpleComputerComponent;
+using GenosStore.Services.Interface.Base;
 
-using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
-
-namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
-	[Table("public.SimpleComputerComponentTypes")]
-	public class SimpleComputerComponentType: Named {
-		public long Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.SimpleComputerComponents {
+    public interface ISimpleComputerComponentTypeService: IEnumService<SimpleComputerComponentType> {
+		
+    }
 }

@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenosStore.Model.Entity.Orders;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Orders {
-	[Table("public.BankCards")]
-	public class BankCard {
-		public int Id { get; set; }
-		public long Number { get; set; }
-		public int BankSystemId { get; set; }
-		public byte ValidThruMonth { get; set; }
-		public byte ValidThruYear { get; set; }
-		public byte CVC { get; set; }
-		public string Owner { get; set; }
+namespace GenosStore.Services.Interface.EntityAccess.Orders {
+    public interface IBankCardService: IStandardService<BankCard> {
 		
-		public virtual BankSystem BankSystem { get; protected set; }
-	}
+    }
 }

@@ -1,26 +1,8 @@
-﻿// public enum ItemType {
-// 	CPU,
-// 	RAM,
-// 	Motherboard,
-// 	GraphicsCard,
-// 	PowerSupply,
-// 	HDD,
-// 	SataSSD,
-// 	NVMeSSD,
-// 	Display,
-// 	CPUCooler,
-// 	ComputerCase,
-// 	Keyboard,
-// 	Mouse,
-// 	PreparedAssembly
-// }
+﻿using GenosStore.Model.Entity.Item;
+using GenosStore.Services.Interface.Base;
 
-using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
-
-namespace GenosStore.Model.Entity.Item {
-	[Table("public.ItemTypes")]
-	public class ItemType: Named {
-		public int Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items {
+    public interface IItemTypeService: IEnumService<ItemType> {
+		
+    }
 }

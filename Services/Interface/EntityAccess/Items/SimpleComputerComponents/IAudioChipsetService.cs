@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenosStore.Model.Entity.Item.SimpleComputerComponent;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Item.SimpleComputerComponent {
-	[Table("public.AudioChipsets")]
-	public class AudioChipset: SimpleComputerComponent {
+namespace GenosStore.Services.Interface.EntityAccess.Items.SimpleComputerComponents {
+    public interface IAudioChipsetService: IStandardService<AudioChipset> {
 		
-	}
-	
+    }
 }

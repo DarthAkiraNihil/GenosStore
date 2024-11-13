@@ -1,15 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using GenosStore.Model.Entity.Base;
+﻿using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Services.Interface.Base;
 
-// public enum Underlight {
-// 	LED,
-// 	CCFL,
-// 	RGB,
-// }
-
-namespace GenosStore.Model.Entity.Item.Characteristic {
-	[Table("public.Underlights")]
-	public class Underlight: Named {
-		public long Id { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+    public interface IUnderlightService: IEnumService<Underlight> {
+		
+    }
 }

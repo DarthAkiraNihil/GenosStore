@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Services.Interface.Base;
 
-namespace GenosStore.Model.Entity.Item.ComputerComponent {
-	[Table("public.HDDs")]
-	public class HDD: DiskDrive {
-		public int RPM { get; set; }
-	}
+namespace GenosStore.Services.Interface.EntityAccess.Items.ComputerComponents {
+    public interface IHDDService: IStandardService<HDD> {
+		
+    }
 }

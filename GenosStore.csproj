@@ -349,7 +349,9 @@
     <Compile Include="Services\Interface\Base\IEnumService.cs" />
     <Compile Include="Services\Interface\Base\IFilterService.cs" />
     <Compile Include="Services\Interface\Base\IStandardService.cs" />
+    <Compile Include="Services\Interface\EntityAccess\IEntityServices.cs" />
     <Compile Include="Services\Interface\EntityAccess\Items\Characteristics\ICertificate80PlusService.cs" />
+    <Compile Include="Services\Interface\EntityAccess\Items\Characteristics\ICharacteristicsService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Items\Characteristics\IComputerCaseTypesizeService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Items\Characteristics\ICoolerMaterialService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Items\Characteristics\ICPUSocketService.cs" />
@@ -396,6 +398,7 @@
     <Compile Include="Services\Interface\EntityAccess\Orders\IBankCardService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Orders\IBankSystemService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Orders\ICartService.cs" />
+    <Compile Include="Services\Interface\EntityAccess\Orders\IOrderEntitiesService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Orders\IOrderItemsService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Orders\IOrderService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Orders\IOrderStatusService.cs" />
@@ -403,8 +406,10 @@
     <Compile Include="Services\Interface\EntityAccess\Users\ICustomerService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Users\IIndividualEntityService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Users\ILegalEntityService.cs" />
+    <Compile Include="Services\Interface\EntityAccess\Users\IUserEntitiesService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Users\IUserService.cs" />
     <Compile Include="Services\Interface\EntityAccess\Users\IUserTypeService.cs" />
+    <Compile Include="Services\Interface\IServices.cs" />
     <Compile Include="Services\PageResolver.cs" />
     <Compile Include="Utility\AbstractViewModel.cs" />
     <Compile Include="Utility\CheckableItem.cs" />
