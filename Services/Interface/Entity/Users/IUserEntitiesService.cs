@@ -1,4 +1,4 @@
-﻿namespace GenosStore.Services.Interface.EntityAccess.Users {
+﻿namespace GenosStore.Services.Interface.Entity.Users {
     public interface IUserEntitiesService {
         IAdministratorService Administrators { get; }
         ICustomerService Customers { get; }

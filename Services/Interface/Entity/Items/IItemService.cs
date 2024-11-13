@@ -1,10 +1,10 @@
 ﻿using GenosStore.Model.Entity.Item;
 using GenosStore.Services.Interface.Base;
-using GenosStore.Services.Interface.EntityAccess.Items.Characteristics;
-using GenosStore.Services.Interface.EntityAccess.Items.ComputerComponents;
-using GenosStore.Services.Interface.EntityAccess.Items.SimpleComputerComponents;
+using GenosStore.Services.Interface.Entity.Items.Characteristics;
+using GenosStore.Services.Interface.Entity.Items.ComputerComponents;
+using GenosStore.Services.Interface.Entity.Items.SimpleComputerComponents;
 
-namespace GenosStore.Services.Interface.EntityAccess.Items {
+namespace GenosStore.Services.Interface.Entity.Items {
     public interface IItemService {
 		ICharacteristicsService Characteristics { get; }
         IComputerComponentService ComputerComponents { get; }

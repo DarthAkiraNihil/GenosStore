@@ -1,4 +1,4 @@
-﻿namespace GenosStore.Utility.Types {
+﻿namespace GenosStore.Utility.Types.AuthRegister {
     public enum AuthorizationStatus {
         Success,
         DoesNotExist,

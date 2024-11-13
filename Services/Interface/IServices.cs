@@ -1,4 +1,4 @@
-﻿using GenosStore.Services.Interface.EntityAccess;
+﻿using GenosStore.Services.Interface.Entity;
 
 namespace GenosStore.Services.Interface {
     public interface IServices {

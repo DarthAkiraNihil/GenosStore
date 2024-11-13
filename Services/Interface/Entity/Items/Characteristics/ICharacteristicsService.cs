@@ -1,4 +1,4 @@
-﻿namespace GenosStore.Services.Interface.EntityAccess.Items.Characteristics {
+﻿namespace GenosStore.Services.Interface.Entity.Items.Characteristics {
     public interface ICharacteristicsService {
         ICertificate80PlusService Certificates80Plus { get; }
         IComputerCaseTypesizeService ComputerCaseTypesizes { get; }

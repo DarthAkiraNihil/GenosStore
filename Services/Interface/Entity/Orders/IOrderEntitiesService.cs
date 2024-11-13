@@ -1,4 +1,4 @@
-﻿namespace GenosStore.Services.Interface.EntityAccess.Orders {
+﻿namespace GenosStore.Services.Interface.Entity.Orders {
     public interface IOrderEntitiesService {
         IActiveDiscountService ActiveDiscounts { get; }
         IBankCardService BankCards { get; }
