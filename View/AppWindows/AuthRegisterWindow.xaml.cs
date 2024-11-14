@@ -9,14 +9,17 @@ using GenosStore.ViewModel.AuthRegister;
 using System.Windows.Controls;
 using System.Windows.Input;
 using GenosStore.Services;
+using GenosStore.Services.Interface;
 
 namespace GenosStore.View.AppWindows
 {
     public partial class AuthRegisterWindow : Window
     {
-        public AuthRegisterWindow()
+        public AuthRegisterWindow(IServices services)
         {
 	        InitializeComponent();
+	        
+	        MessageBox.Show(services.ToString());
 
             AuthorizationPageModel.Close += this.Close;
 
