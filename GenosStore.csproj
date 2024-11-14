@@ -422,6 +422,8 @@
     <Compile Include="Utility\AbstractViewModel.cs" />
     <Compile Include="Utility\CheckableItem.cs" />
     <Compile Include="Utility\ItemPageViewModel.cs" />
+    <Compile Include="Utility\Navigation\NavigationArgs.cs" />
+    <Compile Include="Utility\Navigation\NavigationArgsBuilder.cs" />
     <Compile Include="Utility\NinjectModules\RepositoriesModule.cs" />
     <Compile Include="Utility\NinjectModules\ServicesModule.cs" />
     <Compile Include="Utility\Operations\ISupportsCreate.cs" />
@@ -442,7 +444,6 @@
       <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AppWindows\MainWindowModel.cs" />
-    <Compile Include="ViewModel\AuthorizationViewModel.cs" />
     <Compile Include="ViewModel\AuthRegister\AuthorizationPageModel.cs" />
     <Compile Include="ViewModel\AuthRegister\RegisterIndividualPageModel.cs" />
     <Compile Include="ViewModel\AuthRegister\RegisterLegalPageModel.cs" />

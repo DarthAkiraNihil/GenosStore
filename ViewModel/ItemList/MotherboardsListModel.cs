@@ -13,7 +13,9 @@ using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
 using GenosStore.Model.Repository.Implementation.PostgreSQL;
+using GenosStore.Services.Interface;
 using GenosStore.Utility;
+using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class MotherboardsListModel: AbstractViewModel {
@@ -40,7 +42,12 @@ namespace GenosStore.ViewModel.ItemList {
 		private void ToItemPage(object parameter) {
 			int id = (int) parameter;
 			
-			Navigate("View/ItemPage/MotherboardPage.xaml", "", id);
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/ItemPage/MotherboardPage.xaml")
+			           .WithId(id)
+			           .Build();
+            
+			Navigate(args);
 		}
 
 		private bool CanToItemPage(object parameter) {
@@ -55,7 +62,7 @@ namespace GenosStore.ViewModel.ItemList {
 			return true;
 		}
 
-		public MotherboardsListModel() {
+		public MotherboardsListModel(IServices services): base(services) {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
 			

@@ -10,33 +10,31 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using GenosStore.Services;
 using GenosStore.Services.Interface;
+using GenosStore.Utility.Navigation;
 
 namespace GenosStore.View.AppWindows
 {
     public partial class AuthRegisterWindow : Window
     {
+	    //private IServices _services;
+	    
         public AuthRegisterWindow(IServices services)
         {
 	        InitializeComponent();
 	        
-	        MessageBox.Show(services.ToString());
+	        //_services = services;
 
-            AuthorizationPageModel.Close += this.Close;
+            AuthorizationPageModel.Close += Close;
 
-			Messenger.Default.Register<NavigateArgs>(this, (x) => {
+			Messenger.Default.Register<NavigationArgs>(this, (x) => {
 
-				MainFrame.Content = PageResolver.Resolve(x.URL, x.ViewModel);
-
-				//MainFrame.Navigate(new Uri(x.URL, UriKind.Relative));
-
-				//((Page)MainFrame.Content).DataContext = x.ViewModel;
-				//MessageBox.Show(((Page)MainFrame.Content).DataContext.ToString());
-
+				MainFrame.Content = PageResolver.Resolve(x);
+				
 				WindowTitle.Content = x.Title;
 				
 			});
 
-			MainFrame.Content = new AuthorizationPage() { DataContext = new AuthorizationPageModel()};
+			MainFrame.Content = new AuthorizationPage() { DataContext = new AuthorizationPageModel(services)};
 
         }
         

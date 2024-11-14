@@ -5,38 +5,24 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
+using GenosStore.Services.Interface;
+using GenosStore.Services.Interface.Entity.Users;
+using GenosStore.Utility.Navigation;
 
 namespace GenosStore.Utility {
 	public abstract class AbstractViewModel: INotifyPropertyChanged {
-		public AbstractViewModel() {}
+		
+		protected readonly IServices _services;
+		public AbstractViewModel(IServices services) {
+			_services = services;
+		}
 
 		public string Title { get; set; }
-		public void Navigate(string url, string title, AbstractViewModel viewModel) {
-			Messenger.Default.Send<NavigateArgs>(new NavigateArgs(url, title, viewModel, 0));
+		public void Navigate(NavigationArgs args) {
+			Messenger.Default.Send<NavigationArgs>(args);
 		}
-
-		public void Navigate(string url, string title, int itemId) {
-			Messenger.Default.Send<NavigateArgs>(new NavigateArgs(url, title, null, itemId));
-		}
-
-		public class NavigateArgs {
-			public NavigateArgs() {
-
-			}
-
-			public NavigateArgs(string url, string title, AbstractViewModel viewModel, int id) {
-				URL = url;
-				Title = title;
-				ViewModel = viewModel;
-				Id = id;
-			}
-
-			public string URL { get; set; }
-			public string Title { get; set; }
-			public AbstractViewModel ViewModel { get; set; }
-			public int Id { get; set; }
-		}
-
+		
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected void NotifyPropertyChanged(string propertyName) {

@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Services.Interface;
+using GenosStore.Utility.Navigation;
 using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Admin {
@@ -36,7 +38,12 @@ namespace GenosStore.ViewModel.Admin {
 		}
 
 		private void ToItemPage(object parameter) {
-			Navigate("View/ItemPage/MotherboardPage.xaml", "", new MotherboardsListModel());
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/ItemPage/MotherboardPage.xaml")
+			           .WithViewModel(new MotherboardsListModel(_services))
+			           .Build();
+			
+			Navigate(args);
 		}
 
 		private bool CanToItemPage(object parameter) {
@@ -51,7 +58,8 @@ namespace GenosStore.ViewModel.Admin {
 			return true;
 		}
 		
-		public DBEditPageModel() {
+		public DBEditPageModel(IServices services): base(services) {
+			
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
 

@@ -8,20 +8,22 @@ using static GenosStore.Utility.AbstractViewModel;
 using System.Windows.Controls;
 using GenosStore.Utility;
 using GenosStore.Services;
+using GenosStore.Services.Interface;
+using GenosStore.Utility.Navigation;
+using GenosStore.ViewModel.Main;
 
 namespace GenosStore.View.AppWindows
 {
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
+    public partial class MainWindow : Window {
+        public MainWindow(IServices services)
         {
             InitializeComponent();
 
-			Messenger.Default.Register<NavigateArgs>(this, (x) => {
-				MainFrame.Content = PageResolver.Resolve(x.URL, x.ViewModel);
+			Messenger.Default.Register<NavigationArgs>(this, (x) => {
+				MainFrame.Content = PageResolver.Resolve(x);
 			});
 			//MainFrame.Content = new DBEditPage();
-			MainFrame.Content = new MainPage();
+			MainFrame.Content = new MainPage() { DataContext = new MainPageModel(services)};
         }
 
 		private void closeButton_Click(object sender, RoutedEventArgs e) {

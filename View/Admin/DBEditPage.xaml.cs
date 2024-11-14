@@ -21,7 +21,6 @@ namespace GenosStore.View.Admin {
 	public partial class DBEditPage : Page {
 		public DBEditPage() {
 			InitializeComponent();
-			DataContext = new DBEditPageModel();
 		}
 	}
 }

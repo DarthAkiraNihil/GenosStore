@@ -21,7 +21,6 @@ namespace GenosStore.View.ItemList {
 	public partial class MotherboardsPage : Page {
 		public MotherboardsPage() {
 			InitializeComponent();
-			DataContext = new MotherboardsListModel();
 		}
 
 		private void TextBox_TextChanged(object sender, TextChangedEventArgs e) {

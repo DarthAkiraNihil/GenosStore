@@ -18,10 +18,9 @@ namespace GenosStore.View.Main {
 	/// <summary>
 	/// Логика взаимодействия для itemCatalogue.xaml
 	/// </summary>
-	public partial class itemCatalogue : Page {
-		public itemCatalogue() {
+	public partial class ItemCatalogue : Page {
+		public ItemCatalogue() {
 			InitializeComponent();
-			DataContext = new ItemCatalogueModel();
 		}
 	}
 }

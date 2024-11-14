@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Windows.Navigation;
+using GenosStore.Services.Interface;
 using GenosStore.Utility;
+using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
@@ -24,15 +26,33 @@ namespace GenosStore.ViewModel.AuthRegister
         }
 
         private void Register(object parameter) {
-            Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+                       .WithTitle("Authorize")
+                       .WithViewModel(new AuthorizationPageModel(_services))
+                       .Build();
+            
+            Navigate(args);
         }
         
         private void BackToAuth(object parameter) {
-            Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+                       .WithTitle("Authorize")
+                       .WithViewModel(new AuthorizationPageModel(_services))
+                       .Build();
+            
+            Navigate(args);
         }
 
         private void RegisterLegal(object parameter) {
-			Navigate("View/AuthRegister/RegisterLegalPage.xaml", "RegisterLegal", new RegisterLegalPageModel());
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/AuthRegister/RegisterLegalPage.xaml")
+                       .WithTitle("RegisterLegal")
+                       .WithViewModel(new RegisterLegalPageModel(_services))
+                       .Build();
+            
+            Navigate(args);
 		}
         
 
@@ -48,7 +68,7 @@ namespace GenosStore.ViewModel.AuthRegister
             return true;
         }
         
-        public RegisterIndividualPageModel() {
+        public RegisterIndividualPageModel(IServices services): base(services) {
             _registerCommand = new RelayCommand(Register, CanRegister);
             _backToAuthCommand = new RelayCommand(BackToAuth, CanBackToAuth);
             _registerLegalCommand = new RelayCommand(RegisterLegal, CanRegisterLegal);

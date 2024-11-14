@@ -21,7 +21,6 @@ namespace GenosStore.View.AuthRegister {
 	public partial class RegisterLegalPage : Page {
 		public RegisterLegalPage() {
 			InitializeComponent();
-			DataContext = new RegisterLegalPageModel();
 		}
 	}
 }

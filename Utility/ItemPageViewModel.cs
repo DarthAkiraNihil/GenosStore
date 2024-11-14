@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using GenosStore.Services.Interface;
 
 namespace GenosStore.Utility {
 	public abstract class ItemPageViewModel: AbstractViewModel {
@@ -19,6 +20,9 @@ namespace GenosStore.Utility {
 				NotifyPropertyChanged("ItemId");
 			}
 
+		}
+
+		public ItemPageViewModel(IServices services) : base(services) {
 		}
 	}
 }

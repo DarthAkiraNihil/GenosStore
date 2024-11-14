@@ -1,5 +1,7 @@
 ﻿using GenosStore.Utility;
 using System.ComponentModel;
+using GenosStore.Services.Interface;
+using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.AuthRegister {
     public class RegisterLegalPageModel: AbstractViewModel {
@@ -20,15 +22,36 @@ namespace GenosStore.ViewModel.AuthRegister {
 		}
 
 		private void Register(object parameter) {
-			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+			           .WithTitle("Authorize")
+			           .WithViewModel(new AuthorizationPageModel(_services))
+			           .Build();
+            
+			Navigate(args);
+
 		}
 
 		private void BackToAuth(object parameter) {
-			Navigate("View/AuthRegister/AuthorizationPage.xaml", "Authorize", new AuthorizationPageModel());
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+			           .WithTitle("Authorize")
+			           .WithViewModel(new AuthorizationPageModel(_services))
+			           .Build();
+            
+			Navigate(args);
+
 		}
 
 		private void RegisterIndividual(object parameter) {
-			Navigate("View/AuthRegister/RegisterIndividualPage.xaml", "RegisterIndividual", new RegisterIndividualPageModel());
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/AuthRegister/RegisterIndividualPage.xaml")
+			           .WithTitle("Authorize")
+			           .WithViewModel(new RegisterIndividualPageModel(_services))
+			           .Build();
+            
+			Navigate(args);
+
 		}
 
 
@@ -44,7 +67,7 @@ namespace GenosStore.ViewModel.AuthRegister {
 			return true;
 		}
 
-		public RegisterLegalPageModel() {
+		public RegisterLegalPageModel(IServices services): base(services) {
 			_registerCommand = new RelayCommand(Register, CanRegister);
 			_backToAuthCommand = new RelayCommand(BackToAuth, CanBackToAuth);
 			_registerIndividualCommand = new RelayCommand(RegisterIndividual, CanRegisterIndividual);

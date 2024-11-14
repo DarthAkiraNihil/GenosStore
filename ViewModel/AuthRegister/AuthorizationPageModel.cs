@@ -6,6 +6,8 @@ using GenosStore.Utility;
 using System;
 using GenosStore.Model.Context;
 using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Services.Interface;
+using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
@@ -30,14 +32,20 @@ namespace GenosStore.ViewModel.AuthRegister
             var mb = new Motherboard();
 
             
-            var mainView = new MainWindow();// { DataContext = new MainViewModel(user) };
+            var mainView = new MainWindow(_services);// { DataContext = new MainViewModel(user) };
 			mainView.Show();
             Close?.Invoke();
 			//RequestClose(this, new EventArgs());
 		}
 
         private void Register(object parameter) {
-            Navigate("View/AuthRegister/RegisterIndividualPage.xaml", "Authorize", new RegisterIndividualPageModel());
+            var args = new NavigationArgsBuilder()
+                .WithURL("View/AuthRegister/RegisterIndividualPage.xaml")
+                .WithTitle("Authorize")
+                .WithViewModel(new RegisterIndividualPageModel(_services))
+                .Build();
+            
+            Navigate(args);
         }
 
         private bool CanAuthorize(object parameter) {
@@ -48,7 +56,7 @@ namespace GenosStore.ViewModel.AuthRegister
             return true;
         }
 
-        public AuthorizationPageModel() {
+        public AuthorizationPageModel(IServices services): base(services) {
             _authorizeCommand = new RelayCommand(Authorize, CanAuthorize);
             _registerCommand = new RelayCommand(Register, CanRegister);
         }

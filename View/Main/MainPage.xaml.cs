@@ -21,7 +21,6 @@ namespace GenosStore.View.Main {
 	public partial class MainPage : Page {
 		public MainPage() {
 			InitializeComponent();
-			DataContext = new MainPageModel();
 		}
 	}
 }
