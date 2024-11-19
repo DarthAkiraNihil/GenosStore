@@ -1,14 +1,18 @@
 ﻿using System.ComponentModel;
 using System.Security.AccessControl;
+using System.Windows;
 using System.Windows.Navigation;
 using GenosStore.Services.Interface;
+using GenosStore.Services.Interface.Entity.Users;
 using GenosStore.Utility;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.AuthRegister;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
     public class RegisterIndividualPageModel: AbstractViewModel
     {
+        
         private readonly RelayCommand _registerCommand;
         private readonly RelayCommand _backToAuthCommand;
         private readonly RelayCommand _registerLegalCommand;
@@ -108,13 +112,55 @@ namespace GenosStore.ViewModel.AuthRegister
         }
         
         private void Register(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-                       .WithTitle("Authorize")
-                       .WithViewModel(new AuthorizationPageModel(_services))
-                       .Build();
+
+            var registrationStatus = _services.Common.Authorization.RegisterIndividual(
+                new IndividualEntityRegistrationData {
+                    Name = Name,
+                    Surname = Surname,
+                    Email = Email,
+                    PhoneNumber = PhoneNumber,
+                    Password = Password,
+                    ConfirmPassword = ConfirmPassword,
+                }
+            );
+
+            switch (registrationStatus) {
+                case RegistrationStatus.Success: {
+                    
+                    MessageBox.Show("REGISTERED");
             
-            Navigate(args);
+                    var args = new NavigationArgsBuilder()
+                               .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+                               .WithTitle("Authorize")
+                               .WithViewModel(new AuthorizationPageModel(_services))
+                               .Build();
+            
+                    Navigate(args);
+                    
+                    break;
+                }
+                case RegistrationStatus.UserAlreadyExists: {
+                    EmailError = "Такой пользователь уже существует";
+                    break;
+                }
+                case RegistrationStatus.TooWeakPassword: {
+                    PasswordError = "Пароль слишком слабый";
+                    break;
+                }
+                case RegistrationStatus.PasswordsDoNotMatch: {
+                    PasswordError = "Пароли не совпадают";
+                    break;
+                }
+                case RegistrationStatus.InvalidEmail: {
+                    EmailError = "Некорректный адрес электронной почты";
+                    break;
+                }
+                case RegistrationStatus.InvalidPhoneNumber: {
+                    PhoneError = "Некорректный номер телефона";
+                    break;
+                }
+                
+            }
         }
         
         private bool CanRegister(object parameter) {

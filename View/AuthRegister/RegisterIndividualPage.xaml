@@ -158,6 +158,51 @@
             </Label>
 
         </DockPanel>
+        
+        <DockPanel x:Name="PhoneField" DockPanel.Dock="Top">
+            <Label 
+                x:Name="PhoneLabel"
+                Content="Номер телефона"
+                DockPanel.Dock="Top"
+                Background="Transparent"
+                Foreground="White"/>
+
+
+            <DockPanel DockPanel.Dock="Top">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="EmailBox" Width="32" Height="32">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+                <TextBox
+                    x:Name="PhoneInput"
+                    DockPanel.Dock="Right"
+                    TextWrapping="NoWrap"
+                    FontSize="24"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,2"
+                    AcceptsReturn="False"
+                    Text="{Binding PhoneNumber}"
+                    CaretBrush="White">
+                    <TextBox.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </TextBox.BorderBrush>
+                </TextBox>
+            </DockPanel>
+
+            <Label
+                x:Name="PhoneError"
+                DockPanel.Dock="Bottom"
+                Content="{Binding PhoneError}"
+                HorizontalAlignment="Left"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
+                </Label.Foreground>
+            </Label>
+
+        </DockPanel>
 
         <DockPanel x:Name="PasswordField" DockPanel.Dock="Top">
             <Label 

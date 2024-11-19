@@ -11,7 +11,9 @@ namespace GenosStore.Model.Repository.Interface {
         IItemRepository Items { get; }
         IOrderEntitiesRepository Orders { get; }
         IUserEntitiesRepository Users { get; }
-        
+
+        int Save();
+
         // // Characteristic
         // ICertificate80PlusRepository Certificates80Plus { get; }
         // IComputerCaseTypesizeRepository ComputerCaseTypesizes { get; }

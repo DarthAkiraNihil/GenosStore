@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using GalaSoft.MvvmLight.Helpers;
 using GenosStore.Model.Entity.User;
 using GenosStore.Model.Repository.Interface;
 using GenosStore.Services.Interface.Common;
@@ -97,6 +98,9 @@ namespace GenosStore.Services.Implementation.Customer {
             
             var checksum = _generateSHA256Checksum(regData.Password + salt);
             user.PasswordHash = checksum;
+            
+            _repositories.Users.IndividualEntities.Create(user);
+            _repositories.Save();
 
             return RegistrationStatus.Success;
         }
@@ -121,6 +125,7 @@ namespace GenosStore.Services.Implementation.Customer {
             var user = new LegalEntity {
                 INN = regData.INN,
                 KPP = regData.KPP,
+                Email = regData.Email,
                 PhysicalAddress = regData.PhysicalAddress,
                 LegalAddress = regData.LegalAddress,
                 IsVerified = false
@@ -131,6 +136,9 @@ namespace GenosStore.Services.Implementation.Customer {
             
             var checksum = _generateSHA256Checksum(regData.Password + salt);
             user.PasswordHash = checksum;
+            
+            _repositories.Users.LegalEntities.Create(user);
+            _repositories.Save();
 
             return RegistrationStatus.Success;
         }

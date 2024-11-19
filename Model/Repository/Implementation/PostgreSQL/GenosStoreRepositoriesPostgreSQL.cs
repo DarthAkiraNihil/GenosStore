@@ -52,5 +52,9 @@ namespace GenosStore.Model.Repository.Implementation.PostgreSQL {
                 return _users;
             }
         }
+
+        public int Save() {
+            return _context.SaveChanges();
+        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using GenosStore.Utility;
 using System.ComponentModel;
+using System.Windows;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.AuthRegister;
 
 namespace GenosStore.ViewModel.AuthRegister {
     public class RegisterLegalPageModel: AbstractViewModel {
@@ -73,11 +75,11 @@ namespace GenosStore.ViewModel.AuthRegister {
 
 		private string _confirmPassword;
 
-		public string ComfirmPassword {
+		public string ConfirmPassword {
 			get { return _confirmPassword; }
 			set {
 				_confirmPassword = value;
-				NotifyPropertyChanged("ComfirmPassword");
+				NotifyPropertyChanged("ConfirmPassword");
 			}
 		}
 
@@ -120,14 +122,52 @@ namespace GenosStore.ViewModel.AuthRegister {
 		}
 		
 		private void Register(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-			           .WithTitle("Authorize")
-			           .WithViewModel(new AuthorizationPageModel(_services))
-			           .Build();
-            
-			Navigate(args);
+			
+			var registrationStatus = _services.Common.Authorization.RegisterLegal(
+				new LegalEntityRegistrationData {
+					Email = Email,
+					INN = INN,
+					KPP = KPP,
+					PhysicalAddress = PhysicalAddress,
+					LegalAddress = LegalAddress,
+					Password = Password,
+					ConfirmPassword = ConfirmPassword
+				}
+			);
 
+			switch (registrationStatus) {
+				case RegistrationStatus.Success: {
+                    
+					MessageBox.Show("REGISTERED. WAIT FOR VERIFY");
+            
+					var args = new NavigationArgsBuilder()
+					           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+					           .WithTitle("Authorize")
+					           .WithViewModel(new AuthorizationPageModel(_services))
+					           .Build();
+            
+					Navigate(args);
+                    
+					break;
+				}
+				case RegistrationStatus.UserAlreadyExists: {
+					EmailError = "Такой пользователь уже существует";
+					break;
+				}
+				case RegistrationStatus.TooWeakPassword: {
+					PasswordError = "Пароль слишком слабый";
+					break;
+				}
+				case RegistrationStatus.PasswordsDoNotMatch: {
+					PasswordError = "Пароли не совпадают";
+					break;
+				}
+				case RegistrationStatus.InvalidEmail: {
+					EmailError = "Некорректный адрес электронной почты";
+					break;
+				}
+                
+			}
 		}
 		
 		private bool CanRegister(object parameter) {
