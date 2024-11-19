@@ -5,10 +5,10 @@ using Ninject.Modules;
 namespace GenosStore.Utility.NinjectModules {
     public class RepositoriesModule: NinjectModule {
         
-        private string _connectionString;
+        private readonly string _connectionString;
 
         public RepositoriesModule(string connectionString) {
-            this._connectionString = connectionString;
+            _connectionString = connectionString;
         }
 
         public override void Load() {

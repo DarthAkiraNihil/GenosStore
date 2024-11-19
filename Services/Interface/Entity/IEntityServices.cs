@@ -5,7 +5,7 @@ using GenosStore.Services.Interface.Entity.Users;
 namespace GenosStore.Services.Interface.Entity {
     public interface IEntityServices {
         IItemService Items { get; }
-        IOrderEntitiesService Orders { get; }
-        IUserEntitiesService Users { get; }
+        //IOrderEntitiesService Orders { get; }
+        //IUserEntitiesService Users { get; }
     }
 }

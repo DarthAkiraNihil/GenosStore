@@ -351,6 +351,7 @@
     <Compile Include="Model\Repository\Interface\User\IUserRepository.cs" />
     <Compile Include="Services\Implementation\Customer\AuthorizationService.cs" />
     <Compile Include="Services\Implementation\Customer\CommonServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Users\UserService.cs" />
     <Compile Include="Services\Implementation\Services.cs" />
     <Compile Include="Services\Interface\Base\IEnumService.cs" />
     <Compile Include="Services\Interface\Base\IFilterService.cs" />
@@ -437,6 +438,7 @@
     <Compile Include="Utility\Types\AuthRegister\AuthorizationStatus.cs" />
     <Compile Include="Utility\Types\AuthRegister\IndividualEntityRegistrationData.cs" />
     <Compile Include="Utility\Types\AuthRegister\LegalEntityRegistrationData.cs" />
+    <Compile Include="Utility\Types\AuthRegister\RegistrationStatus.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
@@ -592,7 +594,6 @@
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="Services\Implementation\Common\" />
-    <Folder Include="Services\Implementation\Entity\" />
     <Folder Include="Services\Interface\Customer\" />
   </ItemGroup>
   <ItemGroup>
