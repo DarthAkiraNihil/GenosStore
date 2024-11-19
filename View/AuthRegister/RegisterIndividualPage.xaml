@@ -48,6 +48,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding Name}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -92,6 +93,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding Surname}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -136,6 +138,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding Email}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -146,7 +149,7 @@
             <Label
                 x:Name="EmailError"
                 DockPanel.Dock="Bottom"
-                Content=""
+                Content="{Binding EmailError}"
                 HorizontalAlignment="Left"
                 >
                 <Label.Foreground>
@@ -180,6 +183,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding Password}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -190,7 +194,7 @@
             <Label
                 x:Name="PasswordError"
                 DockPanel.Dock="Bottom"
-                Content=""
+                Content="{Binding PasswordError}"
                 HorizontalAlignment="Left"
                 >
                 <Label.Foreground>
@@ -224,6 +228,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding ConfirmPassword}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>

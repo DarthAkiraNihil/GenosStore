@@ -5,22 +5,120 @@ using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.AuthRegister {
     public class RegisterLegalPageModel: AbstractViewModel {
-		private RelayCommand _registerCommand;
-		private RelayCommand _backToAuthCommand;
-		private RelayCommand _registerIndividualCommand;
+		private readonly RelayCommand _registerCommand;
+		private readonly RelayCommand _backToAuthCommand;
+		private readonly RelayCommand _registerIndividualCommand;
+
+		#region Properties
+
+		private string _email;
+
+		public string Email {
+			get { return _email; }
+			set {
+				_email = value;
+				NotifyPropertyChanged("Email");
+			}
+		}
+
+		private long _inn;
+
+		public long INN {
+			get { return _inn; }
+			set {
+				_inn = value;
+				NotifyPropertyChanged("INN");
+			}
+		}
+
+		private long _kpp;
+
+		public long KPP {
+			get { return _kpp; }
+			set {
+				_kpp = value;
+				NotifyPropertyChanged("KPP");
+			}
+		}
+
+		private string _physicalAddress;
+
+		public string PhysicalAddress {
+			get { return _physicalAddress; }
+			set {
+				_physicalAddress = value;
+				NotifyPropertyChanged("PhysicalAddress");
+			}
+		}
+
+		private string _legalAddress;
+
+		public string LegalAddress {
+			get { return _legalAddress; }
+			set {
+				_legalAddress = value;
+				NotifyPropertyChanged("LegalAddress");
+			}
+		}
+
+		private string _password;
+
+		public string Password {
+			get { return _password; }
+			set {
+				_password = value;
+				NotifyPropertyChanged("Password");
+			}
+		}
+
+		private string _confirmPassword;
+
+		public string ComfirmPassword {
+			get { return _confirmPassword; }
+			set {
+				_confirmPassword = value;
+				NotifyPropertyChanged("ComfirmPassword");
+			}
+		}
+
+		private string _emailError;
+
+		public string EmailError {
+			get { return _emailError; }
+			set {
+				_emailError = value;
+				NotifyPropertyChanged("EmailError");
+			}
+		}
+
+		private string _innError;
+
+		public string INNError {
+			get { return _innError; }
+			set {
+				_innError = value;
+				NotifyPropertyChanged("INNError");
+			}
+		}
+
+		private string _passwordError;
+
+		public string PasswordError {
+			get { return _passwordError; }
+			set {
+				_passwordError = value;
+				NotifyPropertyChanged("PasswordError");
+			}
+		}
+
+		#endregion
+
+		#region RegisterCommand
 
 		public RelayCommand RegisterCommand {
 			get { return _registerCommand; }
 		}
-
-		public RelayCommand BackToAuthCommand {
-			get { return _backToAuthCommand; }
-		}
-
-		public RelayCommand RegisterIndividualCommand {
-			get { return _registerIndividualCommand; }
-		}
-
+		
 		private void Register(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
@@ -31,16 +129,17 @@ namespace GenosStore.ViewModel.AuthRegister {
 			Navigate(args);
 
 		}
+		
+		private bool CanRegister(object parameter) {
+			return true;
+		}
 
-		private void BackToAuth(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-			           .WithTitle("Authorize")
-			           .WithViewModel(new AuthorizationPageModel(_services))
-			           .Build();
-            
-			Navigate(args);
-
+		#endregion
+		
+		#region RegisterIndividualCommand
+		
+		public RelayCommand RegisterIndividualCommand {
+			get { return _registerIndividualCommand; }
 		}
 
 		private void RegisterIndividual(object parameter) {
@@ -53,19 +152,35 @@ namespace GenosStore.ViewModel.AuthRegister {
 			Navigate(args);
 
 		}
-
-
-		private bool CanRegister(object parameter) {
-			return true;
-		}
-
-		private bool CanBackToAuth(object parameter) {
-			return true;
-		}
-
+		
 		private bool CanRegisterIndividual(object parameter) {
 			return true;
 		}
+		
+		#endregion
+		
+		#region RegisterBackToAuthCommand
+		
+		public RelayCommand BackToAuthCommand {
+			get { return _backToAuthCommand; }
+		}
+		
+		private void BackToAuth(object parameter) {
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+			           .WithTitle("Authorize")
+			           .WithViewModel(new AuthorizationPageModel(_services))
+			           .Build();
+            
+			Navigate(args);
+
+		}
+		
+		private bool CanBackToAuth(object parameter) {
+			return true;
+		}
+		
+		#endregion
 
 		public RegisterLegalPageModel(IServices services): base(services) {
 			_registerCommand = new RelayCommand(Register, CanRegister);

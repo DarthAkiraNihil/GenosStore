@@ -27,7 +27,7 @@
         <DockPanel x:Name="EmailField" DockPanel.Dock="Top">
             <Label 
                 x:Name="EmailLabel"
-                Content="Имя"
+                Content="Электронная почта"
                 DockPanel.Dock="Top"
                 Background="Transparent"
                 Foreground="White"/>
@@ -48,6 +48,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding Email}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -58,7 +59,7 @@
             <Label
                 x:Name="EmailError"
                 DockPanel.Dock="Bottom"
-                Content=""
+                Content="{Binding EmailError}"
                 HorizontalAlignment="Left"
                 >
                 <Label.Foreground>
@@ -71,7 +72,7 @@
         <DockPanel x:Name="INNField" DockPanel.Dock="Top">
             <Label 
                 x:Name="INNLabel"
-                Content="Фамилия"
+                Content="ИНН"
                 DockPanel.Dock="Top"
                 Background="Transparent"
                 Foreground="White"/>
@@ -92,6 +93,8 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    PreviewTextInput="NumberValidationTextBox"
+                    Text="{Binding INN}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -102,7 +105,7 @@
             <Label
                 x:Name="INNError"
                 DockPanel.Dock="Bottom"
-                Content=""
+                Content="{Binding INNError}"
                 HorizontalAlignment="Left"
                 >
                 <Label.Foreground>
@@ -115,7 +118,7 @@
         <DockPanel x:Name="KPPField" DockPanel.Dock="Top">
             <Label 
                 x:Name="KPPLabel"
-                Content="Электронная почта"
+                Content="КПП"
                 DockPanel.Dock="Top"
                 Background="Transparent"
                 Foreground="White"/>
@@ -135,7 +138,9 @@
                     Foreground="White"
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
+                    PreviewTextInput="NumberValidationTextBox"
                     AcceptsReturn="False"
+                    Text="{Binding KPP}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -159,7 +164,7 @@
         <DockPanel x:Name="PhysicalAddressField" DockPanel.Dock="Top">
             <Label 
                 x:Name="PhysicalAddressLabel"
-                Content="Пароль"
+                Content="Физический адрес"
                 DockPanel.Dock="Top"
                 Background="Transparent"
                 Foreground="White"/>
@@ -180,6 +185,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding PhysicalAddress}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -203,7 +209,7 @@
         <DockPanel x:Name="LegalAddressField" DockPanel.Dock="Top">
             <Label 
                 x:Name="LegalAddressLabel"
-                Content="Повторите пароль"
+                Content="Юридический адрес"
                 DockPanel.Dock="Top"
                 Background="Transparent"
                 Foreground="White"/>
@@ -224,6 +230,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding LegalAddress}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -268,6 +275,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding Password}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -278,7 +286,7 @@
             <Label
                 x:Name="PasswordError"
                 DockPanel.Dock="Bottom"
-                Content=""
+                Content="{Binding PasswordError}"
                 HorizontalAlignment="Left"
                 >
                 <Label.Foreground>
@@ -312,6 +320,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
                     AcceptsReturn="False"
+                    Text="{Binding ConfirmPassword}"
                     CaretBrush="White">
                     <TextBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>

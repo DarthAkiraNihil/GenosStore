@@ -61,6 +61,7 @@
                         Background="Transparent"
                         BorderThickness="0,0,0,2"
                         AcceptsReturn="False"
+                        Text="{Binding Login}"
                         CaretBrush="White">
                         <TextBox.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -71,7 +72,7 @@
                 <Label
                     x:Name="UsernameError"
                     DockPanel.Dock="Bottom"
-                    Content=""
+                    Content="{Binding ErrorLogin}"
                     HorizontalAlignment="Left"
                     >
                     <Label.Foreground>
@@ -104,6 +105,7 @@
                         Background="Transparent"
                         BorderThickness="0,0,0,2"
                         AcceptsReturn="False"
+                        Text="{Binding Password}"
                         CaretBrush="White">
                         <TextBox.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -113,7 +115,7 @@
 
                 <Label
                     DockPanel.Dock="Bottom"
-                    Content=""
+                    Content="{Binding ErrorPassword}"
                     HorizontalAlignment="Left"
                     >
                     <Label.Foreground>

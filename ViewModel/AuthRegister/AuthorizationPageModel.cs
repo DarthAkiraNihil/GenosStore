@@ -7,35 +7,101 @@ using System;
 using GenosStore.Model.Context;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Services.Interface;
+using GenosStore.Services.Interface.Common;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.AuthRegister;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
     public class AuthorizationPageModel: AbstractViewModel {
         
-        private RelayCommand _authorizeCommand;
-        private RelayCommand _registerCommand;
+        private readonly RelayCommand _authorizeCommand;
+        private readonly RelayCommand _registerCommand;
+        
+        private string _errorLogin;
+        private string _errorPassword;
+
+        private string _login;
+        private string _password;
 
 		public static Action Close;
+        
+        #region Properties
 
+        public string ErrorLogin {
+            get { return _errorLogin; }
+            set {
+                _errorLogin = value;
+                NotifyPropertyChanged("ErrorLogin");
+            }
+        }
+
+        public string ErrorPassword {
+            get { return _errorPassword; }
+            set {
+                _errorPassword = value;
+                NotifyPropertyChanged("ErrorPassword");
+            }
+        }
+
+        public string Login {
+            get { return _login; }
+            set {
+                _login = value;
+                NotifyPropertyChanged("Login");
+            }
+        }
+
+        public string Password {
+            get { return _password; }
+            set {
+                _password = value;
+                NotifyPropertyChanged("Password");
+            }
+        }
+        
+        #endregion
+
+        #region AuthorizeCommand
 		public RelayCommand AuthorizeCommand {
             get { return _authorizeCommand; }
         }
-
+        
+        private void Authorize(object parameter) {
+            
+            var authInfo = _services.Common.Authorization.Authorize(Login, Password);
+            var status = authInfo.Item1;
+            switch (status) {
+                case AuthorizationStatus.Success: {
+                    var mainView = new MainWindow(_services);// { DataContext = new MainViewModel(user) };
+                    mainView.Show();
+                    Close?.Invoke();
+                    break;
+                }
+                case AuthorizationStatus.IncorrectPassword: {
+                    ErrorPassword = "Неверный пароль";
+                    break;
+                }
+                case AuthorizationStatus.DoesNotExist: {
+                    ErrorLogin = "Такого пользователя не существует";
+                    break;
+                }
+                case AuthorizationStatus.LegalEntityNotVerified: {
+                    ErrorLogin = "Юр. лицо не подтверждено";
+                    break;
+                }
+            }
+        }
+        
+        private bool CanAuthorize(object parameter) {
+            return true;
+        }
+        
+        #endregion
+        #region RegisterCommand
         public RelayCommand RegisterCommand
         {
             get { return _registerCommand; }
-		}
-
-        private void Authorize(object parameter) {
-            var c = new GenosStoreDatabaseContext();
-            var mb = new Motherboard();
-
-            
-            var mainView = new MainWindow(_services);// { DataContext = new MainViewModel(user) };
-			mainView.Show();
-            Close?.Invoke();
-			//RequestClose(this, new EventArgs());
 		}
 
         private void Register(object parameter) {
@@ -47,15 +113,13 @@ namespace GenosStore.ViewModel.AuthRegister
             
             Navigate(args);
         }
-
-        private bool CanAuthorize(object parameter) {
-            return true;
-        }
-
+        
         private bool CanRegister(object parameter) {
             return true;
         }
-
+        
+        #endregion
+        
         public AuthorizationPageModel(IServices services): base(services) {
             _authorizeCommand = new RelayCommand(Authorize, CanAuthorize);
             _registerCommand = new RelayCommand(Register, CanRegister);
