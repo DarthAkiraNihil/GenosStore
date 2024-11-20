@@ -3,11 +3,13 @@ using System.Windows;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
+using GenosStore.Model.Entity.User;
 using GenosStore.Model.Repository.Implementation.PostgreSQL;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Types.Filtering;
+using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class MotherboardsListModel: ComputerComponentListViewModel<Motherboard> {
@@ -30,11 +32,15 @@ namespace GenosStore.ViewModel.ItemList {
 			}
 		}
 
+		protected override AbstractViewModel _itemPageViewModel(int id) {
+			return null;
+		}
+
 		protected override void ApplyFilters(object parameter) {
 			MessageBox.Show("A");
 		}
 
-		public MotherboardsListModel(IServices services): base(services) {
+		public MotherboardsListModel(IServices services, User user): base(services, user) {
 			
 			//var context = new GenosStoreDatabaseContext();
 

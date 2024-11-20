@@ -5,13 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Main {
-	public class ItemCatalogueModel: AbstractViewModel {
+	public class ItemCatalogueModel: RequiresUserViewModel {
 
 		private RelayCommand _toMotherboardsCommand;
 		public RelayCommand ToMotherboardsCommand {
@@ -21,7 +22,7 @@ namespace GenosStore.ViewModel.Main {
 		private void ToMotherboards(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/ItemList/MotherboardsPage.xaml")
-			           .WithViewModel(new MotherboardsListModel(_services))
+			           .WithViewModel(new MotherboardsListModel(_services, _user))
 			           .Build();
 			Navigate(args);
 		}
@@ -37,7 +38,7 @@ namespace GenosStore.ViewModel.Main {
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		public ItemCatalogueModel(IServices services): base(services) {
+		public ItemCatalogueModel(IServices services, User user): base(services, user) {
 			_toMotherboardsCommand = new RelayCommand(ToMotherboards, CanToMotherboards);
 		}
 

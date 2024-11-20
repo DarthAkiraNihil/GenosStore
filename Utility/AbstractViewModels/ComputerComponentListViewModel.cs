@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Types.Filtering;
 
@@ -13,7 +14,7 @@ namespace GenosStore.Utility.AbstractViewModels {
         public ObservableCollection<CheckableItem<Vendor>> Vendors { get; set; }
 
         #endregion
-        public ComputerComponentListViewModel(IServices services) : base(services) {
+        public ComputerComponentListViewModel(IServices services, User user) : base(services, user) {
             TDP = new RangeItem();
         }
     }

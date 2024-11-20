@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GenosStore.Model.Entity.Item.ComputerComponent;
+using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Types.Filtering;
@@ -14,7 +15,7 @@ using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Admin {
-	internal class DBEditPageModel: AbstractViewModel {
+	internal class DBEditPageModel: RequiresUserViewModel {
 		private readonly RelayCommand _toItemPageCommand;
 		private readonly RelayCommand _applyFiltersCommand;
 
@@ -37,7 +38,7 @@ namespace GenosStore.ViewModel.Admin {
 		private void ToItemPage(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/ItemPage/MotherboardPage.xaml")
-			           .WithViewModel(new MotherboardsListModel(_services))
+			           .WithViewModel(new MotherboardsListModel(_services, _user))
 			           .Build();
 			
 			Navigate(args);
@@ -55,7 +56,7 @@ namespace GenosStore.ViewModel.Admin {
 			return true;
 		}
 		
-		public DBEditPageModel(IServices services): base(services) {
+		public DBEditPageModel(IServices services, User user): base(services, user) {
 			
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);

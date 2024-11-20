@@ -505,7 +505,7 @@
                 DockPanel.Dock="Bottom"
                 Background="Transparent"
                 BorderBrush="#00ABADB3"
-                ItemsSource="{Binding Motherboards}"
+                ItemsSource="{Binding Items}"
                 ItemTemplate="{StaticResource ItemListElement}"
                 >
 

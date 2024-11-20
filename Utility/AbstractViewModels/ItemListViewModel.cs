@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types.Filtering;
 
 namespace GenosStore.Utility.AbstractViewModels {
-    public abstract class ItemListViewModel<T>: AbstractViewModel{
+    public abstract class ItemListViewModel<T>: RequiresUserViewModel{
         private readonly RelayCommand _toItemPageCommand;
 		private readonly RelayCommand _applyFiltersCommand;
 		
@@ -19,6 +20,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 			
 			var args = new NavigationArgsBuilder()
 			           .WithURL(_itemPageURL)
+			           .WithViewModel(_itemPageViewModel(id))
 			           .WithId(id)
 			           .Build();
             
@@ -26,6 +28,8 @@ namespace GenosStore.Utility.AbstractViewModels {
 		}
 		
 		protected abstract string _itemPageURL { get; }
+
+		protected abstract AbstractViewModel _itemPageViewModel(int id);
 		
 		private bool CanToItemPage(object parameter) {
 			return true;
@@ -47,7 +51,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 		
 		#endregion
 
-		public ItemListViewModel(IServices services): base(services) {
+		public ItemListViewModel(IServices services, User user): base(services, user) {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
 

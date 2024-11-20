@@ -431,6 +431,7 @@
     <Compile Include="Utility\AbstractViewModels\AbstractViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ComputerComponentListViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ItemListViewModel.cs" />
+    <Compile Include="Utility\AbstractViewModels\RequiresUserViewModel.cs" />
     <Compile Include="Utility\ItemPageViewModel.cs" />
     <Compile Include="Utility\Navigation\NavigationArgs.cs" />
     <Compile Include="Utility\Navigation\NavigationArgsBuilder.cs" />

@@ -5,10 +5,8 @@ using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.Main {
-	public class MainPageModel: AbstractViewModel {
+	public class MainPageModel: RequiresUserViewModel {
 		
-		private User _currentUser;
-
 		private RelayCommand _toCatalogueCommand;
 		public RelayCommand ToCatalogueCommand {
 			get { return _toCatalogueCommand; }
@@ -17,7 +15,7 @@ namespace GenosStore.ViewModel.Main {
 		private void ToCatalogue(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/Main/ItemCataloguePage.xaml")
-			           .WithViewModel(new ItemCatalogueModel(_services))
+			           .WithViewModel(new ItemCatalogueModel(_services, _user))
 			           .Build();
 			
 			Navigate(args);
@@ -27,9 +25,8 @@ namespace GenosStore.ViewModel.Main {
 			return true;
 		}
 
-		public MainPageModel(IServices services, User currentUser): base(services) {
+		public MainPageModel(IServices services, User currentUser): base(services, currentUser) {
 			_toCatalogueCommand = new RelayCommand(ToCatalogue, CanToCatalogue);
-			_currentUser = currentUser;
 		}
 	}
 }
