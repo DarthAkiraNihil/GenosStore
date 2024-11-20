@@ -1,10 +1,14 @@
-﻿using GenosStore.Services.Interface;
+﻿using System.Collections.ObjectModel;
+using GenosStore.Services.Interface;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Filtering;
 
 namespace GenosStore.Utility.AbstractViewModels {
-    public abstract class ItemListViewModel: AbstractViewModel {
-        protected readonly RelayCommand _toItemPageCommand;
-		protected readonly RelayCommand _applyFiltersCommand;
+    public abstract class ItemListViewModel<T>: AbstractViewModel{
+        private readonly RelayCommand _toItemPageCommand;
+		private readonly RelayCommand _applyFiltersCommand;
+		
+		public ObservableCollection<T> Items { get; set; }
 		
 		public RelayCommand ToItemPageCommand {
 			get { return _toItemPageCommand; }
@@ -37,12 +41,20 @@ namespace GenosStore.Utility.AbstractViewModels {
 			return true;
 		}
 
+		#region Properties
+
+		public RangeItem Price { get; set; }
+		
+		#endregion
+
 		public ItemListViewModel(IServices services): base(services) {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
-			
+
+			Price = new RangeItem();
+
 			//var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
-			
+
 
 			//Vendors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.Vendors.List());
 			//MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
@@ -52,7 +64,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 			//MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
 
 			//Motherboards = new ObservableCollection<Motherboard>(dbAccessor.Items.ComputerComponents.Motherboards.List());
-			
+
 		}
     }
 }

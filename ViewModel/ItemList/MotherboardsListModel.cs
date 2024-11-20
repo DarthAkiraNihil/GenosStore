@@ -7,19 +7,23 @@ using GenosStore.Model.Repository.Implementation.PostgreSQL;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
-using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Filtering;
 
 namespace GenosStore.ViewModel.ItemList {
-	public class MotherboardsListModel: ItemListViewModel {
+	public class MotherboardsListModel: ComputerComponentListViewModel<Motherboard> {
 		
-		public ObservableCollection<CheckableItem<Vendor>> Vendors { get; set; }
+		
 		public ObservableCollection<CheckableItem<MotherboardFormFactor>> MotherboardFormFactors { get; set; }
 		public ObservableCollection<CheckableItem<CPUSocket>> CPUSockets { get; set; }
 		public ObservableCollection<CheckableItem<CPUCore>> CPUCores { get; set; }
 		public ObservableCollection<CheckableItem<RAMType>> RAMTypes { get; set; }
-		
-		public ObservableCollection<Motherboard> Motherboards { get; set; }
 
+		public RangeItem RAMSlotsCount { get; set; }
+		public RangeItem PCIESlotsCount { get; set; }
+		public bool HasNVMeSupport { get; set; }
+		public RangeItem SataPortsCount { get; set; }
+		public RangeItem USBPortsCount { get; set; }
+		
 		protected override string _itemPageURL {
 			get {
 				return "View/ItemPage/MotherboardPage.xaml";
@@ -127,8 +131,13 @@ namespace GenosStore.ViewModel.ItemList {
 			CPUCores = Utilities.ConvertToCheckableCollection(dbAccessor.Items.SimpleComputerComponents.CPUCores.List());
 			RAMTypes = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.RAMTypes.List());
 			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
+			
+			RAMSlotsCount = new RangeItem();
+			PCIESlotsCount = new RangeItem();
+			SataPortsCount = new RangeItem();
+			USBPortsCount = new RangeItem();
 
-			Motherboards = new ObservableCollection<Motherboard>(dbAccessor.Items.ComputerComponents.Motherboards.List());
+			Items = new ObservableCollection<Motherboard>(dbAccessor.Items.ComputerComponents.Motherboards.List());
 			
 		}
 	}

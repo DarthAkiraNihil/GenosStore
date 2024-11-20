@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Utility.Types.Filtering;
 using GenosStore.View.Other;
 
 namespace GenosStore.Utility {
@@ -9,7 +10,7 @@ namespace GenosStore.Utility {
             var converted = new ObservableCollection<CheckableItem<T>>();
             foreach (var element in list) {
                 converted.Add(
-                    new CheckableItem<T>() {Item = element, IsChecked = false}
+                    new CheckableItem<T> {Item = element, IsChecked = false}
                 );
             }
             return converted;

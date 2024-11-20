@@ -63,7 +63,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding Price.From}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -84,7 +85,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding Price.To}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -114,7 +116,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding TDP.From}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -135,7 +138,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding TDP.To}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -250,7 +254,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding RAMSlotsCount.From}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -271,7 +276,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding RAMSlotsCount.To}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -301,7 +307,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding PCIESlotsCount.From}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -322,7 +329,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding PCIESlotsCount.To}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -343,15 +351,9 @@
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
-                            <ListBox>
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
+                            <CheckBox IsChecked="{Binding HasNVMeSupport}">
+                                
+                            </CheckBox>
                         </Expander>
 
                         <Expander x:Name="SataCount" Header="Количество портов Sata" FontSize="16" Background="Transparent">
@@ -367,7 +369,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding SataPortsCount.From}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -388,7 +391,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding SataPortsCount.To}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -418,7 +422,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding USBPortsCount.From}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
@@ -439,7 +444,8 @@
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right" >
+                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
+                                             Text="{Binding USBPortsCount.To}">
                                         <TextBox.BorderBrush>
                                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                                         </TextBox.BorderBrush>
