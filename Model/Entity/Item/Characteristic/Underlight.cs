@@ -11,7 +11,6 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.Underlights")]
 	public class Underlight: Named {
-		[Required]
 		public long Id { get; set; }
 	}
 }

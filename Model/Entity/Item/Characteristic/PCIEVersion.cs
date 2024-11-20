@@ -10,7 +10,6 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.PCIEVersions")]
 	public class PCIEVersion: Named {
-		[Required]
 		public long Id { get; set; }
 	}
 }

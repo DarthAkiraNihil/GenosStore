@@ -15,7 +15,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		//public ComputerCaseTypesize Typesize { get; set; }
 		public virtual ComputerCaseTypesize ComputerCaseTypesize { get; set; }
 		[Required]
-		public float Lenght { get; set; }
+		public float Length { get; set; }
 		[Required]
 		public float Width { get; set; }
 		[Required]

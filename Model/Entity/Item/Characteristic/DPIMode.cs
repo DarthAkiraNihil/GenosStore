@@ -5,8 +5,7 @@ using GenosStore.Model.Entity.Item.ComputerComponent;
 
 namespace GenosStore.Model.Entity.Item.Characteristic {
     public class DPIMode {
-	    [Required]
-		public int Id { get; set; }
+	    public int Id { get; set; }
 		[Required]
 		public int DPI { get; set; }
         

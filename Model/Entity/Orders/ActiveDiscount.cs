@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Orders {
 	[Table("public.ActiveDiscounts")]
 	public class ActiveDiscount {
-		[Required]
 		public int Id { get; set; }
 		[Required]
 		public DateTime CreatedAt { get; set; }

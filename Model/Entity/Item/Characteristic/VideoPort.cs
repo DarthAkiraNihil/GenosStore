@@ -14,7 +14,6 @@ using GenosStore.Model.Entity.Item.ComputerComponent;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.VideoPorts")]
 	public class VideoPort: Named {
-		[Required]
 		public long Id { get; set; }
 		
 		public List<GraphicsCard> GraphicsCards { get; set; }

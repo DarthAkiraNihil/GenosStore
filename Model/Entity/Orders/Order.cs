@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Orders {
 	[Table("public.Orders")]
 	public class Order {
-		[Required]
 		public long Id { get; set; }
 
 		[Required]

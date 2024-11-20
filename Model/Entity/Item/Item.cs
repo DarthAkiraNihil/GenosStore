@@ -11,7 +11,6 @@ using System.ComponentModel.DataAnnotations;
 namespace GenosStore.Model.Entity.Item {
 	[Table("public.Items")]
 	public abstract class Item: WithModel {
-		[Required]
 		public int Id { get; set; }
 
 		[Required]

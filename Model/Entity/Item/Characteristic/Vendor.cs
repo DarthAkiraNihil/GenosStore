@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.Vendors")]
 	public class Vendor: Named {
-		[Required]
 		public int Id { get; set; }
 	}
 }

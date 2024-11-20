@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 namespace GenosStore.Model.Entity.Orders {
 	[Table("public.BankCards")]
 	public class BankCard {
-		[Required]
 		public int Id { get; set; }
 		[Required]
 		public long Number { get; set; }

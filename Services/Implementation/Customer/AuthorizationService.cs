@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using GalaSoft.MvvmLight.Helpers;
+using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
 using GenosStore.Model.Repository.Interface;
 using GenosStore.Services.Interface.Common;
@@ -90,7 +91,8 @@ namespace GenosStore.Services.Implementation.Customer {
                 Name = regData.Name,
                 Surname = regData.Surname,
                 Email = regData.Email,
-                PhoneNumber = regData.PhoneNumber
+                PhoneNumber = regData.PhoneNumber,
+                Cart = new Cart()
             };
             
             var salt = _generateSalt();
@@ -128,7 +130,8 @@ namespace GenosStore.Services.Implementation.Customer {
                 Email = regData.Email,
                 PhysicalAddress = regData.PhysicalAddress,
                 LegalAddress = regData.LegalAddress,
-                IsVerified = false
+                IsVerified = false,
+                Cart = new Cart()
             };
             
             var salt = _generateSalt();

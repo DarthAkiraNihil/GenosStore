@@ -11,7 +11,6 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.KeyboardType")]
 	public class KeyboardType: Named {
-		[Required]
 		public long Id { get; set; }
 	}
 }

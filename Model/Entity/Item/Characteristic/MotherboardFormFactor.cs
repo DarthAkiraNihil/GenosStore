@@ -14,7 +14,6 @@ using GenosStore.Model.Entity.Item.ComputerComponent;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.MotherboardFormFactors")]
 	public class MotherboardFormFactor: Named {
-		[Required]
 		public long Id { get; set; }
 		public List<ComputerCase> ComputerCases { get; set; }
 
