@@ -15,12 +15,14 @@
 // 	PreparedAssembly
 // }
 
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GenosStore.Model.Entity.Base;
 
 namespace GenosStore.Model.Entity.Item {
 	[Table("public.ItemTypes")]
 	public class ItemType: Named {
+		[Required]
 		public int Id { get; set; }
 	}
 }

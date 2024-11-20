@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,14 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.CPUCoolers")]
 	public class CPUCooler: ComputerComponent {
 
+		[Required]
 		public long MaxFanRPM { get; set; }
-		public int FoundationMaterialId { get; set; }
-		public int RadiatroMaterialId { get; set; }
+
+		[Required]
 		public byte TubesCount { get; set; }
+		[Required]
 		public float TubesDiameter { get; set; }
+		[Required]
 		public byte FanCount { get; set; }
 		
 		public virtual CoolerMaterial FoundationMaterial { get; set; }

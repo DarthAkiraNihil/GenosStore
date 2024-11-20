@@ -5,17 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.Displays")]
 	public class Display: ComputerComponent {
-		
-		public int DefinitionId { get; set; }
-		public int MatrixTypeId { get; set; }
-		public int UnderlightId { get; set; }
-		public int VesaSizeId { get; set; }
+
+		[Required]
 		public int MaxUpdateFrequency { get; set; }
-		
+		[Required]
 		public double ScreedDiagonal;
 
 		public virtual Definition Definition { get; set; }

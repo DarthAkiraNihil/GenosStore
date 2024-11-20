@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using GenosStore.Model.Entity.Base;
 
 // public enum OrderStatus {
@@ -16,6 +17,7 @@ namespace GenosStore.Model.Entity.Orders {
 
 	[Table("public.OrderStatus")]
 	public class OrderStatus: Named {
+		[Required]
 		public long Id { get; set; }
 	}
 }

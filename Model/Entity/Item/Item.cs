@@ -6,18 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GenosStore.Model.Entity.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace GenosStore.Model.Entity.Item {
 	[Table("public.Items")]
 	public abstract class Item: WithModel {
+		[Required]
 		public int Id { get; set; }
 
+		[Required]
 		public double Price { get; set; }
-		public string PathToImage { get; set; }
+		
+		public string ImageBase64 { get; set; }
+		[Required]
 		public string Description { get; set; }
-		//public abstract ItemType Type { get; }
-		public int? ActiveDiscountId { get; set; }
-		public int ItemTypeId { get; set; }
 		
 		public List<Cart> Carts { get; set; }
 

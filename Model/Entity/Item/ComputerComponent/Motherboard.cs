@@ -6,36 +6,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GenosStore.Model.Entity.Item.Characteristic;
+using System.ComponentModel.DataAnnotations;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.Motherboards")]
 	public class Motherboard: ComputerComponent {
-		
-		public int MotherboardFormFactorId { get; set; }
-		public int CPUSocketId { get; set; }
-		public int MotherboardChipsetId { get; set; }
+
+		[Required]
 		public List<CPUCore> SupportedCPUCores { get; set; }
+		[Required]
 		public List<RAMType> SupportedRAMTypes { get; set; }
 
+		[Required]
 		public byte RAMSlots { get; set; }
+		[Required]
 		public byte RAMChannels { get; set; }
+		[Required]
 		public int MaxRAMFrequency { get; set; }
+		[Required]
 		public byte PCIESlotsCount { get; set; }
+		[Required]
 		public int PCIEVersionId { get; set; }
-		
 
+		[Required]
 		public bool HasNVMeSupport { get; set; }
+		[Required]
 		public byte M2SlotsCount { get; set; }
+		[Required]
 		public byte SataPortsCount { get; set; }
+		[Required]
 		public byte USBPortsCount { get; set; }
+		[Required]
 		public List<VideoPort> VideoPorts { get; set; }
+		[Required]
 		public byte RJ45PortsCount { get; set; }
+		[Required]
 		public byte DigiralAudioPortsCount { get; set; }
 
-		public int AudioChipsetId { get; set; }
 		public float NetworkAdapterSpeed { get; set; }
-		public int NetworkAdapterId { get; set; }
-
+		
 		public MotherboardFormFactor FormFactor { get; set; }
 		public CPUSocket CPUSocket { get; set; }
 		public PCIEVersion PCIEVersion { get; set; }

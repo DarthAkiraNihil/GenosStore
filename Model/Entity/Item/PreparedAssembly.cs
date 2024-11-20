@@ -10,19 +10,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace GenosStore.Model.Entity.Item {
 	[Table("public.PreparedAssemblies")]
 	public class PreparedAssembly: Item {
-		
-		public int CPUId { get; set; } 
-		public int MotherboardId { get; set; }
-		public int GraphicsCardId { get; set; }
-		public List<RAM> RAM { get; set; }
-		public List<DiskDrive> Disks { get; set; }
-		public int PowerSupplyId { get; set; }
-		public int? DisplayId { get; set; }
-		public int ComputerCaseId { get; set; }
-		public int? KeyboardId { get; set; }
-		public int? MouseId { get; set; }
-		public int CPUCoolerId { get; set; }
 
+		[Required]
+		public List<RAM> RAM { get; set; }
+		[Required]
+		public List<DiskDrive> Disks { get; set; }
+		
 		[Required]
 		public virtual CPU CPU { get; set; }
 		[Required]

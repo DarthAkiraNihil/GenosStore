@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using GenosStore.Model.Entity.Base;
 
 // public enum ComputerCaseTypesize {
@@ -10,6 +11,7 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.ComputerCaseTypesizes")]
 	public class ComputerCaseTypesize: Named {
+		[Required]
 		public long Id { get; set; }
 	}
 }

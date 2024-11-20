@@ -6,15 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GenosStore.Model.Entity.Item.Characteristic;
+using System.ComponentModel.DataAnnotations;
 
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.GraphicsCards")]
 	public class GraphicsCard: ComputerComponent {
 
-		public int GPUId { get; set; }
+		[Required]
 		public int VideoRAM { get; set; }
+		[Required]
 		public List<VideoPort> VideoPorts { get; set; }
+		[Required]
 		public byte MaxDisplaysSupported { get; set; }
+		[Required]
 		public byte UsedSlots { get; set; }
 
 		public virtual GPU GPU { get; set; }

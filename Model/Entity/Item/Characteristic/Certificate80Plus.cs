@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using GenosStore.Model.Entity.Base;
 
 // public enum Certificate80Plus {
@@ -14,6 +15,7 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.Certificates80Plus")]
 	public class Certificate80Plus: Named {
+		[Required]
 		public long Id { get; set; }
 	}
 }

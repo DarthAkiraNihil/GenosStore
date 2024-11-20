@@ -3,12 +3,14 @@
 // 	vesa120x120,
 // }
 
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GenosStore.Model.Entity.Base;
 
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.VesaSizes")]
 	public class VesaSize: Named {
+		[Required]
 		public long Id { get; set; }
 	}
 }

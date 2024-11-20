@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,10 @@ using GenosStore.Model.Entity.Item.Characteristic;
 namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	[Table("public.Keyboards")]
 	public class Keyboard: ComputerComponent {
-		
-		public int KeyboardTypesizeId { get; set; }
+
+		[Required]
 		public bool HasRGBLighting { get; set; }
-		public int KeyboardTypeId { get; set; }
+		[Required]
 		public bool IsWireless { get; set; }
 		
 		public KeyboardTypesize Typesize { get; set; }

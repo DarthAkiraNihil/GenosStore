@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using GenosStore.Model.Entity.Base;
 
 // public enum MatrixType {
@@ -11,6 +12,7 @@ using GenosStore.Model.Entity.Base;
 namespace GenosStore.Model.Entity.Item.Characteristic {
 	[Table("public.MatrixTypes")]
 	public class MatrixType: Named {
+		[Required]
 		public long Id { get; set; }
 	}
 }

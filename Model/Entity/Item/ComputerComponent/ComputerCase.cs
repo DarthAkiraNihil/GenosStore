@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,20 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		//public override ItemType Type => ItemType.ComputerCase;
 
 		//public ComputerCaseTypesize Typesize { get; set; }
-		public int ComputerCaseTypesizeId { get; set; }
+		public virtual ComputerCaseTypesize ComputerCaseTypesize { get; set; }
+		[Required]
 		public float Lenght { get; set; }
+		[Required]
 		public float Width { get; set; }
+		[Required]
 		public float Height { get; set; }
 
+		[Required]
 		public List<MotherboardFormFactor> SupportedMotherboardFormFactors { get; set; }
+		[Required]
 		public bool HasARGBLighting { get; set; }
+		[Required]
 		public byte DrivesSlotsCount;
-		
-		public virtual ComputerCaseTypesize ComputerCaseTypesize { get; set; }
 
 		public ComputerCase() {
 			SupportedMotherboardFormFactors = new List<MotherboardFormFactor>();

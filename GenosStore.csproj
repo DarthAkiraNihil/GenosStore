@@ -170,6 +170,10 @@
     <Compile Include="Migrations\202411051657541_FixNoModelInItem.Designer.cs">
       <DependentUpon>202411051657541_FixNoModelInItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411200541282_RequiredFix.cs" />
+    <Compile Include="Migrations\202411200541282_RequiredFix.Designer.cs">
+      <DependentUpon>202411200541282_RequiredFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -564,6 +568,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411051657541_FixNoModelInItem.resx">
       <DependentUpon>202411051657541_FixNoModelInItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411200541282_RequiredFix.resx">
+      <DependentUpon>202411200541282_RequiredFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
