@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using CommonServiceLocator;
 using GenosStore.Services.Interface;
+using GenosStore.Utility;
 using GenosStore.Utility.NinjectModules;
 using GenosStore.View.AppWindows;
 using Ninject;
@@ -18,6 +19,8 @@ namespace GenosStore {
 	public partial class App : Application {
 
 		private void App_OnStartup(object sender, StartupEventArgs e) {
+			
+			Utilities.SpawnMessageBox("TEST", "TEST");
 			
 			var kernel = new StandardKernel(
 				new ServicesModule(),

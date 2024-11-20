@@ -494,6 +494,9 @@
     <Compile Include="View\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Other\GenosStoreMessageBox.xaml.cs">
+      <DependentUpon>GenosStoreMessageBox.xaml</DependentUpon>
+    </Compile>
     <Page Include="Utility\Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -540,6 +543,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Other\GenosStoreMessageBox.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

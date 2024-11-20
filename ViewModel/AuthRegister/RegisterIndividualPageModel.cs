@@ -127,6 +127,7 @@ namespace GenosStore.ViewModel.AuthRegister
             switch (registrationStatus) {
                 case RegistrationStatus.Success: {
                     
+                    //Utilities.SpawnMessageBox("REG", "REGISTERED");
                     MessageBox.Show("REGISTERED");
             
                     var args = new NavigationArgsBuilder()
