@@ -5,6 +5,7 @@ using System.Windows.Navigation;
 using GenosStore.Services.Interface;
 using GenosStore.Services.Interface.Entity.Users;
 using GenosStore.Utility;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types.AuthRegister;
 

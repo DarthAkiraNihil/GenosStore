@@ -1,5 +1,4 @@
-﻿using System;
-using GenosStore.Services.Interface;
+﻿using GenosStore.Utility.AbstractViewModels;
 
 namespace GenosStore.Utility.Navigation {
     public class NavigationArgs {

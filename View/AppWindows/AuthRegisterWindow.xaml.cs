@@ -1,12 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
-using System;
-using System.Reflection;
 using System.Windows;
 using GenosStore.View.AuthRegister;
-
-using static GenosStore.Utility.AbstractViewModel;
 using GenosStore.ViewModel.AuthRegister;
-using System.Windows.Controls;
 using System.Windows.Input;
 using GenosStore.Services;
 using GenosStore.Services.Interface;

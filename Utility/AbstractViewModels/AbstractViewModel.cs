@@ -1,16 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Navigation;
 using GenosStore.Services.Interface;
-using GenosStore.Services.Interface.Entity.Users;
 using GenosStore.Utility.Navigation;
 
-namespace GenosStore.Utility {
+namespace GenosStore.Utility.AbstractViewModels {
 	public abstract class AbstractViewModel: INotifyPropertyChanged {
 		
 		protected readonly IServices _services;

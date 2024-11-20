@@ -1,16 +1,13 @@
-﻿using GenosStore.Utility;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using GenosStore.Model.Entity.User;
+using GenosStore.Utility;
 using GenosStore.Services.Interface;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.Main {
 	public class MainPageModel: AbstractViewModel {
+		
+		private User _currentUser;
 
 		private RelayCommand _toCatalogueCommand;
 		public RelayCommand ToCatalogueCommand {
@@ -30,8 +27,9 @@ namespace GenosStore.ViewModel.Main {
 			return true;
 		}
 
-		public MainPageModel(IServices services): base(services) {
+		public MainPageModel(IServices services, User currentUser): base(services) {
 			_toCatalogueCommand = new RelayCommand(ToCatalogue, CanToCatalogue);
+			_currentUser = currentUser;
 		}
 	}
 }

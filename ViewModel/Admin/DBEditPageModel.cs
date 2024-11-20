@@ -2,17 +2,12 @@
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
 using GenosStore.Utility;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Services.Interface;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.ViewModel.ItemList;
 

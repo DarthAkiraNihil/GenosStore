@@ -20,8 +20,6 @@ namespace GenosStore {
 
 		private void App_OnStartup(object sender, StartupEventArgs e) {
 			
-			Utilities.SpawnMessageBox("TEST", "TEST");
-			
 			var kernel = new StandardKernel(
 				new ServicesModule(),
 				new RepositoriesModule("genos_store")

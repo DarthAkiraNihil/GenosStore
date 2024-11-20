@@ -428,7 +428,8 @@
     <Compile Include="Services\Interface\Entity\Users\IUserTypeService.cs" />
     <Compile Include="Services\Interface\IServices.cs" />
     <Compile Include="Services\PageResolver.cs" />
-    <Compile Include="Utility\AbstractViewModel.cs" />
+    <Compile Include="Utility\AbstractViewModels\AbstractViewModel.cs" />
+    <Compile Include="Utility\AbstractViewModels\ItemListViewModel.cs" />
     <Compile Include="Utility\CheckableItem.cs" />
     <Compile Include="Utility\ItemPageViewModel.cs" />
     <Compile Include="Utility\Navigation\NavigationArgs.cs" />

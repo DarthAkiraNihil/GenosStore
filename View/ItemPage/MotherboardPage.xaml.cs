@@ -17,8 +17,8 @@ namespace GenosStore.View.ItemPage {
 	/// <summary>
 	/// Логика взаимодействия для Motherboard.xaml
 	/// </summary>
-	public partial class Motherboard : Page {
-		public Motherboard() {
+	public partial class MotherboardPage : Page {
+		public MotherboardPage() {
 			InitializeComponent();
 		}
 	}

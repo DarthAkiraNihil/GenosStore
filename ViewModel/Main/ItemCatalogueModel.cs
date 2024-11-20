@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GenosStore.Services.Interface;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Main {
-	public class ItemCatalogueModel: AbstractViewModel, INotifyPropertyChanged {
+	public class ItemCatalogueModel: AbstractViewModel {
 
 		private RelayCommand _toMotherboardsCommand;
 		public RelayCommand ToMotherboardsCommand {

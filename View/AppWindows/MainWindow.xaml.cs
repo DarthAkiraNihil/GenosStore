@@ -1,12 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using GenosStore.View.Main;
-using System;
 using System.Windows;
 using System.Windows.Input;
-using GenosStore.View.Admin;
-using static GenosStore.Utility.AbstractViewModel;
-using System.Windows.Controls;
-using GenosStore.Utility;
+using GenosStore.Model.Entity.User;
 using GenosStore.Services;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Navigation;
@@ -15,7 +11,7 @@ using GenosStore.ViewModel.Main;
 namespace GenosStore.View.AppWindows
 {
     public partial class MainWindow : Window {
-        public MainWindow(IServices services)
+        public MainWindow(IServices services, User currentUser)
         {
             InitializeComponent();
 
@@ -23,7 +19,7 @@ namespace GenosStore.View.AppWindows
 				MainFrame.Content = PageResolver.Resolve(x);
 			});
 			//MainFrame.Content = new DBEditPage();
-			MainFrame.Content = new MainPage() { DataContext = new MainPageModel(services)};
+			MainFrame.Content = new MainPage() { DataContext = new MainPageModel(services, currentUser) };
         }
 
 		private void closeButton_Click(object sender, RoutedEventArgs e) {

@@ -1,27 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using GenosStore.Model.Context;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
 using GenosStore.Model.Repository.Implementation.PostgreSQL;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.ItemList {
-	public class MotherboardsListModel: AbstractViewModel {
-		
-		private readonly RelayCommand _toItemPageCommand;
-		private readonly RelayCommand _applyFiltersCommand;
+	public class MotherboardsListModel: ItemListViewModel {
 		
 		public ObservableCollection<CheckableItem<Vendor>> Vendors { get; set; }
 		public ObservableCollection<CheckableItem<MotherboardFormFactor>> MotherboardFormFactors { get; set; }
@@ -30,41 +19,18 @@ namespace GenosStore.ViewModel.ItemList {
 		public ObservableCollection<CheckableItem<RAMType>> RAMTypes { get; set; }
 		
 		public ObservableCollection<Motherboard> Motherboards { get; set; }
-		
-		public RelayCommand ToItemPageCommand {
-			get { return _toItemPageCommand; }
+
+		protected override string _itemPageURL {
+			get {
+				return "View/ItemPage/MotherboardPage.xaml";
+			}
 		}
 
-		public RelayCommand ApplyFiltersCommand {
-			get { return _applyFiltersCommand; }
-		}
-
-		private void ToItemPage(object parameter) {
-			int id = (int) parameter;
-			
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/ItemPage/MotherboardPage.xaml")
-			           .WithId(id)
-			           .Build();
-            
-			Navigate(args);
-		}
-
-		private bool CanToItemPage(object parameter) {
-			return true;
-		}
-
-		private void ApplyFilters(object parameter) {
+		protected override void ApplyFilters(object parameter) {
 			MessageBox.Show("A");
 		}
 
-		private bool CanApplyFilters(object parameter) {
-			return true;
-		}
-
 		public MotherboardsListModel(IServices services): base(services) {
-			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
-			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
 			
 			//var context = new GenosStoreDatabaseContext();
 
@@ -163,9 +129,7 @@ namespace GenosStore.ViewModel.ItemList {
 			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
 
 			Motherboards = new ObservableCollection<Motherboard>(dbAccessor.Items.ComputerComponents.Motherboards.List());
-
-
+			
 		}
-		
 	}
 }

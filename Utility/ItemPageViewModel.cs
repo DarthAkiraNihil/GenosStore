@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using GenosStore.Services.Interface;
+using GenosStore.Utility.AbstractViewModels;
 
 namespace GenosStore.Utility {
 	public abstract class ItemPageViewModel: AbstractViewModel {
