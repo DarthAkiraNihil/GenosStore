@@ -33,7 +33,7 @@ namespace GenosStore.ViewModel.ItemList {
 		}
 
 		protected override AbstractViewModel _itemPageViewModel(int id) {
-			return null;
+			return new MotherboardPageModel(_services, _user, id);
 		}
 
 		protected override void ApplyFilters(object parameter) {
