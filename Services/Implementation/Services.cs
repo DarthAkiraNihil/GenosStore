@@ -6,6 +6,7 @@ namespace GenosStore.Services.Implementation {
     public class Services: IServices {
         
         private ICommonServices _commonServices;
+        private IEntityServices _entityServices;
 
         public ICommonServices Common {
             get {
@@ -15,13 +16,13 @@ namespace GenosStore.Services.Implementation {
 
         public IEntityServices Entity {
             get {
-                return null;
+                return _entityServices;
             }
         }
 
-        public Services(ICommonServices commonServices) {
+        public Services(ICommonServices commonServices, IEntityServices entityServices) {
             _commonServices = commonServices;
+            _entityServices = entityServices;
         }
-
     }
 }

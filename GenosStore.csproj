@@ -357,8 +357,12 @@
     <Compile Include="Model\Repository\Interface\User\ILegalEntityRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IUserEntitiesRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IUserRepository.cs" />
-    <Compile Include="Services\Implementation\Customer\AuthorizationService.cs" />
-    <Compile Include="Services\Implementation\Customer\CommonServices.cs" />
+    <Compile Include="Services\Implementation\Common\AuthorizationService.cs" />
+    <Compile Include="Services\Implementation\Common\CommonServices.cs" />
+    <Compile Include="Services\Implementation\Entity\EntityServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\ComputerComponentServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\MotherboardService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ItemServices.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserService.cs" />
     <Compile Include="Services\Implementation\Services.cs" />
     <Compile Include="Services\Interface\Base\IEnumService.cs" />
@@ -385,7 +389,7 @@
     <Compile Include="Services\Interface\Entity\Items\Characteristics\IVesaSizeService.cs" />
     <Compile Include="Services\Interface\Entity\Items\Characteristics\IVideoPortService.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\IComputerCaseService.cs" />
-    <Compile Include="Services\Interface\Entity\Items\ComputerComponents\IComputerComponentService.cs" />
+    <Compile Include="Services\Interface\Entity\Items\ComputerComponents\IComputerComponentServices.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\ICPUCoolerService.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\ICPUService.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\IDiskDriveService.cs" />
@@ -400,7 +404,7 @@
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\IRAMService.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\ISataSSDService.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\ISSDService.cs" />
-    <Compile Include="Services\Interface\Entity\Items\IItemService.cs" />
+    <Compile Include="Services\Interface\Entity\Items\IItemServices.cs" />
     <Compile Include="Services\Interface\Entity\Items\IItemTypeService.cs" />
     <Compile Include="Services\Interface\Entity\Items\IPreparedAssemblyService.cs" />
     <Compile Include="Services\Interface\Entity\Items\SimpleComputerComponents\IAudioChipsetService.cs" />
@@ -615,7 +619,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Services\Implementation\Common\" />
     <Folder Include="Services\Interface\Customer\" />
   </ItemGroup>
   <ItemGroup>

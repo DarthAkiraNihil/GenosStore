@@ -5,11 +5,11 @@ using GenosStore.Services.Interface.Entity.Items.ComputerComponents;
 using GenosStore.Services.Interface.Entity.Items.SimpleComputerComponents;
 
 namespace GenosStore.Services.Interface.Entity.Items {
-    public interface IItemService {
-		ICharacteristicsService Characteristics { get; }
-        IComputerComponentService ComputerComponents { get; }
-        ISimpleComputerComponentService SimpleComputerComponents { get; }
-        IItemTypeService ItemTypes { get; }
-        IPreparedAssemblyService PreparedAssemblies { get; }
+    public interface IItemServices {
+		//ICharacteristicsService Characteristics { get; }
+        IComputerComponentServices ComputerComponents { get; }
+        //ISimpleComputerComponentService SimpleComputerComponents { get; }
+        //IItemTypeService ItemTypes { get; }
+        //IPreparedAssemblyService PreparedAssemblies { get; }
     }
 }

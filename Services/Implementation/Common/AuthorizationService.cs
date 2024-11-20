@@ -2,7 +2,6 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using GalaSoft.MvvmLight.Helpers;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
 using GenosStore.Model.Repository.Interface;
@@ -10,7 +9,7 @@ using GenosStore.Services.Interface.Common;
 using GenosStore.Services.Interface.Entity.Users;
 using GenosStore.Utility.Types.AuthRegister;
 
-namespace GenosStore.Services.Implementation.Customer {
+namespace GenosStore.Services.Implementation.Common {
     public class AuthorizationService: IAuthorizationService {
         private IGenosStoreRepositories _repositories;
         private IUserService _userService;
