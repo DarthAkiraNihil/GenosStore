@@ -16,13 +16,13 @@ namespace GenosStore.Utility.NinjectModules {
         
         public override void Load() {
             
-            Bind<IMotherboardService>().To<MotherboardService>();
-            Bind<IComputerComponentServices>().To<ComputerComponentServices>();
-            Bind<IItemServices>().To<ItemServices>();
-            Bind<IEntityServices>().To<EntityServices>();
-            Bind<IAuthorizationService>().To<AuthorizationService>();
-            Bind<ICommonServices>().To<CommonServices>();
-            Bind<IUserService>().To<UserService>();
+            Bind<IMotherboardService>().To<MotherboardService>().InSingletonScope();
+            Bind<IComputerComponentServices>().To<ComputerComponentServices>().InSingletonScope();
+            Bind<IItemServices>().To<ItemServices>().InSingletonScope();
+            Bind<IEntityServices>().To<EntityServices>().InSingletonScope();
+            Bind<IAuthorizationService>().To<AuthorizationService>().InSingletonScope();
+            Bind<ICommonServices>().To<CommonServices>().InSingletonScope();
+            Bind<IUserService>().To<UserService>().InSingletonScope();
             Bind<IServices>().To<Services.Implementation.Services>().InSingletonScope();
             
         }

@@ -45,9 +45,9 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 
 		public float NetworkAdapterSpeed { get; set; }
 		
-		public MotherboardFormFactor FormFactor { get; set; }
-		public CPUSocket CPUSocket { get; set; }
-		public PCIEVersion PCIEVersion { get; set; }
+		public virtual MotherboardFormFactor FormFactor { get; set; }
+		public virtual CPUSocket CPUSocket { get; set; }
+		public virtual PCIEVersion PCIEVersion { get; set; }
 		
 		public virtual MotherboardChipset MotherboardChipset { get; set; }
 		public virtual AudioChipset AudioChipset { get; set; }

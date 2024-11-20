@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
@@ -37,6 +40,22 @@ namespace GenosStore.ViewModel.ItemList {
 		}
 
 		protected override void ApplyFilters(object parameter) {
+			
+			var filters = new List<Func<Motherboard, bool>>();
+			
+			filters.Add(
+				i =>
+					Utilities
+						.GetNamesFromChecked(MotherboardFormFactors)
+						.Where(n => n.Contains(i.FormFactor.Name))
+						.FirstOrDefault() != null
+				);
+
+			Items = new ObservableCollection<Motherboard>(
+				_services.Entity.Items.ComputerComponents.Motherboards.Filter(filters)
+			);
+			
+			
 			MessageBox.Show("A");
 		}
 
@@ -143,7 +162,7 @@ namespace GenosStore.ViewModel.ItemList {
 			SataPortsCount = new RangeItem();
 			USBPortsCount = new RangeItem();
 
-			Items = new ObservableCollection<Motherboard>(dbAccessor.Items.ComputerComponents.Motherboards.List());
+			Items = new ObservableCollection<Motherboard>(_services.Entity.Items.ComputerComponents.Motherboards.List());
 			
 		}
 	}

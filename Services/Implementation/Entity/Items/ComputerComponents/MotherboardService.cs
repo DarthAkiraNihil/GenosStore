@@ -37,5 +37,9 @@ namespace GenosStore.Services.Implementation.Entity.Items.ComputerComponents {
             }
             return result;
         }
+
+        public MotherboardService(IGenosStoreRepositories repositories) {
+            _repositories = repositories;
+        }
     }
 }

@@ -8,8 +8,16 @@ namespace GenosStore.Utility.AbstractViewModels {
     public abstract class ItemListViewModel<T>: RequiresUserViewModel{
         private readonly RelayCommand _toItemPageCommand;
 		private readonly RelayCommand _applyFiltersCommand;
-		
-		public ObservableCollection<T> Items { get; set; }
+
+		private ObservableCollection<T> _items;
+
+		public ObservableCollection<T> Items {
+			get { return _items; }
+			set {
+				_items = value;
+				NotifyPropertyChanged("Items");
+			}
+		}
 		
 		public RelayCommand ToItemPageCommand {
 			get { return _toItemPageCommand; }

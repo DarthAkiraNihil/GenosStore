@@ -454,6 +454,7 @@
     <Compile Include="Utility\Types\AuthRegister\LegalEntityRegistrationData.cs" />
     <Compile Include="Utility\Types\AuthRegister\RegistrationStatus.cs" />
     <Compile Include="Utility\Types\Filtering\CheckableItem.cs" />
+    <Compile Include="Utility\Types\Filtering\IFilter.cs" />
     <Compile Include="Utility\Types\Filtering\RangeItem.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
