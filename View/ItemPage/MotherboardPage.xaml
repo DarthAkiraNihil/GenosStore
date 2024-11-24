@@ -51,7 +51,9 @@
                         </Label.Foreground>
                     </Label>
 
-                    <Button Width="256" HorizontalAlignment="Right" BorderBrush="#00707070" FontFamily="Arial" FontSize="48" Content="Купить" Margin="0,0,10,0">
+                    <Button Width="256" HorizontalAlignment="Right" BorderBrush="#00707070" FontFamily="Arial" FontSize="48"
+                            Content="{Binding ButtonText}" Margin="0,0,10,0"
+                            Command="{Binding AddToRemoveFromCartCommand}">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="16"/>

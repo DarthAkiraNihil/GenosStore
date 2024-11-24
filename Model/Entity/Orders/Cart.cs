@@ -13,10 +13,7 @@ namespace GenosStore.Model.Entity.Orders {
 	public class Cart {
 		public int CustomerId { get; set; }
 		public virtual Customer Customer { get; set; }
-		public List<Item.Item> Items { get; set; }
-
-		public Cart() {
-			Items = new List<Item.Item>();
-		}
+		public virtual List<Item.Item> Items { get; set; }
+		
 	}
 }

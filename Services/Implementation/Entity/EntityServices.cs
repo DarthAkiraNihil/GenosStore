@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using GenosStore.Services.Interface.Entity;
 using GenosStore.Services.Interface.Entity.Items;
+using GenosStore.Services.Interface.Entity.Orders;
 
 namespace GenosStore.Services.Implementation.Entity {
     public class EntityServices: IEntityServices {
@@ -12,9 +13,19 @@ namespace GenosStore.Services.Implementation.Entity {
                 return _itemServices;
             }
         }
+        
+        private IOrderEntitiesService _orderService;
 
-        public EntityServices(IItemServices itemServices) {
+        public IOrderEntitiesService Orders {
+            get
+            {
+                return _orderService;
+            }
+        }
+
+        public EntityServices(IItemServices itemServices, IOrderEntitiesService orderService) {
             _itemServices = itemServices;
+            _orderService = orderService;
         }
     }
 }
