@@ -8,8 +8,8 @@ using GenosStore.View.Other;
 
 namespace GenosStore.Utility {
     public class Utilities {
-        public static ObservableCollection<CheckableItem<T>> ConvertToCheckableCollection<T>(List<T> list) {
-            var converted = new ObservableCollection<CheckableItem<T>>();
+        public static CheckableCollection<T> ConvertToCheckableCollection<T>(List<T> list) where T: Named{
+            var converted = new CheckableCollection<T>();
             foreach (var element in list) {
                 converted.Add(
                     new CheckableItem<T> {Item = element, IsChecked = false}
@@ -23,7 +23,7 @@ namespace GenosStore.Utility {
             messageBox.ShowDialog();
         }
         
-        public static List<string> GetNamesFromChecked<T>(ObservableCollection<CheckableItem<T>> collection) where T: Named{
+        public static List<string> GetNamesFromChecked<T>(CheckableCollection<T> collection) where T: Named{
             return collection
                    .Where(i => i.IsChecked)
                    .Select(i => i.Item.Name)

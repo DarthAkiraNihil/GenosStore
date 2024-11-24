@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
@@ -18,16 +19,29 @@ namespace GenosStore.ViewModel.ItemList {
 	public class MotherboardsListModel: ComputerComponentListViewModel<Motherboard> {
 		
 		
-		public ObservableCollection<CheckableItem<MotherboardFormFactor>> MotherboardFormFactors { get; set; }
-		public ObservableCollection<CheckableItem<CPUSocket>> CPUSockets { get; set; }
-		public ObservableCollection<CheckableItem<CPUCore>> CPUCores { get; set; }
-		public ObservableCollection<CheckableItem<RAMType>> RAMTypes { get; set; }
+		public CheckableCollection<MotherboardFormFactor> MotherboardFormFactors { get; set; }
+		public CheckableCollection<CPUSocket> CPUSockets { get; set; }
+		public CheckableCollection<CPUCore> CPUCores { get; set; }
+		public CheckableCollection<RAMType> RAMTypes { get; set; }
 
 		public RangeItem RAMSlotsCount { get; set; }
 		public RangeItem PCIESlotsCount { get; set; }
-		public bool HasNVMeSupport { get; set; }
+
+		public bool HasNVMeSupport {
+			get {
+				return _hasNVMeSupport;
+			}
+			set {
+				_hasNVMeSupport = value;
+				_nvmeOnceSelected = true;
+				NotifyPropertyChanged("HasNVMeSupport");
+			}
+		}
 		public RangeItem SataPortsCount { get; set; }
 		public RangeItem USBPortsCount { get; set; }
+
+		private bool _nvmeOnceSelected;
+		private bool _hasNVMeSupport;
 		
 		protected override string _itemPageURL {
 			get {
@@ -42,24 +56,99 @@ namespace GenosStore.ViewModel.ItemList {
 		protected override void ApplyFilters(object parameter) {
 			
 			var filters = new List<Func<Motherboard, bool>>();
-			
-			filters.Add(
-				i =>
-					Utilities
-						.GetNamesFromChecked(MotherboardFormFactors)
-						.Where(n => n.Contains(i.FormFactor.Name))
-						.FirstOrDefault() != null
+
+			if (MotherboardFormFactors.IsValid()) {
+				filters.Add(
+					i => MotherboardFormFactors.CreateFilterClosure(n => n.Contains(i.FormFactor.Name))
 				);
+			}
+
+			if (CPUSockets.IsValid()) {
+				filters.Add(
+					i => CPUSockets.CreateFilterClosure(n => n.Contains(i.CPUSocket.Name))
+				);
+			}
+			if (CPUCores.IsValid()) {
+				filters.Add(
+					i => CPUCores
+						.CreateFilterClosure(
+							n => {
+								foreach (var core in i.SupportedCPUCores) {
+									if (core.Name == n) {
+										return true;
+									}
+								}
+								return false;
+							})
+				);
+			}
+			if (RAMTypes.IsValid()) {
+				filters.Add(
+					i => RAMTypes
+						.CreateFilterClosure(
+							n => {
+								foreach (var type in i.SupportedRAMTypes) {
+									if (type.Name == n) {
+										return true;
+									}
+								}
+								return false;
+							})
+				);
+			}
+			
+			if (RAMSlotsCount.IsValid()) {
+				filters.Add(
+					i => RAMSlotsCount.From <= i.RAMSlots && i.RAMSlots <= RAMSlotsCount.To
+				);
+			}
+			if (PCIESlotsCount.IsValid()) {
+				filters.Add(
+					i => PCIESlotsCount.From <= i.PCIESlotsCount && i.PCIESlotsCount <= PCIESlotsCount.To
+				);
+			}
+			if (_nvmeOnceSelected) {
+				filters.Add(
+					i => i.HasNVMeSupport == HasNVMeSupport
+				);
+			}
+			if (SataPortsCount.IsValid()) {
+				filters.Add(
+					i => SataPortsCount.From <= i.SataPortsCount && i.SataPortsCount <= SataPortsCount.To
+				);
+			}
+			if (USBPortsCount.IsValid()) {
+				filters.Add(
+					i => USBPortsCount.From <= i.USBPortsCount && i.USBPortsCount <= USBPortsCount.To
+				);
+			}
+
+			if (Price.IsValid()) {
+				filters.Add(
+					i => Price.From <= i.Price && i.Price <= Price.To
+				);
+			}
+
+			if (TDP.IsValid()) {
+				filters.Add(
+					i => TDP.From <= i.TDP && i.TDP <= TDP.To
+				);
+			}
+
+			if (Vendors.IsValid()) {
+				filters.Add(
+					i => MotherboardFormFactors.CreateFilterClosure(n => n.Contains(i.FormFactor.Name))
+				);
+			}
 
 			Items = new ObservableCollection<Motherboard>(
 				_services.Entity.Items.ComputerComponents.Motherboards.Filter(filters)
 			);
-			
-			
-			MessageBox.Show("A");
 		}
 
 		public MotherboardsListModel(IServices services, User user): base(services, user) {
+
+			_nvmeOnceSelected = false;
 			
 			//var context = new GenosStoreDatabaseContext();
 

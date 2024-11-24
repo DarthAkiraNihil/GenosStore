@@ -13,7 +13,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 	public class Motherboard: ComputerComponent {
 
 		[Required]
-		public List<CPUCore> SupportedCPUCores { get; set; }
+		public virtual List<CPUCore> SupportedCPUCores { get; set; }
 		[Required]
 		public List<RAMType> SupportedRAMTypes { get; set; }
 
@@ -54,7 +54,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		public virtual NetworkAdapter NetworkAdapter { get; set; }
 
 		public Motherboard() {
-			SupportedCPUCores = new List<CPUCore>();
+			//SupportedCPUCores = new List<CPUCore>();
 			SupportedRAMTypes = new List<RAMType>();
 			VideoPorts = new List<VideoPort>();
 		}
