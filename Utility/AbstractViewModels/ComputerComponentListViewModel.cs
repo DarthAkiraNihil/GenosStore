@@ -14,6 +14,7 @@ namespace GenosStore.Utility.AbstractViewModels {
         public CheckableCollection<Vendor> Vendors { get; set; }
 
         #endregion
+        
         public ComputerComponentListViewModel(IServices services, User user) : base(services, user) {
             TDP = new RangeItem();
         }

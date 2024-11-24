@@ -52,6 +52,8 @@ namespace GenosStore.ViewModel.ItemList {
 		protected override AbstractViewModel _itemPageViewModel(int id) {
 			return new MotherboardPageModel(_services, _user, id);
 		}
+		
+		
 
 		protected override void ApplyFilters(object parameter) {
 			
@@ -144,6 +146,10 @@ namespace GenosStore.ViewModel.ItemList {
 			Items = new ObservableCollection<Motherboard>(
 				_services.Entity.Items.ComputerComponents.Motherboards.Filter(filters)
 			);
+		}
+
+		protected override List<Motherboard> _getItems() {
+			return _services.Entity.Items.ComputerComponents.Motherboards.List();
 		}
 
 		public MotherboardsListModel(IServices services, User user): base(services, user) {

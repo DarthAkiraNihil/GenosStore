@@ -77,18 +77,25 @@
                         Width="80"
                         HorizontalAlignment="Right"
                         Content="+"
+                        Command="{Binding DataContext.IncrementCartItemQuantityCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding Path=Item.Id}"
                         >
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Button.Background>
                     </Button>
+                    <Label Content="{Binding Path=Quantity}" DockPanel.Dock="Left">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
                     <Button
                         DockPanel.Dock="Left"
                         Foreground="White"
                         Width="80"
                         HorizontalAlignment="Right"
                         Content="-"
+                        Command="{Binding DataContext.DecrementCartItemQuantityCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding Path=Item.Id}"
                     >
                         <Button.Background>

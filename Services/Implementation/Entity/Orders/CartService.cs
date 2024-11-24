@@ -38,11 +38,20 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
         }
 
         public void IncrementCartItemQuantity(Item item, Customer customer) {
-            throw new System.NotImplementedException();
+            var cart = customer.Cart;
+            cart.Items.First(i => i.Item == item).Quantity++;
+            _repositories.Save();
         }
 
         public void DecrementCartItemQuantity(Item item, Customer customer) {
-            throw new System.NotImplementedException();
+            var cart = customer.Cart;
+            var itemToRemove = cart.Items.First(i => i.Item == item);
+            itemToRemove.Quantity--;
+            if (itemToRemove.Quantity == 0) {
+                RemoveFromCart(item, customer);
+                return;
+            }
+            _repositories.Save();
         }
 
         public bool IsInCart(Item item, Customer customer) {

@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Navigation;
@@ -38,6 +40,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 		protected abstract string _itemPageURL { get; }
 
 		protected abstract AbstractViewModel _itemPageViewModel(int id);
+		protected abstract List<T> _getItems();
 		
 		private bool CanToItemPage(object parameter) {
 			return true;
@@ -57,6 +60,34 @@ namespace GenosStore.Utility.AbstractViewModels {
 
 		public RangeItem Price { get; set; }
 		
+		private string _searchString;
+
+		public string SearchString {
+			get { return _searchString; }
+			set {
+				_searchString = value;
+				NotifyPropertyChanged("SearchString");
+			}
+		}
+		
+		#endregion
+		
+		#region SearchCommand
+
+		private readonly RelayCommand _search;
+
+		public RelayCommand SearchCommand {
+			get { return _search; }
+		}
+
+		private void Search(object parameter) {
+            
+		}
+
+		private bool CanSearch(object parameter) {
+			return SearchString != "";
+		}
+
 		#endregion
 
 		public ItemListViewModel(IServices services, User user): base(services, user) {
@@ -64,6 +95,8 @@ namespace GenosStore.Utility.AbstractViewModels {
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
 
 			Price = new RangeItem();
+			
+			
 
 			//var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
 
