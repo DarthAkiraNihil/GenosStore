@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:GenosStore"
+             xmlns:conv="clr-namespace:GenosStore.Utility.Converters"
              Startup="App_OnStartup">
     <Application.Resources>
         <ResourceDictionary>
@@ -12,6 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
                 <materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="{StaticResource Cyan}" SecondaryColor="{StaticResource LightBlue}" />
             </ResourceDictionary.MergedDictionaries>
+            <conv:Base64ImageConverter x:Key="Base64ImageConverter"></conv:Base64ImageConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

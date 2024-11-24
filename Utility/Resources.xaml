@@ -1,5 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:conv="clr-namespace:GenosStore.Utility.Converters"
+                    >
     
     <BitmapImage x:Key="PasswordIcon" UriSource="/Images/Icon/icon-key.png" />
     <BitmapImage x:Key="BadgeIcon" UriSource="/Images/Icon/icon-badge.png" />
@@ -28,5 +30,5 @@
     <SolidColorBrush x:Key="CyanBrush" Color="{StaticResource Cyan}"/>
     <SolidColorBrush x:Key="LightBlueBrush" Color="{StaticResource LightBlue}"/>
     <SolidColorBrush x:Key="ErrorRedBrush" Color="{StaticResource ErrorRed}"/>
-    
+
 </ResourceDictionary>

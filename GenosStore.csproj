@@ -437,6 +437,7 @@
     <Compile Include="Utility\AbstractViewModels\ItemListViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ItemPageViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\RequiresUserViewModel.cs" />
+    <Compile Include="Utility\Converters\Base64ImageConverter.cs" />
     <Compile Include="Utility\Navigation\NavigationArgs.cs" />
     <Compile Include="Utility\Navigation\NavigationArgsBuilder.cs" />
     <Compile Include="Utility\NinjectModules\RepositoriesModule.cs" />

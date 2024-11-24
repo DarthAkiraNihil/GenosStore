@@ -13,7 +13,7 @@ namespace GenosStore.ViewModel.ItemPage {
 	public class MotherboardPageModel: ItemPageViewModel<Motherboard> {
 
 		public MotherboardPageModel(IServices services, User user, int itemId): base(services, user) {
-			MessageBox.Show("EBAL");
+			Item = _services.Entity.Items.ComputerComponents.Motherboards.Get(itemId);
 		}
 
 	}
