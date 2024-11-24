@@ -11,15 +11,30 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
         private IGenosStoreRepositories _repositories;
         
         public void AddToCart(Item item, Customer customer) {
+
+            // if (customer.Cart == null) {
+            //     customer.Cart = new Cart();
+            //     customer.Cart.Items = new List<Item>();
+            // }
+            var cart = customer.Cart;
+            // var cartItem = new CartItem() {
+            //     Cart = cart,
+            //     Item = item,
+            //     Quantity = 1
+            // };
+            // cart.Items.Add(cartItem);
+            // //customer.Cart.Items.Add(item);
+            // _repositories.Save();
             MessageBox.Show("WERKED");
-            //customer.Cart.Items.Add(item);
-            //_repositories.Save();
         }
 
         public void RemoveFromCart(Item item, Customer customer) {
-            MessageBox.Show("WERKED");
+            if (customer.Cart == null) {
+                return;
+            }
             //customer.Cart.Items.Remove(item);
             //_repositories.Save();
+            MessageBox.Show("WERKED");
         }
         
         public void AddToCart(Item item) {

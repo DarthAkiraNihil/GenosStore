@@ -178,6 +178,10 @@
     <Compile Include="Migrations\202411200603024_IDNotRequired.Designer.cs">
       <DependentUpon>202411200603024_IDNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411241435595_CartItems.cs" />
+    <Compile Include="Migrations\202411241435595_CartItems.Designer.cs">
+      <DependentUpon>202411241435595_CartItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -229,6 +233,7 @@
     <Compile Include="Model\Entity\Orders\BankCard.cs" />
     <Compile Include="Model\Entity\Orders\BankSystem.cs" />
     <Compile Include="Model\Entity\Orders\Cart.cs" />
+    <Compile Include="Model\Entity\Orders\CartItem.cs" />
     <Compile Include="Model\Entity\Orders\Order.cs" />
     <Compile Include="Model\Entity\Orders\OrderItems.cs" />
     <Compile Include="Model\Entity\Orders\OrderStatus.cs" />
@@ -286,6 +291,7 @@
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\ActiveDiscountRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\BankCardRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\BankSystemRepositoryPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\CartItemsRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\CartRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderEntitiesRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Orders\OrderItemsRepositoryPostgreSQL.cs" />
@@ -346,6 +352,7 @@
     <Compile Include="Model\Repository\Interface\Orders\IActiveDiscountRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IBankCardRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IBankSystemRepository.cs" />
+    <Compile Include="Model\Repository\Interface\Orders\ICartItemsRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\ICartRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IOrderEntitiesRepository.cs" />
     <Compile Include="Model\Repository\Interface\Orders\IOrderItemsRepository.cs" />
@@ -596,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411200603024_IDNotRequired.resx">
       <DependentUpon>202411200603024_IDNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411241435595_CartItems.resx">
+      <DependentUpon>202411241435595_CartItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

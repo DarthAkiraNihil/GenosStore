@@ -81,6 +81,7 @@ namespace GenosStore.Model.Context {
 		public DbSet<ActiveDiscount> ActiveDiscounts { get; set; }
 		public DbSet<BankCard> BankCards { get; set; }
 		public DbSet<Cart> Carts { get; set; }
+		public DbSet<CartItem> CartItems { get; set; }
 		public DbSet<OrderStatus> OrderStatuses { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
@@ -234,11 +235,16 @@ namespace GenosStore.Model.Context {
 
 			bankCardEntity.HasRequired(c => c.BankSystem);
 
-			var cartEntiry = modelBuilder.Entity<Cart>();
+			var cartEntity = modelBuilder.Entity<Cart>();
 			
-			cartEntiry.HasKey(c => c.CustomerId);
-			cartEntiry.HasMany(c => c.Items)
-			          .WithMany(i => i.Carts);
+			cartEntity.HasKey(c => c.CustomerId);
+			cartEntity.HasMany(c => c.Items);
+			          //.WithMany(i => i.Carts);
+
+			var cartItemsEntity = modelBuilder.Entity<CartItem>();
+			
+			cartItemsEntity.HasRequired(o => o.Cart);
+			cartItemsEntity.HasRequired(o=> o.Item);
 			
 			var customerEntity = modelBuilder.Entity<Customer>();
 			

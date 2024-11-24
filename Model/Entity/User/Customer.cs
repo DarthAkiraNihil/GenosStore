@@ -11,7 +11,7 @@ namespace GenosStore.Model.Entity.User {
 		public List<Order> Orders {  get; set; }
 		public List<BankCard> BankCards {  get; set; }
 		[Required]
-		public Cart Cart { get; set; }
+		public virtual Cart Cart { get; set; }
 
 		public Customer() {
 			Orders = new List<Order>();

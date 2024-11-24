@@ -8,6 +8,7 @@ namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Orders {
         private BankCardRepositoryPostgreSQL _bankCards;
         private BankSystemRepositoryPostgreSQL _bankSystems;
         private CartRepositoryPostgreSQL _carts;
+        private CartItemsRepositoryPostgreSQL _cartItems;
         private OrderItemsRepositoryPostgreSQL _orderItems;
         private OrderRepositoryPostgreSQL _orders;
         private OrderStatusRepositoryPostgreSQL _orderStatuses;
@@ -73,6 +74,15 @@ namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Orders {
                     _orderStatuses = new OrderStatusRepositoryPostgreSQL(_context);
                 }
                 return _orderStatuses;
+            }
+        }
+
+        public ICartItemsRepository CartItems {
+            get {
+                if (_cartItems == null) {
+                    _cartItems = new CartItemsRepositoryPostgreSQL(_context);
+                }
+                return _cartItems;
             }
         }
     }
