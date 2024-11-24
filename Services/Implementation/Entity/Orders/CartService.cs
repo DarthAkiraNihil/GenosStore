@@ -22,7 +22,6 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             };
             cart.Items.Add(cartItem);
             _repositories.Save();
-            MessageBox.Show("WERKED");
         }
 
         public void RemoveFromCart(Item item, Customer customer) {
@@ -36,20 +35,19 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             cart.Items.Remove(cartItem);
             
             _repositories.Save();
-            MessageBox.Show("WERKED");
+        }
+
+        public void IncrementCartItemQuantity(Item item, Customer customer) {
+            throw new System.NotImplementedException();
+        }
+
+        public void DecrementCartItemQuantity(Item item, Customer customer) {
+            throw new System.NotImplementedException();
         }
 
         public bool IsInCart(Item item, Customer customer) {
             var cart = customer.Cart;
             return cart.Items.Select(i => i.Item).Contains(item);
-        }
-
-        public void AddToCart(Item item) {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveFromCart(Item item) {
-            throw new System.NotImplementedException();
         }
         
         public void Create(Cart item) {

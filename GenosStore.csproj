@@ -472,6 +472,7 @@
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
+    <Compile Include="ViewModel\Main\CartPageModel.cs" />
     <Compile Include="View\Admin\DBEditPage.xaml.cs">
       <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>
@@ -518,6 +519,9 @@
     </Compile>
     <Compile Include="View\Other\GenosStoreMessageBox.xaml.cs">
       <DependentUpon>GenosStoreMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Other\PageNotFound.xaml.cs">
+      <DependentUpon>PageNotFound.xaml</DependentUpon>
     </Compile>
     <Page Include="Utility\Resources.xaml">
       <SubType>Designer</SubType>
@@ -566,6 +570,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Other\GenosStoreMessageBox.xaml" />
+    <Page Include="View\Other\PageNotFound.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

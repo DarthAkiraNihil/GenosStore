@@ -7,13 +7,13 @@
              Startup="App_OnStartup">
     <Application.Resources>
         <ResourceDictionary>
+            <conv:Base64ImageConverter x:Key="Base64ImageConverter"></conv:Base64ImageConverter>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Utility/Resources.xaml" />
                 <ResourceDictionary Source="/Utility/Templates.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
                 <materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="{StaticResource Cyan}" SecondaryColor="{StaticResource LightBlue}" />
             </ResourceDictionary.MergedDictionaries>
-            <conv:Base64ImageConverter x:Key="Base64ImageConverter"></conv:Base64ImageConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

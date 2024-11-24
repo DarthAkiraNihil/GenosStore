@@ -11,6 +11,7 @@ using GenosStore.Services.Interface.Common;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types.AuthRegister;
+using GenosStore.ViewModel.AppWindows;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
@@ -74,7 +75,7 @@ namespace GenosStore.ViewModel.AuthRegister
             var status = authInfo.Item1;
             switch (status) {
                 case AuthorizationStatus.Success: {
-                    var mainView = new MainWindow(_services, authInfo.Item2);// { DataContext = new MainViewModel(user) };
+                    var mainView = new MainWindow(_services, authInfo.Item2) { DataContext = new MainWindowModel(_services, authInfo.Item2) };
                     mainView.Show();
                     Close?.Invoke();
                     break;

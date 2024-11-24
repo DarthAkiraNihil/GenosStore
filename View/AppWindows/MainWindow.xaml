@@ -80,6 +80,7 @@
                 <Button
                     DockPanel.Dock="Left"
                     Style="{DynamicResource MaterialDesignIconButton}"
+                    Command="{Binding ToMainPageCommand}"
                     Width="32"
                     Height="32"
                     ToolTip="Icon"
@@ -99,6 +100,7 @@
                     Height="32"
                     ToolTip="Icon"
                     Background="Transparent"
+                    Command="{Binding ToCartPageCommand}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
                     <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">

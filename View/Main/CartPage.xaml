@@ -10,9 +10,25 @@
 
     <DockPanel>
 
-        <ListView DockPanel.Dock="Top" Background="#33000000" BorderBrush="Black">
-            
-        </ListView>
+        <ListBox
+            DockPanel.Dock="Bottom"
+            Background="Transparent"
+            BorderBrush="#00ABADB3"
+            ItemsSource="{Binding CartItems}"
+            ItemTemplate="{StaticResource CartListElement}"
+        >
+
+            <ListBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </ListBox.Foreground>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Height" Value="120" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+        </ListBox>
         
     </DockPanel>
 </Page>
