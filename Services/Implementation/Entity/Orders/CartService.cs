@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows;
 using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.Orders;
@@ -11,32 +13,37 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
         private IGenosStoreRepositories _repositories;
         
         public void AddToCart(Item item, Customer customer) {
-
-            // if (customer.Cart == null) {
-            //     customer.Cart = new Cart();
-            //     customer.Cart.Items = new List<Item>();
-            // }
+            
             var cart = customer.Cart;
-            // var cartItem = new CartItem() {
-            //     Cart = cart,
-            //     Item = item,
-            //     Quantity = 1
-            // };
-            // cart.Items.Add(cartItem);
-            // //customer.Cart.Items.Add(item);
-            // _repositories.Save();
+            var cartItem = new CartItem {
+                Cart = cart,
+                Item = item,
+                Quantity = 1
+            };
+            cart.Items.Add(cartItem);
+            _repositories.Save();
             MessageBox.Show("WERKED");
         }
 
         public void RemoveFromCart(Item item, Customer customer) {
-            if (customer.Cart == null) {
+            var cart = customer.Cart;
+            if (cart == null) {
                 return;
             }
-            //customer.Cart.Items.Remove(item);
-            //_repositories.Save();
+
+            var cartItem = cart.Items.First(i => i.Item == item);
+            _repositories.Orders.CartItems.DeleteRaw(cartItem);
+            cart.Items.Remove(cartItem);
+            
+            _repositories.Save();
             MessageBox.Show("WERKED");
         }
-        
+
+        public bool IsInCart(Item item, Customer customer) {
+            var cart = customer.Cart;
+            return cart.Items.Select(i => i.Item).Contains(item);
+        }
+
         public void AddToCart(Item item) {
             throw new System.NotImplementedException();
         }

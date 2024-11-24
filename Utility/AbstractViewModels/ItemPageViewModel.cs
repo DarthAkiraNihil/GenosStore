@@ -8,7 +8,7 @@ namespace GenosStore.Utility.AbstractViewModels {
         public T Item { get; set; }
 
         private string _buttonText;
-        private bool _itemIsInCart;
+        protected bool _itemIsInCart;
 
         public string ButtonText {
             get { return _buttonText; }

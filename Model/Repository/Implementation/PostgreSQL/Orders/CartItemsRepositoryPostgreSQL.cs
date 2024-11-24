@@ -30,9 +30,13 @@ namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Orders {
         }
 
         public void Delete(int id) {
-            CartItem item = _context.CartItems.Find(id);
+            CartItem item = _context.CartItems.Find(new {ItemID = id, CartId = 0});
             if (item != null)
                 _context.CartItems.Remove(item);
+        }
+
+        public void DeleteRaw(CartItem item) {
+            _context.CartItems.Remove(item);
         }
     }
 }

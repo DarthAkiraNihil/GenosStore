@@ -453,6 +453,7 @@
     <Compile Include="Utility\NinjectModules\ServicesModule.cs" />
     <Compile Include="Utility\Operations\ISupportsCreate.cs" />
     <Compile Include="Utility\Operations\ISupportsDelete.cs" />
+    <Compile Include="Utility\Operations\ISupportsDeleteRaw.cs" />
     <Compile Include="Utility\Operations\ISupportsFilter.cs" />
     <Compile Include="Utility\Operations\ISupportsGetFromString.cs" />
     <Compile Include="Utility\Operations\ISupportsUpdate.cs" />

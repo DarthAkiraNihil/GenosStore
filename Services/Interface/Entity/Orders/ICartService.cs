@@ -7,5 +7,7 @@ namespace GenosStore.Services.Interface.Entity.Orders {
     public interface ICartService: IStandardService<Cart> {
         void AddToCart(Item item, Customer customer);
         void RemoveFromCart(Item item, Customer customer);
+        bool IsInCart(Item item, Customer customer);
+        
     }
 }
