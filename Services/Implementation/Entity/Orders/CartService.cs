@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Windows;
 using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
@@ -58,7 +56,14 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             var cart = customer.Cart;
             return cart.Items.Select(i => i.Item).Contains(item);
         }
-        
+
+        public void ClearCart(Customer customer) {
+            var cart = customer.Cart;
+            while (cart.Items.Count > 0) {
+                RemoveFromCart(cart.Items[0].Item, customer);
+            }
+        }
+
         public void Create(Cart item) {
             _repositories.Orders.Carts.Create(item);
         }

@@ -15,7 +15,7 @@
 
         <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
 
-            <Label DockPanel.Dock="Top" FontSize="24" Content="Материнские платы" FontWeight="Bold">
+            <Label DockPanel.Dock="Top" FontSize="36" Content="Материнские платы" FontWeight="Bold">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
@@ -23,14 +23,17 @@
 
             <DockPanel DockPanel.Dock="Bottom" Background="#4C000000" Width="450">
 
-                <Label DockPanel.Dock="Top" FontSize="16" Content="Фильтры">
+                <Label DockPanel.Dock="Top" FontSize="22" Content="Фильтры" FontWeight="Bold">
                     <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                     </Label.Foreground>
                 </Label>
 
                 <DockPanel DockPanel.Dock="Bottom" Height="48">
                     <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource DarkBlue}"/>
+                        </Button.BorderBrush>
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </Button.Background>
@@ -40,7 +43,7 @@
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Button.BorderBrush>
                         <Button.Background>
-                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                            <SolidColorBrush Color="{DynamicResource DarkerBlue}"/>
                         </Button.Background>
 
                     </Button>
@@ -50,9 +53,18 @@
 
                     <StackPanel>
 
-                        <Expander x:Name="Price" Header="Цена" FontSize="16" Background="Transparent">
+                        <Expander x:Name="Price" Background="Transparent">
+                            <Expander.Header
+                                >
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Цена
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                             </Expander.Foreground>
                             <StackPanel>
 
@@ -103,7 +115,16 @@
                             </StackPanel>
                         </Expander>
 
-                        <Expander x:Name="TDP" Header="Потребляемая мощность" FontSize="16" Background="Transparent">
+                        <Expander x:Name="TDP" FontSize="16" Background="Transparent">
+                            <Expander.Header
+    >
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Потребляемая мощность
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -156,7 +177,15 @@
                             </StackPanel>
                         </Expander>
 
-                        <Expander x:Name="Vendor" Header="Производитель" FontSize="16" Background="#00F1F1F1">
+                        <Expander x:Name="Vendor" FontSize="16" Background="#00F1F1F1">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Производитель
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -173,7 +202,15 @@
                             </ListBox>
                         </Expander>
 
-                        <Expander x:Name="FormFactor" Header="Форм-фактор" FontSize="16" Background="Transparent">
+                        <Expander x:Name="FormFactor" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Форм-фактор
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -190,7 +227,15 @@
                             </ListBox>
                         </Expander>
 
-                        <Expander x:Name="CPUSocket" Header="Сокет процессора" FontSize="16" Background="Transparent">
+                        <Expander x:Name="CPUSocket" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Сокет процессора
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -207,7 +252,15 @@
                             </ListBox>
                         </Expander>
 
-                        <Expander x:Name="SupportedCPUCore" Header="Поддерживаемые ядра процессоров" FontSize="16" Background="Transparent">
+                        <Expander x:Name="SupportedCPUCore" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Поддерживаемые ядра процессоров
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -224,7 +277,15 @@
                             </ListBox>
                         </Expander>
 
-                        <Expander x:Name="SupportedRAM" Header="Поддерживаемые типи оперативной памяти" FontSize="16" Background="Transparent">
+                        <Expander x:Name="SupportedRAM" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Поддерживаемые типы оперативной памяти
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -241,7 +302,15 @@
                             </ListBox>
                         </Expander>
 
-                        <Expander x:Name="RAMSlots" Header="Количество слотов оперативной памяти" FontSize="16" Background="Transparent">
+                        <Expander x:Name="RAMSlots" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Количество слотов оперативной памяти
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -294,7 +363,15 @@
                             </StackPanel>
                         </Expander>
 
-                        <Expander x:Name="PCIeCount" Header="Количество слотов PCI-e" FontSize="16" Background="Transparent">
+                        <Expander x:Name="PCIeCount" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Количество слотов PCI-e
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -347,7 +424,15 @@
                             </StackPanel>
                         </Expander>
 
-                        <Expander x:Name="HasNMVeSupport" Header="Наличие поддержки NVMe" FontSize="16" Background="Transparent">
+                        <Expander x:Name="HasNMVeSupport" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                   Наличие поддержки NVMe
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -356,7 +441,15 @@
                             </CheckBox>
                         </Expander>
 
-                        <Expander x:Name="SataCount" Header="Количество портов Sata" FontSize="16" Background="Transparent">
+                        <Expander x:Name="SataCount" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Количество портов Sata
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
@@ -409,7 +502,15 @@
                             </StackPanel>
                         </Expander>
 
-                        <Expander x:Name="USBCount" Header="Количество портов USB" FontSize="16" Background="Transparent">
+                        <Expander x:Name="USBCount" FontSize="16" Background="Transparent">
+                            <Expander.Header>
+                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                    </Label.Foreground>
+                                    Количество портов USB
+                                </Label>
+                            </Expander.Header>
                             <Expander.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>

@@ -7,14 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GenosStore.Model.Entity.Orders {
-	[Table("public.OrderedItems")]
+	[Table("public.OrderItems")]
 	public class OrderItems {
 		//public long Id { get; set; }
 		[Key]
 		[Column(Order = 1)]
-		public int OrderId { get; set; }
+		[ForeignKey("Order")]
+		public long OrderId { get; set; }
 		[Key]
 		[Column(Order = 2)]
+		[ForeignKey("Item")]
 		public int ItemId { get; set; }
 		
 		[Column(Order = 3)]
@@ -22,7 +24,10 @@ namespace GenosStore.Model.Entity.Orders {
 		[Column(Order = 4)]
 		public double BoughtFor { get; set; }
 
-		public virtual Item.Item Item { get; set; }
+		[Column(Order = 1)]
 		public virtual Order Order { get; set; }
+		[Column(Order = 2)]
+		public virtual Item.Item Item { get; set; }
+		
 	}
 }

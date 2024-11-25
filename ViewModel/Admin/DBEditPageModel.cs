@@ -11,7 +11,6 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.Utility.Navigation;
-using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Admin {

@@ -24,11 +24,23 @@
     <Color x:Key="Cyan">#FF7DFFCD</Color>
     <Color x:Key="PaleBlue">#FFA0CDFF</Color>
     <Color x:Key="LightBlue">#FF80F0FF</Color>
-    <Color x:Key="ErrorRed">#FF9999</Color>
+    <Color x:Key="ErrorRed">#ff2a6d</Color>
+
+    <Color x:Key="DarkBlue">#001449</Color>
+    <Color x:Key="DarkerBlue">#012677</Color>
+    <Color x:Key="Blue">#005bc5</Color>
+    <Color x:Key="LighterBlue">#00b4fc</Color>
+    <Color x:Key="LightCyan">#17f9ff</Color>
 
     <SolidColorBrush x:Key="PaleBlueBrush" Color="{StaticResource PaleBlue}"/>
     <SolidColorBrush x:Key="CyanBrush" Color="{StaticResource Cyan}"/>
     <SolidColorBrush x:Key="LightBlueBrush" Color="{StaticResource LightBlue}"/>
     <SolidColorBrush x:Key="ErrorRedBrush" Color="{StaticResource ErrorRed}"/>
+
+    <SolidColorBrush x:Key="DarkBlueBrush" Color="{StaticResource DarkBlue}"/>
+    <SolidColorBrush x:Key="DarkerBlueBrush" Color="{StaticResource DarkerBlue}"/>
+    <SolidColorBrush x:Key="BlueBrush" Color="{StaticResource Blue}" />
+    <SolidColorBrush x:Key="LighterBlueBrush" Color="{StaticResource LighterBlue}" />
+    <SolidColorBrush x:Key="LightCyanBrush" Color="{StaticResource LightCyan}" />
 
 </ResourceDictionary>

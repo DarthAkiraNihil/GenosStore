@@ -7,6 +7,8 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Navigation;
+using GenosStore.ViewModel.Order;
 
 namespace GenosStore.ViewModel.Main {
     public class CartPageModel: RequiresUserViewModel {
@@ -79,7 +81,12 @@ namespace GenosStore.ViewModel.Main {
         }
 
         private void CreateOrder(object parameter) {
-            MessageBox.Show("WERKED");
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/Order/OrderPage.xaml")
+                       .WithTitle("Order")
+                       .WithViewModel(new OrderPageModel(_services, _user, null))
+                       .Build();
+            Navigate(args);
         }
 
         private bool CanCreateOrder(object parameter) {

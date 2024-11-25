@@ -16,14 +16,11 @@ namespace GenosStore.Model.Entity.Orders {
 		[Required]
 		public virtual Customer Customer { get; set; }
 		[Required]
-		public List<OrderItems> Items { get; set; }
+		public virtual List<OrderItems> Items { get; set; }
 		[Required]
 		public virtual OrderStatus OrderStatus { get; set; }
 		[Required]
 		public DateTime CreatedAt { get; set; }
 
-		public Order() {
-			Items = new List<OrderItems>();
-		}
 	}
 }

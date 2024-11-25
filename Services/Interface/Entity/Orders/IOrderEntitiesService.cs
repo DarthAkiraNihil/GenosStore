@@ -5,7 +5,7 @@
         // IBankSystemService BankSystems { get; }
         ICartService Carts { get; }
         // IOrderItemsService OrderItems { get; }
-        // IOrderService Orders { get; }
-        // IOrderStatusService OrderStatuses { get; }
+        IOrderService Orders { get; }
+        IOrderStatusService OrderStatuses { get; }
     }
 }

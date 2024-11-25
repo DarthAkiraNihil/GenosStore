@@ -30,14 +30,7 @@ namespace GenosStore.ViewModel.Main {
 		private bool CanToMotherboards(object parameter) {
 			return true;
 		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void NotifyPropertyChanged(string propertyName) {
-			if (PropertyChanged != null)
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-
+		
 		public ItemCatalogueModel(IServices services, User user): base(services, user) {
 			_toMotherboardsCommand = new RelayCommand(ToMotherboards, CanToMotherboards);
 		}

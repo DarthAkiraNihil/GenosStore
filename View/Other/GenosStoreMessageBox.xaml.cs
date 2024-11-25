@@ -27,7 +27,7 @@ namespace GenosStore.View.Other {
 		}
 
 		private class MessageBoxViewModel: INotifyPropertyChanged {
-			public static Action MsgBoxClose;
+			//public static Action MsgBoxClose;
 			
 			private string _title;
 
@@ -71,7 +71,7 @@ namespace GenosStore.View.Other {
 			}
 
 			private void OK(object parameter) {
-				MsgBoxClose?.Invoke();
+				//MsgBoxClose?.Invoke();
 			}
 
 			private bool CanOK(object parameter) {

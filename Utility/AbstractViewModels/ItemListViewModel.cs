@@ -93,6 +93,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 		public ItemListViewModel(IServices services, User user): base(services, user) {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
+			_search = new RelayCommand(Search, CanSearch);
 
 			Price = new RangeItem();
 			

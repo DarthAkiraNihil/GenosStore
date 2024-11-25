@@ -10,6 +10,7 @@ namespace GenosStore.Services.Interface.Entity.Orders {
         void IncrementCartItemQuantity(Item item, Customer customer);
         void DecrementCartItemQuantity(Item item, Customer customer);
         bool IsInCart(Item item, Customer customer);
+        void ClearCart(Customer customer);
         
     }
 }

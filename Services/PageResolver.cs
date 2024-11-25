@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using GenosStore.Model.Entity.Orders;
 using GenosStore.Utility.Navigation;
 using GenosStore.View.AuthRegister;
 using GenosStore.View.ItemList;
 using GenosStore.View.ItemPage;
 using GenosStore.View.Main;
+using GenosStore.View.Order;
 using GenosStore.View.Other;
 
 namespace GenosStore.Services {
@@ -19,7 +21,8 @@ namespace GenosStore.Services {
 			{"View/ItemList/MotherboardsPage.xaml",  a => new MotherboardsPage { DataContext = a.ViewModel } },
 			{"View/ItemPage/MotherboardPage.xaml", a => new MotherboardPage { DataContext = a.ViewModel } },
 			{"View/Main/MainPage.xaml", a => new MainPage { DataContext = a.ViewModel } },
-			{"View/Main/CartPage.xaml", a => new CartPage { DataContext = a.ViewModel } }
+			{"View/Main/CartPage.xaml", a => new CartPage { DataContext = a.ViewModel } },
+			{"View/Order/OrderPage.xaml", a => new OrderPage { DataContext = a.ViewModel } },
 		};
 
 		public static Page Resolve(NavigationArgs args) {

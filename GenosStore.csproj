@@ -182,6 +182,10 @@
     <Compile Include="Migrations\202411241435595_CartItems.Designer.cs">
       <DependentUpon>202411241435595_CartItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411251854009_OrderItemsOrderFKFix.cs" />
+    <Compile Include="Migrations\202411251854009_OrderItemsOrderFKFix.Designer.cs">
+      <DependentUpon>202411251854009_OrderItemsOrderFKFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -372,6 +376,8 @@
     <Compile Include="Services\Implementation\Entity\Items\ItemServices.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\CartService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderEntitiesService.cs" />
+    <Compile Include="Services\Implementation\Entity\Orders\OrderService.cs" />
+    <Compile Include="Services\Implementation\Entity\Orders\OrderStatusService.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserService.cs" />
     <Compile Include="Services\Implementation\Services.cs" />
     <Compile Include="Services\Interface\Base\IEnumService.cs" />
@@ -473,6 +479,7 @@
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
     <Compile Include="ViewModel\Main\CartPageModel.cs" />
+    <Compile Include="ViewModel\Order\OrderPageModel.cs" />
     <Compile Include="View\Admin\DBEditPage.xaml.cs">
       <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>
@@ -516,6 +523,15 @@
     </Compile>
     <Compile Include="View\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Order\OrderHistoryPage.xaml.cs">
+      <DependentUpon>OrderHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Order\OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Order\PaymentPage.xaml.cs">
+      <DependentUpon>PaymentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Other\GenosStoreMessageBox.xaml.cs">
       <DependentUpon>GenosStoreMessageBox.xaml</DependentUpon>
@@ -569,6 +585,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Order\OrderHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Order\OrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Order\PaymentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Other\GenosStoreMessageBox.xaml" />
     <Page Include="View\Other\PageNotFound.xaml" />
   </ItemGroup>
@@ -612,6 +640,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411241435595_CartItems.resx">
       <DependentUpon>202411241435595_CartItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411251854009_OrderItemsOrderFKFix.resx">
+      <DependentUpon>202411251854009_OrderItemsOrderFKFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
