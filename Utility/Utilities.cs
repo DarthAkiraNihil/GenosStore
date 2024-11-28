@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using GenosStore.Model.Entity.Base;
 using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Model.Entity.Orders;
+using GenosStore.Services.Interface.Base;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.View.Other;
 
@@ -32,12 +36,34 @@ namespace GenosStore.Utility {
                    .ToList();
         }
 
-        // public static ObservableCollection<ItemListViewModel<T>.ItemListElement> ConvertToItemListAndCheckDiscounts<T>(List<T> list) where T : Item {
-        //     var converted = new ObservableCollection<ItemListViewModel<T>.ItemListElement>();
-        //
-        //     foreach (var item in list) {
-        //         
-        //     }
-        // }
+        public static ObservableCollection<ItemListElement<T>> ConvertAndCheckDiscounts<T>(List<T> items, IStandardService<T> service) where T : Item {
+            var converted = new ObservableCollection<ItemListElement<T>>();
+
+            foreach (var item in items) {
+                var discount = item.ActiveDiscount;
+                var listItem = new ItemListElement<T>();
+                listItem.Item = item;
+                if (discount != null) {
+                    var now = DateTime.Now;
+                    if (discount.EndsAt < now) {
+                        item.ActiveDiscount = null;
+                        listItem.Price = item.Price;
+                        service.Update(item);
+                    } else {
+                        listItem.DiscountedPrice = item.Price * discount.Value;
+                        listItem.OldPrice = item.Price;
+                    }
+                } else {
+                    listItem.Price = item.Price;
+                }
+				
+                converted.Add(listItem);
+            }
+
+            service.Save();
+
+            return converted;
+        }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System;
+using System.Windows.Media;
 using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
@@ -7,6 +8,9 @@ namespace GenosStore.Utility.AbstractViewModels {
     public class ItemPageViewModel<T>: RequiresUserViewModel where T: Item {
         
         public T Item { get; set; }
+        public double? Price { get; set; }
+        public double? DiscountedPrice { get; set; }
+        public double? OldPrice { get; set; }
 
         private string _buttonText;
         protected bool _itemIsInCart;
@@ -17,6 +21,26 @@ namespace GenosStore.Utility.AbstractViewModels {
                 _buttonText = value;
                 NotifyPropertyChanged("ButtonText");
             }
+        }
+
+        protected void FillPrices(Item item) {
+            
+            var discount = item.ActiveDiscount;
+            
+            if (discount != null) {
+                var now = DateTime.Now;
+                if (discount.EndsAt < now) {
+                    item.ActiveDiscount = null;
+                    Price = item.Price;
+                } else {
+                    DiscountedPrice = item.Price * discount.Value;
+                    OldPrice = item.Price;
+                }
+            } else {
+                Price = item.Price;
+            }
+
+            
         }
 
         #region AddToRemoveFromCartCommand

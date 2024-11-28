@@ -5,6 +5,7 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
         private ICartService _cartService;
         private IOrderService _orderService;
         private IOrderStatusService _orderStatusService;
+        private IActiveDiscountService _activeDiscountService;
 
         public ICartService Carts {
             get { return _cartService; }
@@ -18,10 +19,15 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             get { return _orderStatusService; }
         }
 
-        public OrderEntitiesService(ICartService cartService, IOrderService orderService, IOrderStatusService orderStatusService) {
+        public IActiveDiscountService ActiveDiscounts {
+            get { return _activeDiscountService; }
+        }
+
+        public OrderEntitiesService(ICartService cartService, IOrderService orderService, IOrderStatusService orderStatusService, IActiveDiscountService activeDiscountService) {
             _cartService = cartService;
             _orderService = orderService;
             _orderStatusService = orderStatusService;
+            _activeDiscountService = activeDiscountService;
         }
     }
 }

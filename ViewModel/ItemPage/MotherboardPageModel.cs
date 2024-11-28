@@ -19,6 +19,7 @@ namespace GenosStore.ViewModel.ItemPage {
 				ButtonText = "В корзине";
 				_itemIsInCart = true;
 			}
+			FillPrices(Item);
 		}
 
 	}

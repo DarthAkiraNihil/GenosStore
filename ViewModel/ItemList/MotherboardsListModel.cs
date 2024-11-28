@@ -144,7 +144,7 @@ namespace GenosStore.ViewModel.ItemList {
 				);
 			}
 
-			Items = GetItemsAndCheckDiscounts(
+			Items = Utilities.ConvertAndCheckDiscounts(
 				_services.Entity.Items.ComputerComponents.Motherboards.Filter(filters),
 				_services.Entity.Items.ComputerComponents.Motherboards
 			);
@@ -289,7 +289,7 @@ namespace GenosStore.ViewModel.ItemList {
 			//
 			// _services.Entity.Items.ComputerComponents.Motherboards.Save();
 
-			Items = GetItemsAndCheckDiscounts(
+			Items = Utilities.ConvertAndCheckDiscounts(
 				_services.Entity.Items.ComputerComponents.Motherboards.List(),
 				_services.Entity.Items.ComputerComponents.Motherboards
 			);

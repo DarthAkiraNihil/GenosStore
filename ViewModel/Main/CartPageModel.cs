@@ -14,6 +14,7 @@ namespace GenosStore.ViewModel.Main {
 
         private Cart _cart;
         private ObservableCollection<CartItem> _cartItems;
+        
 
         public ObservableCollection<CartItem> CartItems {
             get { return _cartItems; }

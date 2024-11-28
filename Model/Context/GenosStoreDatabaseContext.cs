@@ -14,7 +14,6 @@ namespace GenosStore.Model.Context {
 		public GenosStoreDatabaseContext() : base("name=genos_store") { }
 
 		// enum
-
 		public DbSet<ItemType> ItemTypes { get; set; }
 		public DbSet<Certificate80Plus> Certificates80Plus { get; set; }
 		public DbSet<ComputerCaseTypesize> ComputerCaseTypesizes { get; set; }
@@ -57,6 +56,7 @@ namespace GenosStore.Model.Context {
 		public DbSet<CPUCooler> CPUCoolers { get; set; }
 
 		public DbSet<PreparedAssembly> PreparedAssemblies { get; set; }
+		public DbSet<Item> Items { get; set; }
 
 		// simple computer components
 

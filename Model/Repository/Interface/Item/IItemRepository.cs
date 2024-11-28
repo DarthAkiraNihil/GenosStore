@@ -11,6 +11,7 @@ namespace GenosStore.Model.Repository.Interface.Item {
         ISimpleComputerComponentRepository SimpleComputerComponents{ get; }
         IItemTypeRepository ItemTypes { get; }
         IPreparedAssemblyRepository PreparedAssemblies { get; }
+        IAllItemsRepository All { get; }
         
     }
 }

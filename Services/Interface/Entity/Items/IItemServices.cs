@@ -1,5 +1,6 @@
 ﻿using GenosStore.Model.Entity.Item;
 using GenosStore.Services.Interface.Base;
+using GenosStore.Services.Interface.Common;
 using GenosStore.Services.Interface.Entity.Items.Characteristics;
 using GenosStore.Services.Interface.Entity.Items.ComputerComponents;
 using GenosStore.Services.Interface.Entity.Items.SimpleComputerComponents;

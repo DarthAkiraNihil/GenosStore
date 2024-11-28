@@ -22,9 +22,20 @@
                         <SolidColorBrush Color="{DynamicResource LightCyan}"/>
                     </Label.Foreground>
                 </Label>
-                <Label Content="{Binding Item.Price}" FontSize="20" VerticalAlignment="Center">
+                <Label Content="{Binding Price}" FontSize="20" VerticalAlignment="Center">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label FontSize="20" >
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </Label.Foreground>
+                    <TextBlock Text="{Binding Path=OldPrice}" TextDecorations="Strikethrough"/>
+                </Label>
+                <Label FontSize="20" Content="{Binding Path=DiscountedPrice}">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </Label.Foreground>
                 </Label>
             </DockPanel>

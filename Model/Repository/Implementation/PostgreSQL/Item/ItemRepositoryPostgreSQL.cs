@@ -20,6 +20,7 @@ namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Item {
         private ComputerComponentRepositoryPostgreSQL _computerComponents;
         private SimpleComputerComponentRepositoryPostgreSQL _simpleComputerComponents;
         private ItemTypeRepositoryPostgreSQL _itemTypes;
+        private AllItemsRepositoryPostgreSQL _allItems;
         private PreparedAssemblyRepositoryPostgreSQL _preparedAssemblies;
         
         public ItemRepositoryPostgreSQL(GenosStoreDatabaseContext context) {
@@ -69,6 +70,15 @@ namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Item {
                 return _preparedAssemblies;
             }
         }
-        
+
+        public IAllItemsRepository All {
+            get {
+                if (_allItems == null) {
+                    _allItems = new AllItemsRepositoryPostgreSQL(_context);
+                }
+                return _allItems;
+            }
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GenosStore.Services.Interface.Entity.Orders {
     public interface IOrderEntitiesService {
-        // IActiveDiscountService ActiveDiscounts { get; }
+        IActiveDiscountService ActiveDiscounts { get; }
         // IBankCardService BankCards { get; }
         // IBankSystemService BankSystems { get; }
         ICartService Carts { get; }

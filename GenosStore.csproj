@@ -216,6 +216,7 @@
     <Compile Include="Model\Entity\User\UserType.cs" />
     <Compile Include="Model\Entity\User\User.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\GenosStoreRepositoriesPostgreSQL.cs" />
+    <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\AllItemsRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\Certificate80PlusRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\CharacteristicRepositoryPostgreSQL.cs" />
     <Compile Include="Model\Repository\Implementation\PostgreSQL\Item\Characteristic\ComputerCaseTypesizeRepositoryPostgreSQL.cs" />
@@ -310,6 +311,7 @@
     <Compile Include="Model\Repository\Interface\Item\ComputerComponent\IRAMRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\ComputerComponent\ISataSSDRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\ComputerComponent\ISSDRepository.cs" />
+    <Compile Include="Model\Repository\Interface\Item\IAllItemsRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\IItemRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\IItemTypeRepository.cs" />
     <Compile Include="Model\Repository\Interface\Item\IPreparedAssemblyRepository.cs" />
@@ -342,6 +344,7 @@
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\ComputerComponentServices.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\MotherboardService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ItemServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Orders\ActiveDiscountService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\CartService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderEntitiesService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderService.cs" />
@@ -440,11 +443,13 @@
     <Compile Include="Utility\Types\AuthRegister\IndividualEntityRegistrationData.cs" />
     <Compile Include="Utility\Types\AuthRegister\LegalEntityRegistrationData.cs" />
     <Compile Include="Utility\Types\AuthRegister\RegistrationStatus.cs" />
+    <Compile Include="Utility\Types\CartListElement.cs" />
     <Compile Include="Utility\Types\Filtering\CheckableCollection.cs" />
     <Compile Include="Utility\Types\Filtering\CheckableItem.cs" />
     <Compile Include="Utility\Types\Filtering\IFilter.cs" />
     <Compile Include="Utility\Types\Filtering\ISupportsValidation.cs" />
     <Compile Include="Utility\Types\Filtering\RangeItem.cs" />
+    <Compile Include="Utility\Types\ItemListElement.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
