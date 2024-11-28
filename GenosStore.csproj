@@ -146,45 +146,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202411031720130_Initial.cs" />
-    <Compile Include="Migrations\202411031720130_Initial.Designer.cs">
-      <DependentUpon>202411031720130_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202411251901077_Initial.cs" />
+    <Compile Include="Migrations\202411251901077_Initial.Designer.cs">
+      <DependentUpon>202411251901077_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202411031730120_ItemTypeAndCarts.cs" />
-    <Compile Include="Migrations\202411031730120_ItemTypeAndCarts.Designer.cs">
-      <DependentUpon>202411031730120_ItemTypeAndCarts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411031739342_OrderItemsFix.cs" />
-    <Compile Include="Migrations\202411031739342_OrderItemsFix.Designer.cs">
-      <DependentUpon>202411031739342_OrderItemsFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411041429119_OrderStatus.cs" />
-    <Compile Include="Migrations\202411041429119_OrderStatus.Designer.cs">
-      <DependentUpon>202411041429119_OrderStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411041430453_OrderStatusFix.cs" />
-    <Compile Include="Migrations\202411041430453_OrderStatusFix.Designer.cs">
-      <DependentUpon>202411041430453_OrderStatusFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411051657541_FixNoModelInItem.cs" />
-    <Compile Include="Migrations\202411051657541_FixNoModelInItem.Designer.cs">
-      <DependentUpon>202411051657541_FixNoModelInItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411200541282_RequiredFix.cs" />
-    <Compile Include="Migrations\202411200541282_RequiredFix.Designer.cs">
-      <DependentUpon>202411200541282_RequiredFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411200603024_IDNotRequired.cs" />
-    <Compile Include="Migrations\202411200603024_IDNotRequired.Designer.cs">
-      <DependentUpon>202411200603024_IDNotRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411241435595_CartItems.cs" />
-    <Compile Include="Migrations\202411241435595_CartItems.Designer.cs">
-      <DependentUpon>202411241435595_CartItems.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411251854009_OrderItemsOrderFKFix.cs" />
-    <Compile Include="Migrations\202411251854009_OrderItemsOrderFKFix.Designer.cs">
-      <DependentUpon>202411251854009_OrderItemsOrderFKFix.cs</DependentUpon>
+    <Compile Include="Migrations\202411251922255_CartItemFix.cs" />
+    <Compile Include="Migrations\202411251922255_CartItemFix.Designer.cs">
+      <DependentUpon>202411251922255_CartItemFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
@@ -453,6 +421,7 @@
     <Compile Include="Utility\AbstractViewModels\ItemPageViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\RequiresUserViewModel.cs" />
     <Compile Include="Utility\Converters\Base64ImageConverter.cs" />
+    <Compile Include="Utility\Converters\ListToStringConverter.cs" />
     <Compile Include="Utility\Navigation\NavigationArgs.cs" />
     <Compile Include="Utility\Navigation\NavigationArgsBuilder.cs" />
     <Compile Include="Utility\NinjectModules\RepositoriesModule.cs" />
@@ -462,6 +431,7 @@
     <Compile Include="Utility\Operations\ISupportsDeleteRaw.cs" />
     <Compile Include="Utility\Operations\ISupportsFilter.cs" />
     <Compile Include="Utility\Operations\ISupportsGetFromString.cs" />
+    <Compile Include="Utility\Operations\ISupportsSave.cs" />
     <Compile Include="Utility\Operations\ISupportsUpdate.cs" />
     <Compile Include="Utility\Operations\ISupportsGet.cs" />
     <Compile Include="Utility\Operations\ISupportsList.cs" />
@@ -614,35 +584,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202411031720130_Initial.resx">
-      <DependentUpon>202411031720130_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411251901077_Initial.resx">
+      <DependentUpon>202411251901077_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411031730120_ItemTypeAndCarts.resx">
-      <DependentUpon>202411031730120_ItemTypeAndCarts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411031739342_OrderItemsFix.resx">
-      <DependentUpon>202411031739342_OrderItemsFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411041429119_OrderStatus.resx">
-      <DependentUpon>202411041429119_OrderStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411041430453_OrderStatusFix.resx">
-      <DependentUpon>202411041430453_OrderStatusFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411051657541_FixNoModelInItem.resx">
-      <DependentUpon>202411051657541_FixNoModelInItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411200541282_RequiredFix.resx">
-      <DependentUpon>202411200541282_RequiredFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411200603024_IDNotRequired.resx">
-      <DependentUpon>202411200603024_IDNotRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411241435595_CartItems.resx">
-      <DependentUpon>202411241435595_CartItems.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411251854009_OrderItemsOrderFKFix.resx">
-      <DependentUpon>202411251854009_OrderItemsOrderFKFix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411251922255_CartItemFix.resx">
+      <DependentUpon>202411251922255_CartItemFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

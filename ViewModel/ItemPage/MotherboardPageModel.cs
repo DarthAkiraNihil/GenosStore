@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;

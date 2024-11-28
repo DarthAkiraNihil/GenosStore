@@ -1,25 +1,26 @@
 ﻿using System;
-using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Data;
-using System.Windows.Media.Imaging;
+using GenosStore.Model.Entity.Base;
 
 namespace GenosStore.Utility.Converters {
-    public class Base64ImageConverter: IValueConverter {
+    public class ListToStringConverter: IValueConverter {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            string s = value as string;
+            var l = (IList) value;
 
-            if (s == null) {
+            if (l == null) {
                 return null;
             }
+            
+            string result = "";
 
-            BitmapImage bi = new BitmapImage();
+            foreach (Named e in l) {
+                result += e.Name + ", ";
+            }
 
-            bi.BeginInit();
-            bi.StreamSource = new MemoryStream(System.Convert.FromBase64String(s));
-            bi.EndInit();
-
-            return bi;
+            return result;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

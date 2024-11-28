@@ -2,7 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using GenosStore.Model.Entity.Base;
+using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.Item.Characteristic;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.View.Other;
 
@@ -29,5 +31,13 @@ namespace GenosStore.Utility {
                    .Select(i => i.Item.Name)
                    .ToList();
         }
+
+        // public static ObservableCollection<ItemListViewModel<T>.ItemListElement> ConvertToItemListAndCheckDiscounts<T>(List<T> list) where T : Item {
+        //     var converted = new ObservableCollection<ItemListViewModel<T>.ItemListElement>();
+        //
+        //     foreach (var item in list) {
+        //         
+        //     }
+        // }
     }
 }

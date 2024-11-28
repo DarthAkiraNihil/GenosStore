@@ -1,10 +1,6 @@
 ﻿using GenosStore.Model.Entity.Item.SimpleComputerComponent;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GenosStore.Model.Entity.Item.Characteristic;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,7 +11,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		[Required]
 		public virtual List<CPUCore> SupportedCPUCores { get; set; }
 		[Required]
-		public List<RAMType> SupportedRAMTypes { get; set; }
+		public virtual List<RAMType> SupportedRAMTypes { get; set; }
 
 		[Required]
 		public byte RAMSlots { get; set; }
@@ -37,7 +33,7 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		[Required]
 		public byte USBPortsCount { get; set; }
 		[Required]
-		public List<VideoPort> VideoPorts { get; set; }
+		public virtual List<VideoPort> VideoPorts { get; set; }
 		[Required]
 		public byte RJ45PortsCount { get; set; }
 		[Required]
@@ -53,10 +49,5 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		public virtual AudioChipset AudioChipset { get; set; }
 		public virtual NetworkAdapter NetworkAdapter { get; set; }
 
-		public Motherboard() {
-			//SupportedCPUCores = new List<CPUCore>();
-			SupportedRAMTypes = new List<RAMType>();
-			VideoPorts = new List<VideoPort>();
-		}
 	}
 }

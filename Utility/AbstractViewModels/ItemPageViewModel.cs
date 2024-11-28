@@ -1,4 +1,5 @@
-﻿using GenosStore.Model.Entity.Item;
+﻿using System.Windows.Media;
+using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 
@@ -9,7 +10,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 
         private string _buttonText;
         protected bool _itemIsInCart;
-
+        
         public string ButtonText {
             get { return _buttonText; }
             set {

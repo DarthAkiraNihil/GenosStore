@@ -6,15 +6,19 @@ namespace GenosStore.Model.Entity.Orders {
     public class CartItem {
         [Key]
         [Column(Order = 1)]
-        public int CartId { get; set; }
+        [ForeignKey("Cart")]
+		public int CartId { get; set; }
         [Key]
         [Column(Order = 2)]
-        public int ItemId { get; set; }
+        [ForeignKey("Item")]
+		public int ItemId { get; set; }
 		
         [Column(Order = 3)]
         public int Quantity { get; set; }
 
-        public virtual Item.Item Item { get; set; }
-        public virtual Cart Cart { get; set; }
+        [Column(Order = 1)]
+		public virtual Item.Item Item { get; set; }
+		[Column(Order = 2)]
+		public virtual Cart Cart { get; set; }
     }
 }

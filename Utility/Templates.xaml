@@ -8,16 +8,16 @@
         <DockPanel Width="{Binding Width, ElementName=listBox}">
 
             <Image DockPanel.Dock="Left"
-                   Source="{Binding Path=ImageBase64, Converter={StaticResource Base64ImageConverter}}"
+                   Source="{Binding Path=Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
                    Width="120" Height="120"/>
 
             <DockPanel DockPanel.Dock="Right" Margin="8,4,8,4">
-                <Label DockPanel.Dock="Top" FontSize="24" Content="{Binding Path=Name}">
+                <Label DockPanel.Dock="Top" FontSize="24" Content="{Binding Path=Item.Name}">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource Cyan}"/>
                     </Label.Foreground>
                 </Label>
-                <Label DockPanel.Dock="Top" FontSize="16" Content="{Binding Path=Model}">
+                <Label DockPanel.Dock="Top" FontSize="16" Content="{Binding Path=Item.Model}">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                     </Label.Foreground>
@@ -28,12 +28,23 @@
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Label.Foreground>
                     </Label>
+                    <Label DockPanel.Dock="Left" FontSize="20" >
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                        <TextBlock Text="{Binding Path=OldPrice}" TextDecorations="Strikethrough"/>
+                    </Label>
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="{Binding Path=DiscountedPrice}">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
                     <Button
                         Foreground="White"
                         Width="80"
                         HorizontalAlignment="Right"
                         Content="Купить" Command="{Binding DataContext.ToItemPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
-                        CommandParameter="{Binding Path=Id}"
+                        CommandParameter="{Binding Path=Item.Id}"
                         >
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource DarkerBlue}"/>

@@ -84,6 +84,10 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             _repositories.Orders.Carts.Delete(id);
         }
 
+        public int Save() {
+            return _repositories.Save();
+        }
+
         public CartService(IGenosStoreRepositories repositories) {
             _repositories = repositories;
         }

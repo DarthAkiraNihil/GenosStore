@@ -66,6 +66,10 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             return order.Id;
             
         }
+        
+        public int Save() {
+            return _repositories.Save();
+        }
 
         public bool OrderExists(int orderId) {
             return Get(orderId) != null;

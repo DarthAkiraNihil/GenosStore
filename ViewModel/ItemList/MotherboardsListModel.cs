@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
+using GenosStore.Model.Context;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
@@ -143,9 +144,14 @@ namespace GenosStore.ViewModel.ItemList {
 				);
 			}
 
-			Items = new ObservableCollection<Motherboard>(
-				_services.Entity.Items.ComputerComponents.Motherboards.Filter(filters)
+			Items = GetItemsAndCheckDiscounts(
+				_services.Entity.Items.ComputerComponents.Motherboards.Filter(filters),
+				_services.Entity.Items.ComputerComponents.Motherboards
 			);
+
+			// Items = new ObservableCollection<ItemListElement>(
+			// 	_services.Entity.Items.ComputerComponents.Motherboards.Filter(filters)
+			// );
 		}
 
 		protected override List<Motherboard> _getItems() {
@@ -156,24 +162,24 @@ namespace GenosStore.ViewModel.ItemList {
 
 			_nvmeOnceSelected = false;
 			
-			//var context = new GenosStoreDatabaseContext();
+			var context = new GenosStoreDatabaseContext();
 
-			//var ac = new MotherboardChipset();
-			//ac.Model = "Intel H610";
-			//ac.Name = "Intel H610";
-			//ac.Type = context.SimpleComputerComponentTypes.Where(i => i.Name == "MotherboardChipset").FirstOrDefault();
-			//context.MotherboardChipsets.Add(ac);
-			////var na = new NetworkAdapter();
-			////na.Model = "Realtek RTL8111H";
-			////na.Name = "Realtek RTL8111H";
-			////na.Type = context.SimpleComputerComponentTypes.Where(i => i.Name == "NetworkAdapter").FirstOrDefault();
+			// var ac = new AudioChipset();
+			// ac.Model = "Realtek ALC897";
+			// ac.Name = "Realtek ALC897";
+			// ac.Type = context.SimpleComputerComponentTypes.Where(i => i.Name == "AudioChipset").FirstOrDefault();
+			// // context.MotherboardChipsets.Add(ac);
+			// var na = new NetworkAdapter();
+			// na.Model = "Realtek RTL8111H";
+			// na.Name = "Realtek RTL8111H";
+			// na.Type = context.SimpleComputerComponentTypes.Where(i => i.Name == "NetworkAdapter").FirstOrDefault();
 
-			////context.AudioChipsets.Add(ac);
-			////context.NetworkAdapters.Add(na);
+			//context.AudioChipsets.Add(ac);
+			//context.NetworkAdapters.Add(na);
 
 			//context.SaveChanges();
 
-			//MessageBox.Show("SIMPLEDIMPLE");
+			MessageBox.Show("SIMPLEDIMPLE");
 
 			//var m = new Motherboard();
 
@@ -240,7 +246,7 @@ namespace GenosStore.ViewModel.ItemList {
 			//context.Motherboards.Add(m);
 			//context.SaveChanges();
 
-			//MessageBox.Show("SIMPLEDIMPLE 2!");
+			MessageBox.Show("SIMPLEDIMPLE 2!");
 
 			var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
 			
@@ -256,8 +262,37 @@ namespace GenosStore.ViewModel.ItemList {
 			PCIESlotsCount = new RangeItem();
 			SataPortsCount = new RangeItem();
 			USBPortsCount = new RangeItem();
+			
+			// var motherboards = _services.Entity.Items.ComputerComponents.Motherboards.List();
+			// var converted = new ObservableCollection<ItemListElement>();
+			//
+			// foreach (var item in motherboards) {
+			// 	var discount = item.ActiveDiscount;
+			// 	var listItem = new ItemListElement();
+			// 	listItem.Item = item;
+			// 	if (discount != null) {
+			// 		var now = DateTime.Now;
+			// 		if (discount.EndsAt < now) {
+			// 			item.ActiveDiscount = null;
+			// 			listItem.Price = item.Price;
+			// 			_services.Entity.Items.ComputerComponents.Motherboards.Update(item);
+			// 		} else {
+			// 			listItem.DiscountedPrice = item.Price * discount.Value;
+			// 			listItem.OldPrice = item.Price;
+			// 		}
+			// 	} else {
+			// 		listItem.Price = item.Price;
+			// 	}
+			// 	
+			// 	converted.Add(listItem);
+			// }
+			//
+			// _services.Entity.Items.ComputerComponents.Motherboards.Save();
 
-			Items = new ObservableCollection<Motherboard>(_services.Entity.Items.ComputerComponents.Motherboards.List());
+			Items = GetItemsAndCheckDiscounts(
+				_services.Entity.Items.ComputerComponents.Motherboards.List(),
+				_services.Entity.Items.ComputerComponents.Motherboards
+			);
 			
 		}
 	}

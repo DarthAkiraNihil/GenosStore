@@ -25,12 +25,24 @@
     <Color x:Key="PaleBlue">#FFA0CDFF</Color>
     <Color x:Key="LightBlue">#FF80F0FF</Color>
     <Color x:Key="ErrorRed">#ff2a6d</Color>
+    
+    <Color x:Key="LightEmerald">#07f9a2</Color>
+    <Color x:Key="Emerald">#09c184</Color>
+    <Color x:Key="DarkerEmerald">#0a8967</Color>
+    <Color x:Key="DarkEmerald">#0c5149</Color>
+    <Color x:Key="BlackEmerald">#0d192b</Color>
 
     <Color x:Key="DarkBlue">#001449</Color>
     <Color x:Key="DarkerBlue">#012677</Color>
     <Color x:Key="Blue">#005bc5</Color>
     <Color x:Key="LighterBlue">#00b4fc</Color>
     <Color x:Key="LightCyan">#17f9ff</Color>
+    
+    <Color x:Key="Gray">#595b5a</Color>
+    <Color x:Key="DarkerCyan">#14c3a2</Color>
+    <Color x:Key="EmeraldCyan">#0de5a8</Color>
+    <Color x:Key="LighterGreen">#7cf49a</Color>
+    <Color x:Key="PaleGreen">#b8fd99</Color>
 
     <SolidColorBrush x:Key="PaleBlueBrush" Color="{StaticResource PaleBlue}"/>
     <SolidColorBrush x:Key="CyanBrush" Color="{StaticResource Cyan}"/>
@@ -42,5 +54,17 @@
     <SolidColorBrush x:Key="BlueBrush" Color="{StaticResource Blue}" />
     <SolidColorBrush x:Key="LighterBlueBrush" Color="{StaticResource LighterBlue}" />
     <SolidColorBrush x:Key="LightCyanBrush" Color="{StaticResource LightCyan}" />
+    
+    <SolidColorBrush x:Key="DarkEmeraldBrush" Color="{StaticResource DarkEmerald}"/>
+    <SolidColorBrush x:Key="DarkerEmeraldBrush" Color="{StaticResource DarkerEmerald}"/>
+    <SolidColorBrush x:Key="EmeraldBrush" Color="{StaticResource Emerald}" />
+    <SolidColorBrush x:Key="BlackEmeraldBrush" Color="{StaticResource BlackEmerald}" />
+    <SolidColorBrush x:Key="LightEmeraldBrush" Color="{StaticResource LightEmerald}" />
+    
+    <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource Gray}" />
+    <SolidColorBrush x:Key="DarkerCyanBrush" Color="{StaticResource DarkerCyan}" />
+    <SolidColorBrush x:Key="EmeraldCyanBrush" Color="{StaticResource EmeraldCyan}" />
+    <SolidColorBrush x:Key="LighterGreenBrush" Color="{StaticResource LighterGreen}" />
+    <SolidColorBrush x:Key="PaleGreenBrush" Color="{StaticResource PaleGreen}" />
 
 </ResourceDictionary>
