@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GenosStore.Model.Entity.Orders;
@@ -7,21 +8,55 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types;
 using GenosStore.ViewModel.Order;
 
 namespace GenosStore.ViewModel.Main {
     public class CartPageModel: RequiresUserViewModel {
 
         private Cart _cart;
-        private ObservableCollection<CartItem> _cartItems;
+        private ObservableCollection<CartItemElement> _cartItems;
+
+        public class CartItemElement {
+            public CartItem Item { get; set; }
+            public double? Price { get; set; }
+            public double? DiscountedPrice { get; set; }
+            public double? OldPrice { get; set; }
+        }
         
 
-        public ObservableCollection<CartItem> CartItems {
+        public ObservableCollection<CartItemElement> CartItems {
             get { return _cartItems; }
             set {
                 _cartItems = value;
                 NotifyPropertyChanged("CartItems");
             }
+        }
+        
+        protected ObservableCollection<CartItemElement> GetItemsAndCheckDiscounts(List<CartItem> items) {
+            var converted = new ObservableCollection<CartItemElement>();
+
+            foreach (var item in items) {
+                var discount = item.Item.ActiveDiscount;
+                var cartItem = new CartItemElement {Item = item};
+                if (discount != null) {
+                    if (!_services.Entity.Orders.ActiveDiscounts.IsActive(discount)) {
+                        _services.Entity.Orders.ActiveDiscounts.Deactivate(discount);
+                        discount = null;
+                    }
+                }
+
+                if (discount != null) {
+                    cartItem.DiscountedPrice = item.Item.Price * discount.Value;
+                    cartItem.OldPrice = item.Item.Price;
+                } else {
+                    cartItem.Price = item.Item.Price;
+                }
+				
+                converted.Add(cartItem);
+            }
+			
+            return converted;
         }
 
         #region IncrementCartItemQuantityCommand
@@ -38,7 +73,7 @@ namespace GenosStore.ViewModel.Main {
                 _cart.Items.Where(i => i.Item.Id == id).Select(i => i.Item).First(),
                 _user as Customer
                 );
-            CartItems = new ObservableCollection<CartItem>(_cart.Items);
+            CartItems = GetItemsAndCheckDiscounts(_cart.Items);
             MessageBox.Show("WERKED");
         }
 
@@ -62,7 +97,7 @@ namespace GenosStore.ViewModel.Main {
                 _cart.Items.Where(i => i.Item.Id == id).Select(i => i.Item).First(),
                 _user as Customer
             );
-            CartItems = new ObservableCollection<CartItem>(_cart.Items);
+            CartItems = GetItemsAndCheckDiscounts(_cart.Items);
             MessageBox.Show("WERKED");
         }
 
@@ -97,7 +132,8 @@ namespace GenosStore.ViewModel.Main {
         
         public CartPageModel(IServices services, User user) : base(services, user) {
             _cart = (_user as Customer)?.Cart;
-            CartItems = new ObservableCollection<CartItem>(_cart.Items);
+            CartItems = GetItemsAndCheckDiscounts(_cart.Items);
+            //CartItems = new ObservableCollection<CartItem>(_cart.Items);
             
             _incrementCartItemQuantityCommand = new RelayCommand(IncrementCartItemQuantity, CanIncrement);
             _decrementCartItemQuantityCommand = new RelayCommand(DecrementCartItemQuantity, CanDecrement);
