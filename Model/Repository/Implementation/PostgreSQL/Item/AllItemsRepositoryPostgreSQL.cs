@@ -25,8 +25,8 @@ namespace GenosStore.Model.Repository.Implementation.PostgreSQL.Item {
             _context.Items.Add(itemType);
         }
 
-        public void Update(Entity.Item.Item itemType) {
-            _context.Entry(itemType).State = EntityState.Modified;
+        public void Update(Entity.Item.Item item) {
+            _context.Entry(item).State = EntityState.Modified;
         }
 
         public void Delete(int id) {

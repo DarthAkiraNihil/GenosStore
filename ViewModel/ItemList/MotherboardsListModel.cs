@@ -289,9 +289,8 @@ namespace GenosStore.ViewModel.ItemList {
 			//
 			// _services.Entity.Items.ComputerComponents.Motherboards.Save();
 
-			Items = Utilities.ConvertAndCheckDiscounts(
-				_services.Entity.Items.ComputerComponents.Motherboards.List(),
-				_services.Entity.Items.ComputerComponents.Motherboards
+			Items = GetItemsAndCheckDiscounts(
+				_services.Entity.Items.ComputerComponents.Motherboards.List()
 			);
 			
 		}

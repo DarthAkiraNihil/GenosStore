@@ -93,6 +93,33 @@ namespace GenosStore.Utility.AbstractViewModels {
 
 		#endregion
 		
+		protected ObservableCollection<ItemListElement<T>> GetItemsAndCheckDiscounts(List<T> items) {
+			var converted = new ObservableCollection<ItemListElement<T>>();
+
+			foreach (var item in items) {
+				var discount = item.ActiveDiscount;
+				var listItem = new ItemListElement<T>();
+				listItem.Item = item;
+				if (discount != null) {
+					if (!_services.Entity.Orders.ActiveDiscounts.IsActive(discount)) {
+						_services.Entity.Orders.ActiveDiscounts.Deactivate(discount);
+						discount = null;
+					}
+				}
+
+				if (discount != null) {
+					listItem.DiscountedPrice = item.Price * discount.Value;
+					listItem.OldPrice = item.Price;
+				} else {
+					listItem.Price = item.Price;
+				}
+				
+				converted.Add(listItem);
+			}
+			
+			return converted;
+		}
+		
 		public ItemListViewModel(IServices services, User user): base(services, user) {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);

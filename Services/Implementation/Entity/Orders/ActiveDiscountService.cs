@@ -39,7 +39,10 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
                         .All
                         .List()
                         .Where(i => i.ActiveDiscount == activeDiscount)
-                        .Select(i => { i.ActiveDiscount = null; return i; });
+                        .Select(i => { i.ActiveDiscount = null; return i; })
+                        .ToList()
+                        .Select(i => { _repositories.Items.All.Update(i); return i; })
+                        .ToList();
             _repositories.Save();
         }
 

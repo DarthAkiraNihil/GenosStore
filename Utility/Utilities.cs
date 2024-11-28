@@ -44,6 +44,7 @@ namespace GenosStore.Utility {
                 var listItem = new ItemListElement<T>();
                 listItem.Item = item;
                 if (discount != null) {
+                    
                     var now = DateTime.Now;
                     if (discount.EndsAt < now) {
                         item.ActiveDiscount = null;
