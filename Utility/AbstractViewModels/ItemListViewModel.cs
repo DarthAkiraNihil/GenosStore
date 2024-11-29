@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
@@ -87,7 +88,11 @@ namespace GenosStore.Utility.AbstractViewModels {
 		}
 
 		private void Search(object parameter) {
-            
+			if (SearchString != null || SearchString != "") {
+				Items = GetItemsAndCheckDiscounts(
+					_getItems().Where(i => i.Name.ToLower().Contains(SearchString.ToLower())).ToList()
+				);
+			}
 		}
 
 		private bool CanSearch(object parameter) {
