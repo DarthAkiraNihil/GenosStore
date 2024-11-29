@@ -33,7 +33,7 @@
                 <ImageBrush ImageSource="/Images/auth-bg.png" Stretch="UniformToFill" Opacity="0.4"/>
             </DockPanel.Background>
 
-            <DockPanel x:Name="WindowHeader" DockPanel.Dock="Top">
+            <DockPanel x:Name="WindowHeader" DockPanel.Dock="Top" MouseDown="OnMouseDown">
                 <Button x:Name="CloseButton"
                     DockPanel.Dock="Right"
                     Content="{materialDesign:PackIcon WindowClose}"

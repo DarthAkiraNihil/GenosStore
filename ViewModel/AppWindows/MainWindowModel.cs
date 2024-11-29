@@ -24,7 +24,7 @@ namespace GenosStore.ViewModel.AppWindows {
 		private void ToMainPage(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/Main/MainPage.xaml")
-			           .WithTitle("Authorize")
+			           .WithTitle("Главная страница")
 			           .WithViewModel(new MainPageModel(_services, _user))
 			           .Build();
 			Navigate(args);
@@ -83,7 +83,7 @@ namespace GenosStore.ViewModel.AppWindows {
 		private void ToCartPage(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/Main/CartPage.xaml")
-			           .WithTitle("Authorize")
+			           .WithTitle("Корзина")
 			           .WithViewModel(new CartPageModel(_services, _user))
 			           .Build();
 			Navigate(args);

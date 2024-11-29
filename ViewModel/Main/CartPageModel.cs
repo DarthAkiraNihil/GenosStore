@@ -136,7 +136,7 @@ namespace GenosStore.ViewModel.Main {
         private void CreateOrder(object parameter) {
             var args = new NavigationArgsBuilder()
                        .WithURL("View/Order/OrderPage.xaml")
-                       .WithTitle("Order")
+                       .WithTitle("Оформление заказа")
                        .WithViewModel(new OrderPageModel(_services, _user, null))
                        .Build();
             Navigate(args);

@@ -128,12 +128,11 @@ namespace GenosStore.ViewModel.AuthRegister
             switch (registrationStatus) {
                 case RegistrationStatus.Success: {
                     
-                    //Utilities.SpawnMessageBox("REG", "REGISTERED");
                     MessageBox.Show("REGISTERED");
             
                     var args = new NavigationArgsBuilder()
                                .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-                               .WithTitle("Authorize")
+                               .WithTitle("Авторизация")
                                .WithViewModel(new AuthorizationPageModel(_services))
                                .Build();
             
@@ -179,7 +178,7 @@ namespace GenosStore.ViewModel.AuthRegister
         private void BackToAuth(object parameter) {
             var args = new NavigationArgsBuilder()
                        .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-                       .WithTitle("Authorize")
+                       .WithTitle("Авторизация")
                        .WithViewModel(new AuthorizationPageModel(_services))
                        .Build();
             
@@ -201,7 +200,7 @@ namespace GenosStore.ViewModel.AuthRegister
         private void RegisterLegal(object parameter) {
             var args = new NavigationArgsBuilder()
                        .WithURL("View/AuthRegister/RegisterLegalPage.xaml")
-                       .WithTitle("RegisterLegal")
+                       .WithTitle("Регистрация юридического лица")
                        .WithViewModel(new RegisterLegalPageModel(_services))
                        .Build();
             

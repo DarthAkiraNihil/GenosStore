@@ -158,6 +158,16 @@ namespace GenosStore.ViewModel.ItemList {
 			return _services.Entity.Items.ComputerComponents.Motherboards.List();
 		}
 
+		protected override string _getItemName(int id) {
+			return _services
+				.Entity
+				.Items
+				.ComputerComponents
+				.Motherboards
+				.Get(id)
+				.Name;
+		}
+
 		public MotherboardsListModel(IServices services, User user): base(services, user) {
 
 			_nvmeOnceSelected = false;
@@ -179,7 +189,7 @@ namespace GenosStore.ViewModel.ItemList {
 
 			//context.SaveChanges();
 
-			MessageBox.Show("SIMPLEDIMPLE");
+			// MessageBox.Show("SIMPLEDIMPLE");
 
 			//var m = new Motherboard();
 
@@ -246,7 +256,7 @@ namespace GenosStore.ViewModel.ItemList {
 			//context.Motherboards.Add(m);
 			//context.SaveChanges();
 
-			MessageBox.Show("SIMPLEDIMPLE 2!");
+			//MessageBox.Show("SIMPLEDIMPLE 2!");
 
 			var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
 			

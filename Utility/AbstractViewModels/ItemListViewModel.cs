@@ -34,6 +34,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 			var args = new NavigationArgsBuilder()
 			           .WithURL(_itemPageURL)
 			           .WithViewModel(_itemPageViewModel(id))
+			           .WithTitle(_getItemName(id))
 			           .WithId(id)
 			           .Build();
             
@@ -44,6 +45,8 @@ namespace GenosStore.Utility.AbstractViewModels {
 
 		protected abstract AbstractViewModel _itemPageViewModel(int id);
 		protected abstract List<T> _getItems();
+		
+		protected abstract string _getItemName(int id);
 		
 		private bool CanToItemPage(object parameter) {
 			return true;

@@ -143,7 +143,7 @@ namespace GenosStore.ViewModel.AuthRegister {
             
 					var args = new NavigationArgsBuilder()
 					           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-					           .WithTitle("Authorize")
+					           .WithTitle("Авторизация")
 					           .WithViewModel(new AuthorizationPageModel(_services))
 					           .Build();
             
@@ -186,7 +186,7 @@ namespace GenosStore.ViewModel.AuthRegister {
 		private void RegisterIndividual(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/AuthRegister/RegisterIndividualPage.xaml")
-			           .WithTitle("Authorize")
+			           .WithTitle("Регистрация физического лица")
 			           .WithViewModel(new RegisterIndividualPageModel(_services))
 			           .Build();
             
@@ -209,7 +209,7 @@ namespace GenosStore.ViewModel.AuthRegister {
 		private void BackToAuth(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-			           .WithTitle("Authorize")
+			           .WithTitle("Авторизация")
 			           .WithViewModel(new AuthorizationPageModel(_services))
 			           .Build();
             

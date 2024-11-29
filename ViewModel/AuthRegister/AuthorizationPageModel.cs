@@ -109,7 +109,7 @@ namespace GenosStore.ViewModel.AuthRegister
         private void Register(object parameter) {
             var args = new NavigationArgsBuilder()
                 .WithURL("View/AuthRegister/RegisterIndividualPage.xaml")
-                .WithTitle("Authorize")
+                .WithTitle("Регистрация физического лица")
                 .WithViewModel(new RegisterIndividualPageModel(_services))
                 .Build();
             

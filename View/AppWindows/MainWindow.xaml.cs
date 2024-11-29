@@ -17,9 +17,11 @@ namespace GenosStore.View.AppWindows
 
 			Messenger.Default.Register<NavigationArgs>(this, (x) => {
 				MainFrame.Content = PageResolver.Resolve(x);
+				WindowTitle.Content = x.Title;
 			});
-			//MainFrame.Content = new DBEditPage();
-			MainFrame.Content = new MainPage() { DataContext = new MainPageModel(services, currentUser) };
+			
+			MainFrame.Content = new MainPage { DataContext = new MainPageModel(services, currentUser) };
+			WindowTitle.Content = "Главная страница";
         }
 
 		private void closeButton_Click(object sender, RoutedEventArgs e) {
@@ -31,12 +33,10 @@ namespace GenosStore.View.AppWindows
 		}
 
 		private void maximizeButton_Click(object sender, RoutedEventArgs e) {
-			if (this.WindowState == WindowState.Normal)
-				this.WindowState = WindowState.Maximized;
-			else this.WindowState = WindowState.Normal;
+			WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
 		}
 
-		private void OnMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
+		private void OnMouseDown(object sender, MouseButtonEventArgs e) {
 			if (e.LeftButton == MouseButtonState.Pressed) {
 				DragMove();
 			}

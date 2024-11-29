@@ -11,13 +11,10 @@ namespace GenosStore.View.AppWindows
 {
     public partial class AuthRegisterWindow : Window
     {
-	    //private IServices _services;
 	    
         public AuthRegisterWindow(IServices services)
         {
 	        InitializeComponent();
-	        
-	        //_services = services;
 
             AuthorizationPageModel.Close += Close;
 
@@ -30,7 +27,7 @@ namespace GenosStore.View.AppWindows
 			});
 
 			MainFrame.Content = new AuthorizationPage() { DataContext = new AuthorizationPageModel(services)};
-
+			WindowTitle.Content = "Авторизация";
         }
         
         private void closeButton_Click(object sender, RoutedEventArgs e) {
@@ -41,7 +38,7 @@ namespace GenosStore.View.AppWindows
             WindowState = WindowState.Minimized;
         }
 
-		private void OnMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
+		private void OnMouseDown(object sender, MouseButtonEventArgs e) {
 			if (e.LeftButton == MouseButtonState.Pressed) {
 				DragMove();
 			}

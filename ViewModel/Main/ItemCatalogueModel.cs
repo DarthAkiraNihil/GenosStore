@@ -22,6 +22,7 @@ namespace GenosStore.ViewModel.Main {
 		private void ToMotherboards(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/ItemList/MotherboardsPage.xaml")
+			           .WithTitle("Материнские платы")
 			           .WithViewModel(new MotherboardsListModel(_services, _user))
 			           .Build();
 			Navigate(args);

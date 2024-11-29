@@ -15,6 +15,7 @@ namespace GenosStore.ViewModel.Main {
 		private void ToCatalogue(object parameter) {
 			var args = new NavigationArgsBuilder()
 			           .WithURL("View/Main/ItemCataloguePage.xaml")
+			           .WithTitle("Каталог товаров")
 			           .WithViewModel(new ItemCatalogueModel(_services, _user))
 			           .Build();
 			
