@@ -118,6 +118,11 @@
                     </Label.Foreground>
                 </Label>
                 <DockPanel DockPanel.Dock="Bottom">
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="Цена за единицу:">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
                     <Label DockPanel.Dock="Left" FontSize="20" Content="{Binding Path=Price}">
                         <Label.Foreground>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
@@ -134,7 +139,34 @@
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Label.Foreground>
                     </Label>
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="руб;">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                    
+                    <Label
+                        Content="Итого: "
+                        DockPanel.Dock="Left" FontSize="20"
+                    >
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
 
+                    <Label
+                        Content="{Binding Path=Subtotal}"
+                        DockPanel.Dock="Left" FontSize="20"
+                    >
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="руб;">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
                 </DockPanel>
             </DockPanel>
 

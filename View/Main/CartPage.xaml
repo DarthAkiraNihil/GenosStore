@@ -26,12 +26,17 @@
                 DockPanel.Dock="Left"
                 HorizontalAlignment="Left" Cursor=""
                 >
-                <Label Content="Итого: " FontSize="20">
+                <Label Content="Итого:" FontSize="20">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                     </Label.Foreground>
                 </Label>
                 <Label Content="{Binding Total}" FontSize="20">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="руб." FontSize="20">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                     </Label.Foreground>

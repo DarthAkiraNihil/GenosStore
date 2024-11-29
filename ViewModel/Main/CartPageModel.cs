@@ -22,6 +22,17 @@ namespace GenosStore.ViewModel.Main {
             public double? Price { get; set; }
             public double? DiscountedPrice { get; set; }
             public double? OldPrice { get; set; }
+            public double Subtotal { get; set; }
+        }
+
+        private double _total;
+
+        public double Total {
+            get { return _total; }
+            set {
+                _total = value;
+                NotifyPropertyChanged("Total");
+            }
         }
         
 
@@ -36,6 +47,8 @@ namespace GenosStore.ViewModel.Main {
         protected ObservableCollection<CartItemElement> GetItemsAndCheckDiscounts(List<CartItem> items) {
             var converted = new ObservableCollection<CartItemElement>();
 
+            var countedTotal = 0.0;
+
             foreach (var item in items) {
                 var discount = item.Item.ActiveDiscount;
                 var cartItem = new CartItemElement {Item = item};
@@ -49,12 +62,17 @@ namespace GenosStore.ViewModel.Main {
                 if (discount != null) {
                     cartItem.DiscountedPrice = item.Item.Price * discount.Value;
                     cartItem.OldPrice = item.Item.Price;
+                    cartItem.Subtotal = item.Item.Price * (1 - discount.Value) * item.Quantity;
                 } else {
                     cartItem.Price = item.Item.Price;
+                    cartItem.Subtotal = item.Item.Price * item.Quantity;
                 }
 				
+                countedTotal += cartItem.Subtotal;
                 converted.Add(cartItem);
             }
+            
+            Total = countedTotal;
 			
             return converted;
         }
