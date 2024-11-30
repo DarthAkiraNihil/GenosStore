@@ -342,9 +342,16 @@
     <Compile Include="Services\Implementation\Common\AuthorizationService.cs" />
     <Compile Include="Services\Implementation\Common\CommonServices.cs" />
     <Compile Include="Services\Implementation\Entity\EntityServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\CharacreristicsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\CPUSocketsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\MotherboardFormFactorsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\RAMTypesService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\VendorsService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\ComputerComponentServices.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\MotherboardService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ItemServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\CPUCoresService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\SimpleComputerComponentsService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\ActiveDiscountService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\CartService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderEntitiesService.cs" />

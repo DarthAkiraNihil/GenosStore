@@ -3,6 +3,5 @@ using GenosStore.Services.Interface.Base;
 
 namespace GenosStore.Services.Interface.Entity.Items.Characteristics {
     public interface IVendorService: IEnumService<Vendor> {
-        Vendor Get(string name);
     }
 }

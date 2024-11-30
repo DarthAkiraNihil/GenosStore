@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows;
-using System.Windows.Media;
 using GenosStore.Model.Context;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Model.Entity.Item.SimpleComputerComponent;
 using GenosStore.Model.Entity.User;
-using GenosStore.Model.Repository.Implementation.PostgreSQL;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
@@ -258,15 +253,27 @@ namespace GenosStore.ViewModel.ItemList {
 
 			//MessageBox.Show("SIMPLEDIMPLE 2!");
 
-			var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
+			//var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
 			
 
-			Vendors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.Vendors.List());
-			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
-			CPUSockets = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.CPUSockets.List());
-			CPUCores = Utilities.ConvertToCheckableCollection(dbAccessor.Items.SimpleComputerComponents.CPUCores.List());
-			RAMTypes = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.RAMTypes.List());
-			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
+			Vendors = Utilities.ConvertToCheckableCollection(
+				_services.Entity.Items.Characteristics.Vendors.List()
+			);
+			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(
+				_services.Entity.Items.Characteristics.MotherboardFormFactors.List()
+			);
+			CPUSockets = Utilities.ConvertToCheckableCollection(
+				_services.Entity.Items.Characteristics.CPUSockets.List()
+			);
+			CPUCores = Utilities.ConvertToCheckableCollection(
+				_services.Entity.Items.SimpleComputerComponents.CPUCores.List()
+			);
+			RAMTypes = Utilities.ConvertToCheckableCollection(
+				_services.Entity.Items.Characteristics.RAMTypes.List()
+			);
+			MotherboardFormFactors = Utilities.ConvertToCheckableCollection(
+				_services.Entity.Items.Characteristics.MotherboardFormFactors.List()
+			);
 			
 			RAMSlotsCount = new RangeItem();
 			PCIESlotsCount = new RangeItem();

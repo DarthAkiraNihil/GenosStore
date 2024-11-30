@@ -7,9 +7,9 @@ using GenosStore.Services.Interface.Entity.Items.SimpleComputerComponents;
 
 namespace GenosStore.Services.Interface.Entity.Items {
     public interface IItemServices {
-		//ICharacteristicsService Characteristics { get; }
+		ICharacteristicsService Characteristics { get; }
         IComputerComponentServices ComputerComponents { get; }
-        //ISimpleComputerComponentService SimpleComputerComponents { get; }
+        ISimpleComputerComponentService SimpleComputerComponents { get; }
         //IItemTypeService ItemTypes { get; }
         //IPreparedAssemblyService PreparedAssemblies { get; }
     }

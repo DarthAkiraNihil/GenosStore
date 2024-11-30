@@ -30,6 +30,8 @@ namespace GenosStore.ViewModel.AuthRegister
         
         #region Properties
 
+        public String AuthImage => "";
+
         public string ErrorLogin {
             get { return _errorLogin; }
             set {
