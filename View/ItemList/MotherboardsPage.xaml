@@ -576,13 +576,14 @@
             <DockPanel DockPanel.Dock="Top">
 
                 <Button Width="32" Height="32" DockPanel.Dock="Right" HorizontalAlignment="Right" BorderBrush="#00707070"
-                        Content="{materialDesign:PackIcon Magnify}"
-                        Background="Transparent"
                         ToolTip="Icon"
-                        Command="{Binding SearchCommand}">
-                    <Button.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                    </Button.Foreground>
+                        Command="{Binding SearchCommand}" Background="Transparent">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Content" Value="{materialDesign:PackIcon Magnify, Size=32}"/>
+                            <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
+                        </Style>
+                    </Button.Style>
                 </Button>
 
                 <Label DockPanel.Dock="Left" Content="Поиск:" FontSize="20" Background="{x:Null}" Width="80" HorizontalAlignment="Left">
