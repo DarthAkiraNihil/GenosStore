@@ -338,6 +338,7 @@
     <Compile Include="Model\Repository\Interface\User\ILegalEntityRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IUserEntitiesRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IUserRepository.cs" />
+    <Compile Include="Services\ImageCache.cs" />
     <Compile Include="Services\Implementation\Common\AuthorizationService.cs" />
     <Compile Include="Services\Implementation\Common\CommonServices.cs" />
     <Compile Include="Services\Implementation\Entity\EntityServices.cs" />

@@ -49,12 +49,13 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             };
             
             foreach (var item in cart.Items) {
+                var discount = item.Item.ActiveDiscount;
                 orderItems.Add(
                     new OrderItems {
                         Order = order,
                         Item = item.Item,
-                        BoughtFor = item.Item.Price,
-                        Quantity = item.Quantity,
+                        BoughtFor = discount != null ? item.Item.Price * (1 - discount.Value): item.Item.Price,
+                        Quantity = item.Quantity
                     }
                 );
             }

@@ -10,16 +10,56 @@
       FontFamily="{materialDesign:MaterialDesignFont}" 
       Title="OrderPage">
 
-    <DockPanel Margin="16,8,16,8" Width="480">
+    <DockPanel Margin="16,8,16,8">
 
         <Label
             DockPanel.Dock="Top"
-            Content="{Binding OrderId}" Cursor="" FontSize="24" FontWeight="Bold"
+            Content="{Binding OrderTitle}" Cursor="" FontSize="24" FontWeight="Bold"
             >
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
             </Label.Foreground>
         </Label>
+        
+        <DockPanel DockPanel.Dock="Top">
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="Создан:" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="{Binding OrderCreatedAt}" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="Статус:" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="{Binding OrderStatus}" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+        </DockPanel>
 
         <DockPanel DockPanel.Dock="Bottom">
             <DockPanel
