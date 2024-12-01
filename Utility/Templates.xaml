@@ -43,7 +43,7 @@
                         Foreground="White"
                         Width="80"
                         HorizontalAlignment="Right"
-                        Content="Купить" Command="{Binding DataContext.ToItemPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                        Content="Подробнее" Command="{Binding DataContext.ToItemPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding Path=Item.Id}"
                         >
                         <Button.Background>
@@ -247,6 +247,68 @@
                         </Label.Foreground>
                     </Label>
 
+                </DockPanel>
+            </DockPanel>
+
+        </DockPanel>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="OrderHistoryListElement">
+        <DockPanel Width="{Binding Width, ElementName=listBox}">
+
+            <DockPanel DockPanel.Dock="Right">
+                <Label DockPanel.Dock="Top" FontSize="24" Content="{Binding Path=OrderTitle}">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" FontSize="16" Content="Создан">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=OrderCreatedAt}">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Left" FontSize="16" Content="; Статус:">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=OrderStatus}">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+                
+                <DockPanel DockPanel.Dock="Bottom">
+
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="Сумма:">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="{Binding Path=Total}">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Button
+                        Foreground="White"
+                        Width="80"
+                        HorizontalAlignment="Right"
+                        Content="Подробнее" Command="{Binding DataContext.ToOrderPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding Path=Item.Id}"
+                    >
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource DarkerBlue}"/>
+                        </Button.Background>
+                    </Button>
                 </DockPanel>
             </DockPanel>
 

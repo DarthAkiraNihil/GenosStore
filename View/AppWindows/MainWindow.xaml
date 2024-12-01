@@ -86,7 +86,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
-                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                    <materialDesign:PackIcon Kind="Home" Width="32" Height="32">
                         <materialDesign:PackIcon.Foreground>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </materialDesign:PackIcon.Foreground>
@@ -102,7 +102,7 @@
                     Command="{Binding ToCartPageCommand}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
-                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                    <materialDesign:PackIcon Kind="ListBoxOutline" Width="32" Height="32">
                         <materialDesign:PackIcon.Foreground>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </materialDesign:PackIcon.Foreground>
@@ -117,7 +117,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
-                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                    <materialDesign:PackIcon Kind="WalletOutline" Width="32" Height="32">
                         <materialDesign:PackIcon.Foreground>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </materialDesign:PackIcon.Foreground>
@@ -132,7 +132,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
-                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                    <materialDesign:PackIcon Kind="CartOutline" Width="32" Height="32">
                         <materialDesign:PackIcon.Foreground>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </materialDesign:PackIcon.Foreground>
@@ -147,7 +147,7 @@
                     Background="Transparent"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
-                    <materialDesign:PackIcon Kind="AccountCircle" Width="32" Height="32">
+                    <materialDesign:PackIcon Kind="History" Width="32" Height="32">
                         <materialDesign:PackIcon.Foreground>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </materialDesign:PackIcon.Foreground>

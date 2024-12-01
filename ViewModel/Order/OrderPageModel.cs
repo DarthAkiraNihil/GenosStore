@@ -65,7 +65,6 @@ namespace GenosStore.ViewModel.Order {
 
         private ObservableCollection<OrderItemDetails> ConvertOrderItemsToDetails(List<OrderItems> orderItems) {
             var converted = new ObservableCollection<OrderItemDetails>();
-            var total = 0.0;
 
             foreach (var orderItem in orderItems) {
                 var item = new OrderItemDetails {
@@ -73,10 +72,8 @@ namespace GenosStore.ViewModel.Order {
                     Subtotal = orderItem.Quantity * orderItem.BoughtFor
                 };
                 converted.Add(item);
-                total += item.Subtotal;
             }
             
-            Total = total;
             return converted;
         }
         public OrderPageModel(IServices services, User user, int? orderId) : base(services, user) {
@@ -90,6 +87,7 @@ namespace GenosStore.ViewModel.Order {
             OrderCreatedAt = order.CreatedAt.ToString("dd/MM/yyyy HH:mm");
             OrderStatus = order.OrderStatus.Name;
             OrderTitle = $"Заказ №{orderId}";
+            Total = _services.Entity.Orders.Orders.CalculateTotal(order);
         }
     }
 }

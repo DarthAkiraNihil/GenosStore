@@ -23,6 +23,7 @@ namespace GenosStore.Services {
 			{"View/Main/MainPage.xaml", a => new MainPage { DataContext = a.ViewModel } },
 			{"View/Main/CartPage.xaml", a => new CartPage { DataContext = a.ViewModel } },
 			{"View/Order/OrderPage.xaml", a => new OrderPage { DataContext = a.ViewModel } },
+			{"View/Order/OrderHistoryPage.xaml", a => new OrderHistoryPage { DataContext = a.ViewModel } },
 		};
 
 		public static Page Resolve(NavigationArgs args) {

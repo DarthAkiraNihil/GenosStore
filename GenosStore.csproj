@@ -462,6 +462,7 @@
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
     <Compile Include="ViewModel\Main\CartPageModel.cs" />
+    <Compile Include="ViewModel\Order\OrderHistoryPageModel.cs" />
     <Compile Include="ViewModel\Order\OrderPageModel.cs" />
     <Compile Include="View\Admin\DBEditPage.xaml.cs">
       <DependentUpon>DBEditPage.xaml</DependentUpon>
@@ -526,6 +527,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Utility\Styles.xaml" />
     <Page Include="Utility\Templates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

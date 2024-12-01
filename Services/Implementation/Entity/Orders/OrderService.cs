@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
 using GenosStore.Model.Repository.Interface;
@@ -67,7 +68,15 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             return order.Id;
             
         }
-        
+
+        public double CalculateTotal(Order order) {
+            return order.Items.Sum(i => i.BoughtFor * i.Quantity);
+        }
+
+        public List<Order> ListOfSpecificCustomer(Customer customer) {
+	        return _repositories.Orders.Orders.List().Where(o => o.Customer.Id == customer.Id).ToList();
+        }
+
         public int Save() {
             return _repositories.Save();
         }
