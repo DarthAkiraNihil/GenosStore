@@ -76,7 +76,7 @@ namespace GenosStore.ViewModel.Order {
             
             return converted;
         }
-        public OrderPageModel(IServices services, User user, int? orderId) : base(services, user) {
+        public OrderPageModel(IServices services, User user, long? orderId) : base(services, user) {
 
             if (orderId == null) {
                 orderId = (int) _services.Entity.Orders.Orders.CreateOrderFromCart(user as Customer);

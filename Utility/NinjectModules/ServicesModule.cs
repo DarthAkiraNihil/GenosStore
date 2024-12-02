@@ -41,6 +41,8 @@ namespace GenosStore.Utility.NinjectModules {
             Bind<ICartService>().To<CartService>();
             Bind<IActiveDiscountService>().To<ActiveDiscountService>();
             Bind<IOrderService>().To<OrderService>();
+            Bind<IBankSystemService>().To<BankSystemService>();
+            Bind<IBankCardService>().To<BankCardsService>();
             Bind<IOrderStatusService>().To<OrderStatusService>();
             Bind<IOrderEntitiesService>().To<OrderEntitiesService>();
             Bind<IEntityServices>().To<EntityServices>().InSingletonScope();

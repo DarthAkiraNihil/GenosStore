@@ -23,6 +23,6 @@ namespace GenosStore.Model.Entity.Orders {
 		[Required]
 		public string Owner { get; set; }
 		
-		public virtual BankSystem BankSystem { get; protected set; }
+		public virtual BankSystem BankSystem { get; set; }
 	}
 }

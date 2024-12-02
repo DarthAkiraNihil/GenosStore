@@ -21,6 +21,7 @@ namespace GenosStore.Services.Implementation.Common {
             {"View/ItemPage/MotherboardPage.xaml", a => new MotherboardPage { DataContext = a.ViewModel } },
             {"View/Main/MainPage.xaml", a => new MainPage { DataContext = a.ViewModel } },
             {"View/Main/CartPage.xaml", a => new CartPage { DataContext = a.ViewModel } },
+            {"View/Main/BankCardsPage.xaml", a => new BankCardsPage { DataContext = a.ViewModel } },
             {"View/Order/OrderPage.xaml", a => new OrderPage { DataContext = a.ViewModel } },
             {"View/Order/OrderHistoryPage.xaml", a => new OrderHistoryPage { DataContext = a.ViewModel } },
         };

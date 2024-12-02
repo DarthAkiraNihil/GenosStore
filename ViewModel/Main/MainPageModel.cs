@@ -1,4 +1,6 @@
-﻿using GenosStore.Model.Entity.User;
+﻿using System.Windows;
+using GenosStore.Model.Entity.Orders;
+using GenosStore.Model.Entity.User;
 using GenosStore.Utility;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
@@ -74,7 +76,13 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		private void ToBankCardsPage(object parameter) {
-
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/Main/BankCardsPage.xaml")
+			           .WithTitle("Банковские карты")
+			           .WithViewModel(new BankCardsModel(_services, _user))
+			           .Build();
+			
+			Navigate(args);
 		}
 
 		private bool CanToBankCardsPage(object parameter) {
@@ -88,10 +96,12 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		public MainPageModel(IServices services, User currentUser): base(services, currentUser) {
+			
 			_toCatalogueCommand = new RelayCommand(ToCatalogue, CanToCatalogue);
 			_toCart = new RelayCommand(ToCart, CanToCart);
 			_toOrderHistory = new RelayCommand(ToOrderHistoryPage, CanToOrderHistory);
-			_toBankCardsPage = new RelayCommand(ToBankCardsPage);
+			_toBankCardsPage = new RelayCommand(ToBankCardsPage, CanToBankCardsPage);
+			
 		}
 	}
 }

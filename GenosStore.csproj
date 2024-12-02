@@ -355,6 +355,8 @@
     <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\CPUCoresService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\SimpleComputerComponentsService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\ActiveDiscountService.cs" />
+    <Compile Include="Services\Implementation\Entity\Orders\BankCardsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Orders\BankSystemService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\CartService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderEntitiesService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderService.cs" />
@@ -467,6 +469,7 @@
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
+    <Compile Include="ViewModel\Main\BankCardsModel.cs" />
     <Compile Include="ViewModel\Main\CartPageModel.cs" />
     <Compile Include="ViewModel\Order\OrderHistoryPageModel.cs" />
     <Compile Include="ViewModel\Order\OrderPageModel.cs" />
@@ -504,6 +507,9 @@
     </Compile>
     <Compile Include="View\ItemPage\MotherboardPage.xaml.cs">
       <DependentUpon>MotherboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Main\BankCardsPage.xaml.cs">
+      <DependentUpon>BankCardsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\CartPage.xaml.cs">
       <DependentUpon>CartPage.xaml</DependentUpon>
@@ -564,6 +570,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Main\BankCardsPage.xaml" />
     <Page Include="View\Main\CartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
