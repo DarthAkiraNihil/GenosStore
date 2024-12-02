@@ -8,6 +8,7 @@ using System.Windows;
 using CommonServiceLocator;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
+using GenosStore.Utility.Converters;
 using GenosStore.Utility.NinjectModules;
 using GenosStore.View.AppWindows;
 using Ninject;
@@ -26,6 +27,7 @@ namespace GenosStore {
 			);
 
 			IServices services = kernel.Get<IServices>();
+			Base64ImageConverter.SetOnce(services.Common.Cache.Images);
 
 			var window = new AuthRegisterWindow(services);
 			window.Show();

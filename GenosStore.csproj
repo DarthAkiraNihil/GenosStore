@@ -338,9 +338,11 @@
     <Compile Include="Model\Repository\Interface\User\ILegalEntityRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IUserEntitiesRepository.cs" />
     <Compile Include="Model\Repository\Interface\User\IUserRepository.cs" />
-    <Compile Include="Services\ImageCache.cs" />
     <Compile Include="Services\Implementation\Common\AuthorizationService.cs" />
+    <Compile Include="Services\Implementation\Common\Cache\CacheServices.cs" />
+    <Compile Include="Services\Implementation\Common\Cache\ImageCacheService.cs" />
     <Compile Include="Services\Implementation\Common\CommonServices.cs" />
+    <Compile Include="Services\Implementation\Common\PageResolverService.cs" />
     <Compile Include="Services\Implementation\Entity\EntityServices.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\CharacreristicsService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\CPUSocketsService.cs" />
@@ -359,11 +361,15 @@
     <Compile Include="Services\Implementation\Entity\Orders\OrderStatusService.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserService.cs" />
     <Compile Include="Services\Implementation\Services.cs" />
+    <Compile Include="Services\Interface\Base\ICacheService.cs" />
     <Compile Include="Services\Interface\Base\IEnumService.cs" />
     <Compile Include="Services\Interface\Base\IFilterService.cs" />
     <Compile Include="Services\Interface\Base\IStandardService.cs" />
+    <Compile Include="Services\Interface\Common\Cache\ICacheServices.cs" />
+    <Compile Include="Services\Interface\Common\Cache\IImageCacheService.cs" />
     <Compile Include="Services\Interface\Common\IAuthorizationService.cs" />
     <Compile Include="Services\Interface\Common\ICommonServices.cs" />
+    <Compile Include="Services\Interface\Common\IPageResolverService.cs" />
     <Compile Include="Services\Interface\Entity\IEntityServices.cs" />
     <Compile Include="Services\Interface\Entity\Items\Characteristics\ICertificate80PlusService.cs" />
     <Compile Include="Services\Interface\Entity\Items\Characteristics\ICharacteristicsService.cs" />
@@ -425,7 +431,6 @@
     <Compile Include="Services\Interface\Entity\Users\IUserService.cs" />
     <Compile Include="Services\Interface\Entity\Users\IUserTypeService.cs" />
     <Compile Include="Services\Interface\IServices.cs" />
-    <Compile Include="Services\PageResolver.cs" />
     <Compile Include="Utility\AbstractViewModels\AbstractViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ComputerComponentListViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ItemListViewModel.cs" />
@@ -443,6 +448,7 @@
     <Compile Include="Utility\Operations\ISupportsFilter.cs" />
     <Compile Include="Utility\Operations\ISupportsGetFromString.cs" />
     <Compile Include="Utility\Operations\ISupportsSave.cs" />
+    <Compile Include="Utility\Operations\ISupportsSetOnce.cs" />
     <Compile Include="Utility\Operations\ISupportsUpdate.cs" />
     <Compile Include="Utility\Operations\ISupportsGet.cs" />
     <Compile Include="Utility\Operations\ISupportsList.cs" />

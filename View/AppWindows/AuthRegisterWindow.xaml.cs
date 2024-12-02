@@ -11,16 +11,17 @@ namespace GenosStore.View.AppWindows
 {
     public partial class AuthRegisterWindow : Window
     {
-	    
+	    private IServices _services;
         public AuthRegisterWindow(IServices services)
         {
+	        _services = services;
 	        InitializeComponent();
 	        
             AuthorizationPageModel.Close += Close;
 
 			Messenger.Default.Register<NavigationArgs>(this, (x) => {
 
-				MainFrame.Content = PageResolver.Resolve(x);
+				MainFrame.Content = _services.Common.PageResolver.Resolve(x);
 				
 				WindowTitle.Content = x.Title;
 				

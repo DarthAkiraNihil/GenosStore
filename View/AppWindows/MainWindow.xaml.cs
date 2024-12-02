@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using System;
+using GalaSoft.MvvmLight.Messaging;
 using GenosStore.View.Main;
 using System.Windows;
 using System.Windows.Input;
@@ -11,12 +12,15 @@ using GenosStore.ViewModel.Main;
 namespace GenosStore.View.AppWindows
 {
     public partial class MainWindow : Window {
+	    
+	    private IServices _services;
         public MainWindow(IServices services, User currentUser)
         {
+	        _services = services;
             InitializeComponent();
 
 			Messenger.Default.Register<NavigationArgs>(this, (x) => {
-				MainFrame.Content = PageResolver.Resolve(x);
+				MainFrame.Content = _services.Common.PageResolver.Resolve(x);
 				WindowTitle.Content = x.Title;
 			});
 			
