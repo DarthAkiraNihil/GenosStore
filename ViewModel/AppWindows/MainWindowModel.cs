@@ -5,6 +5,7 @@ using GenosStore.Utility;
 using GenosStore.Utility.Navigation;
 using GenosStore.ViewModel.AuthRegister;
 using GenosStore.ViewModel.Main;
+using GenosStore.ViewModel.Order;
 
 namespace GenosStore.ViewModel.AppWindows {
 	public class MainWindowModel: RequiresUserViewModel {
@@ -45,7 +46,13 @@ namespace GenosStore.ViewModel.AppWindows {
 		}
 
 		private void ToCatalogue(object parameter) {
-
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/Main/ItemCataloguePage.xaml")
+			           .WithTitle("Каталог товаров")
+			           .WithViewModel(new ItemCatalogueModel(_services, _user))
+			           .Build();
+			
+			Navigate(args);
 		}
 
 		private bool CanToCatalogue(object parameter) {
@@ -63,7 +70,13 @@ namespace GenosStore.ViewModel.AppWindows {
 		}
 
 		private void BankCards(object parameter) {
-
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/Main/BankCardsPage.xaml")
+			           .WithTitle("Банковские карты")
+			           .WithViewModel(new BankCardsModel(_services, _user))
+			           .Build();
+			
+			Navigate(args);
 		}
 
 		private bool CanToBankCards(object parameter) {
@@ -103,8 +116,14 @@ namespace GenosStore.ViewModel.AppWindows {
 			get { return _toOrderHistoryCommand; }
 		}
 
-		private void ToOrderHostory(object parameter) {
+		private void ToOrderHistory(object parameter) {
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/Order/OrderHistoryPage.xaml")
+			           .WithViewModel(new OrderHistoryPageModel(_services, _user))
+			           .WithTitle("История заказов")
+			           .Build();
 
+			Navigate(args);
 		}
 
 		private bool CanToOrderHistory(object parameter) {
@@ -120,7 +139,7 @@ namespace GenosStore.ViewModel.AppWindows {
 			_toCatalogueCommand = new RelayCommand(ToCatalogue, CanToCatalogue);
 			_bankCardsCommand = new RelayCommand(BankCards, CanToBankCards);
 			_toCartPageCommand = new RelayCommand(ToCartPage, CanToCartPage);
-			_toOrderHistoryCommand = new RelayCommand(ToOrderHostory, CanToOrderHistory);
+			_toOrderHistoryCommand = new RelayCommand(ToOrderHistory, CanToOrderHistory);
 		}
 	}
 }

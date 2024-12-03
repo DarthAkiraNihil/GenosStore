@@ -99,7 +99,7 @@
                     Height="32"
                     ToolTip="Icon"
                     Background="Transparent"
-                    Command="{Binding ToCartPageCommand}"
+                    Command="{Binding ToCataloguePage}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
                     <materialDesign:PackIcon Kind="ListBoxOutline" Width="32" Height="32">
@@ -115,7 +115,8 @@
                     Height="32"
                     ToolTip="Icon"
                     Background="Transparent"
-                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left"
+                    Command="{Binding BankCardsCommand}"
                     >
                     <materialDesign:PackIcon Kind="WalletOutline" Width="32" Height="32">
                         <materialDesign:PackIcon.Foreground>
@@ -130,7 +131,8 @@
                     Height="32"
                     ToolTip="Icon"
                     Background="Transparent"
-                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left"
+                    Command="{Binding ToCartPageCommand}"
                     >
                     <materialDesign:PackIcon Kind="CartOutline" Width="32" Height="32">
                         <materialDesign:PackIcon.Foreground>
@@ -145,6 +147,7 @@
                     Height="32"
                     ToolTip="Icon"
                     Background="Transparent"
+                    Command="{Binding ToOrderHistoryCommand}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
                     <materialDesign:PackIcon Kind="History" Width="32" Height="32">
