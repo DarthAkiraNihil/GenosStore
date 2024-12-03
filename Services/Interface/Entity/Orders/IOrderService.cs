@@ -8,6 +8,8 @@ namespace GenosStore.Services.Interface.Entity.Orders {
         long CreateOrderFromCart(Customer customer);
         double CalculateTotal(Order order);
         List<Order> ListOfSpecificCustomer(Customer customer);
+        void ReceiveOrder(Order order);
+        void CancelOrder(Order order);
         bool OrderExists(int orderId);
     }
 }

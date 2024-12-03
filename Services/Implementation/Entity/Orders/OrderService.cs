@@ -74,7 +74,19 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
         }
 
         public List<Order> ListOfSpecificCustomer(Customer customer) {
-	        return _repositories.Orders.Orders.List().Where(o => o.Customer.Id == customer.Id).ToList();
+	        return List().Where(o => o.Customer.Id == customer.Id).ToList();
+        }
+
+        public void ReceiveOrder(Order order) {
+            order.OrderStatus = _orderStatusService.GetFromString("Received");
+            Update(order);
+            _repositories.Save();
+        }
+
+        public void CancelOrder(Order order) {
+            order.OrderStatus = _orderStatusService.GetFromString("Cancelled");
+            Update(order);
+            _repositories.Save();
         }
 
         public int Save() {

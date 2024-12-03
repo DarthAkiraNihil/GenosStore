@@ -19,6 +19,16 @@ namespace GenosStore.ViewModel.Order {
         private Model.Entity.Orders.Order _order;
         private ObservableCollection<OrderItemDetails> _orderItems;
 
+        private string _nextOrderActionButtonText;
+
+        public string NextOrderActionButtonText {
+            get { return _nextOrderActionButtonText; }
+            set {
+                _nextOrderActionButtonText = value;
+                NotifyPropertyChanged("NextOrderActionButtonText");
+            }
+        }
+
         public ObservableCollection<OrderItemDetails> OrderItems {
             get { return _orderItems; }
             set {
@@ -67,30 +77,77 @@ namespace GenosStore.ViewModel.Order {
             }
         }
 
-        #region PayOrderCommand
+        #region NextOrderActionCommand
 
-        private readonly RelayCommand _payOrderCommand;
+        private readonly RelayCommand _nextOrderActionCommand;
 
-        public RelayCommand PayOrderCommand {
-            get { return _payOrderCommand; }
+        public RelayCommand NextOrderActionCommand {
+            get { return _nextOrderActionCommand; }
         }
 
-        private void PayOrder(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Order/PaymentPage.xaml")
-                       .WithViewModel(new PaymentPageModel(_services, _user, _order))
-                       .WithTitle("Оплата заказа")
-                       .Build();
+        private void NextOrderAction(object parameter) {
+            if (_order.OrderStatus.Name == "Created") {
+                var args = new NavigationArgsBuilder()
+                           .WithURL("View/Order/PaymentPage.xaml")
+                           .WithViewModel(new PaymentPageModel(_services, _user, _order))
+                           .WithTitle("Оплата заказа")
+                           .Build();
             
-            Navigate(args);
+                Navigate(args);
+            } else if (_order.OrderStatus.Name == "Paid") {
+                _services.Entity.Orders.Orders.ReceiveOrder(_order);
+                OrderStatus = _order.OrderStatus.Name;
+                NextOrderActionButtonText = "Получен";
+                MessageBox.Show("REVEICED");
+            }
+
         }
 
-        private bool CanPayOrder(object parameter) {
+        private bool CanNextOrderAction(object parameter) {
+            return OrderStatus != "Cancelled" && OrderStatus != "Received";
+        }
+
+        #endregion
+
+        #region CreateReceiptCommand
+
+        private readonly RelayCommand _createReceiptCommand;
+
+        public RelayCommand CreateReceiptCommand {
+            get { return _createReceiptCommand; }
+        }
+
+        private void CreateReceipt(object parameter) {
+            MessageBox.Show("CREATE RECEIPT");
+        }
+
+        private bool CanCreateReceipt(object parameter) {
             return true;
         }
 
         #endregion
 
+        #region CancelOrderCommand
+
+        private readonly RelayCommand _cancelOrderCommand;
+
+        public RelayCommand CancelOrderCommand {
+            get { return _cancelOrderCommand; }
+        }
+
+        private void CancelOrder(object parameter) {
+            _services.Entity.Orders.Orders.CancelOrder(_order);
+            OrderStatus = _order.OrderStatus.Name;
+            NextOrderActionButtonText = "Отменён";
+            MessageBox.Show("CANCEL ORDER");
+        }
+
+        private bool CanCancelOrder(object parameter) {
+            return OrderStatus != "Cancelled" && OrderStatus != "Received";
+        }
+
+        #endregion
+        
         private ObservableCollection<OrderItemDetails> ConvertOrderItemsToDetails(List<OrderItems> orderItems) {
             var converted = new ObservableCollection<OrderItemDetails>();
 
@@ -106,18 +163,31 @@ namespace GenosStore.ViewModel.Order {
         }
         public OrderPageModel(IServices services, User user, long? orderId) : base(services, user) {
             
-            _payOrderCommand = new RelayCommand(PayOrder, CanPayOrder);
+            _nextOrderActionCommand = new RelayCommand(NextOrderAction, CanNextOrderAction);
+            _cancelOrderCommand = new RelayCommand(CancelOrder, CanCancelOrder);
+            _createReceiptCommand = new RelayCommand(CreateReceipt, CanCreateReceipt);
 
             if (orderId == null) {
-                orderId = (int) _services.Entity.Orders.Orders.CreateOrderFromCart(user as Customer);
+                orderId = (int)_services.Entity.Orders.Orders.CreateOrderFromCart(user as Customer);
             }
             
             _order = _services.Entity.Orders.Orders.Get((int) orderId);
+            
             OrderItems = ConvertOrderItemsToDetails(_order.Items);
             OrderCreatedAt = _order.CreatedAt.ToString("dd/MM/yyyy HH:mm");
             OrderStatus = _order.OrderStatus.Name;
             OrderTitle = $"Заказ №{orderId}";
             Total = _services.Entity.Orders.Orders.CalculateTotal(_order);
+
+            if (OrderStatus == "Paid") {
+                NextOrderActionButtonText = "Получить заказ";
+            } else if (OrderStatus == "Created") {
+                NextOrderActionButtonText = "Оплатить";
+            } else if (OrderStatus == "Received") {
+                NextOrderActionButtonText = "Получен";
+            } else if (OrderStatus == "Cancelled") {
+                NextOrderActionButtonText = "Отменён";
+            }
         }
     }
 }
