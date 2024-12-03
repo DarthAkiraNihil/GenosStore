@@ -1,0 +1,54 @@
+﻿<Page x:Class="GenosStore.View.Order.SuccessfulPaymentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:GenosStore.View.Order"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}"
+      Title="SuccessfulPaymentPage">
+    <DockPanel Width="600" Margin="0,50,0,50" VerticalAlignment="Center">
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" 
+           Content="Заказ был успешно оплачен!" FontSize="36" FontWeight="Bold">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource LightEmerald}"/>
+            </Label.Foreground>
+        </Label>
+        <DockPanel DockPanel.Dock="Top">
+            <TextBlock
+                DockPanel.Dock="Top" HorizontalAlignment="Left"
+                FontSize="16" TextWrapping="Wrap">
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </TextBlock.Foreground>
+                Ваш заказ уже доставляется! Вы можете получить чек на данной странице,
+                нажав соответствующую кнопку. Также это можно сделать и на странице заказа.
+            </TextBlock>
+        </DockPanel>
+            
+        <DockPanel DockPanel.Dock="Bottom" Margin="20,50,20,0">
+            <Button DockPanel.Dock="Bottom"
+                Content="Получить чек"
+                Command="{Binding CreateReceiptCommand}" Margin="0,4,0,4">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource DarkBlue}"/>
+                </Button.BorderBrush>
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                </Button.Foreground>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource DarkBlue}"/>
+                </Button.Background>
+            </Button>
+            <Button DockPanel.Dock="Bottom"
+                Content="На главную"
+                Command="{Binding ToMainPageCommand}" Margin="0,4,0,4">
+            </Button>
+            <Button DockPanel.Dock="Bottom"
+                Content="На страницу заказа"
+                Command="{Binding ToOrderPageCommand}" Margin="0,4,0,4"/>
+        </DockPanel>
+    </DockPanel>
+</Page>

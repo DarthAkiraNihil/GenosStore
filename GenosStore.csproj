@@ -478,6 +478,7 @@
     <Compile Include="ViewModel\Order\OrderHistoryPageModel.cs" />
     <Compile Include="ViewModel\Order\OrderPageModel.cs" />
     <Compile Include="ViewModel\Order\PaymentPageModel.cs" />
+    <Compile Include="ViewModel\Order\SuccessfulPaymentPageModel.cs" />
     <Compile Include="View\Admin\DBEditPage.xaml.cs">
       <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>
@@ -533,6 +534,9 @@
     </Compile>
     <Compile Include="View\Order\PaymentPage.xaml.cs">
       <DependentUpon>PaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Order\SuccessfulPaymentPage.xaml.cs">
+      <DependentUpon>SuccessfulPaymentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Other\GenosStoreMessageBox.xaml.cs">
       <DependentUpon>GenosStoreMessageBox.xaml</DependentUpon>
@@ -600,6 +604,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Order\SuccessfulPaymentPage.xaml" />
     <Page Include="View\Other\GenosStoreMessageBox.xaml" />
     <Page Include="View\Other\PageNotFound.xaml" />
   </ItemGroup>

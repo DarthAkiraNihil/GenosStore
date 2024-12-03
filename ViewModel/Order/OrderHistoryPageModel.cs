@@ -71,9 +71,10 @@ namespace GenosStore.ViewModel.Order {
             return converted;
         }
         public OrderHistoryPageModel(IServices services, User user) : base(services, user) {
-            
+            var orders = _services.Entity.Orders.Orders.ListOfSpecificCustomer(_user as Customer);
+            orders.Sort((x, y) => x.Id < y.Id ? -1 : 1);
             Orders = ConvertOrdersToHistoryDetails(
-                _services.Entity.Orders.Orders.ListOfSpecificCustomer(_user as Customer)
+                orders
             );
             
             _toOrderPage = new RelayCommand(ToOrderPage, CanToOrderPage);
