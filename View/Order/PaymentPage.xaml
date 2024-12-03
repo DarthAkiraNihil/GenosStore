@@ -4,11 +4,219 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GenosStore.View.Order"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}"
       Title="PaymentPage">
 
-    <Grid>
-        
-    </Grid>
+    <DockPanel Width="400" Margin="0,50,0,50">
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" 
+               Content="Оплата заказа" FontSize="36" FontWeight="Bold">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource LightEmerald}"/>
+            </Label.Foreground>
+        </Label>
+        <DockPanel DockPanel.Dock="Top">
+            <Label DockPanel.Dock="Top" HorizontalAlignment="Left" Content="Данные о заказе" FontSize="24" FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Номер:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding Order.Id}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Дата создания:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding Order.CreatedAt}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Сумма:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding Order.Total}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Заказчик:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding Order.Orderer}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Label DockPanel.Dock="Top" HorizontalAlignment="Left" Content="Выберите карту оплаты" FontSize="24" FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </Label.Foreground>
+            </Label>
+            <ComboBox
+                DockPanel.Dock="Top"
+                ItemsSource="{Binding CustomerBankCards}"
+                SelectedItem="{Binding SelectedCard}"
+                DisplayMemberPath="Number"
+                SelectedValuePath="Id" FontSize="16" Margin="4,0,4,0">
+                <ComboBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                </ComboBox.Foreground>
+                <ComboBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                </ComboBox.BorderBrush>
+                <ComboBox.Background>
+                    <SolidColorBrush Color="{DynamicResource BlackEmerald}"/>
+                </ComboBox.Background>
+
+            </ComboBox>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Номер карты:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding SelectedCard.Number}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Банковская система:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding SelectedCard.BankSystem.Name}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Срок действия:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding SelectedCard.ValidThruYear}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="/" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding SelectedCard.ValidThruMonth}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Владелец:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding SelectedCard.Owner}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+            <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightBlue}" Opacity="0.5"/>
+                </Border.BorderBrush>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" HorizontalAlignment="Left" Content="CVC:" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Right" HorizontalAlignment="Right" Content="{Binding SelectedCard.CVC}" FontSize="22">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+            </Border>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Bottom"
+                    Content="Оплатить заказ"
+                    Command="{Binding PayOrderCommand}">
+                
+            </Button>
+        </DockPanel>
+    </DockPanel>
 </Page>

@@ -343,6 +343,7 @@
     <Compile Include="Services\Implementation\Common\Cache\ImageCacheService.cs" />
     <Compile Include="Services\Implementation\Common\CommonServices.cs" />
     <Compile Include="Services\Implementation\Common\PageResolverService.cs" />
+    <Compile Include="Services\Implementation\Common\PaymentService.cs" />
     <Compile Include="Services\Implementation\Entity\EntityServices.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\CharacreristicsService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\CPUSocketsService.cs" />
@@ -361,6 +362,8 @@
     <Compile Include="Services\Implementation\Entity\Orders\OrderEntitiesService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderStatusService.cs" />
+    <Compile Include="Services\Implementation\Entity\Users\CustomerService.cs" />
+    <Compile Include="Services\Implementation\Entity\Users\UserEntitiesService.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserService.cs" />
     <Compile Include="Services\Implementation\Services.cs" />
     <Compile Include="Services\Interface\Base\ICacheService.cs" />
@@ -372,6 +375,7 @@
     <Compile Include="Services\Interface\Common\IAuthorizationService.cs" />
     <Compile Include="Services\Interface\Common\ICommonServices.cs" />
     <Compile Include="Services\Interface\Common\IPageResolverService.cs" />
+    <Compile Include="Services\Interface\Common\IPaymentService.cs" />
     <Compile Include="Services\Interface\Entity\IEntityServices.cs" />
     <Compile Include="Services\Interface\Entity\Items\Characteristics\ICertificate80PlusService.cs" />
     <Compile Include="Services\Interface\Entity\Items\Characteristics\ICharacteristicsService.cs" />
@@ -473,6 +477,7 @@
     <Compile Include="ViewModel\Main\CartPageModel.cs" />
     <Compile Include="ViewModel\Order\OrderHistoryPageModel.cs" />
     <Compile Include="ViewModel\Order\OrderPageModel.cs" />
+    <Compile Include="ViewModel\Order\PaymentPageModel.cs" />
     <Compile Include="View\Admin\DBEditPage.xaml.cs">
       <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>

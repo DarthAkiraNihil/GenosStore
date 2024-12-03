@@ -3,6 +3,6 @@ using GenosStore.Services.Interface.Base;
 
 namespace GenosStore.Services.Interface.Entity.Users {
     public interface ICustomerService: IStandardService<Customer> {
-		
+		string GetOrdererInfo(Customer customer);
     }
 }

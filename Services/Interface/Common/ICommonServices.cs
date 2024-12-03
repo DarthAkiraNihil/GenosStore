@@ -5,5 +5,6 @@ namespace GenosStore.Services.Interface.Common {
         IAuthorizationService Authorization { get; }
         ICacheServices Cache { get; }
         IPageResolverService PageResolver { get; }
+        IPaymentService Payment { get; }
     }
 }

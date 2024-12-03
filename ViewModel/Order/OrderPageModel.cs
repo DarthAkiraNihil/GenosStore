@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
+using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Navigation;
 
 namespace GenosStore.ViewModel.Order {
     public class OrderPageModel: RequiresUserViewModel {
@@ -12,7 +15,8 @@ namespace GenosStore.ViewModel.Order {
             public OrderItems Item { get; set; }
             public double Subtotal { get; set; }
         }
-
+        
+        private Model.Entity.Orders.Order _order;
         private ObservableCollection<OrderItemDetails> _orderItems;
 
         public ObservableCollection<OrderItemDetails> OrderItems {
@@ -63,6 +67,30 @@ namespace GenosStore.ViewModel.Order {
             }
         }
 
+        #region PayOrderCommand
+
+        private readonly RelayCommand _payOrderCommand;
+
+        public RelayCommand PayOrderCommand {
+            get { return _payOrderCommand; }
+        }
+
+        private void PayOrder(object parameter) {
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/Order/PaymentPage.xaml")
+                       .WithViewModel(new PaymentPageModel(_services, _user, _order))
+                       .WithTitle("Оплата заказа")
+                       .Build();
+            
+            Navigate(args);
+        }
+
+        private bool CanPayOrder(object parameter) {
+            return true;
+        }
+
+        #endregion
+
         private ObservableCollection<OrderItemDetails> ConvertOrderItemsToDetails(List<OrderItems> orderItems) {
             var converted = new ObservableCollection<OrderItemDetails>();
 
@@ -77,17 +105,19 @@ namespace GenosStore.ViewModel.Order {
             return converted;
         }
         public OrderPageModel(IServices services, User user, long? orderId) : base(services, user) {
+            
+            _payOrderCommand = new RelayCommand(PayOrder, CanPayOrder);
 
             if (orderId == null) {
                 orderId = (int) _services.Entity.Orders.Orders.CreateOrderFromCart(user as Customer);
             }
             
-            var order = _services.Entity.Orders.Orders.Get((int) orderId);
-            OrderItems = ConvertOrderItemsToDetails(order.Items);
-            OrderCreatedAt = order.CreatedAt.ToString("dd/MM/yyyy HH:mm");
-            OrderStatus = order.OrderStatus.Name;
+            _order = _services.Entity.Orders.Orders.Get((int) orderId);
+            OrderItems = ConvertOrderItemsToDetails(_order.Items);
+            OrderCreatedAt = _order.CreatedAt.ToString("dd/MM/yyyy HH:mm");
+            OrderStatus = _order.OrderStatus.Name;
             OrderTitle = $"Заказ №{orderId}";
-            Total = _services.Entity.Orders.Orders.CalculateTotal(order);
+            Total = _services.Entity.Orders.Orders.CalculateTotal(_order);
         }
     }
 }
