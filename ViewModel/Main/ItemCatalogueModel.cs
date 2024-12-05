@@ -40,7 +40,7 @@ namespace GenosStore.ViewModel.Main {
 			{"GraphicsCards", (s, u) => new ToItemListCommandParameters {
 				ViewModel = new GraphicsCardsListModel(s, u),
 				Title = "Видеокарты",
-				URL = "View/ItemList/GraphicCardsPage.xaml"
+				URL = "View/ItemList/GraphicsCardsPage.xaml"
 			}},
 			{"HDDs", (s, u) => new ToItemListCommandParameters {
 				ViewModel = new HDDsListModel(s, u),
@@ -66,6 +66,11 @@ namespace GenosStore.ViewModel.Main {
 				ViewModel = new PowerSuppliesListModel(s, u),
 				Title = "Блоки питания",
 				URL = "View/ItemList/PowerSuppliesPage.xaml"
+			}},
+			{"ComputerCases", (s, u) => new ToItemListCommandParameters {
+				ViewModel = new ComputerCasesListModel(s, u),
+				Title = "Корпуса",
+				URL = "View/ItemList/ComputerCasesPage.xaml"
 			}},
 			{"Displays", (s, u) => new ToItemListCommandParameters {
 				ViewModel = new DisplaysListModel(s, u),
