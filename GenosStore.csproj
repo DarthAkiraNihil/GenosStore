@@ -154,6 +154,10 @@
     <Compile Include="Migrations\202411251922255_CartItemFix.Designer.cs">
       <DependentUpon>202411251922255_CartItemFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412051723535_PhantomFix.cs" />
+    <Compile Include="Migrations\202412051723535_PhantomFix.Designer.cs">
+      <DependentUpon>202412051723535_PhantomFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context\GenosStoreDatabaseContext.cs" />
     <Compile Include="Model\Entity\Base\Named.cs" />
@@ -867,6 +871,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202411251922255_CartItemFix.resx">
       <DependentUpon>202411251922255_CartItemFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412051723535_PhantomFix.resx">
+      <DependentUpon>202412051723535_PhantomFix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
