@@ -19,7 +19,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToCPUsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="CPUs">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Процессоры" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -29,7 +29,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToRAMsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="RAMs">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Оперативная память" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -39,7 +39,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToGraphicCardsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="GraphicCards">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Видеокарты" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -49,7 +49,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToHDDsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="HDDs">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Жёсткие диски" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -59,7 +59,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToNVMeSSDsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="NVMeSSDs">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="SSD NVMe" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -69,7 +69,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToSataSSDsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="SataSSDs">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="SSD Sata" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -79,7 +79,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToCPUCoolersCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="CPUCoolers">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Кулеры для процессора" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -89,7 +89,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToPowerSuppliesCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="PowerSupplies">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Блоки питания" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -99,7 +99,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToDisplaysCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="Displays">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Мониторы" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -109,7 +109,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToKeyboardsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left"  Command="{Binding ToItemListCommand}" CommandParameter="Keyboards">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Клавиатуры" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -119,7 +119,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToMousesCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="Mouses">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Мыши" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
@@ -129,7 +129,7 @@
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToPreparedAssembliesCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="PreparedAssemblies">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
             <Label Content="Готовые сборки" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
