@@ -1,0 +1,207 @@
+﻿<Page x:Class="GenosStore.View.ItemPage.PowerSupplyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
+      Title="PowerSupply">
+
+    <DockPanel>
+
+        <DockPanel DockPanel.Dock="Left">
+            <Image DockPanel.Dock="Top"
+                   Width="400" Height="400"
+                   Source="{Binding Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
+            />
+            <DockPanel DockPanel.Dock="Top">
+                <Label Content="Цена:" FontSize="36" FontWeight="Bold" >
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightCyan}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="{Binding Price}" FontSize="20" VerticalAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label FontSize="20" >
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </Label.Foreground>
+                    <TextBlock Text="{Binding Path=OldPrice}" TextDecorations="Strikethrough"/>
+                </Label>
+                <Label FontSize="20" Content="{Binding Path=DiscountedPrice}">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                    </Label.Foreground>
+                </Label>
+            </DockPanel>
+            <Button
+                x:Name="BuyButton"
+                Height="48"
+                DockPanel.Dock="Top"
+                VerticalAlignment="Top"
+                Margin="16,16,16,16" Foreground="White"
+                Content="{Binding ButtonText}"
+                Command="{Binding AddToRemoveFromCartCommand}"
+                >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource DarkBlue}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource LighterBlue}"/>
+                </Button.Background>
+
+            </Button>
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Right">
+
+            <DockPanel DockPanel.Dock="Top">
+                <Label
+                    DockPanel.Dock="Top"
+                    Content="{Binding Item.Name}"
+                    FontWeight="Bold"
+                    FontSize="36"
+                    Height="48"
+                    >
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Emerald}"/>
+                    </Label.Foreground>
+                    <Label.Background>
+                        <SolidColorBrush/>
+                    </Label.Background>
+                </Label>
+                <Label
+                    DockPanel.Dock="Top"
+                    Content="{Binding Item.Model}"
+                    Height="32"
+                    FontSize="24">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightCyan}"/>
+                    </Label.Foreground>
+                </Label>
+            </DockPanel>
+
+            <ScrollViewer DockPanel.Dock="Right" Margin="0,4,0,4">
+
+                <StackPanel>
+                    <Label Content="Описание:" FontSize="24" FontWeight="Bold" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+
+                    <TextBlock FontFamily="Arial" FontSize="16"
+                               Text="{Binding Item.Description}"
+                               TextWrapping="Wrap"
+                               MinHeight="200"
+                               >
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+
+                    <Label DockPanel.Dock="Top" Content="Характеристики:" FontSize="24" FontWeight="Bold" FontFamily="Arial">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+
+                    <Border BorderThickness="0,0,0,1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
+                        </Border.BorderBrush>
+                        <DockPanel>
+                            <Label Content="Производитель: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="{Binding Item.Vendor.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                        </DockPanel>
+                    </Border>
+                    <Border BorderThickness="0,0,0,1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
+                        </Border.BorderBrush>
+                        <DockPanel>
+                            <Label Content="Выходная мощность (Вт): " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="{Binding Item.PowerOutput}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                        </DockPanel>
+                    </Border>
+                    <Border BorderThickness="0,0,0,1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
+                        </Border.BorderBrush>
+                        <DockPanel>
+                            <Label Content="Сертификат 80Plus: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="{Binding Item.Certificate80Plus.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                        </DockPanel>
+                    </Border>
+                    <Border BorderThickness="0,0,0,1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
+                        </Border.BorderBrush>
+                        <DockPanel>
+                            <Label Content="Количество портов Sata: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="{Binding Item.SataPorts}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                        </DockPanel>
+                    </Border>
+                    <Border BorderThickness="0,0,0,1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
+                        </Border.BorderBrush>
+                        <DockPanel>
+                            <Label Content="Количество портов Molex: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="{Binding Item.MolexPorts}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                                </Label.Foreground>
+                            </Label>
+                        </DockPanel>
+                    </Border>
+                    
+                </StackPanel>
+
+            </ScrollViewer>
+
+        </DockPanel>
+
+    </DockPanel>
+</Page>

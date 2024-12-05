@@ -345,15 +345,40 @@
     <Compile Include="Services\Implementation\Common\PageResolverService.cs" />
     <Compile Include="Services\Implementation\Common\PaymentService.cs" />
     <Compile Include="Services\Implementation\Entity\EntityServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\Certificate80PlusService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\CharacreristicsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\ComputerCaseTypesizesServive.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\CoolerMaterialService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\CPUSocketsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\DefinitionService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\DPIModeService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\KeyboardTypeService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\KeyboardTypesizeService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\MatrixTypeService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\MotherboardFormFactorsService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\RAMTypesService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\UnderlightService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\VendorsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\VesaSizeService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\Characteristics\VideoPortService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\ComputerCaseService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\ComputerComponentServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\CPUCoolerService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\CPUService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\DisplayService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\GraphicsCardService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\HDDService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\KeyboardService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\MotherboardService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\MouseService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\NVMeSSDService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\PowerSupplyService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\RAMService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\SataSSDService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ItemServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\PreparedAssemblyService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\CPUCoresService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\GPUService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\SimpleComputerComponentsService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\ActiveDiscountService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\BankCardsService.cs" />
@@ -443,10 +468,17 @@
     <Compile Include="Utility\AbstractViewModels\ItemPageViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\RequiresUserViewModel.cs" />
     <Compile Include="Utility\Converters\Base64ImageConverter.cs" />
+    <Compile Include="Utility\Converters\ItemListToModelListStringConverter.cs" />
     <Compile Include="Utility\Converters\ListToStringConverter.cs" />
     <Compile Include="Utility\Navigation\NavigationArgs.cs" />
     <Compile Include="Utility\Navigation\NavigationArgsBuilder.cs" />
     <Compile Include="Utility\NinjectModules\RepositoriesModule.cs" />
+    <Compile Include="Utility\NinjectModules\ServiceModules\CommonServicesModule.cs" />
+    <Compile Include="Utility\NinjectModules\ServiceModules\ItemCharacteristicsModule.cs" />
+    <Compile Include="Utility\NinjectModules\ServiceModules\ItemSimpleComputerComponentsModule.cs" />
+    <Compile Include="Utility\NinjectModules\ServiceModules\ItemsModule.cs" />
+    <Compile Include="Utility\NinjectModules\ServiceModules\OrderEntitiesModule.cs" />
+    <Compile Include="Utility\NinjectModules\ServiceModules\UserEntitiesModule.cs" />
     <Compile Include="Utility\NinjectModules\ServicesModule.cs" />
     <Compile Include="Utility\Operations\ISupportsCreate.cs" />
     <Compile Include="Utility\Operations\ISupportsDelete.cs" />
@@ -472,7 +504,33 @@
     <Compile Include="Utility\Types\ItemListElement.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
+    <Compile Include="ViewModel\ItemList\ComputerCasesListModel.cs" />
+    <Compile Include="ViewModel\ItemList\CPUCoolersListModel.cs" />
+    <Compile Include="ViewModel\ItemList\CPUsListModel.cs" />
+    <Compile Include="ViewModel\ItemList\DisplaysListModel.cs" />
+    <Compile Include="ViewModel\ItemList\GraphicsCardsListModel.cs" />
+    <Compile Include="ViewModel\ItemList\HDDsListModel.cs" />
+    <Compile Include="ViewModel\ItemList\KeyboardsListModel.cs" />
+    <Compile Include="ViewModel\ItemList\MousesListModel.cs" />
+    <Compile Include="ViewModel\ItemList\NVMeSSDsListModel.cs" />
+    <Compile Include="ViewModel\ItemList\PowerSuppliesListModel.cs" />
+    <Compile Include="ViewModel\ItemList\PreparedAssembliesListModel.cs" />
+    <Compile Include="ViewModel\ItemList\RAMsListModel.cs" />
+    <Compile Include="ViewModel\ItemList\SataSSDsListModel.cs" />
+    <Compile Include="ViewModel\ItemPage\ComputerCasePageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\CPUCoolerPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\CPUPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\DisplayPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\GraphicsCardPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\HDDPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\KeyboardPageModel.cs" />
     <Compile Include="ViewModel\ItemPage\MotherboardPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\MousePageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\NVMeSSDPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\PowerSupplyPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\PreparedAssemblyPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\RAMPageModel.cs" />
+    <Compile Include="ViewModel\ItemPage\SataSSDPageModel.cs" />
     <Compile Include="ViewModel\Main\BankCardsModel.cs" />
     <Compile Include="ViewModel\Main\CartPageModel.cs" />
     <Compile Include="ViewModel\Order\OrderHistoryPageModel.cs" />
@@ -508,11 +566,89 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\ItemList\ComputerCasesPage.xaml.cs">
+      <DependentUpon>ComputerCasesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\CPUCoolersPage.xaml.cs">
+      <DependentUpon>CPUCoolersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\CPUsPage.xaml.cs">
+      <DependentUpon>CPUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\DisplaysPage.xaml.cs">
+      <DependentUpon>DisplaysPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\GraphicCardsPage.xaml.cs">
+      <DependentUpon>GraphicCardsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\HDDsPage.xaml.cs">
+      <DependentUpon>HDDsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\KeyboardsPage.xaml.cs">
+      <DependentUpon>KeyboardsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItemList\MotherboardsPage.xaml.cs">
       <DependentUpon>MotherboardsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ItemList\MousesPage.xaml.cs">
+      <DependentUpon>MousesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\NVMeSSDsPage.xaml.cs">
+      <DependentUpon>NVMeSSDsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\PowerSuppliesPage.xaml.cs">
+      <DependentUpon>PowerSuppliesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\PreparedAssembliesPage.xaml.cs">
+      <DependentUpon>PreparedAssembliesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\RAMsPage.xaml.cs">
+      <DependentUpon>RAMsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemList\SataSSDsPage.xaml.cs">
+      <DependentUpon>SataSSDsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\ComputerCasePage.xaml.cs">
+      <DependentUpon>ComputerCasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\CPUCoolerPage.xaml.cs">
+      <DependentUpon>CPUCoolerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\CPUPage.xaml.cs">
+      <DependentUpon>CPUPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\DisplayPage.xaml.cs">
+      <DependentUpon>DisplayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\GraphicsCardPage.xaml.cs">
+      <DependentUpon>GraphicsCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\HDDPage.xaml.cs">
+      <DependentUpon>HDDPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\KeyboardPage.xaml.cs">
+      <DependentUpon>KeyboardPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItemPage\MotherboardPage.xaml.cs">
       <DependentUpon>MotherboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\MousePage.xaml.cs">
+      <DependentUpon>MousePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\NVMeSSDPage.xaml.cs">
+      <DependentUpon>NVMeSSDPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\PowerSupplyPage.xaml.cs">
+      <DependentUpon>PowerSupplyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\PreparedAssemblyPage.xaml.cs">
+      <DependentUpon>PreparedAssemblyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\RAMPage.xaml.cs">
+      <DependentUpon>RAMPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage\SataSSDPage.xaml.cs">
+      <DependentUpon>SataSSDPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\BankCardsPage.xaml.cs">
       <DependentUpon>BankCardsPage.xaml</DependentUpon>
@@ -571,11 +707,115 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ItemList\ComputerCasesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\CPUCoolersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\CPUsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\DisplaysPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\GraphicCardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\HDDsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\KeyboardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ItemList\MotherboardsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ItemList\MousesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\NVMeSSDsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\PowerSuppliesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\PreparedAssembliesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\RAMsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemList\SataSSDsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\ComputerCasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\CPUCoolerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\CPUPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\DisplayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\GraphicsCardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\HDDPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\KeyboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ItemPage\MotherboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\MousePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\NVMeSSDPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\PowerSupplyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\PreparedAssemblyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\RAMPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage\SataSSDPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

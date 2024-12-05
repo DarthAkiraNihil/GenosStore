@@ -14,7 +14,7 @@ using GenosStore.Utility.Navigation;
 using GenosStore.ViewModel.ItemList;
 
 namespace GenosStore.ViewModel.Admin {
-	internal class DBEditPageModel: RequiresUserViewModel {
+	public class DBEditPageModel: RequiresUserViewModel {
 		private readonly RelayCommand _toItemPageCommand;
 		private readonly RelayCommand _applyFiltersCommand;
 

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using CommonServiceLocator;
+﻿using System.Windows;
 using GenosStore.Services.Interface;
-using GenosStore.Utility;
 using GenosStore.Utility.Converters;
 using GenosStore.Utility.NinjectModules;
+using GenosStore.Utility.NinjectModules.ServiceModules;
 using GenosStore.View.AppWindows;
 using Ninject;
 
@@ -22,6 +15,12 @@ namespace GenosStore {
 		private void App_OnStartup(object sender, StartupEventArgs e) {
 			
 			var kernel = new StandardKernel(
+				new CommonServicesModule(),
+				new ItemCharacteristicsModule(),
+				new ItemSimpleComputerComponentsModule(),
+				new ItemsModule(),
+				new OrderEntitiesModule(),
+				new UserEntitiesModule(),
 				new ServicesModule(),
 				new RepositoriesModule("genos_store")
 			);

@@ -1,8 +1,11 @@
 ﻿using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Services.Interface.Base;
+using GenosStore.Utility.Operations;
 
 namespace GenosStore.Services.Interface.Entity.Items.ComputerComponents {
-    public interface IPowerSupplyService: IStandardService<PowerSupply> {
+    public interface IPowerSupplyService:
+        IStandardService<PowerSupply>,
+        ISupportsFilter<PowerSupply> {
 		
     }
 }

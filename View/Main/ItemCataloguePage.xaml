@@ -9,130 +9,130 @@
       Title="ItemCatalogue" HorizontalAlignment="Center">
     <UniformGrid Rows="3" Columns="5" HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToMotherboardsCommand}">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToItemListCommand}" CommandParameter="Motherboards">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Материнские платы" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToCPUsCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Процессоры" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToRAMsCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Оперативная память" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToGraphicCardsCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Видеокарты" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToHDDsCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Жёсткие диски" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToNVMeSSDsCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="SSD NVMe" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToSataSSDsCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="SSD Sata" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToCPUCoolersCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Кулеры для процессора" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToPowerSuppliesCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Блоки питания" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToDisplaysCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Мониторы" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToKeyboardsCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Клавиатуры" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToMousesCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Мыши" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>
             </Label>
         </StackPanel>
         <StackPanel Width="160">
-            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left">
+            <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Left" Command="{Binding ToPreparedAssembliesCommand}">
                 <Image Source="{StaticResource ListIcon240}" />
             </Button>
-            <Label Content="Каталог товаров" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+            <Label Content="Готовые сборки" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource Cyan}"/>
                 </Label.Foreground>

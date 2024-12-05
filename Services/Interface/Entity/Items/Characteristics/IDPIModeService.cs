@@ -3,7 +3,6 @@ using GenosStore.Services.Interface.Base;
 using GenosStore.Utility.Operations;
 
 namespace GenosStore.Services.Interface.Entity.Items.Characteristics {
-    public interface IDPIModeService {
-        DPIMode GetByDPI(int dpi);
+    public interface IDPIModeService: ISupportsList<DPIMode> {
     }
 }

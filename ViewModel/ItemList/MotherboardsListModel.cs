@@ -135,7 +135,7 @@ namespace GenosStore.ViewModel.ItemList {
 
 			if (Vendors.IsValid()) {
 				filters.Add(
-					i => MotherboardFormFactors.CreateFilterClosure(n => n.Contains(i.FormFactor.Name))
+					i => Vendors.CreateFilterClosure(n => n.Contains(i.Vendor.Name))
 				);
 			}
 

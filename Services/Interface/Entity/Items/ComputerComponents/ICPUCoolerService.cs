@@ -1,8 +1,11 @@
 ﻿using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Services.Interface.Base;
+using GenosStore.Utility.Operations;
 
 namespace GenosStore.Services.Interface.Entity.Items.ComputerComponents {
-    public interface ICPUCoolerService: IStandardService<CPUCooler> {
+    public interface ICPUCoolerService:
+        IStandardService<CPUCooler>,
+        ISupportsFilter<CPUCooler> {
 		
     }
 }

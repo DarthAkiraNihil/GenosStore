@@ -12,9 +12,9 @@ namespace GenosStore.Model.Entity.Item {
 	public class PreparedAssembly: Item {
 
 		[Required]
-		public List<RAM> RAM { get; set; }
+		public virtual List<RAM> RAM { get; set; }
 		[Required]
-		public List<DiskDrive> Disks { get; set; }
+		public virtual List<DiskDrive> Disks { get; set; }
 		
 		[Required]
 		public virtual CPU CPU { get; set; }
@@ -32,10 +32,6 @@ namespace GenosStore.Model.Entity.Item {
 		public virtual Mouse Mouse { get; set; }
 		[Required]
 		public virtual CPUCooler CPUCooler { get; set; }
-
-		public PreparedAssembly() {
-			RAM = new List<RAM>();
-			Disks = new List<DiskDrive>();
-		}
+		
 	}
 }

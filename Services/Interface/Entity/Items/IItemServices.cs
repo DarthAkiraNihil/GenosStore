@@ -11,6 +11,6 @@ namespace GenosStore.Services.Interface.Entity.Items {
         IComputerComponentServices ComputerComponents { get; }
         ISimpleComputerComponentService SimpleComputerComponents { get; }
         //IItemTypeService ItemTypes { get; }
-        //IPreparedAssemblyService PreparedAssemblies { get; }
+        IPreparedAssemblyService PreparedAssemblies { get; }
     }
 }

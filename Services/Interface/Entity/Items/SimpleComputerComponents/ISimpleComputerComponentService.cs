@@ -7,7 +7,7 @@ namespace GenosStore.Services.Interface.Entity.Items.SimpleComputerComponents {
         // ISimpleComputerComponentTypeService SimpleComputerComponentTypes { get; }
         // INetworkAdapterService NetworkAdapters { get; }
         // IMotherboardChipsetService MotherboardChipsets { get; }
-        // IGPUService GPUs { get; }
+        IGPUService GPUs { get; }
         ICPUCoreService CPUCores { get; }
         // IAudioChipsetService AudioChipsets { get; }
     }

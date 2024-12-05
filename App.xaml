@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <conv:Base64ImageConverter x:Key="Base64ImageConverter"></conv:Base64ImageConverter>
             <conv:ListToStringConverter x:Key="ListToStringConverter"></conv:ListToStringConverter>
+            <conv:ItemListToModelListStringConverter x:Key="ItemListToModelListStringConverter"></conv:ItemListToModelListStringConverter>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Utility/Resources.xaml" />
                 <ResourceDictionary Source="/Utility/Templates.xaml" />

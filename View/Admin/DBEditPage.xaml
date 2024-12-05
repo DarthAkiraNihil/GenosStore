@@ -10,7 +10,64 @@
 
     <Grid>
 
-        <DataGrid ItemsSource="{Binding Vendors}" Cursor=""/>
+        <DataGrid ItemsSource="{Binding Motherboards}"
+                  AutoGenerateColumns="False"
+                  Margin="0,4,0,4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Model}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Price}"/>
+                <!-- <DataGridTextColumn Header="ID" Binding="{Binding Path=ImageBase64}"/> -->
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Description}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=TDP}"/>
+                <DataGridComboBoxColumn Header="Отдел"
+                                        ItemsSource="{Binding Vendors}"
+                                        SelectedValueBinding="{Binding Path=Vendor}"
+                                        SelectedValuePath="Id"
+                                        DisplayMemberPath="Name" />
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=RAMSlots}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=RAMChannels}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=MaxRAMFrequency}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=PCIESlotsCount}"/>
+                <DataGridComboBoxColumn Header="Отдел"
+                                        ItemsSource="{Binding PCIEVersions}"
+                                        SelectedValueBinding="{Binding Path=PCIEVersion}"
+                                        SelectedValuePath="Id"
+                                        DisplayMemberPath="Name" />
+                <DataGridCheckBoxColumn Header="ID" Binding="{Binding Path=HasNVMeSupport}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=M2SlotsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SataPortsCount}"/>
+                
+                
+                
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn Header="Серия паспорта" Binding="{Binding Path=PassportSeries, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn Header="Номер паспорта" Binding="{Binding Path=PassportNumber, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                <DataGridComboBoxColumn Header="Отдел"
+                                        ItemsSource="{Binding Source={StaticResource Departments}}"
+                                        SelectedValueBinding="{Binding Path=DepartmentName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                        SelectedValuePath="Name"
+                                        DisplayMemberPath="Name" >
+                </DataGridComboBoxColumn>
+                <DataGridComboBoxColumn x:Name="focus" Header="Должность"
+                                        ItemsSource="{Binding Source={StaticResource Positions}}"
+                                        SelectedValueBinding="{Binding Path=PositionName, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                        SelectedValuePath="Name"
+                                        DisplayMemberPath="Name" >
+                </DataGridComboBoxColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Page>
