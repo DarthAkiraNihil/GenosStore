@@ -622,7 +622,7 @@
                 </ListBox.Foreground>
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
-                        <Setter Property="Height" Value="120" />
+                        <Setter Property="Height" Value="180" />
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                     </Style>
                 </ListBox.ItemContainerStyle>

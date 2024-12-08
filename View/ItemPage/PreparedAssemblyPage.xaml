@@ -12,10 +12,12 @@
     <DockPanel>
 
         <DockPanel DockPanel.Dock="Left">
-            <Image DockPanel.Dock="Top"
-                   Width="400" Height="400"
-                   Source="{Binding Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
-            />
+            <Border DockPanel.Dock="Top" BorderBrush="{StaticResource CyanBrush}" BorderThickness="4">
+                <Image
+                    Width="500" Height="500"
+                    Source="{Binding Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
+                />
+            </Border>
             <DockPanel DockPanel.Dock="Top">
                 <Label Content="Цена:" FontSize="36" FontWeight="Bold" >
                     <Label.Foreground>

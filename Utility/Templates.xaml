@@ -7,15 +7,18 @@
         </DataTemplate.Resources>
         <DockPanel Width="{Binding Width, ElementName=listBox}">
 
-            <Image DockPanel.Dock="Left"
-                   Source="{Binding Path=Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
-                   Width="120" Height="120"/>
+            <Border BorderBrush="{StaticResource CyanBrush}" BorderThickness="2">
+                <Image DockPanel.Dock="Left"
+                       Source="{Binding Path=Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
+                       Width="120" Height="120"/>
+            </Border>
 
             <DockPanel DockPanel.Dock="Right" Margin="8,4,8,4">
-                <Label DockPanel.Dock="Top" FontSize="24" Content="{Binding Path=Item.Name}">
+                <Label DockPanel.Dock="Top" FontSize="24">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource Cyan}"/>
                     </Label.Foreground>
+                    <TextBlock FontSize="24" Text="{Binding Path=Item.Name}" TextWrapping="Wrap"/>
                 </Label>
                 <Label DockPanel.Dock="Top" FontSize="16" Content="{Binding Path=Item.Model}">
                     <Label.Foreground>
@@ -65,12 +68,14 @@
             <conv:Base64ImageConverter x:Key="Base64ImageConverter"></conv:Base64ImageConverter>
         </DataTemplate.Resources>
         <DockPanel Width="{Binding Width, ElementName=listBox}">
+            <Border BorderBrush="{StaticResource CyanBrush}" BorderThickness="2">
+                <Image DockPanel.Dock="Left"
+                       Source="{Binding Path=Item.Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
+                       Width="120" Height="120"/>
+            </Border>
+            
 
-            <Image DockPanel.Dock="Left"
-                   Source="{Binding Path=Item.Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
-                   Width="120" Height="120"/>
-
-            <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center">
+            <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center" >
                 <Button
                     DockPanel.Dock="Left"
                     Foreground="White"
@@ -184,9 +189,11 @@
         </DataTemplate.Resources>
         <DockPanel Width="{Binding Width, ElementName=listBox}">
 
-            <Image DockPanel.Dock="Left"
-               Source="{Binding Path=Item.Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
-               Width="120" Height="120"/>
+            <Border BorderBrush="{StaticResource CyanBrush}" BorderThickness="2">
+                <Image DockPanel.Dock="Left"
+                       Source="{Binding Path=Item.Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
+                       Width="120" Height="120"/>
+            </Border>
 
             <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center">
                 
