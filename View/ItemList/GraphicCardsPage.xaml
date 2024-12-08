@@ -30,7 +30,7 @@
                 </Label>
 
                 <DockPanel DockPanel.Dock="Bottom" Height="48">
-                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}">
+                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}" Margin="4" VerticalAlignment="Center">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource DarkBlue}"/>
                         </Button.BorderBrush>
@@ -38,14 +38,13 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </Button.Background>
                     </Button>
-                    <Button DockPanel.Dock="Right" FontSize="16" Content="Сбросить фильтры" Foreground="White" Height="48">
+                    <Button DockPanel.Dock="Right" FontSize="14" Content="Сбросить фильтры" Foreground="White" Height="48" Margin="4" VerticalAlignment="Center">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Button.BorderBrush>
                         <Button.Background>
                             <SolidColorBrush Color="{DynamicResource DarkerBlue}"/>
                         </Button.Background>
-
                     </Button>
                 </DockPanel>
 
