@@ -23,7 +23,7 @@
         <DockPanel DockPanel.Dock="Bottom">
             <DockPanel
                 DockPanel.Dock="Right"
-                Width="300" HorizontalAlignment="Right">
+                Width="300" HorizontalAlignment="Right"  Margin="8,0">
                 <Label FontSize="18" FontWeight="Bold"
                        DockPanel.Dock="Top">
                     <Label.Foreground>
@@ -41,7 +41,9 @@
                     </Label>
                     <TextBox BorderThickness="0,0,0,2"
                              DockPanel.Dock="Right" VerticalAlignment="Top"
-                             Text="{Binding SelectedCard.Number}">
+                             Text="{Binding CurrentCard.Number}"
+                             MaxLength="16"
+                             >
                         <TextBox.Foreground>
                             <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
                         </TextBox.Foreground>
@@ -61,10 +63,14 @@
                     </Label>
                     <ComboBox
                         ItemsSource="{Binding BankSystems}"
-                        SelectedItem="{Binding SelectedCard.BankSystem}"
+                        SelectedIndex="1"
+                        SelectedItem="{Binding CurrentCard.BankSystem}"
                         DisplayMemberPath="Name"
                         SelectedValuePath="Id">
-                        
+                        <ComboBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </ComboBox.Foreground>
+
                     </ComboBox>
                 </DockPanel>
                 <DockPanel
@@ -77,7 +83,7 @@
                     </Label>
                     <TextBox BorderThickness="0,0,0,2"
                         DockPanel.Dock="Right" VerticalAlignment="Top"
-                             Text="{Binding SelectedCard.ValidThruMonth}"
+                             Text="{Binding CurrentCard.ValidThruMonth}"
                              MaxLength="2"
                              Width="20" HorizontalAlignment="Right">
                         <TextBox.Foreground>
@@ -99,7 +105,7 @@
                              Width="20"
                              MaxLength="2"
                         DockPanel.Dock="Right" VerticalAlignment="Top"
-                             Text="{Binding SelectedCard.ValidThruYear}" HorizontalAlignment="Right">
+                             Text="{Binding CurrentCard.ValidThruYear}" HorizontalAlignment="Right">
                         <TextBox.Foreground>
                             <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
                         </TextBox.Foreground>
@@ -119,7 +125,7 @@
                     </Label>
                     <TextBox BorderThickness="0,0,0,2"
                         DockPanel.Dock="Right" VerticalAlignment="Top"
-                             Text="{Binding SelectedCard.Owner}">
+                             Text="{Binding CurrentCard.Owner}">
                         <TextBox.Foreground>
                             <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
                         </TextBox.Foreground>
@@ -138,8 +144,11 @@
                         CVC:
                     </Label>
                     <TextBox BorderThickness="0,0,0,2"
-                        DockPanel.Dock="Right" VerticalAlignment="Top"
-                             Text="{Binding SelectedCard.CVC}">
+                             DockPanel.Dock="Right" VerticalAlignment="Top"
+                             HorizontalAlignment="Right"
+                             Text="{Binding CurrentCard.CVC}"
+                             MaxLength="3"
+                             Width="30">
                         <TextBox.Foreground>
                             <SolidColorBrush Color="{DynamicResource LighterGreen}"/>
                         </TextBox.Foreground>
@@ -149,12 +158,24 @@
 
                     </TextBox>
                 </DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <Button VerticalAlignment="Bottom" Margin="0,4"
+                            Command="{Binding AddCardCommand}">
+                        Добавить новую карту
+                    </Button>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Bottom">
+                    <Button VerticalAlignment="Bottom" Margin="0,4"
+                            Command="{Binding SaveCardCommand}">
+                        Сохранить
+                    </Button>
+                </DockPanel>
             </DockPanel>
             <ListBox
                 DockPanel.Dock="Left"
                 Background="Transparent"
                 BorderBrush="#00ABADB3"
-                SelectedItem="{Binding SelectedCard}"
+                x:Name="listBox"
                 ItemsSource="{Binding CustomerBankCards}"
                 ItemTemplate="{StaticResource BankCardListElement}"
             >
