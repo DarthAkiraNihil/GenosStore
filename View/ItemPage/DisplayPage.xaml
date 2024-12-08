@@ -66,7 +66,7 @@
             </Button>
         </DockPanel>
 
-        <DockPanel DockPanel.Dock="Right">
+        <DockPanel DockPanel.Dock="Right" Margin="8,0">
 
             <DockPanel DockPanel.Dock="Top">
                 <Label
@@ -97,13 +97,13 @@
             <ScrollViewer DockPanel.Dock="Right" Margin="0,4,0,4">
 
                 <StackPanel>
-                    <Label Content="Описание:" FontSize="24" FontWeight="Bold" FontFamily="Arial">
+                    <Label Content="Описание:" FontSize="24" FontWeight="Bold" >
                         <Label.Foreground>
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </Label.Foreground>
                     </Label>
 
-                    <TextBlock FontFamily="Arial" FontSize="16"
+                    <TextBlock  FontSize="16"
                                Text="{Binding Item.Description}"
                                TextWrapping="Wrap"
                                MinHeight="200"
@@ -113,7 +113,7 @@
                         </TextBlock.Foreground>
                     </TextBlock>
 
-                    <Label DockPanel.Dock="Top" Content="Характеристики:" FontSize="24" FontWeight="Bold" FontFamily="Arial">
+                    <Label DockPanel.Dock="Top" Content="Характеристики:" FontSize="24" FontWeight="Bold" >
                         <Label.Foreground>
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </Label.Foreground>
@@ -124,12 +124,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Производитель: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Производитель: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.Vendor.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.Vendor.Name}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -141,12 +141,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Потребляемая мощность: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Потребляемая мощность: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.TDP}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.TDP}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -158,12 +158,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Макс. разрешение: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Макс. разрешение: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Definition}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Definition}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -175,12 +175,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Тип матрицы: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Тип матрицы: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.MatrixType.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.MatrixType.Name}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -192,12 +192,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Подсветка: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Подсветка: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.Underlight.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.Underlight.Name}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -209,12 +209,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Размер Vesa: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Размер Vesa: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.VesaSize.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.VesaSize.Name}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -226,12 +226,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Диагональ экрана: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Диагональ экрана: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.ScreedDiagonal}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.ScreedDiagonal}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -243,12 +243,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Макс. частота обновления экрана: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                            <Label Content="Макс. частота обновления экрана: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.MaxUpdateFrequency}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.MaxUpdateFrequency}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
