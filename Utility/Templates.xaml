@@ -39,9 +39,14 @@
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Label.Foreground>
                     </Label>
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="руб. ">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
                     <Button
                         Foreground="White"
-                        Width="80"
+                        Width="160"
                         HorizontalAlignment="Right"
                         Content="Подробнее" Command="{Binding DataContext.ToItemPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding Path=Item.Id}"

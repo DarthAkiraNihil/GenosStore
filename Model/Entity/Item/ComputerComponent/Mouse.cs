@@ -16,12 +16,9 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		[Required]
 		public bool HasProgrammableButtons { get; set; }
 		[Required]
-		public List<DPIMode> DPIModes { get; set; }
+		public virtual List<DPIMode> DPIModes { get; set; }
 		[Required]
 		public bool IsWireless { get; set; }
-
-		public Mouse() {
-			DPIModes = new List<DPIMode>();
-		}
+		
 	}
 }

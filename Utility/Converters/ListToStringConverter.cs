@@ -16,9 +16,14 @@ namespace GenosStore.Utility.Converters {
             
             string result = "";
 
-            foreach (Named e in l) {
-                result += e.Name + ", ";
+            for (int i = 0; i < l.Count - 1; i++) {
+                var el = l[i] as Named;
+                if (el != null) {
+                    result += el.Name + ", ";
+                }
             }
+
+            result += (l[l.Count - 1] as Named)?.Name;
 
             return result;
         }

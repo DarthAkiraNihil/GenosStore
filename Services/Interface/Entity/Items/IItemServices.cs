@@ -10,7 +10,7 @@ namespace GenosStore.Services.Interface.Entity.Items {
 		ICharacteristicsService Characteristics { get; }
         IComputerComponentServices ComputerComponents { get; }
         ISimpleComputerComponentService SimpleComputerComponents { get; }
-        //IItemTypeService ItemTypes { get; }
+        IItemTypeService ItemTypes { get; }
         IPreparedAssemblyService PreparedAssemblies { get; }
     }
 }

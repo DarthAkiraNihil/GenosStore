@@ -1,0 +1,16 @@
+﻿version: '3'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=genos_store
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=g3t_Da_J0b
+    volumes:
+      - ./postgresql/dumps:/code/dumps
+      - ./postgresql/data:/var/lib/postgresql/data
+
+    ports:
+      - '5960:5432'

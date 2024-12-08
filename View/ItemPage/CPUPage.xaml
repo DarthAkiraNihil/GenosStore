@@ -189,7 +189,7 @@
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.CoresCount.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.CoresCount}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -206,7 +206,7 @@
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.ThreadsCount.Name}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.ThreadsCount}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -223,7 +223,7 @@
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.L2CacheSize}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.L2CahceSize}" DockPanel.Dock="Left" FontSize="16" FontFamily="Arial" Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>

@@ -380,10 +380,16 @@
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\RAMService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\SataSSDService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ItemServices.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\ItemTypesService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\PreparedAssemblyService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\AudioChipsetService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\CPUCoresService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\GPUService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\MotherboardChipsetService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\NetworkAdapterService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\SimpleComputerComponentTypeService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\SimpleComputerComponentsService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\SimpleComputerComponents\SSDControllerService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\ActiveDiscountService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\BankCardsService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\BankSystemService.cs" />
@@ -922,6 +928,9 @@
     <Resource Include="Images\Icon\240\icon-history.png" />
     <Resource Include="Images\Icon\240\icon-list.png" />
     <Resource Include="Images\Icon\240\icon-wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docker-compose.yml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

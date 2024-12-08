@@ -8,6 +8,11 @@ namespace GenosStore.Utility.NinjectModules.ServiceModules {
             
             Bind<ICPUCoreService>().To<CPUCoresService>();
             Bind<IGPUService>().To<GPUService>();
+            Bind<IAudioChipsetService>().To<AudioChipsetService>();
+            Bind<IMotherboardChipsetService>().To<MotherboardChipsetService>();
+            Bind<ISSDControllerService>().To<SSDControllerService>();
+            Bind<ISimpleComputerComponentTypeService>().To<SimpleComputerComponentTypeService>();
+            Bind<INetworkAdapterService>().To<NetworkAdapterService>();
             Bind<ISimpleComputerComponentService>().To<SimpleComputerComponentsService>();
             
         }

@@ -22,15 +22,11 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		public float Height { get; set; }
 
 		[Required]
-		public List<MotherboardFormFactor> SupportedMotherboardFormFactors { get; set; }
+		public virtual List<MotherboardFormFactor> SupportedMotherboardFormFactors { get; set; }
 		[Required]
 		public bool HasARGBLighting { get; set; }
 		[Required]
 		public byte DrivesSlotsCount;
-
-		public ComputerCase() {
-			SupportedMotherboardFormFactors = new List<MotherboardFormFactor>();
-		}
 
 	}
 }

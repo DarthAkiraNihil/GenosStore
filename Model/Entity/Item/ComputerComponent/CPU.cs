@@ -31,14 +31,11 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		[Required]
 		public float BaseFrequency { get; set; }
 		[Required]
-		public List<RAMType> SupportedRamType { get; set; }
+		public virtual List<RAMType> SupportedRamType { get; set; }
 		[Required]
 		public int SupportedRAMSize { get; set; }
 		[Required]
 		public bool HasIntegratedGraphics { get; set; }
-
-		public CPU() {
-			SupportedRamType = new List<RAMType>();
-		}
+		
 	}
 }

@@ -11,7 +11,8 @@ namespace GenosStore.Utility.NinjectModules {
         public override void Load() {
             
             Bind<IPreparedAssemblyService>().To<PreparedAssemblyService>().InSingletonScope();
-            
+
+            Bind<IItemTypeService>().To<ItemTypesService>().InSingletonScope();
             Bind<IItemServices>().To<ItemServices>().InSingletonScope();
 
             Bind<IEntityServices>().To<EntityServices>();

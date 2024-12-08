@@ -112,7 +112,7 @@ namespace GenosStore.ViewModel.ItemList {
 				.Entity
 				.Items
 				.ComputerComponents
-				.NVMeSSDs
+				.SataSSDs
 				.Get(id)
 				.Name;
 		}

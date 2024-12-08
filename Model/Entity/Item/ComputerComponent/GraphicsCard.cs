@@ -15,16 +15,13 @@ namespace GenosStore.Model.Entity.Item.ComputerComponent {
 		[Required]
 		public int VideoRAM { get; set; }
 		[Required]
-		public List<VideoPort> VideoPorts { get; set; }
+		public virtual List<VideoPort> VideoPorts { get; set; }
 		[Required]
 		public byte MaxDisplaysSupported { get; set; }
 		[Required]
 		public byte UsedSlots { get; set; }
 
 		public virtual GPU GPU { get; set; }
-
-		public GraphicsCard() {
-			VideoPorts = new List<VideoPort>();
-		}
+		
 	}
 }

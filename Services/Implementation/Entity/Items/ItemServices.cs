@@ -9,6 +9,7 @@ namespace GenosStore.Services.Implementation.Entity.Items {
         private readonly ICharacteristicsService _characteristicsService;
         private readonly ISimpleComputerComponentService _simpleComputerComponentService;
         private readonly IPreparedAssemblyService _preparedAssemblyService;
+        private readonly IItemTypeService _itemTypeService;
 
         public IComputerComponentServices ComputerComponents {
             get {
@@ -34,16 +35,24 @@ namespace GenosStore.Services.Implementation.Entity.Items {
             }
         }
 
+        public IItemTypeService ItemTypes {
+            get {
+                return _itemTypeService;
+            }
+        }
+
         public ItemServices(
             IComputerComponentServices computerComponentServices,
             ICharacteristicsService characteristicsService,
             ISimpleComputerComponentService simpleComputerComponentService,
-            IPreparedAssemblyService preparedAssemblyService
+            IPreparedAssemblyService preparedAssemblyService,
+            IItemTypeService itemTypeService
             ) {
             _computerComponentServices = computerComponentServices;
             _characteristicsService = characteristicsService;
             _simpleComputerComponentService = simpleComputerComponentService;
             _preparedAssemblyService = preparedAssemblyService;
+            _itemTypeService = itemTypeService;
         }
         
     }
