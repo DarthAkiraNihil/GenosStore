@@ -256,7 +256,7 @@
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
                             <CheckBox IsChecked="{Binding IsWireless}">
-                                
+                                Да (если выключен, то нет)
                             </CheckBox>
                         </Expander>
 

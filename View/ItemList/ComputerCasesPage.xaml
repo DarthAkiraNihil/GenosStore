@@ -448,7 +448,7 @@
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
                             <CheckBox IsChecked="{Binding HasARGBLighting}">
-                                
+                                Да (если выключен, то нет)
                             </CheckBox>
                         </Expander>
 

@@ -569,7 +569,7 @@
                                 <SolidColorBrush Color="{DynamicResource Cyan}"/>
                             </Expander.Foreground>
                             <CheckBox IsChecked="{Binding HasIntegratedGraphics}">
-                                
+                                Да (если выключен, то нет)
                             </CheckBox>
                         </Expander>
 
