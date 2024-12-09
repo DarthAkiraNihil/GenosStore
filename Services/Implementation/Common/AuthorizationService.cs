@@ -144,7 +144,23 @@ namespace GenosStore.Services.Implementation.Common {
 
             return RegistrationStatus.Success;
         }
-        
+
+        public bool CreateAdmin(string login, string password) {
+            var user = new Administrator {
+                Email = login
+            };
+            
+            var salt = _generateSalt();
+            user.Salt = salt;
+            
+            var checksum = _generateSHA256Checksum(password + salt);
+            user.PasswordHash = checksum;
+            
+            _repositories.Users.Administrators.Create(user);
+            _repositories.Save();
+            return true;
+        }
+
         private string _generateSHA256Checksum(string input) {
             var crypt = new SHA256Managed();
             var hash = String.Empty;

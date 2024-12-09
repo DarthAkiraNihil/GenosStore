@@ -4,6 +4,7 @@ using System.Windows.Media.Animation;
 using GenosStore.View.AppWindows;
 using GenosStore.Utility;
 using System;
+using System.Windows;
 using GenosStore.Model.Context;
 using GenosStore.Model.Entity.Item.ComputerComponent;
 using GenosStore.Services.Interface;
@@ -77,6 +78,9 @@ namespace GenosStore.ViewModel.AuthRegister
             var status = authInfo.Item1;
             switch (status) {
                 case AuthorizationStatus.Success: {
+                    if (authInfo.Item2 is Administrator) {
+                        MessageBox.Show("ACCESS GRANTED");
+                    }
                     var mainView = new MainWindow(_services, authInfo.Item2) { DataContext = new MainWindowModel(_services, authInfo.Item2) };
                     mainView.Show();
                     Close?.Invoke();
