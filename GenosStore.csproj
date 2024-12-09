@@ -519,6 +519,7 @@
     <Compile Include="Utility\Operations\ISupportsUpdate.cs" />
     <Compile Include="Utility\Operations\ISupportsGet.cs" />
     <Compile Include="Utility\Operations\ISupportsList.cs" />
+    <Compile Include="Utility\QuestPDFExtensions\TableExtension.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="Utility\Types\AuthRegister\AuthorizationStatus.cs" />
     <Compile Include="Utility\Types\AuthRegister\IndividualEntityRegistrationData.cs" />
