@@ -10,7 +10,7 @@ using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
 namespace GenosStore.Services.Implementation.Common {
-    public class ReceiptService: IReceiptService {
+    public class ReportService: IReportService {
         
         private readonly IPaymentService _paymentService;
         private readonly IOrderService _orderService;
@@ -19,7 +19,7 @@ namespace GenosStore.Services.Implementation.Common {
             "Наименование предмета", "Цена за единицу (руб.)", "Количество (шт.)", "Итого (руб.)"
         };
 
-        public ReceiptService(IPaymentService paymentService, IOrderService orderService) {
+        public ReportService(IPaymentService paymentService, IOrderService orderService) {
             _paymentService = paymentService;
             _orderService = orderService;
         }
@@ -101,6 +101,70 @@ namespace GenosStore.Services.Implementation.Common {
             table.Cell()
                  .ValueCell()
                  .Text(total.ToString("0.00"));
+        }
+
+        public void CreateOrderHistoryReport(Customer customer, string path) {
+
+            var orders = _orderService.ListOfSpecificCustomer(customer);
+            orders.Sort((x, y) => x.Id < y.Id ? -1 : 1);
+            string orderer = _paymentService.GetOrdererInfo(customer);
+
+            Document.Create(container => {
+                foreach (var order in orders) {
+                    string createdAt = order.CreatedAt.ToString("dd/MM/yyyy HH:mm");
+
+                    container.Page(page => {
+                        page.Size(PageSizes.A4);
+                        page.Margin(2, Unit.Centimetre);
+                        page.PageColor(Colors.White);
+                        page.DefaultTextStyle(x => x.FontSize(8).FontFamily("Arial"));
+
+                        page.Header()
+                            .Text($"Данные по заказу №{order.Id}")
+                            .SemiBold()
+                            .FontSize(16)
+                            .AlignCenter();
+
+                        page.Content()
+                            .PaddingVertical(1, Unit.Centimetre)
+                            .Column(column => {
+                                column.Item().Text($"Создан: {createdAt}").FontSize(12);
+                                column.Item().Text($"Заказчик: {orderer}").FontSize(12);
+                                column.Item().Text($"Статус: {order.OrderStatus.Name}").FontSize(12);
+                                column.Item().Table(table => {
+                                    table.ColumnsDefinition(columns => {
+                                        columns.RelativeColumn(3);
+                                        columns.RelativeColumn();
+                                        columns.RelativeColumn();
+                                        columns.RelativeColumn();
+                                    });
+
+                                    foreach (var title in _headerTitles) {
+                                        table.Cell().LabelCell(title);
+                                    }
+
+                                    foreach (var item in order.Items) {
+                                        _fillItemRow(table, item);
+                                    }
+                                });
+                                column.Item()
+                                      .Text($"Итого: {_orderService.CalculateTotal(order)} руб.")
+                                      .AlignRight()
+                                      .FontSize(14)
+                                      .Bold();
+                            });
+
+
+                        page.Footer()
+                            .AlignCenter()
+                            .Text(x => {
+                                x.Span("Страница ");
+                                x.CurrentPageNumber();
+                            });
+                    });
+                }
+            })
+            .GeneratePdf(path);
         }
     }
 }

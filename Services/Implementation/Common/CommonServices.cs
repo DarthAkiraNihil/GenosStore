@@ -9,7 +9,7 @@ namespace GenosStore.Services.Implementation.Common {
         private readonly ICacheServices _cache;
         private readonly IPageResolverService _pageResolverService;
         private readonly IPaymentService _paymentService;
-        private readonly IReceiptService _receiptService;
+        private readonly IReportService _reportService;
         private readonly ISaveService _saveService;
         
         public IAuthorizationService Authorization {
@@ -36,9 +36,9 @@ namespace GenosStore.Services.Implementation.Common {
             }
         }
 
-        public IReceiptService Receipts {
+        public IReportService Reports {
             get {
-                return _receiptService;
+                return _reportService;
             }
         }
 
@@ -53,14 +53,14 @@ namespace GenosStore.Services.Implementation.Common {
             ICacheServices cache,
             IPageResolverService pageResolverService,
             IPaymentService paymentService,
-            IReceiptService receiptService,
+            IReportService reportService,
             ISaveService saveService
             ) {
             _authorizationService = authorizationService;
             _cache = cache;
             _pageResolverService = pageResolverService;
             _paymentService = paymentService;
-            _receiptService = receiptService;
+            _reportService = reportService;
             _saveService = saveService;
         }
     }

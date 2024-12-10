@@ -6,7 +6,7 @@ namespace GenosStore.Services.Interface.Common {
         ICacheServices Cache { get; }
         IPageResolverService PageResolver { get; }
         IPaymentService Payment { get; }
-        IReceiptService Receipts { get; }
+        IReportService Reports { get; }
         ISaveService Saving { get; }
     }
 }

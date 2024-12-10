@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
@@ -53,6 +54,28 @@ namespace GenosStore.ViewModel.Order {
         }
 
         #endregion
+
+        #region ExportOrderHistoryCommand
+
+        private readonly RelayCommand _exportOrderHistoryCommand;
+
+        public RelayCommand ExportOrderHistoryCommand {
+            get { return _exportOrderHistoryCommand; }
+        }
+
+        private void ExportOrderHistory(object parameter) {
+            string path = _services.Common.Saving.SpawnSaveDialog();
+            if (path != null) {
+                _services.Common.Reports.CreateOrderHistoryReport(_user as Customer, path);
+                MessageBox.Show("CREATE ORDER HISTORY");
+            }
+        }
+
+        private bool CanExportOrderHistory(object parameter) {
+            return Orders.Count > 0;
+        }
+
+        #endregion
         
         private ObservableCollection<OrderHistoryDetails> ConvertOrdersToHistoryDetails(List<Model.Entity.Orders.Order> orders) {
             var converted = new ObservableCollection<OrderHistoryDetails>();
@@ -78,6 +101,7 @@ namespace GenosStore.ViewModel.Order {
             );
             
             _toOrderPage = new RelayCommand(ToOrderPage, CanToOrderPage);
+            _exportOrderHistoryCommand = new RelayCommand(ExportOrderHistory, CanExportOrderHistory);
         }
     }
 }

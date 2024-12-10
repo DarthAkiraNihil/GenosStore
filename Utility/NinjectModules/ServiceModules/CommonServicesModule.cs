@@ -13,7 +13,7 @@ namespace GenosStore.Utility.NinjectModules.ServiceModules {
             Bind<IPageResolverService>().To<PageResolverService>().InSingletonScope();
             Bind<IAuthorizationService>().To<AuthorizationService>().InSingletonScope();
             Bind<IPaymentService>().To<PaymentService>().InSingletonScope();
-            Bind<IReceiptService>().To<ReceiptService>().InSingletonScope();
+            Bind<IReportService>().To<ReportService>().InSingletonScope();
             Bind<ISaveService>().To<SaveService>();
             Bind<ICommonServices>().To<CommonServices>().InSingletonScope();
             

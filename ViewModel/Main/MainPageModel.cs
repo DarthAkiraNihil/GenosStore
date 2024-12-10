@@ -34,7 +34,12 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		private void ToCart(object parameter) {
-
+			var args = new NavigationArgsBuilder()
+			           .WithURL("View/Main/CartPage.xaml")
+			           .WithTitle("Корзина")
+			           .WithViewModel(new CartPageModel(_services, _user))
+			           .Build();
+			Navigate(args);
 		}
 
 		private bool CanToCart(object parameter) {

@@ -363,7 +363,7 @@
     <Compile Include="Services\Implementation\Common\CommonServices.cs" />
     <Compile Include="Services\Implementation\Common\PageResolverService.cs" />
     <Compile Include="Services\Implementation\Common\PaymentService.cs" />
-    <Compile Include="Services\Implementation\Common\ReceiptService.cs" />
+    <Compile Include="Services\Implementation\Common\ReportService.cs" />
     <Compile Include="Services\Implementation\Common\SaveService.cs" />
     <Compile Include="Services\Implementation\Entity\EntityServices.cs" />
     <Compile Include="Services\Implementation\Entity\Items\Characteristics\Certificate80PlusService.cs" />
@@ -428,7 +428,7 @@
     <Compile Include="Services\Interface\Common\ICommonServices.cs" />
     <Compile Include="Services\Interface\Common\IPageResolverService.cs" />
     <Compile Include="Services\Interface\Common\IPaymentService.cs" />
-    <Compile Include="Services\Interface\Common\IReceiptService.cs" />
+    <Compile Include="Services\Interface\Common\IReportService.cs" />
     <Compile Include="Services\Interface\Common\ISaveService.cs" />
     <Compile Include="Services\Interface\Entity\IEntityServices.cs" />
     <Compile Include="Services\Interface\Entity\Items\Characteristics\ICertificate80PlusService.cs" />
