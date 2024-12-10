@@ -120,7 +120,12 @@ namespace GenosStore.ViewModel.Order {
         private void CreateReceipt(object parameter) {
             string path = _services.Common.Saving.SpawnSaveDialog();
             if (path != null) {
-                _services.Common.Reports.CreateOrderReceipt(_user as Customer, _order, path);
+                if (_user is IndividualEntity) {
+                    _services.Common.Reports.CreateOrderReceipt(_user as Customer, _order, path);
+                } else if (_user is LegalEntity) {
+                    _services.Common.Reports.CreateOrderInvoice(_user as Customer, _order, path);
+                }
+                
                 MessageBox.Show("CREATE RECEIPT");
             }
         }

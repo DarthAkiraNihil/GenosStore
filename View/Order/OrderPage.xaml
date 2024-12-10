@@ -81,18 +81,21 @@
                 DockPanel.Dock="Right" Command="{Binding NextOrderActionCommand}"
                 HorizontalAlignment="Right"
                 Content="{Binding NextOrderActionButtonText}"
+                Margin="4,0,0,0"
                 >
             </Button>
             <Button
                 DockPanel.Dock="Right" Command="{Binding CancelOrderCommand}"
                 HorizontalAlignment="Right"
                 Content="Отменить"
+                Margin="4,0"
             >
             </Button>
             <Button
                 DockPanel.Dock="Right" Command="{Binding CreateReceiptCommand}"
                 HorizontalAlignment="Right"
                 Content="Получить чек"
+                Margin="4,0"
             >
             </Button>
         </DockPanel>
