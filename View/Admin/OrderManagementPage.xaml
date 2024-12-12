@@ -4,9 +4,39 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:GenosStore.View.Admin"
-      mc:Ignorable="d"
-      Title="OrderManagementPage" Height="450" Width="800">
-    <Grid>
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
+      Title="LegalEntityVerificationPage">
+    <DockPanel Margin="16,8,16,8">
+
+        <Label
+            DockPanel.Dock="Top"
+            Content="Управление активными заказами" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </Label.Foreground>
+        </Label>
         
-    </Grid>
+        <ListBox
+            Background="Transparent"
+            BorderBrush="#00ABADB3"
+            ItemsSource="{Binding Orders}"
+            ItemTemplate="{StaticResource OrderManagementListElement}"
+        >
+
+            <ListBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </ListBox.Foreground>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Height" Value="120" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+        </ListBox>
+    </DockPanel>
 </Page>

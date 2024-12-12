@@ -10,6 +10,7 @@ namespace GenosStore.Services.Interface.Entity.Orders {
         List<Order> ListOfSpecificCustomer(Customer customer);
         void ReceiveOrder(Order order);
         void CancelOrder(Order order);
+        List<Order> GetActiveOrders();
         bool OrderExists(int orderId);
     }
 }

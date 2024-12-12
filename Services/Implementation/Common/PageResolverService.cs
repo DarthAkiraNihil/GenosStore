@@ -61,6 +61,7 @@ namespace GenosStore.Services.Implementation.Common {
             {"View/Order/SuccessfulPaymentPage.xaml", a => new SuccessfulPaymentPage { DataContext = a.ViewModel } },
             
             {"View/Admin/LegalEntityVerificationPage.xaml", a => new LegalEntityVerificationPage() { DataContext = a.ViewModel } },
+            {"View/Admin/OrderManagementPage.xaml", a => new OrderManagementPage { DataContext = a.ViewModel } },
         };
 
         public Page Resolve(NavigationArgs args) {

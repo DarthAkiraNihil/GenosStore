@@ -24,7 +24,8 @@
             
             <Label
                 DockPanel.Dock="Top"
-                FontSize="16"
+                FontSize="20"
+                FontWeight="Bold"
                 Foreground="{StaticResource EmeraldBrush}">
                 Ожидают подтверждения
             </Label>
@@ -54,7 +55,8 @@
             
             <Label
                 DockPanel.Dock="Top"
-                FontSize="16"
+                FontSize="20"
+                FontWeight="Bold"
                 Foreground="{StaticResource EmeraldBrush}">
                 Подтверждённые юр.лица
             </Label>

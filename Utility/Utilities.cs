@@ -7,6 +7,7 @@ using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.Item.Characteristic;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Services.Interface.Base;
+using GenosStore.Services.Interface.Entity.Orders;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Types;
 using GenosStore.Utility.Types.Filtering;
@@ -63,6 +64,23 @@ namespace GenosStore.Utility {
 
             service.Save();
 
+            return converted;
+        }
+        
+        public static ObservableCollection<OrderDetails> ConvertOrdersToHistoryDetails(List<Model.Entity.Orders.Order> orders, IOrderService orderService) {
+            var converted = new ObservableCollection<OrderDetails>();
+
+            foreach (var order in orders) {
+                var item = new OrderDetails {
+                    Id = order.Id,
+                    OrderTitle = $"Заказ №{order.Id}",
+                    OrderCreatedAt = order.CreatedAt.ToString("dd/MM/yyyy HH:mm"),
+                    OrderStatus = order.OrderStatus.Name,
+                    Total = orderService.CalculateTotal(order)
+                };
+                converted.Add(item);
+            }
+            
             return converted;
         }
         

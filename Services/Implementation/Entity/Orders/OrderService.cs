@@ -89,6 +89,12 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
             _repositories.Save();
         }
 
+        public List<Order> GetActiveOrders() {
+            return List().Where(
+                o => o.OrderStatus.Name != "Отменён" && o.OrderStatus.Name != "Получен"
+            ).ToList();
+        }
+
         public int Save() {
             return _repositories.Save();
         }

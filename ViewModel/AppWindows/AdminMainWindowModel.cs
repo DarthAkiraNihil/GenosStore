@@ -38,7 +38,7 @@ namespace GenosStore.ViewModel.AppWindows {
         private void ViewLegalEntitiesVerification(object parameter) {
             var args = new NavigationArgsBuilder()
                        .WithURL("View/Admin/LegalEntityVerificationPage.xaml")
-                       .WithTitle("Авторизация")
+                       .WithTitle("Управление верификацией юридических лиц")
                        .WithViewModel(new LegalEntityVerificationPageModel(_services, _user))
                        .Build();
             
@@ -60,7 +60,13 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         private void ViewSalesReport(object parameter) {
-
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/Admin/SalesAnalysisReportPage.xaml")
+                       .WithTitle("Анализ продаж")
+                       .WithViewModel(new LegalEntityVerificationPageModel(_services, _user))
+                       .Build();
+            
+            Navigate(args);
         }
 
         private bool CanViewSalesReport(object parameter) {
@@ -78,7 +84,13 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         private void ViewOrderManagement(object parameter) {
-
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/Admin/OrderManagementPage.xaml")
+                       .WithTitle("Управление активными заказами")
+                       .WithViewModel(new OrderManagementPageModel(_services, _user))
+                       .Build();
+            
+            Navigate(args);
         }
 
         private bool CanViewOrderManagement(object parameter) {

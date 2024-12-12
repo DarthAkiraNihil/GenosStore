@@ -535,9 +535,11 @@
     <Compile Include="Utility\Types\Filtering\ISupportsValidation.cs" />
     <Compile Include="Utility\Types\Filtering\RangeItem.cs" />
     <Compile Include="Utility\Types\ItemListElement.cs" />
+    <Compile Include="Utility\Types\OrderDetails.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\Admin\LegalEntityVerificationPageModel.cs" />
+    <Compile Include="ViewModel\Admin\OrderManagementPageModel.cs" />
     <Compile Include="ViewModel\AppWindows\AdminMainWindowModel.cs" />
     <Compile Include="ViewModel\ItemList\ComputerCasesListModel.cs" />
     <Compile Include="ViewModel\ItemList\CPUCoolersListModel.cs" />
@@ -593,6 +595,9 @@
     </Compile>
     <Compile Include="View\Admin\SalesAnalysisReportPage.xaml.cs">
       <DependentUpon>SalesAnalysisReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\SingleOrderManagementPage.xaml.cs">
+      <DependentUpon>SingleOrderManagementPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AppWindows\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
@@ -747,6 +752,7 @@
     <Page Include="View\Admin\LegalEntityVerificationPage.xaml" />
     <Page Include="View\Admin\OrderManagementPage.xaml" />
     <Page Include="View\Admin\SalesAnalysisReportPage.xaml" />
+    <Page Include="View\Admin\SingleOrderManagementPage.xaml" />
     <Page Include="View\AppWindows\AdminMainWindow.xaml" />
     <Page Include="View\AppWindows\AuthRegisterWindow.xaml" />
     <Page Include="View\AppWindows\MainWindow.xaml" />

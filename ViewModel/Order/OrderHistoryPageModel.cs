@@ -7,20 +7,14 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types;
 
 namespace GenosStore.ViewModel.Order {
     public class OrderHistoryPageModel: RequiresUserViewModel {
-        public class OrderHistoryDetails {
-            public long Id { get; set; }
-            public string OrderTitle { get; set; }
-            public string OrderCreatedAt { get; set; }
-            public string OrderStatus { get; set; }
-            public double Total { get; set; }
-        }
 
-        private ObservableCollection<OrderHistoryDetails> _orders;
+        private ObservableCollection<OrderDetails> _orders;
 
-        public ObservableCollection<OrderHistoryDetails> Orders {
+        public ObservableCollection<OrderDetails> Orders {
             get { return _orders; }
             set {
                 _orders = value;
@@ -77,27 +71,12 @@ namespace GenosStore.ViewModel.Order {
 
         #endregion
         
-        private ObservableCollection<OrderHistoryDetails> ConvertOrdersToHistoryDetails(List<Model.Entity.Orders.Order> orders) {
-            var converted = new ObservableCollection<OrderHistoryDetails>();
-
-            foreach (var order in orders) {
-                var item = new OrderHistoryDetails {
-                    Id = order.Id,
-                    OrderTitle = $"Заказ №{order.Id}",
-                    OrderCreatedAt = order.CreatedAt.ToString("dd/MM/yyyy HH:mm"),
-                    OrderStatus = order.OrderStatus.Name,
-                    Total = _services.Entity.Orders.Orders.CalculateTotal(order)
-                };
-                converted.Add(item);
-            }
-            
-            return converted;
-        }
         public OrderHistoryPageModel(IServices services, User user) : base(services, user) {
             var orders = _services.Entity.Orders.Orders.ListOfSpecificCustomer(_user as Customer);
             orders.Sort((x, y) => x.Id < y.Id ? -1 : 1);
-            Orders = ConvertOrdersToHistoryDetails(
-                orders
+            Orders = Utilities.ConvertOrdersToHistoryDetails(
+                orders,
+                _services.Entity.Orders.Orders
             );
             
             _toOrderPage = new RelayCommand(ToOrderPage, CanToOrderPage);
