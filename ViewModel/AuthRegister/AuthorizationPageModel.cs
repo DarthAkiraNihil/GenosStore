@@ -80,6 +80,10 @@ namespace GenosStore.ViewModel.AuthRegister
                 case AuthorizationStatus.Success: {
                     if (authInfo.Item2 is Administrator) {
                         MessageBox.Show("ACCESS GRANTED");
+                        var adminMainView = new AdminMainWindow(_services, authInfo.Item2);
+                        adminMainView.Show();
+                        Close?.Invoke();
+                        break;
                     }
                     var mainView = new MainWindow(_services, authInfo.Item2) { DataContext = new MainWindowModel(_services, authInfo.Item2) };
                     mainView.Show();
