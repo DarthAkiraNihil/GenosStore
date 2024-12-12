@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using GenosStore.Services.Interface.Common;
 using GenosStore.Utility.Navigation;
+using GenosStore.View.Admin;
 using GenosStore.View.AuthRegister;
 using GenosStore.View.ItemList;
 using GenosStore.View.ItemPage;
@@ -58,6 +59,8 @@ namespace GenosStore.Services.Implementation.Common {
             {"View/Order/OrderHistoryPage.xaml", a => new OrderHistoryPage { DataContext = a.ViewModel } },
             {"View/Order/PaymentPage.xaml", a => new PaymentPage { DataContext = a.ViewModel } },
             {"View/Order/SuccessfulPaymentPage.xaml", a => new SuccessfulPaymentPage { DataContext = a.ViewModel } },
+            
+            {"View/Admin/LegalEntityVerificationPage.xaml", a => new LegalEntityVerificationPage() { DataContext = a.ViewModel } },
         };
 
         public Page Resolve(NavigationArgs args) {

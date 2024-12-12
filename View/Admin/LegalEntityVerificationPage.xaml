@@ -4,9 +4,82 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:GenosStore.View.Admin"
-      mc:Ignorable="d"
-      Title="LegalEntityVerificationPage" Height="450" Width="800">
-    <Grid>
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
+      Title="LegalEntityVerificationPage">
+    <DockPanel Margin="16,8,16,8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <Label
+            DockPanel.Dock="Top"
+            Content="Управление верификацией юр.лиц" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </Label.Foreground>
+        </Label>
         
-    </Grid>
+        <DockPanel DockPanel.Dock="Top">
+            
+            <Label
+                DockPanel.Dock="Top"
+                FontSize="16"
+                Foreground="{StaticResource EmeraldBrush}">
+                Ожидают подтверждения
+            </Label>
+            
+            <ListBox
+                DockPanel.Dock="Top"
+                Background="Transparent"
+                BorderBrush="#00ABADB3"
+                ItemsSource="{Binding AwaitsVerificationLegalEntities}"
+                ItemTemplate="{StaticResource AwaitsVerificationLegalEntityListElement}"
+            >
+
+                <ListBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </ListBox.Foreground>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="120" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+            </ListBox>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            
+            <Label
+                DockPanel.Dock="Top"
+                FontSize="16"
+                Foreground="{StaticResource EmeraldBrush}">
+                Подтверждённые юр.лица
+            </Label>
+            
+            <ListBox
+                x:Name="VerifiedLegalEntitiesListBox"
+                DockPanel.Dock="Top"
+                Background="Transparent"
+                BorderBrush="#00ABADB3"
+                ItemsSource="{Binding VerifiedLegalEntities}"
+                ItemTemplate="{StaticResource VerifiedLegalEntityListElement}"
+            >
+
+                <ListBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </ListBox.Foreground>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="120" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+            </ListBox>
+        </DockPanel>
+        
+    </DockPanel>
 </Page>

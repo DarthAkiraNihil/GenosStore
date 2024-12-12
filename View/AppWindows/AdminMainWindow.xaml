@@ -83,7 +83,7 @@
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
-                    Command="{Binding ToOrderHistoryCommand}"
+                    Command="{Binding ViewDashboardCommand}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     VerticalContentAlignment="Center"
                 >
@@ -104,7 +104,7 @@
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
-                    Command="{Binding ToOrderHistoryCommand}"
+                    Command="{Binding ViewOrderManagementCommand}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     VerticalContentAlignment="Center"
                 >
@@ -125,7 +125,7 @@
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
-                    Command="{Binding ToOrderHistoryCommand}"
+                    Command="{Binding ViewLegalEntitiesVerificationCommand}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     VerticalContentAlignment="Center"
                 >
@@ -147,7 +147,7 @@
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
-                    Command="{Binding ToOrderHistoryCommand}"
+                    Command="{Binding ViewSalesReportCommand}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     VerticalContentAlignment="Center"
                 >

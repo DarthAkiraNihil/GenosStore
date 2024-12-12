@@ -6,6 +6,6 @@ namespace GenosStore.Services.Interface.Entity {
     public interface IEntityServices {
         IItemServices Items { get; }
         IOrderEntitiesService Orders { get; }
-        //IUserEntitiesService Users { get; }
+        IUserEntitiesService Users { get; }
     }
 }

@@ -415,6 +415,7 @@
     <Compile Include="Services\Implementation\Entity\Orders\OrderService.cs" />
     <Compile Include="Services\Implementation\Entity\Orders\OrderStatusService.cs" />
     <Compile Include="Services\Implementation\Entity\Users\CustomerService.cs" />
+    <Compile Include="Services\Implementation\Entity\Users\LegalEntitySerivice.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserEntitiesService.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserService.cs" />
     <Compile Include="Services\Implementation\Services.cs" />
@@ -536,6 +537,8 @@
     <Compile Include="Utility\Types\ItemListElement.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
+    <Compile Include="ViewModel\Admin\LegalEntityVerificationPageModel.cs" />
+    <Compile Include="ViewModel\AppWindows\AdminMainWindowModel.cs" />
     <Compile Include="ViewModel\ItemList\ComputerCasesListModel.cs" />
     <Compile Include="ViewModel\ItemList\CPUCoolersListModel.cs" />
     <Compile Include="ViewModel\ItemList\CPUsListModel.cs" />

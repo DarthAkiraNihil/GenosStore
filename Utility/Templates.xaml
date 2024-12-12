@@ -64,6 +64,7 @@
 
         </DockPanel>
     </DataTemplate>
+    
     <DataTemplate x:Key="CartListElement">
         <DataTemplate.Resources>
             <conv:Base64ImageConverter x:Key="Base64ImageConverter"></conv:Base64ImageConverter>
@@ -451,6 +452,172 @@
         </DockPanel>
     </DataTemplate>
     
+    <DataTemplate x:Key="AwaitsVerificationLegalEntityListElement">
+        <DockPanel Width="{Binding Width, ElementName=VerifiedLegalEntitiesListBox}">
+
+            <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center" >
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Height="48"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    Command="{Binding DataContext.VerifyCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                    CommandParameter="{Binding Path=Id}"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    Подтвердить
+                </Button>
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Right">
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" FontSize="24" Content="{Binding Path=Email}" FontWeight="Bold">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+
+
+                    <DockPanel DockPanel.Dock="Top">
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="ИНН:">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=INN}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="КПП:">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=KPP}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                    </DockPanel>
+
+                    <DockPanel DockPanel.Dock="Bottom">
+                        
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="; Физический адрес: ">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=PhysicalAddress}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="; Юридический адрес: ">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=LegalAddress}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+
+                    </DockPanel>
+                </DockPanel>
+            </DockPanel>
+
+        </DockPanel>
+    </DataTemplate>
     
+    <DataTemplate x:Key="VerifiedLegalEntityListElement">
+        <DockPanel Width="{Binding Width, ElementName=VerifiedLegalEntitiesListBox}">
+
+            <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center" >
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Height="48"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    Command="{Binding DataContext.RevokeVerificationCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                    CommandParameter="{Binding Path=Id}"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    Отозвать подтверждение
+                </Button>
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Right">
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" FontSize="24" Content="{Binding Path=Email}" FontWeight="Bold">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+
+
+                    <DockPanel DockPanel.Dock="Top">
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="ИНН:">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=INN}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="КПП:">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=KPP}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                    </DockPanel>
+
+                    <DockPanel DockPanel.Dock="Bottom">
+                        
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="; Физический адрес: ">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=PhysicalAddress}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="; Юридический адрес: ">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=LegalAddress}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+
+                    </DockPanel>
+                </DockPanel>
+            </DockPanel>
+
+        </DockPanel>
+    </DataTemplate>
     
 </ResourceDictionary>
