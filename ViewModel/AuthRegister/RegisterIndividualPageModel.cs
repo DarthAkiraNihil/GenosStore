@@ -11,7 +11,7 @@ using GenosStore.Utility.Types.AuthRegister;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
-    public class RegisterIndividualPageModel: AbstractViewModel
+    public class RegisterIndividualPageModel: AbstractViewModel, INeedsPasswordViewModel, INeedsPasswordConfirmationViewModel
     {
         
         private readonly RelayCommand _registerCommand;

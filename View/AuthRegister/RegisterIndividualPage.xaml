@@ -219,21 +219,19 @@
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </materialDesign:PackIcon.Foreground>
                 </materialDesign:PackIcon>
-                <TextBox
+                <PasswordBox
                     x:Name="PasswordInput"
                     DockPanel.Dock="Right"
-                    TextWrapping="NoWrap"
                     FontSize="24"
                     Foreground="White"
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
-                    AcceptsReturn="False"
-                    Text="{Binding Password}"
+                    PasswordChanged="PasswordInput_OnPasswordChanged"
                     CaretBrush="White">
-                    <TextBox.BorderBrush>
+                    <PasswordBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                    </TextBox.BorderBrush>
-                </TextBox>
+                    </PasswordBox.BorderBrush>
+                </PasswordBox>
             </DockPanel>
 
             <Label
@@ -264,21 +262,19 @@
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </materialDesign:PackIcon.Foreground>
                 </materialDesign:PackIcon>
-                <TextBox
+                <PasswordBox
                     x:Name="RepeatPasswordInput"
                     DockPanel.Dock="Right"
-                    TextWrapping="NoWrap"
                     FontSize="24"
                     Foreground="White"
                     Background="Transparent"
                     BorderThickness="0,0,0,2"
-                    AcceptsReturn="False"
-                    Text="{Binding ConfirmPassword}"
+                    PasswordChanged="RepeatPasswordInput_OnPasswordChanged"
                     CaretBrush="White">
-                    <TextBox.BorderBrush>
+                    <PasswordBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                    </TextBox.BorderBrush>
-                </TextBox>
+                    </PasswordBox.BorderBrush>
+                </PasswordBox>
             </DockPanel>
 
             <Label

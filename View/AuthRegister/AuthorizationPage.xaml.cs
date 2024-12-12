@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.ViewModel.AuthRegister;
 
 namespace GenosStore.View.AuthRegister {
@@ -22,6 +23,13 @@ namespace GenosStore.View.AuthRegister {
 		public AuthorizationPage() {
 			InitializeComponent();
 			//DataContext = new AuthorizationPageModel();
+		}
+
+		private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e) {
+			var context = DataContext as INeedsPasswordViewModel;
+			if (context != null) {
+				context.Password = Password.Password;
+			}
 		}
 	}
 }

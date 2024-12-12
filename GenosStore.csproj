@@ -493,6 +493,8 @@
     <Compile Include="Services\Interface\IServices.cs" />
     <Compile Include="Utility\AbstractViewModels\AbstractViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ComputerComponentListViewModel.cs" />
+    <Compile Include="Utility\AbstractViewModels\INeedsPasswordConfirmationViewModel.cs" />
+    <Compile Include="Utility\AbstractViewModels\INeedsPasswordViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ItemListViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ItemPageViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\RequiresUserViewModel.cs" />

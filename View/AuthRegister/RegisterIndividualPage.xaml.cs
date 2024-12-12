@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GenosStore.Utility.AbstractViewModels;
 using GenosStore.ViewModel.AuthRegister;
 
 namespace GenosStore.View.AuthRegister {
@@ -24,6 +25,20 @@ namespace GenosStore.View.AuthRegister {
 			
 			//MessageBox.Show("EGGOG");
 			//DataContext = new RegisterIndividualPageModel();
+		}
+
+		private void PasswordInput_OnPasswordChanged(object sender, RoutedEventArgs e) {
+			var context = DataContext as INeedsPasswordViewModel;
+			if (context != null) {
+				context.Password = PasswordInput.Password;
+			}
+		}
+
+		private void RepeatPasswordInput_OnPasswordChanged(object sender, RoutedEventArgs e) {
+			var context = DataContext as INeedsPasswordConfirmationViewModel;
+			if (context != null) {
+				context.ConfirmPassword = RepeatPasswordInput.Password;
+			}
 		}
 	}
 }

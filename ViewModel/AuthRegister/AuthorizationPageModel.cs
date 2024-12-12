@@ -16,7 +16,7 @@ using GenosStore.ViewModel.AppWindows;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
-    public class AuthorizationPageModel: AbstractViewModel {
+    public class AuthorizationPageModel: AbstractViewModel, INeedsPasswordViewModel {
         
         private readonly RelayCommand _authorizeCommand;
         private readonly RelayCommand _registerCommand;

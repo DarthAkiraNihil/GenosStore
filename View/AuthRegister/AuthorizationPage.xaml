@@ -97,20 +97,19 @@
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
-                    <TextBox
+                    <PasswordBox
                         DockPanel.Dock="Right"
-                        TextWrapping="NoWrap"
+                        x:Name="Password"
                         FontSize="24"
                         Foreground="White"
                         Background="Transparent"
                         BorderThickness="0,0,0,2"
-                        AcceptsReturn="False"
-                        Text="{Binding Password}"
+                        PasswordChanged="PasswordBox_OnPasswordChanged"
                         CaretBrush="White">
-                        <TextBox.BorderBrush>
+                        <PasswordBox.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                        </TextBox.BorderBrush>
-                    </TextBox>
+                        </PasswordBox.BorderBrush>
+                    </PasswordBox>
                 </DockPanel>
 
                 <Label
