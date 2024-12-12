@@ -569,6 +569,9 @@
     <Compile Include="ViewModel\Order\OrderPageModel.cs" />
     <Compile Include="ViewModel\Order\PaymentPageModel.cs" />
     <Compile Include="ViewModel\Order\SuccessfulPaymentPageModel.cs" />
+    <Compile Include="View\Admin\DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\DBEditPage.xaml.cs">
       <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>
@@ -579,6 +582,15 @@
     <Compile Include="ViewModel\ItemList\MotherboardsListModel.cs" />
     <Compile Include="ViewModel\Main\ItemCatalogueModel.cs" />
     <Compile Include="ViewModel\Main\MainPageModel.cs" />
+    <Compile Include="View\Admin\LegalEntityVerificationPage.xaml.cs">
+      <DependentUpon>LegalEntityVerificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\OrderManagementPage.xaml.cs">
+      <DependentUpon>OrderManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\SalesAnalysisReportPage.xaml.cs">
+      <DependentUpon>SalesAnalysisReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AppWindows\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>
@@ -724,10 +736,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Admin\DashboardPage.xaml" />
     <Page Include="View\Admin\DBEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Admin\LegalEntityVerificationPage.xaml" />
+    <Page Include="View\Admin\OrderManagementPage.xaml" />
+    <Page Include="View\Admin\SalesAnalysisReportPage.xaml" />
     <Page Include="View\AppWindows\AdminMainWindow.xaml" />
     <Page Include="View\AppWindows\AuthRegisterWindow.xaml" />
     <Page Include="View\AppWindows\MainWindow.xaml" />
