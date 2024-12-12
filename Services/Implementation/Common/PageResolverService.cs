@@ -60,8 +60,11 @@ namespace GenosStore.Services.Implementation.Common {
             {"View/Order/PaymentPage.xaml", a => new PaymentPage { DataContext = a.ViewModel } },
             {"View/Order/SuccessfulPaymentPage.xaml", a => new SuccessfulPaymentPage { DataContext = a.ViewModel } },
             
-            {"View/Admin/LegalEntityVerificationPage.xaml", a => new LegalEntityVerificationPage() { DataContext = a.ViewModel } },
+            {"View/Admin/LegalEntityVerificationPage.xaml", a => new LegalEntityVerificationPage { DataContext = a.ViewModel } },
             {"View/Admin/OrderManagementPage.xaml", a => new OrderManagementPage { DataContext = a.ViewModel } },
+            {"View/Admin/SingleOrderManagementPage.xaml", a => new SingleOrderManagementPage { DataContext = a.ViewModel } },
+            {"View/Admin/DashboardPage.xaml", a => new DashboardPage { DataContext = a.ViewModel } },
+            {"View/Admin/SalesAnalysisReportPage.xaml", a => new SalesAnalysisReportPage { DataContext = a.ViewModel } },
         };
 
         public Page Resolve(NavigationArgs args) {

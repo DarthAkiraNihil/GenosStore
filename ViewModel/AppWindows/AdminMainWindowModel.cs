@@ -18,7 +18,13 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         private void ViewDashboard(object parameter) {
-
+            var args = new NavigationArgsBuilder()
+                       .WithURL("View/Admin/DashboardPage.xaml")
+                       .WithTitle("Дэшборд")
+                       .WithViewModel(new DashboardPageModel(_services, _user))
+                       .Build();
+            
+            Navigate(args);
         }
 
         private bool CanViewDashboard(object parameter) {
@@ -63,7 +69,7 @@ namespace GenosStore.ViewModel.AppWindows {
             var args = new NavigationArgsBuilder()
                        .WithURL("View/Admin/SalesAnalysisReportPage.xaml")
                        .WithTitle("Анализ продаж")
-                       .WithViewModel(new LegalEntityVerificationPageModel(_services, _user))
+                       .WithViewModel(new SalesAnalysisReportPageModel(_services, _user))
                        .Build();
             
             Navigate(args);

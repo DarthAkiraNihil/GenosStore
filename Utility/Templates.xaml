@@ -550,7 +550,7 @@
                     CommandParameter="{Binding Path=Id}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
-                    Перейти к заказу
+                    Отозвать подтверждение
                 </Button>
             </DockPanel>
 
@@ -674,7 +674,7 @@
                         Foreground="White"
                         Width="160"
                         HorizontalAlignment="Right"
-                        Content="Подробнее" Command="{Binding DataContext.ToOrderPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                        Content="Перейти к заказу" Command="{Binding DataContext.ToOrderPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding Path=Id}"
                     >
                         <Button.Background>

@@ -537,9 +537,12 @@
     <Compile Include="Utility\Types\ItemListElement.cs" />
     <Compile Include="Utility\Types\OrderDetails.cs" />
     <Compile Include="Utility\Utilities.cs" />
+    <Compile Include="ViewModel\Admin\DashboardPageModel.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\Admin\LegalEntityVerificationPageModel.cs" />
     <Compile Include="ViewModel\Admin\OrderManagementPageModel.cs" />
+    <Compile Include="ViewModel\Admin\SalesAnalysisReportPageModel.cs" />
+    <Compile Include="ViewModel\Admin\SingleOrderManagementPageModel.cs" />
     <Compile Include="ViewModel\AppWindows\AdminMainWindowModel.cs" />
     <Compile Include="ViewModel\ItemList\ComputerCasesListModel.cs" />
     <Compile Include="ViewModel\ItemList\CPUCoolersListModel.cs" />
