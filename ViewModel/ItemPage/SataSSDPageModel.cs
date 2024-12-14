@@ -13,6 +13,7 @@ namespace GenosStore.ViewModel.ItemPage {
 				_itemIsInCart = true;
 			}
 			FillPrices(Item);
+			Title = Item.Name;
 		}
 
 	}

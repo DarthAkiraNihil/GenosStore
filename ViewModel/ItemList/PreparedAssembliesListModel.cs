@@ -9,11 +9,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class PreparedAssembliesListModel: ItemListViewModel<PreparedAssembly> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.PreparedAssembly;
 		
 		
 		protected override string _itemPageURL {
@@ -49,6 +51,7 @@ namespace GenosStore.ViewModel.ItemList {
 			Items = GetItemsAndCheckDiscounts(
 				_services.Entity.Items.PreparedAssemblies.List()
 			);
+			Title = "Готовые сборки";
 			
 		}
 	}

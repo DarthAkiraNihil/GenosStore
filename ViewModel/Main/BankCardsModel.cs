@@ -134,6 +134,8 @@ namespace GenosStore.ViewModel.Main {
             _saveCardCommand = new RelayCommand(SaveCard, CanSaveCard);
             _deleteCardCommand = new RelayCommand(DeleteCard, CanDeleteCard);
             _addCardCommand = new RelayCommand(AddCard, CanAddCard);
+            
+            Title = "Банковские карты";
         }
     }
 }

@@ -8,11 +8,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class KeyboardsListModel: ComputerComponentListViewModel<Keyboard> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.Keyboard;
 		
 		public CheckableCollection<KeyboardTypesize> KeyboardTypesizes { get; set; }
 		public CheckableCollection<KeyboardType> KeyboardTypes { get; set; }
@@ -144,6 +146,8 @@ namespace GenosStore.ViewModel.ItemList {
 			Items = GetItemsAndCheckDiscounts(
 				_services.Entity.Items.ComputerComponents.Keyboards.List()
 			);
+			
+			Title = "Клавиатуры";
 			
 		}
 	}

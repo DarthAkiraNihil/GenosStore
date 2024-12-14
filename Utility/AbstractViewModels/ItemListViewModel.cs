@@ -6,6 +6,7 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 
 namespace GenosStore.Utility.AbstractViewModels {
@@ -30,16 +31,19 @@ namespace GenosStore.Utility.AbstractViewModels {
 		private void ToItemPage(object parameter) {
 			int id = (int) parameter;
 			
-			var args = new NavigationArgsBuilder()
-			           .WithURL(_itemPageURL)
-			           .WithViewModel(_itemPageViewModel(id))
-			           .WithTitle(_getItemName(id))
-			           .WithId(id)
-			           .Build();
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL(_itemPageURL)
+			//            .WithViewModel(_itemPageViewModel(id))
+			//            .WithTitle(_getItemName(id))
+			//            .WithId(id)
+			//            .Build();
+			
+			Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.ItemPage, _services, _user, _itemType, id));
             
-			Navigate(args);
+			//Navigate(args);
 		}
 		
+		protected abstract ItemTypeDescriptor _itemType { get; }
 		protected abstract string _itemPageURL { get; }
 
 		protected abstract AbstractViewModel _itemPageViewModel(int id);

@@ -42,7 +42,7 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
         public long CreateOrderFromCart(Customer customer) {
             var cart = customer.Cart;
             var orderItems = new List<OrderItems>();
-            var status = _orderStatusService.GetFromString("Created");
+            var status = _orderStatusService.GetFromString("Создан");
             var order = new Order {
                 Customer = customer,
                 CreatedAt = DateTime.Now,
@@ -78,13 +78,13 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
         }
 
         public void ReceiveOrder(Order order) {
-            order.OrderStatus = _orderStatusService.GetFromString("Received");
+            order.OrderStatus = _orderStatusService.GetFromString("Получен");
             Update(order);
             _repositories.Save();
         }
 
         public void CancelOrder(Order order) {
-            order.OrderStatus = _orderStatusService.GetFromString("Cancelled");
+            order.OrderStatus = _orderStatusService.GetFromString("Отменён");
             Update(order);
             _repositories.Save();
         }

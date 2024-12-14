@@ -10,7 +10,7 @@ namespace GenosStore.Utility.NinjectModules.ServiceModules {
 
             Bind<IImageCacheService>().To<ImageCacheService>().InSingletonScope();
             Bind<ICacheServices>().To<CacheServices>().InSingletonScope();
-            Bind<IPageResolverService>().To<PageResolverService>().InSingletonScope();
+            //
             Bind<IAuthorizationService>().To<AuthorizationService>().InSingletonScope();
             Bind<IPaymentService>().To<PaymentService>().InSingletonScope();
             Bind<IReportService>().To<ReportService>().InSingletonScope();

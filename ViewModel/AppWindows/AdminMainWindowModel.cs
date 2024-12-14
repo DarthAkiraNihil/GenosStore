@@ -3,6 +3,7 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.ViewModel.Admin;
 using GenosStore.ViewModel.AuthRegister;
 
@@ -18,13 +19,16 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         private void ViewDashboard(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Admin/DashboardPage.xaml")
-                       .WithTitle("Дэшборд")
-                       .WithViewModel(new DashboardPageModel(_services, _user))
-                       .Build();
-            
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Dashboard, _services, _user)
+            );
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/Admin/DashboardPage.xaml")
+            //            .WithTitle("Дэшборд")
+            //            .WithViewModel(new DashboardPageModel(_services, _user))
+            //            .Build();
+            //
+            // Navigate(args);
         }
 
         private bool CanViewDashboard(object parameter) {
@@ -42,13 +46,16 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         private void ViewLegalEntitiesVerification(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Admin/LegalEntityVerificationPage.xaml")
-                       .WithTitle("Управление верификацией юридических лиц")
-                       .WithViewModel(new LegalEntityVerificationPageModel(_services, _user))
-                       .Build();
-            
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.LegalEntityVerification, _services, _user)
+            );
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/Admin/LegalEntityVerificationPage.xaml")
+            //            .WithTitle("Управление верификацией юридических лиц")
+            //            .WithViewModel(new LegalEntityVerificationPageModel(_services, _user))
+            //            .Build();
+            //
+            // Navigate(args);
         }
 
         private bool CanViewLegalEntitiesVerification(object parameter) {
@@ -66,13 +73,16 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         private void ViewSalesReport(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Admin/SalesAnalysisReportPage.xaml")
-                       .WithTitle("Анализ продаж")
-                       .WithViewModel(new SalesAnalysisReportPageModel(_services, _user))
-                       .Build();
-            
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.SalesAnalysisReport, _services, _user)
+            );
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/Admin/SalesAnalysisReportPage.xaml")
+            //            .WithTitle("Анализ продаж")
+            //            .WithViewModel(new SalesAnalysisReportPageModel(_services, _user))
+            //            .Build();
+            //
+            // Navigate(args);
         }
 
         private bool CanViewSalesReport(object parameter) {
@@ -90,13 +100,16 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         private void ViewOrderManagement(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Admin/OrderManagementPage.xaml")
-                       .WithTitle("Управление активными заказами")
-                       .WithViewModel(new OrderManagementPageModel(_services, _user))
-                       .Build();
-            
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.OrderManagement, _services, _user)
+            );
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/Admin/OrderManagementPage.xaml")
+            //            .WithTitle("Управление активными заказами")
+            //            .WithViewModel(new OrderManagementPageModel(_services, _user))
+            //            .Build();
+            //
+            // Navigate(args);
         }
 
         private bool CanViewOrderManagement(object parameter) {

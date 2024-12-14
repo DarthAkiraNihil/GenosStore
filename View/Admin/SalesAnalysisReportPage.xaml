@@ -4,9 +4,63 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:GenosStore.View.Admin"
-      mc:Ignorable="d"
-      Title="SalesAnalysisReportPage" Height="450" Width="800">
-    <Grid>
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
+      Title="SalesAnalysisReportPage">
+    <DockPanel Margin="16,8,16,8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <Label
+            DockPanel.Dock="Top"
+            Content="Отчёт по продажам" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </Label.Foreground>
+        </Label>
         
-    </Grid>
+        <DockPanel DockPanel.Dock="Top" VerticalAlignment="Top">
+            
+            <Label
+                DockPanel.Dock="Left"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="{StaticResource EmeraldBrush}">
+                От:
+            </Label>
+            
+            <DatePicker DockPanel.Dock="Left"
+                Width="160"
+                Foreground="{StaticResource EmeraldBrush}"
+                SelectedDate="{Binding ReportFrom}"
+                />
+            
+            <Label
+                DockPanel.Dock="Left"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="{StaticResource EmeraldBrush}">
+                До:
+            </Label>
+            
+            <DatePicker DockPanel.Dock="Left"
+                        SelectedDate="{Binding ReportTo}"
+                        Width="160"
+                        Foreground="{StaticResource EmeraldBrush}"
+            />
+            
+            <Button 
+                DockPanel.Dock="Right" 
+                HorizontalAlignment="Right" 
+                Foreground="{StaticResource CyanBrush}"
+                Background="{StaticResource DarkBlueBrush}"
+                Command="{Binding GenerateSalesReportCommand}"
+                Content="Сгенерировать"
+                >
+                
+            </Button>
+        </DockPanel>
+        
+    </DockPanel>
 </Page>

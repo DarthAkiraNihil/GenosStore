@@ -8,11 +8,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class PowerSuppliesListModel: ComputerComponentListViewModel<PowerSupply> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.PowerSupply;
 		
 		public CheckableCollection<Certificate80Plus> Certificates80Plus { get; set; }
 		public RangeItem SataPorts { get; set; }
@@ -120,6 +122,7 @@ namespace GenosStore.ViewModel.ItemList {
 				_services.Entity.Items.ComputerComponents.PowerSupplies.List()
 			);
 			
+			Title = "Блоки питания";
 		}
 	}
 }

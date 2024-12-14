@@ -10,11 +10,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class MousesListModel: ComputerComponentListViewModel<Mouse> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.Mouse;
 
 		public sealed class DPIModeFilter: Named {
 			
@@ -154,6 +156,8 @@ namespace GenosStore.ViewModel.ItemList {
 			Items = GetItemsAndCheckDiscounts(
 				_services.Entity.Items.ComputerComponents.Mouses.List()
 			);
+			
+			Title = "Мыши";
 			
 		}
 	}

@@ -4,6 +4,7 @@ using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
 using GenosStore.Model.Repository.Interface;
 using GenosStore.Services.Interface.Common;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.Services.Implementation.Common {
     public class PaymentService: IPaymentService {
@@ -32,7 +33,7 @@ namespace GenosStore.Services.Implementation.Common {
         }
 
         public bool ProcessPayment(Order order) {
-            var paid = _repositories.Orders.OrderStatuses.List().First(os => os.Name == "Paid");
+            var paid = _repositories.Orders.OrderStatuses.List().First(os => os.Id == (int) OrderStatusDescriptor.Paid);
             
             double chance = new Random().NextDouble();
             if (chance <= 0.05) {

@@ -2,6 +2,7 @@
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Converters;
 using GenosStore.Utility.NinjectModules;
+using GenosStore.Utility.NinjectModules.NavigationModules;
 using GenosStore.Utility.NinjectModules.ServiceModules;
 using GenosStore.View.AppWindows;
 using Microsoft.Extensions.Logging;
@@ -25,6 +26,8 @@ namespace GenosStore {
 				new ItemsModule(),
 				new OrderEntitiesModule(),
 				new UserEntitiesModule(),
+				new PageUrlResolverModule(),
+				new NavigationServicesModule(),
 				new ServicesModule(),
 				new RepositoriesModule("genos_store")
 			);

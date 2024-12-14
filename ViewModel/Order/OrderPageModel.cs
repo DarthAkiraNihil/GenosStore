@@ -7,6 +7,7 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.Order {
     public class OrderPageModel: RequiresUserViewModel {
@@ -86,15 +87,18 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void NextOrderAction(object parameter) {
-            if (_order.OrderStatus.Name == "Created") {
-                var args = new NavigationArgsBuilder()
-                           .WithURL("View/Order/PaymentPage.xaml")
-                           .WithViewModel(new PaymentPageModel(_services, _user, _order))
-                           .WithTitle("Оплата заказа")
-                           .Build();
-            
-                Navigate(args);
-            } else if (_order.OrderStatus.Name == "Paid") {
+            if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Created) {
+                Navigate(
+                    _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Payment, _services, _user, _order)
+                );
+                // var args = new NavigationArgsBuilder()
+                //            .WithURL("View/Order/PaymentPage.xaml")
+                //            .WithViewModel(new PaymentPageModel(_services, _user, _order))
+                //            .WithTitle("Оплата заказа")
+                //            .Build();
+                //
+                // Navigate(args);
+            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Paid) {
                 _services.Entity.Orders.Orders.ReceiveOrder(_order);
                 OrderStatus = _order.OrderStatus.Name;
                 NextOrderActionButtonText = "Получен";
@@ -104,7 +108,7 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private bool CanNextOrderAction(object parameter) {
-            return OrderStatus != "Cancelled" && OrderStatus != "Received";
+            return _order.OrderStatus.Id != (int)OrderStatusDescriptor.Cancelled && _order.OrderStatus.Id != (int)OrderStatusDescriptor.Received;
         }
 
         #endregion
@@ -152,7 +156,7 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private bool CanCancelOrder(object parameter) {
-            return OrderStatus != "Cancelled" && OrderStatus != "Received";
+            return _order.OrderStatus.Id != (int)OrderStatusDescriptor.Cancelled && _order.OrderStatus.Id != (int)OrderStatusDescriptor.Received;
         }
 
         #endregion
@@ -188,15 +192,17 @@ namespace GenosStore.ViewModel.Order {
             OrderTitle = $"Заказ №{orderId}";
             Total = _services.Entity.Orders.Orders.CalculateTotal(_order);
 
-            if (OrderStatus == "Paid") {
+            if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Paid) {
                 NextOrderActionButtonText = "Получить заказ";
-            } else if (OrderStatus == "Created") {
+            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Created) {
                 NextOrderActionButtonText = "Оплатить";
-            } else if (OrderStatus == "Received") {
+            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Received) {
                 NextOrderActionButtonText = "Получен";
-            } else if (OrderStatus == "Cancelled") {
+            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Cancelled) {
                 NextOrderActionButtonText = "Отменён";
             }
+            
+            Title = OrderTitle;
         }
     }
 }

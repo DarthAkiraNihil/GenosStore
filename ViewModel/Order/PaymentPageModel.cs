@@ -89,7 +89,9 @@ namespace GenosStore.ViewModel.Order {
                 Total = _services.Entity.Orders.Orders.CalculateTotal(_orderObj),
                 Orderer = _services.Common.Payment.GetOrdererInfo(_user as Customer)
             };
-            
+
+            Title = "Оплата заказа";
+
         }
     }
 }

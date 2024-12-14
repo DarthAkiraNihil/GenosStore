@@ -9,11 +9,14 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class CPUsListModel: ComputerComponentListViewModel<CPU> {
+		
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.CPU;
 		
 		public CheckableCollection<CPUSocket> CPUSockets { get; set; }
 		public CheckableCollection<RAMType> SupportedRamTypes { get; set; }
@@ -173,6 +176,7 @@ namespace GenosStore.ViewModel.ItemList {
 				_services.Entity.Items.ComputerComponents.CPUs.List()
 			);
 			
+			Title = "Центральные процессоры";
 		}
 	}
 }

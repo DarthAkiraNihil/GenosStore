@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using GenosStore.Services.Interface.Common;
+using GenosStore.Services.Interface.Navigation;
 using GenosStore.Utility.Navigation;
 using GenosStore.View.Admin;
 using GenosStore.View.AuthRegister;
@@ -11,7 +11,7 @@ using GenosStore.View.Main;
 using GenosStore.View.Order;
 using GenosStore.View.Other;
 
-namespace GenosStore.Services.Implementation.Common {
+namespace GenosStore.Services.Implementation.Navigation {
     public class PageResolverService: IPageResolverService {
         private readonly Dictionary<string, Func<NavigationArgs, Page>> _resolveDict = new Dictionary<string, Func<NavigationArgs, Page>> {
             {"View/AuthRegister/AuthorizationPage.xaml",  a => new AuthorizationPage { DataContext = a.ViewModel } },

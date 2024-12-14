@@ -11,6 +11,7 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.ViewModel.AuthRegister;
 using GenosStore.ViewModel.Main;
 using GenosStore.ViewModel.Order;
@@ -31,12 +32,15 @@ namespace GenosStore.ViewModel.AppWindows {
 		}
 
 		private void ToMainPage(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/Main/MainPage.xaml")
-			           .WithTitle("Главная страница")
-			           .WithViewModel(new MainPageModel(_services, _user))
-			           .Build();
-			Navigate(args);
+			Navigate(
+				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Main, _services, _user)
+			);
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL("View/Main/MainPage.xaml")
+			//            .WithTitle("Главная страница")
+			//            .WithViewModel(new MainPageModel(_services, _user))
+			//            .Build();
+			// Navigate(args);
 		}
 
 		private bool CanToMainPage(object parameter) {
@@ -54,13 +58,16 @@ namespace GenosStore.ViewModel.AppWindows {
 		}
 
 		private void ToCatalogue(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/Main/ItemCataloguePage.xaml")
-			           .WithTitle("Каталог товаров")
-			           .WithViewModel(new ItemCatalogueModel(_services, _user))
-			           .Build();
-			
-			Navigate(args);
+			Navigate(
+				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.ItemCatalogue, _services, _user)
+			);
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL("View/Main/ItemCataloguePage.xaml")
+			//            .WithTitle("Каталог товаров")
+			//            .WithViewModel(new ItemCatalogueModel(_services, _user))
+			//            .Build();
+			//
+			// Navigate(args);
 		}
 
 		private bool CanToCatalogue(object parameter) {
@@ -78,13 +85,16 @@ namespace GenosStore.ViewModel.AppWindows {
 		}
 
 		private void BankCards(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/Main/BankCardsPage.xaml")
-			           .WithTitle("Банковские карты")
-			           .WithViewModel(new BankCardsModel(_services, _user))
-			           .Build();
-			
-			Navigate(args);
+			Navigate(
+				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.BankCards, _services, _user)
+			);
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL("View/Main/BankCardsPage.xaml")
+			//            .WithTitle("Банковские карты")
+			//            .WithViewModel(new BankCardsModel(_services, _user))
+			//            .Build();
+			//
+			// Navigate(args);
 		}
 
 		private bool CanToBankCards(object parameter) {
@@ -102,12 +112,15 @@ namespace GenosStore.ViewModel.AppWindows {
 		}
 
 		private void ToCartPage(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/Main/CartPage.xaml")
-			           .WithTitle("Корзина")
-			           .WithViewModel(new CartPageModel(_services, _user))
-			           .Build();
-			Navigate(args);
+			Navigate(
+				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Cart, _services, _user)
+			);
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL("View/Main/CartPage.xaml")
+			//            .WithTitle("Корзина")
+			//            .WithViewModel(new CartPageModel(_services, _user))
+			//            .Build();
+			// Navigate(args);
 		}
 
 		private bool CanToCartPage(object parameter) {
@@ -125,13 +138,16 @@ namespace GenosStore.ViewModel.AppWindows {
 		}
 
 		private void ToOrderHistory(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/Order/OrderHistoryPage.xaml")
-			           .WithViewModel(new OrderHistoryPageModel(_services, _user))
-			           .WithTitle("История заказов")
-			           .Build();
-
-			Navigate(args);
+			Navigate(
+				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.OrderHistory, _services, _user)
+			);
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL("View/Order/OrderHistoryPage.xaml")
+			//            .WithViewModel(new OrderHistoryPageModel(_services, _user))
+			//            .WithTitle("История заказов")
+			//            .Build();
+			//
+			// Navigate(args);
 		}
 
 		private bool CanToOrderHistory(object parameter) {

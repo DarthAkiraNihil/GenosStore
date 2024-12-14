@@ -8,11 +8,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class RAMsListModel: ComputerComponentListViewModel<RAM> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.RAM;
 		
 		public CheckableCollection<RAMType> RAMTypes { get; set; }
 
@@ -118,6 +120,8 @@ namespace GenosStore.ViewModel.ItemList {
 			Items = GetItemsAndCheckDiscounts(
 				_services.Entity.Items.ComputerComponents.RAMs.List()
 			);
+			
+			Title = "Оперативная память";
 			
 		}
 	}

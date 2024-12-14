@@ -8,13 +8,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class ComputerCasesListModel: ComputerComponentListViewModel<ComputerCase> {
-		
-		
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.ComputerCase;
 		public CheckableCollection<ComputerCaseTypesize> ComputerCaseTypesizes { get; set; }
 		public CheckableCollection<MotherboardFormFactor> SupportedMotherboardFormFactors { get; set; }
 
@@ -29,7 +29,7 @@ namespace GenosStore.ViewModel.ItemList {
 			set {
 				_hasArgbLighting = value;
 				_argbOnceSelected = true;
-				NotifyPropertyChanged("HasNVMeSupport");
+				NotifyPropertyChanged("HasARGBLighting");
 			}
 		}
 		public RangeItem DrivesSlotsCount { get; set; }
@@ -174,7 +174,9 @@ namespace GenosStore.ViewModel.ItemList {
 			Items = GetItemsAndCheckDiscounts(
 				_services.Entity.Items.ComputerComponents.ComputerCases.List()
 			);
-			
+
+			Title = "Корпуса";
+
 		}
 	}
 }

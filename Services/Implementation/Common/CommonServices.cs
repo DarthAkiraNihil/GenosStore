@@ -7,7 +7,6 @@ namespace GenosStore.Services.Implementation.Common {
         
         private readonly IAuthorizationService _authorizationService;
         private readonly ICacheServices _cache;
-        private readonly IPageResolverService _pageResolverService;
         private readonly IPaymentService _paymentService;
         private readonly IReportService _reportService;
         private readonly ISaveService _saveService;
@@ -23,13 +22,7 @@ namespace GenosStore.Services.Implementation.Common {
                 return _cache;
             }
         }
-
-        public IPageResolverService PageResolver {
-            get {
-                return _pageResolverService;
-            }
-        }
-
+        
         public IPaymentService Payment {
             get {
                 return _paymentService;
@@ -51,14 +44,12 @@ namespace GenosStore.Services.Implementation.Common {
         public CommonServices(
             IAuthorizationService authorizationService,
             ICacheServices cache,
-            IPageResolverService pageResolverService,
             IPaymentService paymentService,
             IReportService reportService,
             ISaveService saveService
             ) {
             _authorizationService = authorizationService;
             _cache = cache;
-            _pageResolverService = pageResolverService;
             _paymentService = paymentService;
             _reportService = reportService;
             _saveService = saveService;

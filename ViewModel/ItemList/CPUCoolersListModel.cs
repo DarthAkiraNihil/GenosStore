@@ -6,11 +6,14 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class CPUCoolersListModel: ComputerComponentListViewModel<CPUCooler> {
+		
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.CPUCooler;
 		
 		public CheckableCollection<CoolerMaterial> FoundationMaterials { get; set; }
 		public CheckableCollection<CoolerMaterial> RadiatorMaterials { get; set; }
@@ -132,6 +135,7 @@ namespace GenosStore.ViewModel.ItemList {
 				_services.Entity.Items.ComputerComponents.CPUCoolers.List()
 			);
 			
+			Title = "Кулеры для процессоров";
 		}
 	}
 }

@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Documents;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface.Common;
+using GenosStore.Services.Interface.Entity.Items;
 using GenosStore.Services.Interface.Entity.Orders;
 using GenosStore.Utility.QuestPDFExtensions;
+using Microcharts;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using SkiaSharp;
 
 namespace GenosStore.Services.Implementation.Common {
     public class ReportService: IReportService {
         
         private readonly IPaymentService _paymentService;
         private readonly IOrderService _orderService;
+        private readonly IItemTypeService _itemTypeService;
 
         private readonly List<string> _receiptHeaderTitles = new List<string> {
             "Наименование предмета", "Цена за единицу (руб.)", "Количество (шт.)", "Итого (руб.)"
@@ -34,9 +40,10 @@ namespace GenosStore.Services.Implementation.Common {
         private const int _traderKPP = 1000000;
         
 
-        public ReportService(IPaymentService paymentService, IOrderService orderService) {
+        public ReportService(IPaymentService paymentService, IOrderService orderService, IItemTypeService itemTypeService) {
             _paymentService = paymentService;
             _orderService = orderService;
+            _itemTypeService = itemTypeService;
         }
 
         public void CreateOrderReceipt(Customer customer, Order order, string path) {
@@ -296,6 +303,91 @@ namespace GenosStore.Services.Implementation.Common {
                 }
             })
             .GeneratePdf(path);
+        }
+
+        public void GenerateSalesAnalysisReport(DateTime startDate, DateTime endDate, string path) {
+            var orders = _orderService.List().Where(o => o.CreatedAt >= startDate && o.CreatedAt <= endDate);
+            
+            var itemsFrequency = new Dictionary<string, int>();
+            foreach (var type in _itemTypeService.List()) {
+                itemsFrequency.Add(type.Name, 0);
+            }
+
+            foreach (var order in orders) {
+                foreach (var item in order.Items) {
+                    itemsFrequency[item.Item.ItemType.Name]++;
+                }
+            }
+
+            var entries = new List<ChartEntry>();
+
+            foreach (var k in itemsFrequency) {
+                entries.Add(
+                    new ChartEntry(k.Value) {
+                        Label = k.Key,
+                        ValueLabel = k.Value.ToString(),
+                        Color = SKColor.Parse("#2c3e50")
+                    });
+            }
+            
+            //var chart = new PieChart() {Entries = entries};
+            
+            Document.Create(container => {
+                container.Page(page => {
+                    page.Size(PageSizes.A4);
+                    page.Margin(2, Unit.Centimetre);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(8).FontFamily("Arial"));
+                    
+                    page.Content()
+                        .PaddingVertical(1, Unit.Centimetre)
+                        .Column(column =>
+                        {
+                            var titleStyle = TextStyle
+                                             .Default
+                                             .FontSize(20)
+                                             .SemiBold()
+                                             .FontColor(Colors.Blue.Medium);
+
+                            column
+                                .Item()
+                                .PaddingBottom(10)
+                                .Text("Chart example")
+                                .Style(titleStyle);
+    
+                            column
+                                .Item()
+                                .Border(1)
+                                .ExtendHorizontal()
+                                .Height(300)
+                                .SkiaSharpCanvas((canvas, size) =>
+                                {
+                                    var chart = new PieChart
+                                    {
+                                        Entries = entries,
+
+                                        //LabelOrientation = Orientation.Horizontal,
+                                        //ValueLabelOrientation = Orientation.Horizontal,
+                
+                                        IsAnimated = false,
+                                    };
+            
+                                    chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
+                                });
+                        });
+                        
+                    
+                    page.Footer()
+                        .AlignCenter()
+                        .Text(x =>
+                        {
+                            x.Span("Страница ");
+                            x.CurrentPageNumber();
+                        });
+                });
+            })
+            .GeneratePdf(path);
+            
         }
     }
 }

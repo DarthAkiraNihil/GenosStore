@@ -9,6 +9,7 @@ using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.ViewModel.Order;
 
 namespace GenosStore.ViewModel.Main {
@@ -134,16 +135,19 @@ namespace GenosStore.ViewModel.Main {
         }
 
         private void CreateOrder(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Order/OrderPage.xaml")
-                       .WithTitle("Оформление заказа")
-                       .WithViewModel(new OrderPageModel(_services, _user, null))
-                       .Build();
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Order, _services, _user, null, null)
+            );
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/Order/OrderPage.xaml")
+            //            .WithTitle("Оформление заказа")
+            //            .WithViewModel(new OrderPageModel(_services, _user, null))
+            //            .Build();
+            // Navigate(args);
         }
 
         private bool CanCreateOrder(object parameter) {
-            return true;
+            return _cart.Items.Count > 0;
         }
 
         #endregion
@@ -157,6 +161,7 @@ namespace GenosStore.ViewModel.Main {
             _decrementCartItemQuantityCommand = new RelayCommand(DecrementCartItemQuantity, CanDecrement);
             _createOrderCommand = new RelayCommand(CreateOrder, CanCreateOrder);
             
+            Title = "Корзина";
         }
     }
 }

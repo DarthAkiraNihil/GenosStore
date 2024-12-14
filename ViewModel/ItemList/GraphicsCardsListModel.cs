@@ -8,11 +8,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class GraphicsCardsListModel: ComputerComponentListViewModel<GraphicsCard> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.GraphicsCard;
 		
 		public CheckableCollection<GPU> GPUs { get; set; }
 		public CheckableCollection<VideoPort> VideoPorts { get; set; }
@@ -132,6 +134,7 @@ namespace GenosStore.ViewModel.ItemList {
 				_services.Entity.Items.ComputerComponents.GraphicsCards.List()
 			);
 			
+			Title = "Видеокарты";
 		}
 	}
 }

@@ -20,7 +20,7 @@ namespace GenosStore.View.AppWindows
             InitializeComponent();
 
 			Messenger.Default.Register<NavigationArgs>(this, (x) => {
-				MainFrame.Content = _services.Common.PageResolver.Resolve(x);
+				MainFrame.Content = _services.Navigation.PageResolver.Resolve(x);
 				WindowTitle.Content = x.Title;
 			});
 			

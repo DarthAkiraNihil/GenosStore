@@ -9,6 +9,7 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.ViewModel.ItemList;
 using GenosStore.ViewModel.ItemPage;
 
@@ -94,6 +95,23 @@ namespace GenosStore.ViewModel.Main {
 			}},
 		};
 
+		private readonly Dictionary<string, ItemTypeDescriptor> _descriptors = new Dictionary<string, ItemTypeDescriptor> {
+			{"Motherboards", ItemTypeDescriptor.Motherboard},
+			{"CPUs", ItemTypeDescriptor.CPU},
+			{"RAMs", ItemTypeDescriptor.RAM},
+			{"GraphicsCards", ItemTypeDescriptor.GraphicsCard},
+			{"HDDs", ItemTypeDescriptor.HDD},
+			{"NVMeSSDs", ItemTypeDescriptor.NVMeSSD},
+			{"SataSSDs", ItemTypeDescriptor.SataSSD},
+			{"CPUCoolers", ItemTypeDescriptor.CPUCooler},
+			{"PowerSupplies", ItemTypeDescriptor.PowerSupply},
+			{"ComputerCases", ItemTypeDescriptor.ComputerCase},
+			{"Displays", ItemTypeDescriptor.Display},
+			{"Keyboards", ItemTypeDescriptor.Keyboard},
+			{"Mouses", ItemTypeDescriptor.Mouse},
+			{"PreparedAssemblies", ItemTypeDescriptor.PreparedAssembly},
+		};
+
 		#region ToItemListCommand
 
 		private readonly RelayCommand _toItemListCommand;
@@ -110,14 +128,17 @@ namespace GenosStore.ViewModel.Main {
 				return;
 			}
 			
-			var itemListParameters = _toItemListCommandsParameters[type](_services, _user);
-			
-			var args = new NavigationArgsBuilder()
-			           .WithURL(itemListParameters.URL)
-			           .WithTitle(itemListParameters.Title)
-			           .WithViewModel(itemListParameters.ViewModel)
-			           .Build();
-			Navigate(args);
+			// var itemListParameters = _toItemListCommandsParameters[type](_services, _user);
+			//
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL(itemListParameters.URL)
+			//            .WithTitle(itemListParameters.Title)
+			//            .WithViewModel(itemListParameters.ViewModel)
+			//            .Build();
+			// Navigate(args);
+			Navigate(
+				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.ItemList, _services, _user, _descriptors[type])
+			);
 		}
 
 		private bool CanToItemList(object parameter) {
@@ -131,12 +152,12 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		private void ToMotherboards(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/ItemList/MotherboardsPage.xaml")
-			           .WithTitle("Материнские платы")
-			           .WithViewModel(new MotherboardsListModel(_services, _user))
-			           .Build();
-			Navigate(args);
+			// var args = new NavigationArgsBuilder()
+			//            .WithURL("View/ItemList/MotherboardsPage.xaml")
+			//            .WithTitle("Материнские платы")
+			//            .WithViewModel(new MotherboardsListModel(_services, _user))
+			//            .Build();
+			// Navigate(args);
 		}
 
 		private bool CanToMotherboards(object parameter) {
@@ -148,6 +169,8 @@ namespace GenosStore.ViewModel.Main {
 		public ItemCatalogueModel(IServices services, User user): base(services, user) {
 			_toItemListCommand = new RelayCommand(ToItemList, CanToItemList);
 			_toMotherboardsCommand = new RelayCommand(ToMotherboards, CanToMotherboards);
+			
+			Title = "Каталог товаров";
 		}
 
 	}

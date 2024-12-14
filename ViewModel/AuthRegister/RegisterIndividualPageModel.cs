@@ -8,6 +8,7 @@ using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types.AuthRegister;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.AuthRegister
 {
@@ -176,13 +177,14 @@ namespace GenosStore.ViewModel.AuthRegister
         }
         
         private void BackToAuth(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-                       .WithTitle("Авторизация")
-                       .WithViewModel(new AuthorizationPageModel(_services))
-                       .Build();
-            
-            Navigate(args);
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/AuthRegister/AuthorizationPage.xaml")
+            //            .WithTitle("Авторизация")
+            //            .WithViewModel(new AuthorizationPageModel(_services))
+            //            .Build();
+            //
+            // Navigate(args);
+            Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Authorization, _services));
         }
         
         private bool CanBackToAuth(object parameter) {
@@ -198,13 +200,14 @@ namespace GenosStore.ViewModel.AuthRegister
         }
         
         private void RegisterLegal(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/AuthRegister/RegisterLegalPage.xaml")
-                       .WithTitle("Регистрация юридического лица")
-                       .WithViewModel(new RegisterLegalPageModel(_services))
-                       .Build();
-            
-            Navigate(args);
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/AuthRegister/RegisterLegalPage.xaml")
+            //            .WithTitle("Регистрация юридического лица")
+            //            .WithViewModel(new RegisterLegalPageModel(_services))
+            //            .Build();
+            //
+            // Navigate(args);
+            Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.RegisterLegal, _services));
         }
 
         private bool CanRegisterLegal(object parameter) {
@@ -217,6 +220,8 @@ namespace GenosStore.ViewModel.AuthRegister
             _registerCommand = new RelayCommand(Register, CanRegister);
             _backToAuthCommand = new RelayCommand(BackToAuth, CanBackToAuth);
             _registerLegalCommand = new RelayCommand(RegisterLegal, CanRegisterLegal);
+            
+            Title = "Регистрация физического лица";
         }
     }
 }

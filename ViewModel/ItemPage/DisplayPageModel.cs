@@ -16,6 +16,7 @@ namespace GenosStore.ViewModel.ItemPage {
 			}
 			FillPrices(Item);
 			Definition = $"{Item.Definition.Width} x {Item.Definition.Height}";
+			Title = Item.Name;
 		}
 
 	}

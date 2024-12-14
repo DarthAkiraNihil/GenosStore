@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\SkiaSharp.Views.Forms.WPF.2.88.0\build\SkiaSharp.Views.Forms.WPF.props" Condition="Exists('packages\SkiaSharp.Views.Forms.WPF.2.88.0\build\SkiaSharp.Views.Forms.WPF.props')" />
+  <Import Project="packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.props" Condition="Exists('packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.props')" />
   <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -59,11 +61,17 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="GLWpfControl, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.GLWpfControl.3.3.0\lib\net452\GLWpfControl.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=3.1.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignColors.3.1.0\lib\net462\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=5.1.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignThemes.5.1.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microcharts, Version=0.9.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Microcharts.0.9.5.9\lib\netstandard2.0\Microcharts.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -92,14 +100,39 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="mscorlib" />
     <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql, Version=4.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>packages\Npgsql.4.1.3\lib\net461\Npgsql.dll</HintPath>
     </Reference>
+    <Reference Include="OpenTK, Version=3.3.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.3.3.1\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=3.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.GLControl.3.1.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
     <Reference Include="QuestPDF, Version=2024.12.1.0, Culture=neutral, PublicKeyToken=0f3c2b2315ff52c8, processorArchitecture=MSIL">
       <HintPath>packages\QuestPDF.2024.12.1\lib\netstandard2.0\QuestPDF.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp, Version=3.116.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.3.116.1\lib\net462\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Extended.Svg, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.Svg.1.60.0\lib\netstandard2.0\SkiaSharp.Extended.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Desktop.Common, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.Views.Desktop.Common.2.88.9\lib\net462\SkiaSharp.Views.Desktop.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Forms, Version=2.88.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.Views.Forms.WPF.2.88.0\lib\net462\SkiaSharp.Views.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.WindowsForms, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.Views.WindowsForms.2.88.9\lib\net462\SkiaSharp.Views.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.WPF, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>packages\SkiaSharp.Views.WPF.2.88.9\lib\net462\SkiaSharp.Views.WPF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -113,6 +146,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.4.7.3\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -155,6 +192,18 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Forms.4.8.0.1821\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Forms.4.8.0.1821\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.WPF, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Forms.Platform.WPF.4.8.0.1821\lib\net461\Xamarin.Forms.Platform.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Forms.4.8.0.1821\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -361,7 +410,6 @@
     <Compile Include="Services\Implementation\Common\Cache\CacheServices.cs" />
     <Compile Include="Services\Implementation\Common\Cache\ImageCacheService.cs" />
     <Compile Include="Services\Implementation\Common\CommonServices.cs" />
-    <Compile Include="Services\Implementation\Common\PageResolverService.cs" />
     <Compile Include="Services\Implementation\Common\PaymentService.cs" />
     <Compile Include="Services\Implementation\Common\ReportService.cs" />
     <Compile Include="Services\Implementation\Common\SaveService.cs" />
@@ -418,6 +466,18 @@
     <Compile Include="Services\Implementation\Entity\Users\LegalEntitySerivice.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserEntitiesService.cs" />
     <Compile Include="Services\Implementation\Entity\Users\UserService.cs" />
+    <Compile Include="Services\Implementation\Navigation\NavigationArgsFactory.cs" />
+    <Compile Include="Services\Implementation\Navigation\NavigationServices.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageUrlCategories\AdminUrlsResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageUrlCategories\AuthRegisterUrlsResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageUrlCategories\ItemListUrlsResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageUrlCategories\ItemUrlsResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageUrlCategories\MainUrlsResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageUrlCategories\OrderUrlsResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\PageUrlResolverService.cs" />
+    <Compile Include="Services\Implementation\Navigation\StandardPageUrlResolver.cs" />
+    <Compile Include="Services\Implementation\Navigation\ViewModelFactory.cs" />
     <Compile Include="Services\Implementation\Services.cs" />
     <Compile Include="Services\Interface\Base\ICacheService.cs" />
     <Compile Include="Services\Interface\Base\IEnumService.cs" />
@@ -427,7 +487,6 @@
     <Compile Include="Services\Interface\Common\Cache\IImageCacheService.cs" />
     <Compile Include="Services\Interface\Common\IAuthorizationService.cs" />
     <Compile Include="Services\Interface\Common\ICommonServices.cs" />
-    <Compile Include="Services\Interface\Common\IPageResolverService.cs" />
     <Compile Include="Services\Interface\Common\IPaymentService.cs" />
     <Compile Include="Services\Interface\Common\IReportService.cs" />
     <Compile Include="Services\Interface\Common\ISaveService.cs" />
@@ -492,6 +551,19 @@
     <Compile Include="Services\Interface\Entity\Users\IUserService.cs" />
     <Compile Include="Services\Interface\Entity\Users\IUserTypeService.cs" />
     <Compile Include="Services\Interface\IServices.cs" />
+    <Compile Include="Services\Interface\Navigation\INavigationArgsFactory.cs" />
+    <Compile Include="Services\Interface\Navigation\INavigationServices.cs" />
+    <Compile Include="Services\Interface\Navigation\IPageFactory.cs" />
+    <Compile Include="Services\Interface\Navigation\IPageResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\IPageUrlResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\IViewModelFactory.cs" />
+    <Compile Include="Services\Interface\Navigation\PageUrlCategories\IAdminUrlsResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\PageUrlCategories\IAuthRegisterUrlsResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\PageUrlCategories\IItemListUrlsResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\PageUrlCategories\IItemUrlsResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\PageUrlCategories\IMainUrlsResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\PageUrlCategories\IOrderUrlsResolverService.cs" />
+    <Compile Include="Services\Interface\Navigation\PageUrlCategories\IUrlService.cs" />
     <Compile Include="Utility\AbstractViewModels\AbstractViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\ComputerComponentListViewModel.cs" />
     <Compile Include="Utility\AbstractViewModels\INeedsPasswordConfirmationViewModel.cs" />
@@ -504,6 +576,8 @@
     <Compile Include="Utility\Converters\ListToStringConverter.cs" />
     <Compile Include="Utility\Navigation\NavigationArgs.cs" />
     <Compile Include="Utility\Navigation\NavigationArgsBuilder.cs" />
+    <Compile Include="Utility\NinjectModules\NavigationModules\NavigationServicesModule.cs" />
+    <Compile Include="Utility\NinjectModules\NavigationModules\PageUrlResolverModule.cs" />
     <Compile Include="Utility\NinjectModules\RepositoriesModule.cs" />
     <Compile Include="Utility\NinjectModules\ServiceModules\CommonServicesModule.cs" />
     <Compile Include="Utility\NinjectModules\ServiceModules\ItemCharacteristicsModule.cs" />
@@ -522,6 +596,7 @@
     <Compile Include="Utility\Operations\ISupportsUpdate.cs" />
     <Compile Include="Utility\Operations\ISupportsGet.cs" />
     <Compile Include="Utility\Operations\ISupportsList.cs" />
+    <Compile Include="Utility\QuestPDFExtensions\SkiaSharpHelpers.cs" />
     <Compile Include="Utility\QuestPDFExtensions\TableExtension.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="Utility\Types\AuthRegister\AuthorizationStatus.cs" />
@@ -529,6 +604,9 @@
     <Compile Include="Utility\Types\AuthRegister\LegalEntityRegistrationData.cs" />
     <Compile Include="Utility\Types\AuthRegister\RegistrationStatus.cs" />
     <Compile Include="Utility\Types\CartListElement.cs" />
+    <Compile Include="Utility\Types\Enum\ItemTypeDescriptor.cs" />
+    <Compile Include="Utility\Types\Enum\OrderStatusDescriptor.cs" />
+    <Compile Include="Utility\Types\Enum\PageTypeDescriptor.cs" />
     <Compile Include="Utility\Types\Filtering\CheckableCollection.cs" />
     <Compile Include="Utility\Types\Filtering\CheckableItem.cs" />
     <Compile Include="Utility\Types\Filtering\IFilter.cs" />
@@ -939,6 +1017,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -995,8 +1074,14 @@
     <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('packages\QuestPDF.2024.12.1\build\net4\QuestPDF.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\QuestPDF.2024.12.1\build\net4\QuestPDF.targets'))" />
+    <Error Condition="!Exists('packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('packages\SkiaSharp.Views.Forms.2.88.0\build\net462\SkiaSharp.Views.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SkiaSharp.Views.Forms.2.88.0\build\net462\SkiaSharp.Views.Forms.targets'))" />
+    <Error Condition="!Exists('packages\SkiaSharp.Views.Forms.WPF.2.88.0\build\SkiaSharp.Views.Forms.WPF.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SkiaSharp.Views.Forms.WPF.2.88.0\build\SkiaSharp.Views.Forms.WPF.props'))" />
   </Target>
   <Import Project="packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
   <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <Import Project="packages\QuestPDF.2024.12.1\build\net4\QuestPDF.targets" Condition="Exists('packages\QuestPDF.2024.12.1\build\net4\QuestPDF.targets')" />
+  <Import Project="packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.targets" Condition="Exists('packages\Xamarin.Forms.4.8.0.1821\build\Xamarin.Forms.targets')" />
+  <Import Project="packages\SkiaSharp.Views.Forms.2.88.0\build\net462\SkiaSharp.Views.Forms.targets" Condition="Exists('packages\SkiaSharp.Views.Forms.2.88.0\build\net462\SkiaSharp.Views.Forms.targets')" />
 </Project>

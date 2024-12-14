@@ -12,6 +12,7 @@ using GenosStore.Services.Interface.Common;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types.AuthRegister;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.ViewModel.AppWindows;
 
 namespace GenosStore.ViewModel.AuthRegister
@@ -119,13 +120,13 @@ namespace GenosStore.ViewModel.AuthRegister
 		}
 
         private void Register(object parameter) {
-            var args = new NavigationArgsBuilder()
-                .WithURL("View/AuthRegister/RegisterIndividualPage.xaml")
-                .WithTitle("Регистрация физического лица")
-                .WithViewModel(new RegisterIndividualPageModel(_services))
-                .Build();
+            // var args = new NavigationArgsBuilder()
+            //     .WithURL("View/AuthRegister/RegisterIndividualPage.xaml")
+            //     .WithTitle("Регистрация физического лица")
+            //     .WithViewModel(new RegisterIndividualPageModel(_services))
+            //     .Build();
             
-            Navigate(args);
+            Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.RegisterIndividual, _services));
         }
         
         private bool CanRegister(object parameter) {
@@ -137,6 +138,8 @@ namespace GenosStore.ViewModel.AuthRegister
         public AuthorizationPageModel(IServices services): base(services) {
             _authorizeCommand = new RelayCommand(Authorize, CanAuthorize);
             _registerCommand = new RelayCommand(Register, CanRegister);
+
+            Title = "Авторизация";
         }
 
     }

@@ -83,6 +83,7 @@ namespace GenosStore.ViewModel.Order {
             _toMainPageCommand = new RelayCommand(ToMainPage, CanToMainPage);
             _createReceiptCommand = new RelayCommand(CreateReceipt, CanCreateReceipt);
             
+            Title = "Оплата прошла успешно";
         }
     }
 }

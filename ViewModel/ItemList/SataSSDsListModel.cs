@@ -8,11 +8,13 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.Utility.Types.Filtering;
 using GenosStore.ViewModel.ItemPage;
 
 namespace GenosStore.ViewModel.ItemList {
 	public class SataSSDsListModel: ComputerComponentListViewModel<SataSSD> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.SataSSD;
 		
 		
 		public RangeItem Capacity { get; set; }
@@ -134,6 +136,8 @@ namespace GenosStore.ViewModel.ItemList {
 			Items = GetItemsAndCheckDiscounts(
 				_services.Entity.Items.ComputerComponents.SataSSDs.List()
 			);
+			
+			Title = "Твердотельные накопители Sata";
 			
 		}
 	}

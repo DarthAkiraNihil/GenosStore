@@ -8,6 +8,7 @@ using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.Order {
     public class OrderHistoryPageModel: RequiresUserViewModel {
@@ -34,12 +35,16 @@ namespace GenosStore.ViewModel.Order {
             
             long id = (long) parameter;
             
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Order/OrderPage.xaml")
-                       .WithTitle("Оформление заказа")
-                       .WithViewModel(new OrderPageModel(_services, _user, id))
-                       .Build();
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Order, _services, _user, null, (int?) id)
+            );
+            
+            // var args = new NavigationArgsBuilder()
+            //            .WithURL("View/Order/OrderPage.xaml")
+            //            .WithTitle("Оформление заказа")
+            //            .WithViewModel(new OrderPageModel(_services, _user, id))
+            //            .Build();
+            // Navigate(args);
             
         }
 
@@ -81,6 +86,8 @@ namespace GenosStore.ViewModel.Order {
             
             _toOrderPage = new RelayCommand(ToOrderPage, CanToOrderPage);
             _exportOrderHistoryCommand = new RelayCommand(ExportOrderHistory, CanExportOrderHistory);
+            
+            Title = "История заказов";
         }
     }
 }
