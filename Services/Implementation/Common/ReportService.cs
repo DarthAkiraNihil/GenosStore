@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Windows.Documents;
 using GenosStore.Model.Entity.Orders;
 using GenosStore.Model.Entity.User;
+using GenosStore.Model.Repository.Interface.Item;
 using GenosStore.Services.Interface.Common;
 using GenosStore.Services.Interface.Entity.Items;
 using GenosStore.Services.Interface.Entity.Orders;
 using GenosStore.Utility.QuestPDFExtensions;
-using Microcharts;
+using GenosStore.Utility.Types.Enum;
+using OxyPlot;
+using OxyPlot.Series;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using SkiaSharp;
 
 namespace GenosStore.Services.Implementation.Common {
     public class ReportService: IReportService {
@@ -20,6 +22,7 @@ namespace GenosStore.Services.Implementation.Common {
         private readonly IPaymentService _paymentService;
         private readonly IOrderService _orderService;
         private readonly IItemTypeService _itemTypeService;
+        private readonly IAllItemsRepository _allItemsRepository;
 
         private readonly List<string> _receiptHeaderTitles = new List<string> {
             "Наименование предмета", "Цена за единицу (руб.)", "Количество (шт.)", "Итого (руб.)"
@@ -38,12 +41,17 @@ namespace GenosStore.Services.Implementation.Common {
         private const string _traderAddress = "ООО \"Genos Store Incorporated\"";
         private const int _traderINN = 1000000;
         private const int _traderKPP = 1000000;
+
+
+        private const int _soldItemsChartHeight = 350;
+        private const int _soldItemsChartTitlePadding = 30;
         
 
-        public ReportService(IPaymentService paymentService, IOrderService orderService, IItemTypeService itemTypeService) {
+        public ReportService(IPaymentService paymentService, IOrderService orderService, IItemTypeService itemTypeService, IAllItemsRepository allItemsRepository) {
             _paymentService = paymentService;
             _orderService = orderService;
             _itemTypeService = itemTypeService;
+            _allItemsRepository = allItemsRepository;
         }
 
         public void CreateOrderReceipt(Customer customer, Order order, string path) {
@@ -305,30 +313,112 @@ namespace GenosStore.Services.Implementation.Common {
             .GeneratePdf(path);
         }
 
+        private readonly Dictionary<string, string> _chartItemTypeColors = new Dictionary<string, string> {
+            { "Motherboard", "#00FA9A" },
+            { "CPU", "#4682B4" },
+            { "RAM", "#800080" },
+            { "GraphicsCard", "#FFC0CB" },
+            { "HDD", "#8B4513" },
+            { "NVMeSSD", "#708090" },
+            { "SataSSD", "#F0F8FF" },
+            { "CPUCooler", "#C0C0C0" },
+            { "PowerSupply", "#FFFF00" },
+            { "ComputerCase", "#FFA500" },
+            { "Display", "#FF0000" },
+            { "Keyboard", "#2E8B57" },
+            { "Mouse", "#0000CD" },
+            { "PreparedAssembly", "#000000" },
+        };
+        
+        private readonly Dictionary<string, string> _chartItemTypeTranslations = new Dictionary<string, string> {
+            { "Motherboard", "Материнская плата" },
+            { "CPU", "ЦПУ" },
+            { "RAM", "ОЗУ" },
+            { "GraphicsCard", "Видеокарта" },
+            { "HDD", "Жёсткий диск" },
+            { "NVMeSSD", "Накопитель NVMe SSD" },
+            { "SataSSD", "Накопитель Sata SSD" },
+            { "CPUCooler", "Кулер для процессора" },
+            { "PowerSupply", "Блок питания" },
+            { "ComputerCase", "Корпус" },
+            { "Display", "Монитор" },
+            { "Keyboard", "Клавиатура" },
+            { "Mouse", "Мышь" },
+            { "PreparedAssembly", "Готовая сборка" },
+        };
+
         public void GenerateSalesAnalysisReport(DateTime startDate, DateTime endDate, string path) {
-            var orders = _orderService.List().Where(o => o.CreatedAt >= startDate && o.CreatedAt <= endDate);
+            var orders = _orderService
+                         .List()
+                         .Where(
+                                    o => o.CreatedAt >= startDate 
+                               &&   o.CreatedAt <= endDate
+                               &&   o.OrderStatus.Id != (int) OrderStatusDescriptor.Cancelled
+                        ).ToList();
             
-            var itemsFrequency = new Dictionary<string, int>();
+            var itemsTypesFrequency = new Dictionary<string, int>();
+            var itemTypesOutcomes = new Dictionary<string, double>();
             foreach (var type in _itemTypeService.List()) {
-                itemsFrequency.Add(type.Name, 0);
+                itemsTypesFrequency.Add(type.Name, 0);
+                itemTypesOutcomes.Add(type.Name, 0.0);
             }
+            
+            var itemsFrequency = new Dictionary<int, int>();
+            var revenue = 0.0;
+            var avgRevenue = 0.0;
+            
 
             foreach (var order in orders) {
+                if (order.OrderStatus.Id >= (int)OrderStatusDescriptor.Paid) {
+                    double total = _orderService.CalculateTotal(order);
+                    revenue += total;
+                    avgRevenue += total;
+                }
                 foreach (var item in order.Items) {
-                    itemsFrequency[item.Item.ItemType.Name]++;
+                    itemsTypesFrequency[item.Item.ItemType.Name] += item.Quantity;
+                    itemTypesOutcomes[item.Item.ItemType.Name] += item.Quantity * item.BoughtFor;
+                    
+                    if (!itemsFrequency.ContainsKey(item.Item.Id)) {
+                        itemsFrequency.Add(item.Item.Id, 0);
+                    }
+                    itemsFrequency[item.Item.Id] += item.Quantity;
+                }
+            }
+            
+            avgRevenue /= orders.Count;
+
+            var itemTypesFrequenciesSlices = new List<PieSlice>();
+            var itemTypesOutcomesSlices = new List<PieSlice>();
+
+            foreach (var k in itemsTypesFrequency) {
+                if (k.Value > 0) {
+                    itemTypesFrequenciesSlices.Add(
+                        new PieSlice(_chartItemTypeTranslations[k.Key], k.Value) {
+                            IsExploded = true, Fill = OxyColor.Parse(_chartItemTypeColors[k.Key])
+                        }
+                    );
+                }
+            }
+            
+            foreach (var k in itemTypesOutcomes) {
+                if (k.Value > 0) {
+                    itemTypesOutcomesSlices.Add(
+                        new PieSlice(_chartItemTypeTranslations[k.Key], k.Value) {
+                            IsExploded = true, Fill = OxyColor.Parse(_chartItemTypeColors[k.Key])
+                        }
+                    );
                 }
             }
 
-            var entries = new List<ChartEntry>();
+            int mostBoughtItemId = 1;
+            int maxItemFreq = -1;
 
-            foreach (var k in itemsFrequency) {
-                entries.Add(
-                    new ChartEntry(k.Value) {
-                        Label = k.Key,
-                        ValueLabel = k.Value.ToString(),
-                        Color = SKColor.Parse("#2c3e50")
-                    });
+            foreach (var item in itemsFrequency) {
+                if (item.Value > maxItemFreq) {
+                    mostBoughtItemId = item.Key;
+                }
             }
+            
             
             //var chart = new PieChart() {Entries = entries};
             
@@ -341,39 +431,128 @@ namespace GenosStore.Services.Implementation.Common {
                     
                     page.Content()
                         .PaddingVertical(1, Unit.Centimetre)
-                        .Column(column =>
-                        {
+                        .Column(column => {
                             var titleStyle = TextStyle
                                              .Default
-                                             .FontSize(20)
-                                             .SemiBold()
-                                             .FontColor(Colors.Blue.Medium);
+                                             .FontSize(14)
+                                             .SemiBold();
 
                             column
                                 .Item()
                                 .PaddingBottom(10)
-                                .Text("Chart example")
+                                .AlignCenter()
+                                .Text($"Статистика по продажам с {startDate.ToString("dd/MM/yyyy")} по {endDate.ToString("dd/MM/yyyy")}")
                                 .Style(titleStyle);
     
                             column
                                 .Item()
-                                .Border(1)
                                 .ExtendHorizontal()
-                                .Height(300)
-                                .SkiaSharpCanvas((canvas, size) =>
-                                {
-                                    var chart = new PieChart
-                                    {
-                                        Entries = entries,
-
-                                        //LabelOrientation = Orientation.Horizontal,
-                                        //ValueLabelOrientation = Orientation.Horizontal,
-                
-                                        IsAnimated = false,
+                                .Height(_soldItemsChartHeight)
+                                .SkiaSharpCanvas((canvas, size) => {
+                                    
+                                    PlotModel soldItemsModel = new PlotModel {
+                                        Title = "Статистика покупки по типам товаров",
+                                        TitleFont = "Arial",
+                                        TitleFontSize = 14,
+                                        TitlePadding = _soldItemsChartTitlePadding
                                     };
-            
-                                    chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
+
+                                    var soldItemsSeries = new PieSeries {
+                                        InsideLabelPosition = 0.5,
+                                        AngleSpan = 360, StartAngle = 0,
+                                        OutsideLabelFormat = "{0} ({2:0}%)",
+                                        Font = "Arial",
+                                        AreInsideLabelsAngled = true
+                                    };
+
+                                    foreach (var entry in itemTypesFrequenciesSlices) {
+                                        soldItemsSeries.Slices.Add(entry);
+                                    }
+
+                                    soldItemsModel.Series.Add(soldItemsSeries);
+                                    
+                                    var stream = new MemoryStream();
+                                    var exporter = new SvgExporter {
+                                        Width = size.Width,
+                                        Height = _soldItemsChartHeight,
+                                        UseVerticalTextAlignmentWorkaround = true
+                                    };
+                                    exporter.Export(soldItemsModel, stream);
+                                    stream.Position = 0;
+                                    
+                                    var svg = new Svg.Skia.SKSvg();
+                                    svg.Load(stream);
+                                    
+                                    canvas.DrawPicture(svg.Picture);
                                 });
+                            
+                            column
+                                .Item()
+                                .ExtendHorizontal()
+                                .Height(_soldItemsChartHeight)
+                                .SkiaSharpCanvas((canvas, size) => {
+                                    
+                                    PlotModel itemTypesRevenueModel = new PlotModel {
+                                        Title = "Статистика выручки по типам товаров",
+                                        TitleFont = "Arial",
+                                        TitleFontSize = 14,
+                                        TitlePadding = _soldItemsChartTitlePadding
+                                    };
+
+                                    var itemTypesRevenue = new PieSeries {
+                                        InsideLabelPosition = 0.5,
+                                        AngleSpan = 360, StartAngle = 0,
+                                        OutsideLabelFormat = "{0} ({2:0}%)",
+                                        Font = "Arial",
+                                        AreInsideLabelsAngled = true
+                                    };
+
+                                    foreach (var entry in itemTypesOutcomesSlices) {
+                                        itemTypesRevenue.Slices.Add(entry);
+                                    }
+
+                                    itemTypesRevenueModel.Series.Add(itemTypesRevenue);
+                                    
+                                    var stream = new MemoryStream();
+                                    var exporter = new SvgExporter {
+                                        Width = size.Width,
+                                        Height = _soldItemsChartHeight,
+                                        UseVerticalTextAlignmentWorkaround = true
+                                    };
+                                    exporter.Export(itemTypesRevenueModel, stream);
+                                    stream.Position = 0;
+                                    
+                                    var svg = new Svg.Skia.SKSvg();
+                                    svg.Load(stream);
+                                    
+                                    canvas.DrawPicture(svg.Picture);
+                                });
+                            
+                            column
+                                .Item()
+                                .AlignCenter()
+                                .Text("Данные по продажам")
+                                .Style(titleStyle);
+
+                            column
+                                .Item()
+                                .Text($"Общая выручка: {revenue}")
+                                .FontFamily("Arial")
+                                .FontSize(12);
+                            
+                            column
+                                .Item()
+                                .Text($"Средний размер чека: {avgRevenue}")
+                                .FontFamily("Arial")
+                                .FontSize(12);
+
+                            var item = _allItemsRepository.Get(mostBoughtItemId);
+                            
+                            column
+                                .Item()
+                                .Text($"Самый продаваемый предмет: {item.Name}")
+                                .FontFamily("Arial")
+                                .FontSize(12);
                         });
                         
                     

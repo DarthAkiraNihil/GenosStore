@@ -4,9 +4,105 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:GenosStore.View.Admin"
-      mc:Ignorable="d"
-      Title="SingleOrderManagementPage" Height="450" Width="800">
-    <Grid>
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
+      Title="SingleOrderManagementPage">
+    <DockPanel Margin="16,8,16,8">
+
+        <Label
+            DockPanel.Dock="Top"
+            Content="{Binding OrderTitle}" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </Label.Foreground>
+        </Label>
         
-    </Grid>
+        <DockPanel DockPanel.Dock="Top">
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="Создан:" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="{Binding OrderCreatedAt}" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="Статус:" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+            <Label
+                DockPanel.Dock="Left"
+                Content="{Binding OrderStatus}" Cursor="" FontSize="24" FontWeight="Bold"
+            >
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                </Label.Foreground>
+            </Label>
+            
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Bottom">
+            <DockPanel
+            DockPanel.Dock="Left"
+            HorizontalAlignment="Left" Cursor=""
+            >
+                <Label Content="Итого: " FontSize="20">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="{Binding Total}" FontSize="20">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                    </Label.Foreground>
+                </Label>
+            </DockPanel>
+            <Button
+                DockPanel.Dock="Right" Command="{Binding PromoteOrderCommand}"
+                HorizontalAlignment="Right"
+                Content="{Binding PromoteOrderButtonText}"
+                Margin="4,0,0,0"
+                >
+            </Button>
+        </DockPanel>
+        
+        <ListBox
+            Background="Transparent"
+            BorderBrush="#00ABADB3"
+            ItemsSource="{Binding OrderItems}"
+            ItemTemplate="{StaticResource OrderListElement}"
+        >
+
+            <ListBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource Cyan}"/>
+            </ListBox.Foreground>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Height" Value="120" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+        </ListBox>
+
+    </DockPanel>
 </Page>

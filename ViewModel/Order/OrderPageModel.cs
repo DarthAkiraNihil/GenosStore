@@ -7,15 +7,11 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types;
 using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.Order {
     public class OrderPageModel: RequiresUserViewModel {
-
-        public class OrderItemDetails {
-            public OrderItems Item { get; set; }
-            public double Subtotal { get; set; }
-        }
         
         private Model.Entity.Orders.Order _order;
         private ObservableCollection<OrderItemDetails> _orderItems;
@@ -87,18 +83,11 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void NextOrderAction(object parameter) {
-            if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Created) {
+            if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.AwaitsPayment) {
                 Navigate(
                     _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Payment, _services, _user, _order)
                 );
-                // var args = new NavigationArgsBuilder()
-                //            .WithURL("View/Order/PaymentPage.xaml")
-                //            .WithViewModel(new PaymentPageModel(_services, _user, _order))
-                //            .WithTitle("Оплата заказа")
-                //            .Build();
-                //
-                // Navigate(args);
-            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Paid) {
+            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Delivering) {
                 _services.Entity.Orders.Orders.ReceiveOrder(_order);
                 OrderStatus = _order.OrderStatus.Name;
                 NextOrderActionButtonText = "Получен";
@@ -108,7 +97,7 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private bool CanNextOrderAction(object parameter) {
-            return _order.OrderStatus.Id != (int)OrderStatusDescriptor.Cancelled && _order.OrderStatus.Id != (int)OrderStatusDescriptor.Received;
+            return _order.OrderStatus.Id == (int)OrderStatusDescriptor.AwaitsPayment || _order.OrderStatus.Id == (int) OrderStatusDescriptor.Delivering;
         }
 
         #endregion
@@ -130,7 +119,7 @@ namespace GenosStore.ViewModel.Order {
                     _services.Common.Reports.CreateOrderInvoice(_user as Customer, _order, path);
                 }
                 
-                MessageBox.Show("CREATE RECEIPT");
+                MessageBox.Show("Чек был успешно создан");
             }
         }
 
@@ -161,19 +150,19 @@ namespace GenosStore.ViewModel.Order {
 
         #endregion
         
-        private ObservableCollection<OrderItemDetails> ConvertOrderItemsToDetails(List<OrderItems> orderItems) {
-            var converted = new ObservableCollection<OrderItemDetails>();
-
-            foreach (var orderItem in orderItems) {
-                var item = new OrderItemDetails {
-                    Item = orderItem,
-                    Subtotal = orderItem.Quantity * orderItem.BoughtFor
-                };
-                converted.Add(item);
-            }
-            
-            return converted;
-        }
+        // private ObservableCollection<OrderItemDetails> ConvertOrderItemsToDetails(List<OrderItems> orderItems) {
+        //     var converted = new ObservableCollection<OrderItemDetails>();
+        //
+        //     foreach (var orderItem in orderItems) {
+        //         var item = new OrderItemDetails {
+        //             Item = orderItem,
+        //             Subtotal = orderItem.Quantity * orderItem.BoughtFor
+        //         };
+        //         converted.Add(item);
+        //     }
+        //     
+        //     return converted;
+        // }
         public OrderPageModel(IServices services, User user, long? orderId) : base(services, user) {
             
             _nextOrderActionCommand = new RelayCommand(NextOrderAction, CanNextOrderAction);
@@ -186,17 +175,19 @@ namespace GenosStore.ViewModel.Order {
             
             _order = _services.Entity.Orders.Orders.Get((int) orderId);
             
-            OrderItems = ConvertOrderItemsToDetails(_order.Items);
+            OrderItems = Utilities.ConvertOrderItemsToDetails(_order.Items);
             OrderCreatedAt = _order.CreatedAt.ToString("dd/MM/yyyy HH:mm");
             OrderStatus = _order.OrderStatus.Name;
             OrderTitle = $"Заказ №{orderId}";
             Total = _services.Entity.Orders.Orders.CalculateTotal(_order);
 
-            if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Paid) {
+            if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Delivering) {
                 NextOrderActionButtonText = "Получить заказ";
-            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Created) {
+            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.AwaitsPayment) {
                 NextOrderActionButtonText = "Оплатить";
-            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Received) {
+            } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Paid) {
+                NextOrderActionButtonText = "Оплачен";
+            }else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Received) {
                 NextOrderActionButtonText = "Получен";
             } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Cancelled) {
                 NextOrderActionButtonText = "Отменён";

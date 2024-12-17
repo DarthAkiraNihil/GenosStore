@@ -7,6 +7,7 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.Order {
     public class PaymentPageModel: RequiresUserViewModel {
@@ -60,12 +61,13 @@ namespace GenosStore.ViewModel.Order {
         private void PayOrder(object parameter) {
             if (_services.Common.Payment.ProcessPayment(_orderObj)) {
                 MessageBox.Show("Payment successful");
-                var args = new NavigationArgsBuilder()
-                           .WithURL("View/Order/SuccessfulPaymentPage.xaml")
-                           .WithTitle("Успешная оплата!")
-                           .WithViewModel(new SuccessfulPaymentPageModel(_services, _user, _orderObj))
-                           .Build();
-                Navigate(args);
+                Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.SuccessfulPayment, _services, _user, _orderObj));
+                // var args = new NavigationArgsBuilder()
+                //            .WithURL("View/Order/SuccessfulPaymentPage.xaml")
+                //            .WithTitle("Успешная оплата!")
+                //            .WithViewModel(new SuccessfulPaymentPageModel(_services, _user, _orderObj))
+                //            .Build();
+                // Navigate(args);
             } else {
                 MessageBox.Show("Payment failed");
             }

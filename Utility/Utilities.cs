@@ -84,5 +84,19 @@ namespace GenosStore.Utility {
             return converted;
         }
         
+        public static ObservableCollection<OrderItemDetails> ConvertOrderItemsToDetails(List<OrderItems> orderItems) {
+            var converted = new ObservableCollection<OrderItemDetails>();
+
+            foreach (var orderItem in orderItems) {
+                var item = new OrderItemDetails {
+                    Item = orderItem,
+                    Subtotal = orderItem.Quantity * orderItem.BoughtFor
+                };
+                converted.Add(item);
+            }
+            
+            return converted;
+        }
+        
     }
 }

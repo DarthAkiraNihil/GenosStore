@@ -41,7 +41,7 @@ namespace GenosStore.Services.Implementation.Navigation {
                     return new OrderManagementPageModel(services, user);
                 }
                 case PageTypeDescriptor.SingleOrderManagement: {
-                    return new SingleOrderManagementPageModel(services, user);
+                    return new SingleOrderManagementPageModel(services, user, (int) id);
                 }
                 case PageTypeDescriptor.LegalEntityVerification: {
                     return new LegalEntityVerificationPageModel(services, user);
