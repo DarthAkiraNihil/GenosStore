@@ -49,6 +49,10 @@ namespace GenosStore.Services.Implementation.Navigation {
                 case PageTypeDescriptor.SalesAnalysisReport: {
                     return new SalesAnalysisReportPageModel(services, user);
                 }
+
+                case PageTypeDescriptor.DiscountManagement: {
+                    return new DiscountManagementPageModel(services, user);
+                }
                 
                 case PageTypeDescriptor.ItemPage: {
                     if (itemType == null || id == null) {

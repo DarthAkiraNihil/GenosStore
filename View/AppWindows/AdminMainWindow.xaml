@@ -162,6 +162,28 @@
                     
                 </Button>
                 
+                <Button
+                    DockPanel.Dock="Top"
+                    VerticalAlignment="Top"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Height="48"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    Command="{Binding ViewDiscountManagementCommand}"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    VerticalContentAlignment="Center"
+                >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon VerticalContentAlignment="Center" Kind="Sale" Width="32" Height="32">
+                            <materialDesign:PackIcon.Foreground>
+                                <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <TextBlock Text="Управление скидками" VerticalAlignment="Center" Foreground="Aqua"/>
+                    </StackPanel>
+                    
+                </Button>
+                
             </DockPanel>
 
             <Frame DockPanel.Dock="Right" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>

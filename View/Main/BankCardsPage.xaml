@@ -70,7 +70,11 @@
                         <ComboBox.Foreground>
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </ComboBox.Foreground>
-
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Background" Value="{StaticResource DarkBlue}" />
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
                     </ComboBox>
                 </DockPanel>
                 <DockPanel

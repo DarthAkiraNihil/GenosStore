@@ -5,6 +5,7 @@
         SingleOrderManagement,
         LegalEntityVerification,
         SalesAnalysisReport,
+        DiscountManagement,
         
         Authorization,
         RegisterIndividual,

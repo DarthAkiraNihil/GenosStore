@@ -8,6 +8,7 @@ namespace GenosStore.Services.Implementation.Navigation.PageUrlCategories {
         private string OrderManagement => "View/Admin/OrderManagementPage.xaml";
         private string SingleOrderManagement => "View/Admin/SingleOrderManagementPage.xaml";
         private string SalesAnalysisReport => "View/Admin/SalesAnalysisReportPage.xaml";
+        private string DiscountManagement => "View/Admin/DiscountPage.xaml";
 
         public string GetUrl(PageTypeDescriptor pageType, ItemTypeDescriptor? itemType) {
             switch (pageType) {
@@ -25,6 +26,9 @@ namespace GenosStore.Services.Implementation.Navigation.PageUrlCategories {
                 }
                 case PageTypeDescriptor.SalesAnalysisReport: {
                     return SalesAnalysisReport;
+                }
+                case PageTypeDescriptor.DiscountManagement: {
+                    return DiscountManagement;
                 }
                 default: {
                     return NotFound;

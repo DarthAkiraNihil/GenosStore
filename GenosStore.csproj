@@ -479,6 +479,7 @@
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\PowerSupplyService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\RAMService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ComputerComponents\SataSSDService.cs" />
+    <Compile Include="Services\Implementation\Entity\Items\IAllItemsService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ItemServices.cs" />
     <Compile Include="Services\Implementation\Entity\Items\ItemTypesService.cs" />
     <Compile Include="Services\Implementation\Entity\Items\PreparedAssemblyService.cs" />
@@ -559,6 +560,7 @@
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\IRAMService.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\ISataSSDService.cs" />
     <Compile Include="Services\Interface\Entity\Items\ComputerComponents\ISSDService.cs" />
+    <Compile Include="Services\Interface\Entity\Items\IAllItemsService.cs" />
     <Compile Include="Services\Interface\Entity\Items\IItemServices.cs" />
     <Compile Include="Services\Interface\Entity\Items\IItemTypeService.cs" />
     <Compile Include="Services\Interface\Entity\Items\IPreparedAssemblyService.cs" />
@@ -653,6 +655,7 @@
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DashboardPageModel.cs" />
     <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
+    <Compile Include="ViewModel\Admin\DiscountManagementPageModel.cs" />
     <Compile Include="ViewModel\Admin\LegalEntityVerificationPageModel.cs" />
     <Compile Include="ViewModel\Admin\OrderManagementPageModel.cs" />
     <Compile Include="ViewModel\Admin\SalesAnalysisReportPageModel.cs" />
@@ -704,6 +707,9 @@
     <Compile Include="ViewModel\ItemList\MotherboardsListModel.cs" />
     <Compile Include="ViewModel\Main\ItemCatalogueModel.cs" />
     <Compile Include="ViewModel\Main\MainPageModel.cs" />
+    <Compile Include="View\Admin\DiscountPage.xaml.cs">
+      <DependentUpon>DiscountPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\LegalEntityVerificationPage.xaml.cs">
       <DependentUpon>LegalEntityVerificationPage.xaml</DependentUpon>
     </Compile>
@@ -866,6 +872,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Admin\DiscountPage.xaml" />
     <Page Include="View\Admin\LegalEntityVerificationPage.xaml" />
     <Page Include="View\Admin\OrderManagementPage.xaml" />
     <Page Include="View\Admin\SalesAnalysisReportPage.xaml" />

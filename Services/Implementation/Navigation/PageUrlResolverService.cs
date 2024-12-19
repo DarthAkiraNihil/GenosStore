@@ -41,6 +41,7 @@ namespace GenosStore.Services.Implementation.Navigation {
             ||  pageType == PageTypeDescriptor.OrderManagement
             ||  pageType == PageTypeDescriptor.SingleOrderManagement
             ||  pageType == PageTypeDescriptor.SalesAnalysisReport
+            ||  pageType == PageTypeDescriptor.DiscountManagement
             ) {
                 return _admin.GetUrl(pageType);
             }

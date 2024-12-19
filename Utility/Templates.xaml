@@ -686,4 +686,95 @@
         </DockPanel>
     </DataTemplate>
     
+    <DataTemplate x:Key="DiscountItemElement">
+        <DockPanel Width="{Binding Width, ElementName=listBox}">
+
+            <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center" >
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="48"
+                    Height="48"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    Command="{Binding DataContext.ActivateDiscountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                    CommandParameter="{Binding Path=Item.Id}"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                >
+                    <materialDesign:PackIcon Kind="DeleteOutline" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="48"
+                    Height="48"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    Command="{Binding DataContext.EditDiscountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                    CommandParameter="{Binding Path=Item.Id}"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    <materialDesign:PackIcon Kind="PencilOutline" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button
+                    DockPanel.Dock="Left"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="48"
+                    Height="48"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    Command="{Binding DataContext.DeactivateDiscountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                    CommandParameter="{Binding Path=Item.Id}"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
+                    >
+                    <materialDesign:PackIcon Kind="DeleteOutline" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+               
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Right">
+
+                <DockPanel DockPanel.Dock="Top">
+                    <Label DockPanel.Dock="Left" FontSize="24" Content="{Binding Path=Item.Model}">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        </Label.Foreground>
+                    </Label>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Top">
+
+
+                    <DockPanel DockPanel.Dock="Top">
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="Информация о скидке: ">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="{Binding Path=DiscountInfo}">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource LightBlue}"/>
+                            </Label.Foreground>
+                        </Label>
+                    </DockPanel>
+                    
+                    
+                </DockPanel>
+            </DockPanel>
+
+        </DockPanel>
+    </DataTemplate>
+    
 </ResourceDictionary>

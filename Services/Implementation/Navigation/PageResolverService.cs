@@ -65,6 +65,7 @@ namespace GenosStore.Services.Implementation.Navigation {
             {"View/Admin/SingleOrderManagementPage.xaml", a => new SingleOrderManagementPage { DataContext = a.ViewModel } },
             {"View/Admin/DashboardPage.xaml", a => new DashboardPage { DataContext = a.ViewModel } },
             {"View/Admin/SalesAnalysisReportPage.xaml", a => new SalesAnalysisReportPage { DataContext = a.ViewModel } },
+            {"View/Admin/DiscountPage.xaml", a => new DiscountPage { DataContext = a.ViewModel } },
         };
 
         public Page Resolve(NavigationArgs args) {

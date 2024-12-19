@@ -117,12 +117,33 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         #endregion
+
+        #region ViewDiscountManagementCommand
+
+        private readonly RelayCommand _viewDiscountManagementCommand;
+
+        public RelayCommand ViewDiscountManagementCommand {
+            get { return _viewDiscountManagementCommand; }
+        }
+
+        private void ViewDiscountManagement(object parameter) {
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.DiscountManagement, _services, _user)
+            );
+        }
+
+        private bool CanViewDiscountManagement(object parameter) {
+            return true;
+        }
+
+        #endregion
         
         public AdminMainWindowModel(IServices services, User user) : base(services, user) {
             _viewDashboardCommand = new RelayCommand(ViewDashboard, CanViewDashboard);
             _viewLegalEntitiesVerificationCommand = new RelayCommand(ViewLegalEntitiesVerification, CanViewLegalEntitiesVerification);
             _viewSalesReportCommand = new RelayCommand(ViewSalesReport, CanViewSalesReport);
             _viewOrderManagementCommand = new RelayCommand(ViewOrderManagement, CanViewOrderManagement);
+            _viewDiscountManagementCommand = new RelayCommand(ViewDiscountManagement, CanViewDiscountManagement);
         }
     }
 }

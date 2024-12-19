@@ -22,6 +22,7 @@ namespace GenosStore.Utility.NinjectModules.ServiceModules {
             Bind<ISataSSDService>().To<SataSSDService>().InSingletonScope();
             Bind<IMotherboardService>().To<MotherboardService>().InSingletonScope();
             Bind<IComputerComponentServices>().To<ComputerComponentServices>().InSingletonScope();
+            Bind<IAllItemsService>().To<AllItemsService>();
             
         }
     }
