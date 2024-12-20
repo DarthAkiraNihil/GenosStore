@@ -4,9 +4,160 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:GenosStore.View.Admin"
-      mc:Ignorable="d"
-      Title="DashboardPage" Height="450" Width="800">
-    <Grid>
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1162"
+      FontFamily="{materialDesign:MaterialDesignFont}" 
+      Title="DashboardPage">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="32"
+                FontWeight="Bold"
+                Foreground="{StaticResource EmeraldBrush}"
+                Content="Добро пожаловать, "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="32"
+                Foreground="{StaticResource EmeraldBrush}"
+                Content="{Binding DashboardInfo.LoggedAdmin}"/>
+        </DockPanel>
         
-    </Grid>
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Всего зарегистрировано покупателей: "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.RegisteredUsers}"/>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Из них физических лиц, "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.RegisteredIndividualEntities}"/>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Подтверждённых юридических лиц: "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.RegisteredLegalVerifiedEntities}"/>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Юридических лиц, ожидающих подтверждения в данный момент"/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.LegalEntitiesWaitingForVerification}"/>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Активных заказов в данный момент: "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.ActiveOrdersCount}"/>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="{StaticResource PaleBlueBrush}"
+                Content="Последний созданный заказ: "/>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Номер: "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.LastOrder.Id}"/>
+        </DockPanel>
+        
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Покупатель: "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.LastOrder.Orderer}"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Дата создания: "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.LastOrder.CreatedAt}"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Сумма: "/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.LastOrder.Total}"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="Количество предметов"/>
+            <Label 
+                DockPanel.Dock="Left"
+                FontSize="16"
+                Foreground="{StaticResource CyanBrush}"
+                Content="{Binding DashboardInfo.LastOrder.ItemsCount}"/>
+        </DockPanel>
+    </DockPanel>
 </Page>

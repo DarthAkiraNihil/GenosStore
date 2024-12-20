@@ -50,6 +50,8 @@ namespace GenosStore.ViewModel.Admin {
                 orders,
                 _services.Entity.Orders.Orders
             );
+            
+            Title = "Управление активными заказами";
         }
     }
 }

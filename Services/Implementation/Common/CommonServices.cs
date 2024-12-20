@@ -1,6 +1,5 @@
 ﻿using GenosStore.Services.Interface.Common;
 using GenosStore.Services.Interface.Common.Cache;
-using GenosStore.Services.Interface.Entity.Users;
 
 namespace GenosStore.Services.Implementation.Common {
     public class CommonServices: ICommonServices {
@@ -10,6 +9,7 @@ namespace GenosStore.Services.Implementation.Common {
         private readonly IPaymentService _paymentService;
         private readonly IReportService _reportService;
         private readonly ISaveService _saveService;
+        private readonly IDashboardService _dashboardService;
         
         public IAuthorizationService Authorization {
             get {
@@ -41,18 +41,26 @@ namespace GenosStore.Services.Implementation.Common {
             }
         }
 
+        public IDashboardService Dashboard {
+            get {
+                return _dashboardService;
+            }
+        }
+
         public CommonServices(
             IAuthorizationService authorizationService,
             ICacheServices cache,
             IPaymentService paymentService,
             IReportService reportService,
-            ISaveService saveService
+            ISaveService saveService,
+            IDashboardService dashboardService
             ) {
             _authorizationService = authorizationService;
             _cache = cache;
             _paymentService = paymentService;
             _reportService = reportService;
             _saveService = saveService;
+            _dashboardService = dashboardService;
         }
     }
 }

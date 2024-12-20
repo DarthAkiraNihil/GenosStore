@@ -7,5 +7,6 @@ namespace GenosStore.Services.Interface.Common {
         IPaymentService Payment { get; }
         IReportService Reports { get; }
         ISaveService Saving { get; }
+        IDashboardService Dashboard { get; }
     }
 }

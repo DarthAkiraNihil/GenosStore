@@ -15,6 +15,7 @@ namespace GenosStore.Utility.NinjectModules.ServiceModules {
             Bind<IPaymentService>().To<PaymentService>().InSingletonScope();
             Bind<IReportService>().To<ReportService>().InSingletonScope();
             Bind<ISaveService>().To<SaveService>();
+            Bind<IDashboardService>().To<DashboardService>();
             Bind<ICommonServices>().To<CommonServices>().InSingletonScope();
             
         }

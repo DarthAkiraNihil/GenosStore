@@ -59,6 +59,8 @@ namespace GenosStore.ViewModel.Admin {
             _generateSalesReportCommand = new RelayCommand(GenerateSalesReport, CanGenerateSalesReport);
             ReportFrom = DateTime.Today;
             ReportTo = DateTime.Today;
+            
+            Title = "Анализ продаж";
         }
         
     }

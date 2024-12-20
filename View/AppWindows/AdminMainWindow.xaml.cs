@@ -5,7 +5,9 @@ using GalaSoft.MvvmLight.Messaging;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.Navigation;
+using GenosStore.View.Admin;
 using GenosStore.View.Main;
+using GenosStore.ViewModel.Admin;
 using GenosStore.ViewModel.Main;
 
 namespace GenosStore.View.AppWindows {
@@ -21,7 +23,7 @@ namespace GenosStore.View.AppWindows {
                 WindowTitle.Content = x.Title;
             });
 			
-            MainFrame.Content = new MainPage { DataContext = new MainPageModel(services, currentUser) };
+            MainFrame.Content = new DashboardPage { DataContext = new DashboardPageModel(services, currentUser) };
             WindowTitle.Content = "Главная страница";
         }
         

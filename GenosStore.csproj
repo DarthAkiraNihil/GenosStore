@@ -445,6 +445,7 @@
     <Compile Include="Services\Implementation\Common\Cache\CacheServices.cs" />
     <Compile Include="Services\Implementation\Common\Cache\ImageCacheService.cs" />
     <Compile Include="Services\Implementation\Common\CommonServices.cs" />
+    <Compile Include="Services\Implementation\Common\DashboardService.cs" />
     <Compile Include="Services\Implementation\Common\PaymentService.cs" />
     <Compile Include="Services\Implementation\Common\ReportService.cs" />
     <Compile Include="Services\Implementation\Common\SaveService.cs" />
@@ -523,6 +524,7 @@
     <Compile Include="Services\Interface\Common\Cache\IImageCacheService.cs" />
     <Compile Include="Services\Interface\Common\IAuthorizationService.cs" />
     <Compile Include="Services\Interface\Common\ICommonServices.cs" />
+    <Compile Include="Services\Interface\Common\IDashboardService.cs" />
     <Compile Include="Services\Interface\Common\IPaymentService.cs" />
     <Compile Include="Services\Interface\Common\IReportService.cs" />
     <Compile Include="Services\Interface\Common\ISaveService.cs" />
@@ -641,6 +643,7 @@
     <Compile Include="Utility\Types\AuthRegister\LegalEntityRegistrationData.cs" />
     <Compile Include="Utility\Types\AuthRegister\RegistrationStatus.cs" />
     <Compile Include="Utility\Types\CartListElement.cs" />
+    <Compile Include="Utility\Types\DashboardInfo.cs" />
     <Compile Include="Utility\Types\Enum\ItemTypeDescriptor.cs" />
     <Compile Include="Utility\Types\Enum\OrderStatusDescriptor.cs" />
     <Compile Include="Utility\Types\Enum\PageTypeDescriptor.cs" />

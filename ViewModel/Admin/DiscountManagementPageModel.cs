@@ -183,6 +183,8 @@ namespace GenosStore.ViewModel.Admin {
             ItemTypes = new ObservableCollection<ItemType>(
                 _services.Entity.Items.ItemTypes.List().ToList()
             );
+            
+            Title = "Управление скидками";
         }
     }
 }

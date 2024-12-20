@@ -59,5 +59,9 @@ namespace GenosStore.Services.Implementation.Entity.Users {
                          .Where(u => u.Email == email)
                          .FirstOrDefault();
         }
+
+        public List<User> List() {
+            return _repositories.Users.Users.List();
+        }
     }
 }

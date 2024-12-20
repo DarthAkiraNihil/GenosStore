@@ -93,6 +93,8 @@ namespace GenosStore.ViewModel.Admin {
             
             _verifyCommand = new RelayCommand(Verify, CanVerify);
             _revokeVerificaitonCommand = new RelayCommand(RevokeVerification, CanRevokeVerification);
+            
+            Title = "Управление верификации юридических лиц";
         }
         
     }
