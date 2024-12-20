@@ -169,7 +169,7 @@
 
 
             <DockPanel DockPanel.Dock="Top">
-                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="EmailBox" Width="32" Height="32">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="Phone" Width="32" Height="32">
                     <materialDesign:PackIcon.Foreground>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </materialDesign:PackIcon.Foreground>

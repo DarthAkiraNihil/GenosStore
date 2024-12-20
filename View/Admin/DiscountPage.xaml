@@ -20,12 +20,18 @@
             </Label.Foreground>
         </Label>
         
-        <DockPanel DockPanel.Dock="Right" VerticalAlignment="Top" Width="240">
+        <DockPanel DockPanel.Dock="Right" VerticalAlignment="Top" Width="320">
             
             <Button VerticalAlignment="Bottom" DockPanel.Dock="Bottom"
                     Command="{Binding SaveDiscountCommand}">
                 Сохранить
             </Button>
+            
+            <Label DockPanel.Dock="Bottom" Height="24" VerticalContentAlignment="Center"
+                   Foreground="{StaticResource ErrorRedBrush}"
+                   Content="{Binding DiscountValueValidationError}">
+                
+            </Label>
             
             <Label
                 DockPanel.Dock="Top"
@@ -39,12 +45,13 @@
                 <Label
                     FontSize="14"
                     Foreground="{StaticResource LightEmeraldBrush}"
-                    Content="Размер (от 0 до 1):"
+                    Content="Множитель цены (от 0 до 1):"
                     >
                     
                 </Label>
                 <TextBox Text="{Binding CurrentItem.Item.ActiveDiscount.Value}"
-                         Foreground="{StaticResource LightEmeraldBrush}">
+                         Foreground="{StaticResource LightEmeraldBrush}"
+                         PreviewTextInput="NumberValidationTextBox">
                     
                 </TextBox>
             </DockPanel>
@@ -105,7 +112,13 @@
                 ItemsSource="{Binding ItemsOfSelectedType}"
                 ItemTemplate="{StaticResource DiscountItemElement}"
                 >
-                
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Height" Value="144" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
             </ListBox>
         </DockPanel>
         

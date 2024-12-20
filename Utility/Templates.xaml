@@ -626,7 +626,7 @@
     </DataTemplate>
     
     <DataTemplate x:Key="OrderManagementListElement">
-        <DockPanel Width="{Binding Width, ElementName=listBox}">
+        <DockPanel Width="{Binding Width, ElementName=listBox}" Height="160">
 
             <DockPanel DockPanel.Dock="Right">
                 <Label DockPanel.Dock="Top" FontSize="24" Content="{Binding Path=OrderTitle}">
@@ -688,12 +688,12 @@
     
     <DataTemplate x:Key="DiscountItemElement">
         <DockPanel Width="{Binding Width, ElementName=listBox}">
+            
 
-            <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center" >
+            <DockPanel DockPanel.Dock="Right" Height="144" VerticalAlignment="Center" >
                 <Button
-                    DockPanel.Dock="Left"
-                    Style="{DynamicResource MaterialDesignIconButton}"
-                    Width="48"
+                    DockPanel.Dock="Top"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
@@ -701,50 +701,56 @@
                     CommandParameter="{Binding Path=Item.Id}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                 >
-                    <materialDesign:PackIcon Kind="DeleteOutline" Width="32" Height="32">
-                        <materialDesign:PackIcon.Foreground>
-                            <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
-                        </materialDesign:PackIcon.Foreground>
-                    </materialDesign:PackIcon>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Plus" Width="32" Height="32">
+                            <materialDesign:PackIcon.Foreground>
+                                <SolidColorBrush Color="{DynamicResource EmeraldCyan}"/>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <TextBlock Text="Активировать скидку" VerticalAlignment="Center" Foreground="{StaticResource EmeraldCyanBrush}"/>
+                    </StackPanel>
                 </Button>
                 <Button
-                    DockPanel.Dock="Left"
-                    Style="{DynamicResource MaterialDesignIconButton}"
-                    Width="48"
+                    DockPanel.Dock="Top"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
                     Command="{Binding DataContext.EditDiscountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                     CommandParameter="{Binding Path=Item.Id}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
-                    >
-                    <materialDesign:PackIcon Kind="PencilOutline" Width="32" Height="32">
-                        <materialDesign:PackIcon.Foreground>
-                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                        </materialDesign:PackIcon.Foreground>
-                    </materialDesign:PackIcon>
+                >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="PencilOutline" Width="32" Height="32">
+                            <materialDesign:PackIcon.Foreground>
+                                <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <TextBlock Text="Редактировать скидку" VerticalAlignment="Center" Foreground="{StaticResource PaleBlueBrush}"/>
+                    </StackPanel>
                 </Button>
                 <Button
-                    DockPanel.Dock="Left"
-                    Style="{DynamicResource MaterialDesignIconButton}"
-                    Width="48"
+                    DockPanel.Dock="Top"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
                     Command="{Binding DataContext.DeactivateDiscountCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                     CommandParameter="{Binding Path=Item.Id}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
-                    >
-                    <materialDesign:PackIcon Kind="DeleteOutline" Width="32" Height="32">
-                        <materialDesign:PackIcon.Foreground>
-                            <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
-                        </materialDesign:PackIcon.Foreground>
-                    </materialDesign:PackIcon>
+                >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="DeleteOutline" Width="32" Height="32">
+                            <materialDesign:PackIcon.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
+                            </materialDesign:PackIcon.Foreground>
+                        </materialDesign:PackIcon>
+                        <TextBlock Text="Деактивировать скидку" VerticalAlignment="Center" Foreground="{StaticResource ErrorRedBrush}"/>
+                    </StackPanel>
                 </Button>
-               
             </DockPanel>
 
-            <DockPanel DockPanel.Dock="Right">
+            <DockPanel DockPanel.Dock="Right" VerticalAlignment="Center">
 
                 <DockPanel DockPanel.Dock="Top">
                     <Label DockPanel.Dock="Left" FontSize="24" Content="{Binding Path=Item.Model}">

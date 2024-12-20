@@ -171,7 +171,7 @@
 
 
             <DockPanel DockPanel.Dock="Top">
-                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="Key" Width="32" Height="32">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="Earth" Width="32" Height="32">
                     <materialDesign:PackIcon.Foreground>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </materialDesign:PackIcon.Foreground>
@@ -216,7 +216,7 @@
 
 
             <DockPanel DockPanel.Dock="Top">
-                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="KeyOutline" Width="32" Height="32">
+                <materialDesign:PackIcon DockPanel.Dock="Left" Kind="OfficeBuilding" Width="32" Height="32">
                     <materialDesign:PackIcon.Foreground>
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </materialDesign:PackIcon.Foreground>

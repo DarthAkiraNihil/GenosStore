@@ -7,11 +7,23 @@ using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
+using Xamarin.Forms.Platform.WPF;
 
 namespace GenosStore.ViewModel.Admin {
     public class DiscountManagementPageModel: RequiresUserViewModel {
         
         public ObservableCollection<ItemType> ItemTypes { get; set; }
+
+        private string _discountValueValidationError;
+
+        public string DiscountValueValidationError {
+            get { return _discountValueValidationError; }
+            set {
+                _discountValueValidationError = value;
+                NotifyPropertyChanged("DiscountValueValidationError");
+            }
+        }
+        
         private ItemType _selectedType;
 
         public ItemType SelectedType {
@@ -66,6 +78,7 @@ namespace GenosStore.ViewModel.Admin {
                 
             item.Item.ActiveDiscount = activeDiscount;
             CurrentItem = item;
+            GetItemsAndDiscountInfo(_selectedType);
         }
 
         private bool CanActivateDiscount(object parameter) {
@@ -85,6 +98,7 @@ namespace GenosStore.ViewModel.Admin {
 
         private void EditDiscount(object parameter) {
             CurrentItem = ItemsOfSelectedType.FirstOrDefault(i => i.Item.Id == (int) parameter);
+            GetItemsAndDiscountInfo(_selectedType);
         }
 
         private bool CanEditDiscount(object parameter) {
@@ -103,7 +117,9 @@ namespace GenosStore.ViewModel.Admin {
         }
 
         private void DeactivateDiscount(object parameter) {
-            _services.Entity.Orders.ActiveDiscounts.Deactivate(CurrentItem.Item.ActiveDiscount);
+            var item = ItemsOfSelectedType.FirstOrDefault(i => i.Item.Id == (int) parameter);
+            _services.Entity.Orders.ActiveDiscounts.Deactivate(item?.Item.ActiveDiscount);
+            GetItemsAndDiscountInfo(_selectedType);
         }
 
         private bool CanDeactivateDiscount(object parameter) {
@@ -122,27 +138,17 @@ namespace GenosStore.ViewModel.Admin {
         }
 
         private void SaveDiscount(object parameter) {
+            if (CurrentItem.Item.ActiveDiscount.Value < 0.0 || CurrentItem.Item.ActiveDiscount.Value > 1.0) {
+                DiscountValueValidationError = "Некорректный множитель цены";
+                return;
+            }
+            
             _services.Entity.Items.All.Save();
+            GetItemsAndDiscountInfo(_selectedType);
         }
 
         private bool CanSaveDiscount(object parameter) {
-            if (CurrentItem == null) {
-                return false;
-            }
-
-            if (CurrentItem.Item == null) {
-                return false;
-            }
-
-            if (CurrentItem.Item.ActiveDiscount == null) {
-                return false;
-            }
-
-            if (CurrentItem.Item.ActiveDiscount?.EndsAt == null || CurrentItem.Item.ActiveDiscount.Value == 0.0) {
-                return false;
-            }
-
-            return true;
+            return CurrentItem?.Item?.ActiveDiscount?.EndsAt != null && CurrentItem?.Item?.ActiveDiscount?.Value != null;
         }
 
         #endregion
