@@ -4,13 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GenosStore.View.Main"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="746" d:DesignWidth="1162"
       Title="ItemCatalogue" HorizontalAlignment="Center">
     <UniformGrid Rows="3" Columns="5" HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="Motherboards">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding MotherboardIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Материнские платы" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -20,7 +21,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="CPUs">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding CPUIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Процессоры" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -30,7 +31,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="RAMs">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding RAMIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Оперативная память" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -40,7 +41,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="GraphicsCards">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding GraphicsCardIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Видеокарты" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -50,7 +51,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="HDDs">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding HDDIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Жёсткие диски" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -60,7 +61,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="NVMeSSDs">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding NVMeSSDIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="SSD NVMe" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -70,7 +71,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="SataSSDs">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding SataSSDIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="SSD Sata" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -80,7 +81,11 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="CPUCoolers">
-                <Image Source="{StaticResource ListIcon240}" />
+                <materialDesign:PackIcon VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Kind="Snowflake" Width="120" Height="120">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightCyan}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
             </Button>
             <Label Content="Кулеры для процессора" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -90,7 +95,11 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="PowerSupplies">
-                <Image Source="{StaticResource ListIcon240}" />
+                <materialDesign:PackIcon VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Kind="PowerPlugBattery" Width="120" Height="120">
+                    <materialDesign:PackIcon.Foreground>
+                        <SolidColorBrush Color="{DynamicResource LightCyan}"/>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
             </Button>
             <Label Content="Блоки питания" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -100,7 +109,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="ComputerCases">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding ComputerCaseIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Корпуса" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -110,7 +119,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="Displays">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding DisplayIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Мониторы" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -120,7 +129,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center"  Command="{Binding ToItemListCommand}" CommandParameter="Keyboards">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding KeyboardIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Клавиатуры" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -130,7 +139,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="Mouses">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding MouseIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Мыши" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
@@ -140,7 +149,7 @@
         </StackPanel>
         <StackPanel>
             <Button Height="160" Width="160" Background="#00DDDDDD" BorderBrush="#01707070" HorizontalAlignment="Center" Command="{Binding ToItemListCommand}" CommandParameter="PreparedAssemblies">
-                <Image Source="{StaticResource ListIcon240}" />
+                <Image Source="{Binding PreparedAssemblyIconBase64, Converter={StaticResource Base64ImageConverter}}" />
             </Button>
             <Label Content="Готовые сборки" FontSize="18" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
                 <Label.Foreground>
