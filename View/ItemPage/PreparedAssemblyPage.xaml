@@ -12,13 +12,13 @@
     <DockPanel>
 
         <DockPanel DockPanel.Dock="Left">
-            <Border DockPanel.Dock="Top" BorderBrush="{StaticResource CyanBrush}" BorderThickness="4">
+            <Border DockPanel.Dock="Top" BorderBrush="{StaticResource CyanBrush}" BorderThickness="4" Margin="16">
                 <Image
                     Width="500" Height="500"
                     Source="{Binding Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
                 />
             </Border>
-            <DockPanel DockPanel.Dock="Top">
+            <DockPanel DockPanel.Dock="Top" Margin="16,0">
                 <Label Content="Цена:" FontSize="36" FontWeight="Bold" VerticalAlignment="Center">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightCyan}"/>
@@ -45,13 +45,35 @@
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </Label.Foreground>
                 </Label>
+                <Label VerticalAlignment="Center" FontSize="20" Content="{Binding Path=DiscountLabel}" FontWeight="Bold">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Emerald}"/>
+                    </Label.Foreground>
+                </Label>
             </DockPanel>
+            <Button
+                Height="32"
+                DockPanel.Dock="Bottom"
+                VerticalAlignment="Bottom"
+                Margin="16,4,16,16" Foreground="White"
+                Content="Назад к списку товаров"
+                Command="{Binding ToItemListCommand}"
+                FontSize="16"
+            >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightEmerald}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource BlackEmerald}"/>
+                </Button.Background>
+
+            </Button>
             <Button
                 x:Name="BuyButton"
                 Height="48"
                 DockPanel.Dock="Bottom"
                 VerticalAlignment="Bottom"
-                Margin="16,16,16,16" Foreground="White"
+                Margin="16,4" Foreground="White"
                 Content="{Binding ButtonText}"
                 Command="{Binding AddToRemoveFromCartCommand}"
                 FontSize="24"
@@ -71,26 +93,24 @@
             <DockPanel DockPanel.Dock="Top">
                 <Label
                     DockPanel.Dock="Top"
-                    Content="{Binding Item.Name}"
                     FontWeight="Bold"
                     FontSize="36"
-                    Height="48"
-                    >
+                >
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource Emerald}"/>
                     </Label.Foreground>
                     <Label.Background>
                         <SolidColorBrush/>
                     </Label.Background>
+                    <TextBlock FontSize="36" FontWeight="Bold" Text="{Binding Path=Item.Name}" TextWrapping="Wrap"/>
                 </Label>
                 <Label
                     DockPanel.Dock="Top"
-                    Content="{Binding Item.Model}"
-                    Height="32"
-                    FontSize="24">
+                >
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightCyan}"/>
                     </Label.Foreground>
+                    <TextBlock FontSize="24" FontWeight="Bold" Text="{Binding Path=Item.Model}" TextWrapping="Wrap"/>
                 </Label>
             </DockPanel>
 
@@ -141,29 +161,12 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Форм-фактор: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
-                                <Label.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource LightBlue}"/>
-                                </Label.Foreground>
-                            </Label>
-                            <Label Content="{Binding Item.FormFactor.Name}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
-                                <Label.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                                </Label.Foreground>
-                            </Label>
-                        </DockPanel>
-                    </Border>
-                    <Border BorderThickness="0,0,0,1">
-                        <Border.BorderBrush>
-                            <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
-                        </Border.BorderBrush>
-                        <DockPanel>
                             <Label Content="Центральный процессор: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.CPU.Model}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.CPU, Converter={StaticResource PreparedAssemblyItemToNameConverter}}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -180,7 +183,7 @@
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.Motherboard.Model}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.Motherboard, Converter={StaticResource PreparedAssemblyItemToNameConverter}}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -299,7 +302,7 @@
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.Display.Model}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.Display, Converter={StaticResource PreparedAssemblyItemToNameConverter}}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -316,7 +319,7 @@
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.Keyboard.Model}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.Keyboard, Converter={StaticResource PreparedAssemblyItemToNameConverter}}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>
@@ -333,7 +336,7 @@
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
                             </Label>
-                            <Label Content="{Binding Item.Mouse.Model}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
+                            <Label Content="{Binding Item.Mouse, Converter={StaticResource PreparedAssemblyItemToNameConverter}}" DockPanel.Dock="Left" FontSize="16"  Padding="5,10,5,0" HorizontalAlignment="Right" Margin="0,-5,0,1">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                 </Label.Foreground>

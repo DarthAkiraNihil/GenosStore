@@ -80,7 +80,6 @@ namespace GenosStore.ViewModel.AuthRegister
             switch (status) {
                 case AuthorizationStatus.Success: {
                     if (authInfo.Item2 is Administrator) {
-                        MessageBox.Show("ACCESS GRANTED");
                         var adminMainView = new AdminMainWindow(_services, authInfo.Item2) {
                             DataContext = new AdminMainWindowModel(_services, authInfo.Item2)
                         };
@@ -109,7 +108,7 @@ namespace GenosStore.ViewModel.AuthRegister
         }
         
         private bool CanAuthorize(object parameter) {
-            return true;
+            return Login?.Length > 0 && Password?.Length > 0;
         }
         
         #endregion
@@ -120,12 +119,6 @@ namespace GenosStore.ViewModel.AuthRegister
 		}
 
         private void Register(object parameter) {
-            // var args = new NavigationArgsBuilder()
-            //     .WithURL("View/AuthRegister/RegisterIndividualPage.xaml")
-            //     .WithTitle("Регистрация физического лица")
-            //     .WithViewModel(new RegisterIndividualPageModel(_services))
-            //     .Build();
-            
             Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.RegisterIndividual, _services));
         }
         

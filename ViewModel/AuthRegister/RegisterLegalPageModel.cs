@@ -140,15 +140,8 @@ namespace GenosStore.ViewModel.AuthRegister {
 			switch (registrationStatus) {
 				case RegistrationStatus.Success: {
                     
-					MessageBox.Show("REGISTERED. WAIT FOR VERIFY");
-            
-					var args = new NavigationArgsBuilder()
-					           .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-					           .WithTitle("Авторизация")
-					           .WithViewModel(new AuthorizationPageModel(_services))
-					           .Build();
-            
-					Navigate(args);
+					Utilities.SpawnInfoMessageBox("Успех!,","Регистрация прошла успешно. Ожидайте подтверждения юридического лица.");
+					Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Authorization, _services));
                     
 					break;
 				}
@@ -173,7 +166,12 @@ namespace GenosStore.ViewModel.AuthRegister {
 		}
 		
 		private bool CanRegister(object parameter) {
-			return true;
+			return 
+			    Email?.Length > 0
+			&&  PhysicalAddress?.Length > 0
+			&&  LegalAddress?.Length > 0
+			&&  Password?.Length > 0
+			&&  ConfirmPassword?.Length > 0;
 		}
 
 		#endregion
@@ -208,15 +206,7 @@ namespace GenosStore.ViewModel.AuthRegister {
 		}
 		
 		private void BackToAuth(object parameter) {
-			// var args = new NavigationArgsBuilder()
-			//            .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-			//            .WithTitle("Авторизация")
-			//            .WithViewModel(new AuthorizationPageModel(_services))
-			//            .Build();
-   //          
-			// Navigate(args);
 			Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Authorization, _services));
-
 		}
 		
 		private bool CanBackToAuth(object parameter) {

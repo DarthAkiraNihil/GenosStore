@@ -89,6 +89,7 @@
                 ItemsSource="{Binding ItemTypes}"
                 SelectedIndex="1"
                 SelectedItem="{Binding SelectedType}"
+                Background="{StaticResource BlackEmeraldBrush}"
                 DisplayMemberPath="Name"
                 SelectedValuePath="Id">
                 <ComboBox.Foreground>
@@ -96,7 +97,8 @@
                 </ComboBox.Foreground>
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
-                        <Setter Property="Background" Value="{StaticResource DarkBlueBrush}" />
+                        <Setter Property="Background" Value="{StaticResource BlackEmeraldBrush}" />
+                        <Setter Property="BorderThickness" Value="0"></Setter>
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>

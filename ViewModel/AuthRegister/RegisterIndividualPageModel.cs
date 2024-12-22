@@ -129,15 +129,8 @@ namespace GenosStore.ViewModel.AuthRegister
             switch (registrationStatus) {
                 case RegistrationStatus.Success: {
                     
-                    MessageBox.Show("REGISTERED");
-            
-                    var args = new NavigationArgsBuilder()
-                               .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-                               .WithTitle("Авторизация")
-                               .WithViewModel(new AuthorizationPageModel(_services))
-                               .Build();
-            
-                    Navigate(args);
+                    Utilities.SpawnInfoMessageBox("Успех!","Регистрация прошла успешно. Можете авторизоваться");
+                    Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Authorization, _services));
                     
                     break;
                 }
@@ -166,7 +159,13 @@ namespace GenosStore.ViewModel.AuthRegister
         }
         
         private bool CanRegister(object parameter) {
-            return true;
+            return 
+                Name?.Length > 0
+            &&  Surname?.Length > 0
+            &&  Email?.Length > 0
+            &&  PhoneNumber?.Length > 0
+            &&  Password?.Length > 0
+            &&  ConfirmPassword?.Length > 0;
         }
         #endregion
         
@@ -177,13 +176,6 @@ namespace GenosStore.ViewModel.AuthRegister
         }
         
         private void BackToAuth(object parameter) {
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/AuthRegister/AuthorizationPage.xaml")
-            //            .WithTitle("Авторизация")
-            //            .WithViewModel(new AuthorizationPageModel(_services))
-            //            .Build();
-            //
-            // Navigate(args);
             Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Authorization, _services));
         }
         
@@ -200,13 +192,6 @@ namespace GenosStore.ViewModel.AuthRegister
         }
         
         private void RegisterLegal(object parameter) {
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/AuthRegister/RegisterLegalPage.xaml")
-            //            .WithTitle("Регистрация юридического лица")
-            //            .WithViewModel(new RegisterLegalPageModel(_services))
-            //            .Build();
-            //
-            // Navigate(args);
             Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.RegisterLegal, _services));
         }
 

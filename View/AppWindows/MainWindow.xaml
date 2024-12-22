@@ -15,8 +15,8 @@
         AllowsTransparency="true"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
-        MinWidth="600"
-        MinHeight="800"
+        MinWidth="1280"
+        MinHeight="768"
         >
     <Border x:Name="WindowBorder" CornerRadius="12" BorderThickness="4" Background="Black">
         <Border.BorderBrush>
@@ -42,10 +42,10 @@
                     Click="closeButton_Click"
                     >
                     <Button.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                     </Button.Foreground>
                     <Button.BorderBrush>
-                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                        <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
                     </Button.BorderBrush>
                 </Button>
                 <Button x:Name="MaximizeButton"
@@ -156,7 +156,22 @@
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
                 </Button>
-
+                <Button
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource MaterialDesignIconButton}"
+                    Width="32"
+                    Height="32"
+                    ToolTip="Icon"
+                    Background="Transparent"
+                    Command="{Binding LogoutCommand}"
+                    BorderThickness="0,0,0,0" HorizontalAlignment="Right" 
+                >
+                    <materialDesign:PackIcon Kind="Logout" Width="32" Height="32">
+                        <materialDesign:PackIcon.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ErrorRed}"/>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
             </DockPanel>
 
             <Frame DockPanel.Dock="Bottom" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>

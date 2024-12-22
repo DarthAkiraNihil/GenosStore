@@ -113,7 +113,12 @@
                 <ComboBox.Background>
                     <SolidColorBrush Color="{DynamicResource BlackEmerald}"/>
                 </ComboBox.Background>
-
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="{StaticResource BlackEmeraldBrush}" />
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
             </ComboBox>
             <Border BorderThickness="0,0,0,1" VerticalAlignment="Top" DockPanel.Dock="Top">
                 <Border.BorderBrush>

@@ -142,15 +142,6 @@ namespace GenosStore.ViewModel.Main {
 			if (type == null) {
 				return;
 			}
-			
-			// var itemListParameters = _toItemListCommandsParameters[type](_services, _user);
-			//
-			// var args = new NavigationArgsBuilder()
-			//            .WithURL(itemListParameters.URL)
-			//            .WithTitle(itemListParameters.Title)
-			//            .WithViewModel(itemListParameters.ViewModel)
-			//            .Build();
-			// Navigate(args);
 			Navigate(
 				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.ItemList, _services, _user, _descriptors[type])
 			);
@@ -161,29 +152,9 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		#endregion
-		private RelayCommand _toMotherboardsCommand;
-		public RelayCommand ToMotherboardsCommand {
-			get { return _toMotherboardsCommand; }
-		}
-
-		private void ToMotherboards(object parameter) {
-			// var args = new NavigationArgsBuilder()
-			//            .WithURL("View/ItemList/MotherboardsPage.xaml")
-			//            .WithTitle("Материнские платы")
-			//            .WithViewModel(new MotherboardsListModel(_services, _user))
-			//            .Build();
-			// Navigate(args);
-		}
-
-		private bool CanToMotherboards(object parameter) {
-			return true;
-		}
-		
-		
 		
 		public ItemCatalogueModel(IServices services, User user): base(services, user) {
 			_toItemListCommand = new RelayCommand(ToItemList, CanToItemList);
-			_toMotherboardsCommand = new RelayCommand(ToMotherboards, CanToMotherboards);
 			
 			Title = "Каталог товаров";
 		}

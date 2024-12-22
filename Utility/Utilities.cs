@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using GenosStore.Model.Entity.Base;
 using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.Item.Characteristic;
@@ -25,9 +26,17 @@ namespace GenosStore.Utility {
             return converted;
         }
 
-        public static void SpawnMessageBox(string title, string message) {
-            var messageBox = new GenosStoreMessageBox(title, message);
-            messageBox.ShowDialog();
+        public static bool SpawnQuestionMessageBox(string title, string message) {
+            MessageBoxResult dialogResult = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            return dialogResult == MessageBoxResult.Yes;
+        }
+        
+        public static void SpawnInfoMessageBox(string title, string message) {
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        
+        public static void SpawnErrorMessageBox(string title, string message) {
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
         }
         
         public static List<string> GetNamesFromChecked<T>(CheckableCollection<T> collection) where T: Named{

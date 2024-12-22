@@ -67,13 +67,16 @@ namespace GenosStore.ViewModel.Admin {
         }
 
         private void RevokeVerification(object parameter) {
-            var id = (int) parameter;
-            var entity = AwaitsVerificationLegalEntities.First(i => i.Id == id);
-            _services.Entity.Users.LegalEntities.RevokeVerification(_user, entity);
+            if (Utilities.SpawnQuestionMessageBox("Вопрос", "Вы уверены, что хотите отозвать подтверждение выбранного юр. лица?")) {
+                var id = (int) parameter;
+                var entity = VerifiedLegalEntities.First(i => i.Id == id);
+                _services.Entity.Users.LegalEntities.RevokeVerification(_user, entity);
             
-            VerifiedLegalEntities = new ObservableCollection<LegalEntity>(
-                _services.Entity.Users.LegalEntities.GetVerified(_user)
-            );
+                VerifiedLegalEntities = new ObservableCollection<LegalEntity>(
+                    _services.Entity.Users.LegalEntities.GetVerified(_user)
+                );
+            }
+            
         }
 
         private bool CanRevokeVerification(object parameter) {

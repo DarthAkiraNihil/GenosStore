@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -91,7 +92,9 @@ namespace GenosStore.Services.Implementation.Common {
                 Surname = regData.Surname,
                 Email = regData.Email,
                 PhoneNumber = regData.PhoneNumber,
-                Cart = new Cart()
+                Cart = new Cart {
+                    Items = new List<CartItem>()
+                }
             };
             
             var salt = _generateSalt();
@@ -130,7 +133,9 @@ namespace GenosStore.Services.Implementation.Common {
                 PhysicalAddress = regData.PhysicalAddress,
                 LegalAddress = regData.LegalAddress,
                 IsVerified = false,
-                Cart = new Cart()
+                Cart = new Cart {
+                    Items = new List<CartItem>()
+                }
             };
             
             var salt = _generateSalt();

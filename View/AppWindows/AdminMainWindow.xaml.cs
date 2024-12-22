@@ -4,11 +4,11 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
+using GenosStore.Utility;
 using GenosStore.Utility.Navigation;
 using GenosStore.View.Admin;
-using GenosStore.View.Main;
 using GenosStore.ViewModel.Admin;
-using GenosStore.ViewModel.Main;
+using GenosStore.ViewModel.AppWindows;
 
 namespace GenosStore.View.AppWindows {
     public partial class AdminMainWindow : Window {
@@ -25,10 +25,13 @@ namespace GenosStore.View.AppWindows {
 			
             MainFrame.Content = new DashboardPage { DataContext = new DashboardPageModel(services, currentUser) };
             WindowTitle.Content = "Главная страница";
+            AdminMainWindowModel.CloseAdmin += Close;
         }
         
         private void closeButton_Click(object sender, RoutedEventArgs e) {
-            Application.Current.Shutdown();
+            if (Utilities.SpawnQuestionMessageBox("Внимание! Вы покидаете приложение!", "Вы уверены, что хотите выйти из приложения?")) {
+                Application.Current.Shutdown();
+            }
         }
 
         private void minimizeButton_Click(object sender, RoutedEventArgs e) {

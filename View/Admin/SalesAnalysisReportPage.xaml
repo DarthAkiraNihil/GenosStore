@@ -32,9 +32,17 @@
             
             <DatePicker DockPanel.Dock="Left"
                 Width="160"
+                Language="ru-RU"
+                Background="{StaticResource BlackEmeraldBrush}"
                 Foreground="{StaticResource EmeraldBrush}"
                 SelectedDate="{Binding ReportFrom}"
-                />
+                >
+                <DatePicker.CalendarStyle>
+                    <Style TargetType="Calendar" BasedOn="{StaticResource MaterialDesignCalendarPortrait}">
+                        <Setter Property="Background" Value="{StaticResource BlackEmeraldBrush}"></Setter>
+                    </Style>
+                </DatePicker.CalendarStyle>
+            </DatePicker>
             
             <Label
                 DockPanel.Dock="Left"
@@ -47,8 +55,16 @@
             <DatePicker DockPanel.Dock="Left"
                         SelectedDate="{Binding ReportTo}"
                         Width="160"
+                        Language="ru-RU"
+                        Background="{StaticResource BlackEmeraldBrush}"
                         Foreground="{StaticResource EmeraldBrush}"
-            />
+            >
+                <DatePicker.CalendarStyle>
+                    <Style TargetType="Calendar" BasedOn="{StaticResource MaterialDesignCalendarPortrait}">
+                        <Setter Property="Background" Value="{StaticResource BlackEmeraldBrush}"></Setter>
+                    </Style>
+                </DatePicker.CalendarStyle>
+            </DatePicker>
             
             <Button 
                 DockPanel.Dock="Right" 

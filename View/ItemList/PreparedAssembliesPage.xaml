@@ -11,7 +11,7 @@
       FontFamily="{materialDesign:MaterialDesignFont}" 
       >
 
-    <DockPanel>
+    <DockPanel Margin="8">
         
         <DockPanel DockPanel.Dock="Right">
 

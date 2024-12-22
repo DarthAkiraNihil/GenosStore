@@ -2,9 +2,12 @@
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.ItemPage {
 	public class DisplayPageModel: ItemPageViewModel<Display> {
+		
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.Display;
 
 		public string Definition { get; set; }
 

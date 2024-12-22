@@ -24,6 +24,7 @@ namespace GenosStore.ViewModel.Main {
             public double? DiscountedPrice { get; set; }
             public double? OldPrice { get; set; }
             public double Subtotal { get; set; }
+            public string DiscountLabel { get; set; }
         }
 
         private double _total;
@@ -63,7 +64,8 @@ namespace GenosStore.ViewModel.Main {
                 if (discount != null) {
                     cartItem.DiscountedPrice = item.Item.Price * discount.Value;
                     cartItem.OldPrice = item.Item.Price;
-                    cartItem.Subtotal = item.Item.Price * (1 - discount.Value) * item.Quantity;
+                    cartItem.Subtotal = item.Item.Price * discount.Value * item.Quantity;
+                    cartItem.DiscountLabel = $"-{(1 - discount.Value) * 100}% (до {discount.EndsAt.ToString("dd/MM/yyyy")})";
                 } else {
                     cartItem.Price = item.Item.Price;
                     cartItem.Subtotal = item.Item.Price * item.Quantity;
@@ -93,7 +95,6 @@ namespace GenosStore.ViewModel.Main {
                 _user as Customer
                 );
             CartItems = GetItemsAndCheckDiscounts(_cart.Items);
-            MessageBox.Show("WERKED");
         }
 
         private bool CanIncrement(object parameter) {
@@ -117,7 +118,6 @@ namespace GenosStore.ViewModel.Main {
                 _user as Customer
             );
             CartItems = GetItemsAndCheckDiscounts(_cart.Items);
-            MessageBox.Show("WERKED");
         }
 
         private bool CanDecrement(object parameter) {
@@ -138,12 +138,6 @@ namespace GenosStore.ViewModel.Main {
             Navigate(
                 _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Order, _services, _user, null, null)
             );
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/Order/OrderPage.xaml")
-            //            .WithTitle("Оформление заказа")
-            //            .WithViewModel(new OrderPageModel(_services, _user, null))
-            //            .Build();
-            // Navigate(args);
         }
 
         private bool CanCreateOrder(object parameter) {

@@ -31,6 +31,7 @@
             </Label>
             
             <ListBox
+                x:Name="AwaitsVerificationLegalEntitiesListBox"
                 DockPanel.Dock="Top"
                 Background="Transparent"
                 BorderBrush="#00ABADB3"

@@ -22,8 +22,7 @@ namespace GenosStore.Utility.Converters {
             _cache = value;
         }
 
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
             string s = value as string;
 
             if (s == null) {
@@ -50,8 +49,7 @@ namespace GenosStore.Utility.Converters {
             return _cache.Get(key);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
             throw new NotImplementedException();
         }
     }

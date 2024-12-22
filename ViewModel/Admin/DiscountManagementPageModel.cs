@@ -117,9 +117,11 @@ namespace GenosStore.ViewModel.Admin {
         }
 
         private void DeactivateDiscount(object parameter) {
-            var item = ItemsOfSelectedType.FirstOrDefault(i => i.Item.Id == (int) parameter);
-            _services.Entity.Orders.ActiveDiscounts.Deactivate(item?.Item.ActiveDiscount);
-            GetItemsAndDiscountInfo(_selectedType);
+            if (Utilities.SpawnQuestionMessageBox("Вопрос", "Вы уверены, что хотите деактивировать скидку?")) {
+                var item = ItemsOfSelectedType.FirstOrDefault(i => i.Item.Id == (int)parameter);
+                _services.Entity.Orders.ActiveDiscounts.Deactivate(item?.Item.ActiveDiscount);
+                GetItemsAndDiscountInfo(_selectedType);
+            }
         }
 
         private bool CanDeactivateDiscount(object parameter) {

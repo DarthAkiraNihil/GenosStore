@@ -12,13 +12,13 @@
     <DockPanel>
 
         <DockPanel DockPanel.Dock="Left">
-            <Border DockPanel.Dock="Top" BorderBrush="{StaticResource CyanBrush}" BorderThickness="4">
+            <Border DockPanel.Dock="Top" BorderBrush="{StaticResource CyanBrush}" BorderThickness="4" Margin="16">
                 <Image
                     Width="500" Height="500"
                     Source="{Binding Item.ImageBase64, Converter={StaticResource Base64ImageConverter}}"
                 />
             </Border>
-            <DockPanel DockPanel.Dock="Top">
+            <DockPanel DockPanel.Dock="Top" Margin="16,0">
                 <Label Content="Цена:" FontSize="36" FontWeight="Bold" VerticalAlignment="Center">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightCyan}"/>
@@ -45,13 +45,35 @@
                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                     </Label.Foreground>
                 </Label>
+                <Label VerticalAlignment="Center" FontSize="20" Content="{Binding Path=DiscountLabel}" FontWeight="Bold">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Emerald}"/>
+                    </Label.Foreground>
+                </Label>
             </DockPanel>
+            <Button
+                Height="32"
+                DockPanel.Dock="Bottom"
+                VerticalAlignment="Bottom"
+                Margin="16,4,16,16" Foreground="White"
+                Content="Назад к списку товаров"
+                Command="{Binding ToItemListCommand}"
+                FontSize="16"
+            >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource LightEmerald}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource BlackEmerald}"/>
+                </Button.Background>
+
+            </Button>
             <Button
                 x:Name="BuyButton"
                 Height="48"
                 DockPanel.Dock="Bottom"
                 VerticalAlignment="Bottom"
-                Margin="16,16,16,16" Foreground="White"
+                Margin="16,4" Foreground="White"
                 Content="{Binding ButtonText}"
                 Command="{Binding AddToRemoveFromCartCommand}"
                 FontSize="24"
@@ -71,26 +93,24 @@
             <DockPanel DockPanel.Dock="Top">
                 <Label
                     DockPanel.Dock="Top"
-                    Content="{Binding Item.Name}"
                     FontWeight="Bold"
                     FontSize="36"
-                    Height="48"
-                    >
+                >
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource Emerald}"/>
                     </Label.Foreground>
                     <Label.Background>
                         <SolidColorBrush/>
                     </Label.Background>
+                    <TextBlock FontSize="36" FontWeight="Bold" Text="{Binding Path=Item.Name}" TextWrapping="Wrap"/>
                 </Label>
                 <Label
                     DockPanel.Dock="Top"
-                    Content="{Binding Item.Model}"
-                    Height="32"
-                    FontSize="24">
+                >
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource LightCyan}"/>
                     </Label.Foreground>
+                    <TextBlock FontSize="24" FontWeight="Bold" Text="{Binding Path=Item.Model}" TextWrapping="Wrap"/>
                 </Label>
             </DockPanel>
 
@@ -141,7 +161,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Потребляемая мощность: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
+                            <Label Content="Потребляемая мощность (Вт): " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
@@ -226,7 +246,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Размер кэша L2: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
+                            <Label Content="Размер кэша L2 (Мб): " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
@@ -243,7 +263,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Размер кэша L3: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
+                            <Label Content="Размер кэша L3 (Мб): " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
@@ -260,7 +280,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Техпроцесс: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
+                            <Label Content="Техпроцесс (нм): " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
@@ -277,7 +297,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Базовая частота: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
+                            <Label Content="Базовая частота (ГГц): " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>
@@ -311,7 +331,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}" Opacity="0.6"/>
                         </Border.BorderBrush>
                         <DockPanel>
-                            <Label Content="Макс. поддерживаемый размер ОЗУ: " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
+                            <Label Content="Макс. поддерживаемый размер ОЗУ (Гб): " DockPanel.Dock="Left" FontWeight="Bold" FontSize="16" >
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                                 </Label.Foreground>

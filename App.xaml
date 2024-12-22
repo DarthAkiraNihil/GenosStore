@@ -4,12 +4,14 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:GenosStore"
              xmlns:conv="clr-namespace:GenosStore.Utility.Converters"
+             DispatcherUnhandledException="App_DispatcherUnhandledException"
              Startup="App_OnStartup">
     <Application.Resources>
         <ResourceDictionary>
             <conv:Base64ImageConverter x:Key="Base64ImageConverter"></conv:Base64ImageConverter>
             <conv:ListToStringConverter x:Key="ListToStringConverter"></conv:ListToStringConverter>
             <conv:ItemListToModelListStringConverter x:Key="ItemListToModelListStringConverter"></conv:ItemListToModelListStringConverter>
+            <conv:PreparedAssemblyItemToNameConverter x:Key="PreparedAssemblyItemToNameConverter"></conv:PreparedAssemblyItemToNameConverter>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Utility/Resources.xaml" />
                 <ResourceDictionary Source="/Utility/Templates.xaml" />

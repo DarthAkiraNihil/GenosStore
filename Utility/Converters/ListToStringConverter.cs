@@ -6,8 +6,7 @@ using GenosStore.Model.Entity.Base;
 
 namespace GenosStore.Utility.Converters {
     public class ListToStringConverter: IValueConverter {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
             var l = (IList) value;
 
             if (l == null) {
@@ -28,8 +27,7 @@ namespace GenosStore.Utility.Converters {
             return result;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture) {
             throw new NotImplementedException();
         }
     }

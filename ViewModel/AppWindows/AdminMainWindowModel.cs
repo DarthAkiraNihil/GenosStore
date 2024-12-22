@@ -1,14 +1,15 @@
-﻿using GenosStore.Model.Entity.User;
+﻿using System;
+using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
-using GenosStore.Utility.Navigation;
 using GenosStore.Utility.Types.Enum;
-using GenosStore.ViewModel.Admin;
-using GenosStore.ViewModel.AuthRegister;
+using GenosStore.View.AppWindows;
 
 namespace GenosStore.ViewModel.AppWindows {
     public class AdminMainWindowModel: RequiresUserViewModel {
+
+        public static Action CloseAdmin;
 
         #region ViewDashboardCommand
 
@@ -22,13 +23,6 @@ namespace GenosStore.ViewModel.AppWindows {
             Navigate(
                 _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Dashboard, _services, _user)
             );
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/Admin/DashboardPage.xaml")
-            //            .WithTitle("Дэшборд")
-            //            .WithViewModel(new DashboardPageModel(_services, _user))
-            //            .Build();
-            //
-            // Navigate(args);
         }
 
         private bool CanViewDashboard(object parameter) {
@@ -49,13 +43,6 @@ namespace GenosStore.ViewModel.AppWindows {
             Navigate(
                 _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.LegalEntityVerification, _services, _user)
             );
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/Admin/LegalEntityVerificationPage.xaml")
-            //            .WithTitle("Управление верификацией юридических лиц")
-            //            .WithViewModel(new LegalEntityVerificationPageModel(_services, _user))
-            //            .Build();
-            //
-            // Navigate(args);
         }
 
         private bool CanViewLegalEntitiesVerification(object parameter) {
@@ -76,13 +63,6 @@ namespace GenosStore.ViewModel.AppWindows {
             Navigate(
                 _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.SalesAnalysisReport, _services, _user)
             );
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/Admin/SalesAnalysisReportPage.xaml")
-            //            .WithTitle("Анализ продаж")
-            //            .WithViewModel(new SalesAnalysisReportPageModel(_services, _user))
-            //            .Build();
-            //
-            // Navigate(args);
         }
 
         private bool CanViewSalesReport(object parameter) {
@@ -103,13 +83,6 @@ namespace GenosStore.ViewModel.AppWindows {
             Navigate(
                 _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.OrderManagement, _services, _user)
             );
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/Admin/OrderManagementPage.xaml")
-            //            .WithTitle("Управление активными заказами")
-            //            .WithViewModel(new OrderManagementPageModel(_services, _user))
-            //            .Build();
-            //
-            // Navigate(args);
         }
 
         private bool CanViewOrderManagement(object parameter) {
@@ -137,6 +110,29 @@ namespace GenosStore.ViewModel.AppWindows {
         }
 
         #endregion
+
+        #region LogoutCommand
+
+        private readonly RelayCommand _logout;
+
+        public RelayCommand LogoutCommand {
+            get { return _logout; }
+        }
+
+        private void Logout(object parameter) {
+            bool answer = Utilities.SpawnQuestionMessageBox("Выход", "Вы уверены, что хотите выйти?");
+            if (answer) {
+                var mainView = new AuthRegisterWindow(_services);
+                mainView.Show();
+                CloseAdmin?.Invoke();
+            }
+        }
+
+        private bool CanLogout(object parameter) {
+            return true;
+        }
+
+        #endregion
         
         public AdminMainWindowModel(IServices services, User user) : base(services, user) {
             _viewDashboardCommand = new RelayCommand(ViewDashboard, CanViewDashboard);
@@ -144,6 +140,7 @@ namespace GenosStore.ViewModel.AppWindows {
             _viewSalesReportCommand = new RelayCommand(ViewSalesReport, CanViewSalesReport);
             _viewOrderManagementCommand = new RelayCommand(ViewOrderManagement, CanViewOrderManagement);
             _viewDiscountManagementCommand = new RelayCommand(ViewDiscountManagement, CanViewDiscountManagement);
+            _logout = new RelayCommand(Logout, CanLogout);
         }
     }
 }

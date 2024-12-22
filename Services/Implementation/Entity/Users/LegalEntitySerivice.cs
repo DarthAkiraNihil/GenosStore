@@ -15,6 +15,10 @@ namespace GenosStore.Services.Implementation.Entity.Users {
         }
 
         public void RevokeVerification(User sudo, LegalEntity legalEntity) {
+            foreach (var bankCard in legalEntity.BankCards) {
+                _repositories.Orders.BankCards.Delete(bankCard.Id);
+            }
+            _repositories.Orders.Carts.DeleteRaw(legalEntity.Cart);
             _repositories.Users.LegalEntities.Delete(legalEntity.Id);
             _repositories.Save();
         }

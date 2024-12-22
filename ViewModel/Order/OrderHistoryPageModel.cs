@@ -39,13 +39,6 @@ namespace GenosStore.ViewModel.Order {
                 _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Order, _services, _user, null, (int?) id)
             );
             
-            // var args = new NavigationArgsBuilder()
-            //            .WithURL("View/Order/OrderPage.xaml")
-            //            .WithTitle("Оформление заказа")
-            //            .WithViewModel(new OrderPageModel(_services, _user, id))
-            //            .Build();
-            // Navigate(args);
-            
         }
 
         private bool CanToOrderPage(object parameter) {
@@ -63,10 +56,10 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void ExportOrderHistory(object parameter) {
-            string path = _services.Common.Saving.SpawnSaveDialog();
+            string path = _services.Common.Saving.SpawnSaveDialog("История заказов");
             if (path != null) {
                 _services.Common.Reports.CreateOrderHistoryReport(_user as Customer, path);
-                MessageBox.Show("CREATE ORDER HISTORY");
+                Utilities.SpawnInfoMessageBox("Успех!", "История заказов была успешно экспортирована!");
             }
         }
 
@@ -78,7 +71,7 @@ namespace GenosStore.ViewModel.Order {
         
         public OrderHistoryPageModel(IServices services, User user) : base(services, user) {
             var orders = _services.Entity.Orders.Orders.ListOfSpecificCustomer(_user as Customer);
-            orders.Sort((x, y) => x.Id < y.Id ? -1 : 1);
+            orders.Sort((x, y) => x.Id < y.Id ? 1 : -1);
             Orders = Utilities.ConvertOrdersToHistoryDetails(
                 orders,
                 _services.Entity.Orders.Orders

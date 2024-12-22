@@ -2,9 +2,12 @@
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.ItemPage {
 	public class CPUPageModel: ItemPageViewModel<CPU> {
+		
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.CPU;
 
 		public CPUPageModel(IServices services, User user, int itemId): base(services, user) {
 			Item = _services.Entity.Items.ComputerComponents.CPUs.Get(itemId);

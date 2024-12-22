@@ -10,95 +10,102 @@
       FontFamily="{materialDesign:MaterialDesignFont}" 
       Title="MainPage">
 
-    <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <DockPanel>
-            <Button
-                Height="240"
-                Width="240"
-                Background="#00DDDDDD"
-                BorderBrush="#01707070"
-                DockPanel.Dock="Top"
-                Command="{Binding ToCatalogueCommand}"
-                >
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
-                        <Setter Property="Content" Value="{materialDesign:PackIcon ListBoxOutline, Size=240}"/>
-                        <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Label DockPanel.Dock="Bottom" Content="Каталог товаров" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
-                <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                </Label.Foreground>
-            </Label>
-        </DockPanel>
-        <DockPanel>
-            <Button
-                Height="240"
-                Width="240"
-                Background="#00DDDDDD"
-                BorderBrush="#01707070"
-                DockPanel.Dock="Top"
-                Command="{Binding ToBankCardsPageCommand}"
-                >
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
-                        <Setter Property="Content" Value="{materialDesign:PackIcon WalletOutline, Size=240}"/>
-                        <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Label DockPanel.Dock="Bottom" Content="Банковские карты" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
-                <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                </Label.Foreground>
-            </Label>
-        </DockPanel>
-        <DockPanel>
-            <Button
-                Height="240"
-                Width="240"
-                Background="#00DDDDDD"
-                BorderBrush="#01707070"
-                DockPanel.Dock="Top"
-                Command="{Binding ToCartCommand}"
-                >
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
-                        <Setter Property="Content" Value="{materialDesign:PackIcon CartOutline, Size=240}"/>
-                        <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Label DockPanel.Dock="Bottom" Content="Корзина" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
-                <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                </Label.Foreground>
-            </Label>
-        </DockPanel>
-        <DockPanel>
-            <Button
-                Height="240"
-                Width="240"
-                Background="#00DDDDDD"
-                BorderBrush="#01707070"
-                DockPanel.Dock="Top"
-                Command="{Binding ToOrderHistoryPageCommand}"
-                >
-                <Button.Style>
-                    <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
-                        <Setter Property="Content" Value="{materialDesign:PackIcon History, Size=240}"/>
-                        <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Label DockPanel.Dock="Bottom" Content="История заказов" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
-                <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                </Label.Foreground>
-            </Label>
-        </DockPanel>
-    </UniformGrid>
+    <DockPanel>
+        <Label DockPanel.Dock="Top" 
+            Foreground="{DynamicResource LightEmeraldBrush}"
+            FontSize="24" FontWeight="Bold" Content="{Binding WelcomeMessage}"
+            HorizontalAlignment="Center"/>
+        <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top">
+            <DockPanel>
+                <Button
+                    Height="240"
+                    Width="240"
+                    Background="#00DDDDDD"
+                    BorderBrush="#01707070"
+                    DockPanel.Dock="Top"
+                    Command="{Binding ToCatalogueCommand}"
+                    >
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
+                            <Setter Property="Content" Value="{materialDesign:PackIcon ListBoxOutline, Size=240}"/>
+                            <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Label DockPanel.Dock="Bottom" Content="Каталог товаров" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+            </DockPanel>
+            <DockPanel>
+                <Button
+                    Height="240"
+                    Width="240"
+                    Background="#00DDDDDD"
+                    BorderBrush="#01707070"
+                    DockPanel.Dock="Top"
+                    Command="{Binding ToBankCardsPageCommand}"
+                    >
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
+                            <Setter Property="Content" Value="{materialDesign:PackIcon WalletOutline, Size=240}"/>
+                            <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Label DockPanel.Dock="Bottom" Content="Банковские карты" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+            </DockPanel>
+            <DockPanel>
+                <Button
+                    Height="240"
+                    Width="240"
+                    Background="#00DDDDDD"
+                    BorderBrush="#01707070"
+                    DockPanel.Dock="Top"
+                    Command="{Binding ToCartCommand}"
+                    >
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
+                            <Setter Property="Content" Value="{materialDesign:PackIcon CartOutline, Size=240}"/>
+                            <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Label DockPanel.Dock="Bottom" Content="Корзина" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+            </DockPanel>
+            <DockPanel>
+                <Button
+                    Height="240"
+                    Width="240"
+                    Background="#00DDDDDD"
+                    BorderBrush="#01707070"
+                    DockPanel.Dock="Top"
+                    Command="{Binding ToOrderHistoryPageCommand}"
+                    >
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource ButtonWithFrameOnHover}">
+                            <Setter Property="Content" Value="{materialDesign:PackIcon History, Size=240}"/>
+                            <Setter Property="Foreground" Value="{StaticResource CyanBrush}" />
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Label DockPanel.Dock="Bottom" Content="История заказов" FontSize="24" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Cyan}"/>
+                    </Label.Foreground>
+                </Label>
+            </DockPanel>
+        </UniformGrid>
+    </DockPanel>
+    
     
 </Page>

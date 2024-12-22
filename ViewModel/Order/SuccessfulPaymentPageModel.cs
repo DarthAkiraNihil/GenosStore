@@ -4,6 +4,7 @@ using GenosStore.Services.Interface;
 using GenosStore.Utility;
 using GenosStore.Utility.AbstractViewModels;
 using GenosStore.Utility.Navigation;
+using GenosStore.Utility.Types.Enum;
 using GenosStore.ViewModel.Main;
 
 namespace GenosStore.ViewModel.Order {
@@ -19,12 +20,9 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void ToOrderPage(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Order/OrderPage.xaml")
-                       .WithTitle("Оформление заказа")
-                       .WithViewModel(new OrderPageModel(_services, _user, _order.Id))
-                       .Build();
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Order, _services, _user, null, (int) _order.Id)
+            );
         }
 
         private bool CanToOrderPage(object parameter) {
@@ -42,12 +40,9 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void ToMainPage(object parameter) {
-            var args = new NavigationArgsBuilder()
-                       .WithURL("View/Main/MainPage.xaml")
-                       .WithTitle("Главная страница")
-                       .WithViewModel(new MainPageModel(_services, _user))
-                       .Build();
-            Navigate(args);
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Main, _services, _user)
+            );
         }
 
         private bool CanToMainPage(object parameter) {
@@ -65,15 +60,15 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void CreateReceipt(object parameter) {
-            string path = _services.Common.Saving.SpawnSaveDialog();
+            string path = _services.Common.Saving.SpawnSaveDialog($"Заказ №{_order.Id}");
             if (path != null) {
                 if (_user is IndividualEntity) {
                     _services.Common.Reports.CreateOrderReceipt(_user as Customer, _order, path);
+                    Utilities.SpawnInfoMessageBox("Успех!","Чек был успешно создан!");
                 } else if (_user is LegalEntity) {
                     _services.Common.Reports.CreateOrderInvoice(_user as Customer, _order, path);
+                    Utilities.SpawnInfoMessageBox("Успех!","Счёт-фактура была успешно создана!");
                 }
-                
-                MessageBox.Show("Чек был успешно создан");
             }
         }
 

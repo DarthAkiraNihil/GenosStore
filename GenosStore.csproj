@@ -613,6 +613,7 @@
     <Compile Include="Utility\Converters\Base64ImageConverter.cs" />
     <Compile Include="Utility\Converters\ItemListToModelListStringConverter.cs" />
     <Compile Include="Utility\Converters\ListToStringConverter.cs" />
+    <Compile Include="Utility\Converters\PreparedAssemblyItemToNameConverter.cs" />
     <Compile Include="Utility\Navigation\NavigationArgs.cs" />
     <Compile Include="Utility\Navigation\NavigationArgsBuilder.cs" />
     <Compile Include="Utility\NinjectModules\NavigationModules\NavigationServicesModule.cs" />
@@ -657,7 +658,6 @@
     <Compile Include="Utility\Types\OrderItemDetails.cs" />
     <Compile Include="Utility\Utilities.cs" />
     <Compile Include="ViewModel\Admin\DashboardPageModel.cs" />
-    <Compile Include="ViewModel\Admin\DBEditPageModel.cs" />
     <Compile Include="ViewModel\Admin\DiscountManagementPageModel.cs" />
     <Compile Include="ViewModel\Admin\LegalEntityVerificationPageModel.cs" />
     <Compile Include="ViewModel\Admin\OrderManagementPageModel.cs" />
@@ -699,9 +699,6 @@
     <Compile Include="ViewModel\Order\SuccessfulPaymentPageModel.cs" />
     <Compile Include="View\Admin\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Admin\DBEditPage.xaml.cs">
-      <DependentUpon>DBEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AppWindows\MainWindowModel.cs" />
     <Compile Include="ViewModel\AuthRegister\AuthorizationPageModel.cs" />
@@ -871,10 +868,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Admin\DashboardPage.xaml" />
-    <Page Include="View\Admin\DBEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Admin\DiscountPage.xaml" />
     <Page Include="View\Admin\LegalEntityVerificationPage.xaml" />
     <Page Include="View\Admin\OrderManagementPage.xaml" />

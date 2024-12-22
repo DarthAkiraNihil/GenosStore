@@ -29,8 +29,8 @@
                     </Label.Foreground>
                 </Label>
 
-                <DockPanel DockPanel.Dock="Bottom" Height="48">
-                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}" Margin="4" VerticalAlignment="Center">
+                <DockPanel DockPanel.Dock="Bottom" Height="56">
+                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}" Margin="4" VerticalAlignment="Center" BorderThickness="2">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource DarkBlue}"/>
                         </Button.BorderBrush>
@@ -38,7 +38,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </Button.Background>
                     </Button>
-                    <Button DockPanel.Dock="Right" FontSize="14" Content="Сбросить фильтры" Foreground="White" Height="48" Margin="4" VerticalAlignment="Center">
+                    <Button DockPanel.Dock="Right" FontSize="14" Content="Сбросить фильтры" Foreground="White" Height="48" Margin="4" VerticalAlignment="Center" BorderThickness="2" Command="{Binding ResetFiltersCommand}">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Button.BorderBrush>
@@ -113,69 +113,7 @@
 
                             </StackPanel>
                         </Expander>
-
-                        <Expander x:Name="TDP" FontSize="16" Background="Transparent">
-                            <Expander.Header
-    >
-                                <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
-                                    <Label.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                                    </Label.Foreground>
-                                    Потребляемая мощность
-                                </Label>
-                            </Expander.Header>
-                            <Expander.Foreground>
-                                <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                            </Expander.Foreground>
-                            <StackPanel>
-
-                                <DockPanel>
-
-                                    <Label Content="От: " FontSize="14" DockPanel.Dock="Left" >
-                                        <Label.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                                        </Label.Foreground>
-                                    </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
-                                             Text="{Binding TDP.From}">
-                                        <TextBox.BorderBrush>
-                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                                        </TextBox.BorderBrush>
-                                        <TextBox.SelectionBrush>
-                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                                        </TextBox.SelectionBrush>
-                                        <TextBox.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                                        </TextBox.Foreground>
-                                    </TextBox>
-
-                                </DockPanel>
-
-                                <DockPanel>
-
-                                    <Label Content="До: " FontSize="14" DockPanel.Dock="Left" >
-                                        <Label.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                                        </Label.Foreground>
-                                    </Label>
-                                    <TextBox Background="Transparent" BorderThickness="0,0,0,2" DockPanel.Dock="Right"
-                                             Text="{Binding TDP.To}">
-                                        <TextBox.BorderBrush>
-                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                                        </TextBox.BorderBrush>
-                                        <TextBox.SelectionBrush>
-                                            <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
-                                        </TextBox.SelectionBrush>
-                                        <TextBox.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource Cyan}"/>
-                                        </TextBox.Foreground>
-                                    </TextBox>
-
-                                </DockPanel>
-
-                            </StackPanel>
-                        </Expander>
-
+                        
                         <Expander x:Name="Vendor" FontSize="16" Background="#00F1F1F1">
                             <Expander.Header>
                                 <Label HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">
@@ -232,7 +170,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Общий объём
+                                    Общий объём (Гб)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>
@@ -293,7 +231,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Объём одного модуля
+                                    Объём одного модуля (Гб)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>
@@ -354,7 +292,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Частота
+                                    Частота (МГц)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>

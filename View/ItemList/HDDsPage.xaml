@@ -29,8 +29,8 @@
                     </Label.Foreground>
                 </Label>
 
-                <DockPanel DockPanel.Dock="Bottom" Height="48">
-                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}" Margin="4" VerticalAlignment="Center">
+                <DockPanel DockPanel.Dock="Bottom" Height="56">
+                    <Button DockPanel.Dock="Left" FontSize="24" Content="Применить фильтры" Height="48" Command="{Binding ApplyFiltersCommand}" Margin="4" VerticalAlignment="Center" BorderThickness="2">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource DarkBlue}"/>
                         </Button.BorderBrush>
@@ -38,7 +38,7 @@
                             <SolidColorBrush Color="{DynamicResource Cyan}"/>
                         </Button.Background>
                     </Button>
-                    <Button DockPanel.Dock="Right" FontSize="14" Content="Сбросить фильтры" Foreground="White" Height="48" Margin="4" VerticalAlignment="Center">
+                    <Button DockPanel.Dock="Right" FontSize="14" Content="Сбросить фильтры" Foreground="White" Height="48" Margin="4" VerticalAlignment="Center" BorderThickness="2" Command="{Binding ResetFiltersCommand}">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Button.BorderBrush>
@@ -121,7 +121,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Потребляемая мощность
+                                    Потребляемая мощность (вт)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>
@@ -207,7 +207,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Ёмкость
+                                    Ёмкость (Гб)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>
@@ -268,7 +268,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Скорость чтения
+                                    Скорость чтения (Мб/с)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>
@@ -329,7 +329,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Скорость записи
+                                    Скорость записи (Мб/с)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>
@@ -390,7 +390,7 @@
                                     <Label.Foreground>
                                         <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                                     </Label.Foreground>
-                                    Скорость оборота шпинделя
+                                    Скорость оборота шпинделя (об/мин)
                                 </Label>
                             </Expander.Header>
                             <Expander.Foreground>

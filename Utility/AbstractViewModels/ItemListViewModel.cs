@@ -31,16 +31,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 		private void ToItemPage(object parameter) {
 			int id = (int) parameter;
 			
-			// var args = new NavigationArgsBuilder()
-			//            .WithURL(_itemPageURL)
-			//            .WithViewModel(_itemPageViewModel(id))
-			//            .WithTitle(_getItemName(id))
-			//            .WithId(id)
-			//            .Build();
-			
 			Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.ItemPage, _services, _user, _itemType, id));
-            
-			//Navigate(args);
 		}
 		
 		protected abstract ItemTypeDescriptor _itemType { get; }
@@ -120,6 +111,7 @@ namespace GenosStore.Utility.AbstractViewModels {
 				if (discount != null) {
 					listItem.DiscountedPrice = item.Price * discount.Value;
 					listItem.OldPrice = item.Price;
+					listItem.DiscountLabel = $"-{(1 - discount.Value) * 100}% (до {discount.EndsAt.ToString("dd/MM/yyyy")})";
 				} else {
 					listItem.Price = item.Price;
 				}
@@ -129,28 +121,33 @@ namespace GenosStore.Utility.AbstractViewModels {
 			
 			return converted;
 		}
+
+		#region ResetFiltersCommand
+
+		private readonly RelayCommand _resetFilters;
+
+		public RelayCommand ResetFiltersCommand {
+			get { return _resetFilters; }
+		}
+
+		private void ResetFilters(object parameter) {
+			Items = GetItemsAndCheckDiscounts(_getItems());
+		}
+
+		private bool CanResetFilters(object parameter) {
+			return true;
+		}
+
+		#endregion
 		
 		public ItemListViewModel(IServices services, User user): base(services, user) {
 			_toItemPageCommand = new RelayCommand(ToItemPage, CanToItemPage);
 			_applyFiltersCommand = new RelayCommand(ApplyFilters, CanApplyFilters);
+			_resetFilters = new RelayCommand(ResetFilters, CanResetFilters);
 			_search = new RelayCommand(Search, CanSearch);
 
 			Price = new RangeItem();
 			
-			
-
-			//var dbAccessor = new GenosStoreRepositoriesPostgreSQL();
-
-
-			//Vendors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.Vendors.List());
-			//MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
-			//CPUSockets = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.CPUSockets.List());
-			//CPUCores = Utilities.ConvertToCheckableCollection(dbAccessor.Items.SimpleComputerComponents.CPUCores.List());
-			//RAMTypes = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.RAMTypes.List());
-			//MotherboardFormFactors = Utilities.ConvertToCheckableCollection(dbAccessor.Items.Characteristics.MotherboardFormFactors.List());
-
-			//Motherboards = new ObservableCollection<Motherboard>(dbAccessor.Items.ComputerComponents.Motherboards.List());
-
 		}
     }
 }

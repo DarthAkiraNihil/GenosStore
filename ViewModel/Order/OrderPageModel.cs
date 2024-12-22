@@ -12,7 +12,8 @@ using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.Order {
     public class OrderPageModel: RequiresUserViewModel {
-        
+
+        public string ReceiptButtonText { get; set; }
         private Model.Entity.Orders.Order _order;
         private ObservableCollection<OrderItemDetails> _orderItems;
 
@@ -91,7 +92,6 @@ namespace GenosStore.ViewModel.Order {
                 _services.Entity.Orders.Orders.ReceiveOrder(_order);
                 OrderStatus = _order.OrderStatus.Name;
                 NextOrderActionButtonText = "Получен";
-                MessageBox.Show("REVEICED");
             }
 
         }
@@ -111,15 +111,15 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void CreateReceipt(object parameter) {
-            string path = _services.Common.Saving.SpawnSaveDialog();
+            string path = _services.Common.Saving.SpawnSaveDialog($"Заказ №{_order.Id}");
             if (path != null) {
                 if (_user is IndividualEntity) {
                     _services.Common.Reports.CreateOrderReceipt(_user as Customer, _order, path);
+                    Utilities.SpawnInfoMessageBox("Успех!","Чек был успешно создан!");
                 } else if (_user is LegalEntity) {
                     _services.Common.Reports.CreateOrderInvoice(_user as Customer, _order, path);
+                    Utilities.SpawnInfoMessageBox("Успех!","Счёт-фактура была успешно создана!");
                 }
-                
-                MessageBox.Show("Чек был успешно создан");
             }
         }
 
@@ -138,10 +138,11 @@ namespace GenosStore.ViewModel.Order {
         }
 
         private void CancelOrder(object parameter) {
-            _services.Entity.Orders.Orders.CancelOrder(_order);
-            OrderStatus = _order.OrderStatus.Name;
-            NextOrderActionButtonText = "Отменён";
-            MessageBox.Show("CANCEL ORDER");
+            if (Utilities.SpawnQuestionMessageBox("Вопрос", "Вы уверены, что хотите отменить заказ?")) {
+                _services.Entity.Orders.Orders.CancelOrder(_order);
+                OrderStatus = _order.OrderStatus.Name;
+                NextOrderActionButtonText = "Отменён";
+            }
         }
 
         private bool CanCancelOrder(object parameter) {
@@ -150,19 +151,6 @@ namespace GenosStore.ViewModel.Order {
 
         #endregion
         
-        // private ObservableCollection<OrderItemDetails> ConvertOrderItemsToDetails(List<OrderItems> orderItems) {
-        //     var converted = new ObservableCollection<OrderItemDetails>();
-        //
-        //     foreach (var orderItem in orderItems) {
-        //         var item = new OrderItemDetails {
-        //             Item = orderItem,
-        //             Subtotal = orderItem.Quantity * orderItem.BoughtFor
-        //         };
-        //         converted.Add(item);
-        //     }
-        //     
-        //     return converted;
-        // }
         public OrderPageModel(IServices services, User user, long? orderId) : base(services, user) {
             
             _nextOrderActionCommand = new RelayCommand(NextOrderAction, CanNextOrderAction);
@@ -191,7 +179,11 @@ namespace GenosStore.ViewModel.Order {
                 NextOrderActionButtonText = "Получен";
             } else if (_order.OrderStatus.Id == (int) OrderStatusDescriptor.Cancelled) {
                 NextOrderActionButtonText = "Отменён";
+            } else if (_order.OrderStatus.Id == (int)OrderStatusDescriptor.Created) {
+                NextOrderActionButtonText = "Ожидайте подтверждения";
             }
+
+            ReceiptButtonText = _user is LegalEntity ? "Получить счёт-фактуру" : "Получить чек";
             
             Title = OrderTitle;
         }

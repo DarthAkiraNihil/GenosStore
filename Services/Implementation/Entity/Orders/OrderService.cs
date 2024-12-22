@@ -55,7 +55,7 @@ namespace GenosStore.Services.Implementation.Entity.Orders {
                     new OrderItems {
                         Order = order,
                         Item = item.Item,
-                        BoughtFor = discount != null ? item.Item.Price * (1 - discount.Value): item.Item.Price,
+                        BoughtFor = discount != null ? item.Item.Price * discount.Value: item.Item.Price,
                         Quantity = item.Quantity
                     }
                 );

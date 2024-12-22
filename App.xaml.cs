@@ -1,11 +1,12 @@
 ﻿using System.Windows;
+using System.Windows.Threading;
 using GenosStore.Services.Interface;
+using GenosStore.Utility;
 using GenosStore.Utility.Converters;
 using GenosStore.Utility.NinjectModules;
 using GenosStore.Utility.NinjectModules.NavigationModules;
 using GenosStore.Utility.NinjectModules.ServiceModules;
 using GenosStore.View.AppWindows;
-using Microsoft.Extensions.Logging;
 using Ninject;
 using QuestPDF.Infrastructure;
 
@@ -34,15 +35,16 @@ namespace GenosStore {
 
 			IServices services = kernel.Get<IServices>();
 			Base64ImageConverter.SetOnce(services.Common.Cache.Images);
-
-			// if (services.Common.Authorization.CreateAdmin("amogus@amogus.net", "p3n1s_Mus1C")) {
-			// 	MessageBox.Show("penis music");
-			// }
 			
-
 			var window = new AuthRegisterWindow(services);
 			window.Show();
 			
+		}
+		
+		void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e) {
+			Utilities.SpawnErrorMessageBox("Something went wrong", 
+			    $"Возникла ошибка в работе приложения:\n\n{e.Exception.Message}\n\nДальнейшая работа приложения может быть нестабильной. Возможно, причина в проводимых технических работах. Рекомендуем связаться с разработчиками системы.");
+			e.Handled = true;
 		}
 	}
 }

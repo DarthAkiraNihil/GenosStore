@@ -11,20 +11,14 @@ using GenosStore.ViewModel.Order;
 
 namespace GenosStore.ViewModel.Main {
 	public class MainPageModel: RequiresUserViewModel {
-		
+
+		public string WelcomeMessage { get; set; }
 		private RelayCommand _toCatalogueCommand;
 		public RelayCommand ToCatalogueCommand {
 			get { return _toCatalogueCommand; }
 		}
 
 		private void ToCatalogue(object parameter) {
-			// var args = new NavigationArgsBuilder()
-			//            .WithURL("View/Main/ItemCataloguePage.xaml")
-			//            .WithTitle("Каталог товаров")
-			//            .WithViewModel(new ItemCatalogueModel(_services, _user))
-			//            .Build();
-			//
-			// Navigate(args);
 			Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.ItemCatalogue, _services, _user));
 		}
 
@@ -37,12 +31,9 @@ namespace GenosStore.ViewModel.Main {
 		}
 
 		private void ToCart(object parameter) {
-			var args = new NavigationArgsBuilder()
-			           .WithURL("View/Main/CartPage.xaml")
-			           .WithTitle("Корзина")
-			           .WithViewModel(new CartPageModel(_services, _user))
-			           .Build();
-			Navigate(args);
+			Navigate(
+				_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.Cart, _services, _user)
+			);
 		}
 
 		private bool CanToCart(object parameter) {
@@ -61,13 +52,6 @@ namespace GenosStore.ViewModel.Main {
 
 		private void ToOrderHistoryPage(object parameter) {
 			Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.OrderHistory, _services, _user));
-			// var args = new NavigationArgsBuilder()
-			// 	.WithURL("View/Order/OrderHistoryPage.xaml")
-			// 	.WithViewModel(new OrderHistoryPageModel(_services, _user))
-			// 	.WithTitle("История заказов")
-			// 	.Build();
-			//
-			// Navigate(args);
 		}
 
 		private bool CanToOrderHistory(object parameter) {
@@ -86,13 +70,6 @@ namespace GenosStore.ViewModel.Main {
 
 		private void ToBankCardsPage(object parameter) {
 			Navigate(_services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.BankCards, _services, _user));
-			// var args = new NavigationArgsBuilder()
-			//            .WithURL("View/Main/BankCardsPage.xaml")
-			//            .WithTitle("Банковские карты")
-			//            .WithViewModel(new BankCardsModel(_services, _user))
-			//            .Build();
-			//
-			// Navigate(args);
 		}
 
 		private bool CanToBankCardsPage(object parameter) {
@@ -111,7 +88,15 @@ namespace GenosStore.ViewModel.Main {
 			_toCart = new RelayCommand(ToCart, CanToCart);
 			_toOrderHistory = new RelayCommand(ToOrderHistoryPage, CanToOrderHistory);
 			_toBankCardsPage = new RelayCommand(ToBankCardsPage, CanToBankCardsPage);
-			
+
+			string userIdentifier;
+			if (_user is IndividualEntity) {
+				var individualEntity = _user as IndividualEntity;
+				userIdentifier = $"{individualEntity.Name} {individualEntity.Surname}";
+			} else {
+				userIdentifier = _user.Email;
+			}
+			WelcomeMessage = $"Добро пожаловать, {userIdentifier}";
 			Title = "Главная страница";
 			
 		}

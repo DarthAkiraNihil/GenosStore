@@ -28,13 +28,22 @@ namespace GenosStore.Services.Implementation.Common {
             "Наименование предмета", "Цена за единицу (руб.)", "Количество (шт.)", "Итого (руб.)"
         };
 
-        private readonly List<string> _invoiceHeadertitles = new List<string> {
+        private readonly List<string> _invoiceHeaderTitles = new List<string> {
             "Наименование товара",
             "Код вида товара",
             "Единица измерения",
             "Количество",
             "Цена за единицу",
             "Стоимость товаров всего"
+        };
+
+        private readonly List<string> _clientStatisticHeaderTitles = new List<string> {
+            "Email покупателя",
+            "Тип",
+            "Сделано заказов за период",
+            "Максимальная сумма чека",
+            "Средняя сумма чека",
+            "Общая выручка от клиента за период"
         };
         
         private const string _traderName = "ООО \"Genos Store Incorporated\"";
@@ -45,6 +54,15 @@ namespace GenosStore.Services.Implementation.Common {
 
         private const int _soldItemsChartHeight = 350;
         private const int _soldItemsChartTitlePadding = 30;
+
+        private class ClientStatiticData {
+            public Customer Customer { get; set; }
+            public string Type { get; set; }
+            public int OrdersCount { get; set; }
+            public double MaxRevenue { get; set; }
+            public double AverageRevenue { get; set; }
+            public double Revenue { get; set; }
+        }
         
 
         public ReportService(IPaymentService paymentService, IOrderService orderService, IItemTypeService itemTypeService, IAllItemsRepository allItemsRepository) {
@@ -174,7 +192,7 @@ namespace GenosStore.Services.Implementation.Common {
                                     columns.RelativeColumn();
                                 });
 
-                                foreach (var title in _invoiceHeadertitles) {
+                                foreach (var title in _invoiceHeaderTitles) {
                                     table.Cell().LabelCell(title);
                                 }
                             
@@ -356,6 +374,50 @@ namespace GenosStore.Services.Implementation.Common {
                                &&   o.OrderStatus.Id != (int) OrderStatusDescriptor.Cancelled
                         ).ToList();
             
+            var customers = new List<Customer>();
+            foreach (var order in orders) {
+                if (customers.Count(c => c.Id == order.Customer.Id) == 0) {
+                    customers.Add(order.Customer);
+                }
+            }
+
+            var statisticData = new List<ClientStatiticData>();
+            foreach (var customer in customers) {
+                var customerOrders = orders.Where(o => o.Customer.Id == customer.Id).ToList();
+
+                string type;
+                if (customer is LegalEntity) {
+                    type = "Юридическое лицо";
+                } else {
+                    type = "Физическое лицо";
+                }
+                
+                double maxCustomerRevenue = -1.0;
+                double avgCustomerRevenue = 0.0;
+                
+                int orderCount = customerOrders.Count;
+                double totalRevenue = customerOrders.Sum(o => _orderService.CalculateTotal(o));
+
+                foreach (var customerOrder in customerOrders) {
+                    double total = _orderService.CalculateTotal(customerOrder);
+                    if (total > maxCustomerRevenue) {
+                        maxCustomerRevenue = total;
+                    }
+                    avgCustomerRevenue += total;
+                }
+                
+                avgCustomerRevenue /= orderCount;
+                
+                statisticData.Add(new ClientStatiticData {
+                    Customer = customer,
+                    Type = type,
+                    AverageRevenue = avgCustomerRevenue,
+                    MaxRevenue = maxCustomerRevenue,
+                    OrdersCount = orderCount,
+                    Revenue = totalRevenue,
+                });
+            }
+            
             var itemsTypesFrequency = new Dictionary<string, int>();
             var itemTypesOutcomes = new Dictionary<string, double>();
             foreach (var type in _itemTypeService.List()) {
@@ -411,11 +473,20 @@ namespace GenosStore.Services.Implementation.Common {
             }
 
             int mostBoughtItemId = 1;
+            int leastBoughtItemId = 1;
+
+            int minItemFreq = 1000000;
             int maxItemFreq = -1;
 
             foreach (var item in itemsFrequency) {
                 if (item.Value > maxItemFreq) {
                     mostBoughtItemId = item.Key;
+                    maxItemFreq = item.Value;
+                }
+
+                if (item.Value < minItemFreq) {
+                    leastBoughtItemId = item.Key;
+                    minItemFreq = item.Value;
                 }
             }
             
@@ -428,7 +499,7 @@ namespace GenosStore.Services.Implementation.Common {
                     page.Margin(2, Unit.Centimetre);
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(8).FontFamily("Arial"));
-                    
+
                     page.Content()
                         .PaddingVertical(1, Unit.Centimetre)
                         .Column(column => {
@@ -443,13 +514,13 @@ namespace GenosStore.Services.Implementation.Common {
                                 .AlignCenter()
                                 .Text($"Статистика по продажам с {startDate.ToString("dd/MM/yyyy")} по {endDate.ToString("dd/MM/yyyy")}")
                                 .Style(titleStyle);
-    
+
                             column
                                 .Item()
                                 .ExtendHorizontal()
                                 .Height(_soldItemsChartHeight)
                                 .SkiaSharpCanvas((canvas, size) => {
-                                    
+
                                     PlotModel soldItemsModel = new PlotModel {
                                         Title = "Статистика покупки по типам товаров",
                                         TitleFont = "Arial",
@@ -470,7 +541,7 @@ namespace GenosStore.Services.Implementation.Common {
                                     }
 
                                     soldItemsModel.Series.Add(soldItemsSeries);
-                                    
+
                                     var stream = new MemoryStream();
                                     var exporter = new SvgExporter {
                                         Width = size.Width,
@@ -479,19 +550,19 @@ namespace GenosStore.Services.Implementation.Common {
                                     };
                                     exporter.Export(soldItemsModel, stream);
                                     stream.Position = 0;
-                                    
+
                                     var svg = new Svg.Skia.SKSvg();
                                     svg.Load(stream);
-                                    
+
                                     canvas.DrawPicture(svg.Picture);
                                 });
-                            
+
                             column
                                 .Item()
                                 .ExtendHorizontal()
                                 .Height(_soldItemsChartHeight)
                                 .SkiaSharpCanvas((canvas, size) => {
-                                    
+
                                     PlotModel itemTypesRevenueModel = new PlotModel {
                                         Title = "Статистика выручки по типам товаров",
                                         TitleFont = "Arial",
@@ -512,7 +583,7 @@ namespace GenosStore.Services.Implementation.Common {
                                     }
 
                                     itemTypesRevenueModel.Series.Add(itemTypesRevenue);
-                                    
+
                                     var stream = new MemoryStream();
                                     var exporter = new SvgExporter {
                                         Width = size.Width,
@@ -521,13 +592,13 @@ namespace GenosStore.Services.Implementation.Common {
                                     };
                                     exporter.Export(itemTypesRevenueModel, stream);
                                     stream.Position = 0;
-                                    
+
                                     var svg = new Svg.Skia.SKSvg();
                                     svg.Load(stream);
-                                    
+
                                     canvas.DrawPicture(svg.Picture);
                                 });
-                            
+
                             column
                                 .Item()
                                 .AlignCenter()
@@ -539,23 +610,55 @@ namespace GenosStore.Services.Implementation.Common {
                                 .Text($"Общая выручка: {revenue}")
                                 .FontFamily("Arial")
                                 .FontSize(12);
-                            
+
                             column
                                 .Item()
                                 .Text($"Средний размер чека: {avgRevenue}")
                                 .FontFamily("Arial")
                                 .FontSize(12);
 
-                            var item = _allItemsRepository.Get(mostBoughtItemId);
-                            
+                            var mostBoughtItem = _allItemsRepository.Get(mostBoughtItemId);
+
                             column
                                 .Item()
-                                .Text($"Самый продаваемый предмет: {item.Name}")
+                                .Text($"Самый продаваемый предмет: {mostBoughtItem.Name}")
                                 .FontFamily("Arial")
                                 .FontSize(12);
+
+                            var leastBoughtItem = _allItemsRepository.Get(leastBoughtItemId);
+
+                            column
+                                .Item()
+                                .Text($"Наименее продаваемый предмет предмет: {leastBoughtItem.Name}. Возможно, стоит установить на него скидку.")
+                                .FontFamily("Arial")
+                                .FontSize(12);
+
+                            column
+                                .Item()
+                                .AlignCenter()
+                                .Text("Статистика по заказам клиентам")
+                                .Style(titleStyle);
+
+                            column.Item().Table(table => {
+                                table.ColumnsDefinition(columns => {
+                                    columns.RelativeColumn(3);
+                                    columns.RelativeColumn();
+                                    columns.RelativeColumn();
+                                    columns.RelativeColumn();
+                                    columns.RelativeColumn();
+                                    columns.RelativeColumn();
+                                });
+
+                                foreach (var title in _clientStatisticHeaderTitles) {
+                                    table.Cell().LabelCell(title);
+                                }
+
+                                foreach (var data in statisticData) {
+                                    _fillStatisticRow(table, data);
+                                }
+                            });
                         });
-                        
-                    
+
                     page.Footer()
                         .AlignCenter()
                         .Text(x =>
@@ -567,6 +670,27 @@ namespace GenosStore.Services.Implementation.Common {
             })
             .GeneratePdf(path);
             
+        }
+
+        private void _fillStatisticRow(TableDescriptor table, ClientStatiticData data) {
+            table.Cell()
+                 .ValueCell()
+                 .Text(data.Customer.Email);
+            table.Cell()
+                 .ValueCell()
+                 .Text(data.Type);
+            table.Cell()
+                 .ValueCell()
+                 .Text(data.OrdersCount.ToString());
+            table.Cell()
+                 .ValueCell()
+                 .Text(data.MaxRevenue.ToString("0.00"));
+            table.Cell()
+                 .ValueCell()
+                 .Text(data.AverageRevenue.ToString("0.00"));
+            table.Cell()
+                 .ValueCell()
+                 .Text(data.Revenue.ToString("0.00"));
         }
     }
 }

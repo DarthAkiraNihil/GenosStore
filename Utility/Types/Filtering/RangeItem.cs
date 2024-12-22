@@ -13,7 +13,7 @@ namespace GenosStore.Utility.Types.Filtering {
         }
 
         public bool IsValid() {
-            return To < From;
+            return From < To;
         }
     }
 }

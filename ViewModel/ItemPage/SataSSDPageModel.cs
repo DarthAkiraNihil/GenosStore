@@ -2,9 +2,11 @@
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
 using GenosStore.Utility.AbstractViewModels;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.ViewModel.ItemPage {
 	public class SataSSDPageModel: ItemPageViewModel<SataSSD> {
+		protected override ItemTypeDescriptor _itemType => ItemTypeDescriptor.SataSSD;
 
 		public SataSSDPageModel(IServices services, User user, int itemId): base(services, user) {
 			Item = _services.Entity.Items.ComputerComponents.SataSSDs.Get(itemId);

@@ -48,6 +48,11 @@
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Label.Foreground>
                     </Label>
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="{Binding Path=DiscountLabel}" FontWeight="Bold">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Emerald}"/>
+                        </Label.Foreground>
+                    </Label>
                     <Button
                         Foreground="White"
                         Width="160"
@@ -154,6 +159,11 @@
                     <Label DockPanel.Dock="Left" FontSize="20" Content="руб;">
                         <Label.Foreground>
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Label DockPanel.Dock="Left" FontSize="20" Content="{Binding Path=DiscountLabel}" FontWeight="Bold">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Emerald}"/>
                         </Label.Foreground>
                     </Label>
                     
@@ -453,7 +463,7 @@
     </DataTemplate>
     
     <DataTemplate x:Key="AwaitsVerificationLegalEntityListElement">
-        <DockPanel Width="{Binding Width, ElementName=VerifiedLegalEntitiesListBox}">
+        <DockPanel Width="{Binding Width, ElementName=AwaitsVerificationLegalEntitiesListBox}">
 
             <DockPanel DockPanel.Dock="Right" Height="48" VerticalAlignment="Center" >
                 <Button
@@ -508,7 +518,7 @@
 
                     <DockPanel DockPanel.Dock="Bottom">
                         
-                        <Label DockPanel.Dock="Left" FontSize="16" Content="; Физический адрес: ">
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="Физический адрес: ">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                             </Label.Foreground>
@@ -546,7 +556,7 @@
                     Height="48"
                     ToolTip="Icon"
                     Background="Transparent"
-                    Command="{Binding DataContext.ToOrderCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                    Command="{Binding DataContext.RevokeVerificationCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
                     CommandParameter="{Binding Path=Id}"
                     BorderThickness="0,0,0,0" HorizontalAlignment="Left" 
                     >
@@ -597,7 +607,7 @@
 
                     <DockPanel DockPanel.Dock="Bottom">
                         
-                        <Label DockPanel.Dock="Left" FontSize="16" Content="; Физический адрес: ">
+                        <Label DockPanel.Dock="Left" FontSize="16" Content="Физический адрес: ">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                             </Label.Foreground>
@@ -628,14 +638,14 @@
     <DataTemplate x:Key="OrderManagementListElement">
         <DockPanel Width="{Binding Width, ElementName=listBox}" Height="160">
 
-            <DockPanel DockPanel.Dock="Right">
+            <DockPanel DockPanel.Dock="Left">
                 <Label DockPanel.Dock="Top" FontSize="24" Content="{Binding Path=OrderTitle}">
                     <Label.Foreground>
                         <SolidColorBrush Color="{DynamicResource Cyan}"/>
                     </Label.Foreground>
                 </Label>
                 <DockPanel DockPanel.Dock="Top">
-                    <Label DockPanel.Dock="Left" FontSize="16" Content="Создан">
+                    <Label DockPanel.Dock="Left" FontSize="16" Content="Создан:v">
                         <Label.Foreground>
                             <SolidColorBrush Color="{DynamicResource LightBlue}"/>
                         </Label.Foreground>
@@ -657,7 +667,7 @@
                     </Label>
                 </DockPanel>
                 
-                <DockPanel DockPanel.Dock="Bottom">
+                <DockPanel DockPanel.Dock="Top">
 
                     <Label DockPanel.Dock="Left" FontSize="20" Content="Сумма:">
                         <Label.Foreground>
@@ -670,19 +680,21 @@
                             <SolidColorBrush Color="{DynamicResource PaleBlue}"/>
                         </Label.Foreground>
                     </Label>
-                    <Button
-                        Foreground="White"
-                        Width="160"
-                        HorizontalAlignment="Right"
-                        Content="Перейти к заказу" Command="{Binding DataContext.ToOrderPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
-                        CommandParameter="{Binding Path=Id}"
-                    >
-                        <Button.Background>
-                            <SolidColorBrush Color="{DynamicResource DarkerBlue}"/>
-                        </Button.Background>
-                    </Button>
                 </DockPanel>
             </DockPanel>
+            
+            <Button
+                Foreground="White"
+                Width="160"
+                DockPanel.Dock="Right"
+                HorizontalAlignment="Right"
+                Content="Перейти к заказу" Command="{Binding DataContext.ToOrderPageCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                CommandParameter="{Binding Path=Id}"
+            >
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource DarkerBlue}"/>
+                </Button.Background>
+            </Button>
         </DockPanel>
     </DataTemplate>
     

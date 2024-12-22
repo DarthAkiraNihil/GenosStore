@@ -6,7 +6,9 @@ using System.Windows.Input;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services;
 using GenosStore.Services.Interface;
+using GenosStore.Utility;
 using GenosStore.Utility.Navigation;
+using GenosStore.ViewModel.AppWindows;
 using GenosStore.ViewModel.Main;
 
 namespace GenosStore.View.AppWindows
@@ -26,10 +28,14 @@ namespace GenosStore.View.AppWindows
 			
 			MainFrame.Content = new MainPage { DataContext = new MainPageModel(services, currentUser) };
 			WindowTitle.Content = "Главная страница";
+			
+			MainWindowModel.CloseMain += Close;
         }
 
 		private void closeButton_Click(object sender, RoutedEventArgs e) {
-			Application.Current.Shutdown();
+			if (Utilities.SpawnQuestionMessageBox("Внимание! Вы покидаете приложение!", "Вы уверены, что хотите выйти из приложения?")) {
+				Application.Current.Shutdown();
+			}
 		}
 
 		private void minimizeButton_Click(object sender, RoutedEventArgs e) {

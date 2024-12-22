@@ -94,7 +94,7 @@
             <Button
                 DockPanel.Dock="Right" Command="{Binding CreateReceiptCommand}"
                 HorizontalAlignment="Right"
-                Content="Получить чек"
+                Content="{Binding ReceiptButtonText}"
                 Margin="4,0"
             >
             </Button>

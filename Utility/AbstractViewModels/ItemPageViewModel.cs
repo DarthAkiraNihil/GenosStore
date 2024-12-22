@@ -3,14 +3,16 @@ using System.Windows.Media;
 using GenosStore.Model.Entity.Item;
 using GenosStore.Model.Entity.User;
 using GenosStore.Services.Interface;
+using GenosStore.Utility.Types.Enum;
 
 namespace GenosStore.Utility.AbstractViewModels {
-    public class ItemPageViewModel<T>: RequiresUserViewModel where T: Item {
+    public abstract class ItemPageViewModel<T>: RequiresUserViewModel where T: Item {
         
         public T Item { get; set; }
         public double? Price { get; set; }
         public double? DiscountedPrice { get; set; }
         public double? OldPrice { get; set; }
+        public string DiscountLabel { get; set; }
 
         private string _buttonText;
         protected bool _itemIsInCart;
@@ -36,10 +38,10 @@ namespace GenosStore.Utility.AbstractViewModels {
                     DiscountedPrice = item.Price * discount.Value;
                     OldPrice = item.Price;
                 }
+                DiscountLabel = $"-{(1 - discount.Value) * 100}% (до {discount.EndsAt.ToString("dd/MM/yyyy")})";
             } else {
                 Price = item.Price;
             }
-
             
         }
 
@@ -68,10 +70,34 @@ namespace GenosStore.Utility.AbstractViewModels {
 
         #endregion
 
+        protected abstract ItemTypeDescriptor _itemType { get; }
+
+        #region ToItemListCommand
+
+        private readonly RelayCommand _toItemList;
+
+        public RelayCommand ToItemListCommand {
+            get { return _toItemList; }
+        }
+
+        private void ToItemList(object parameter) {
+            Navigate(
+                _services.Navigation.NavigationArgsFactory.GetNavigationArgs(PageTypeDescriptor.ItemList, _services, _user, _itemType)
+            );
+        }
+
+        private bool CanToItemList(object parameter) {
+            return true;
+        }
+
+        #endregion  
+
         public ItemPageViewModel(IServices services, User user) : base(services, user) {
             ButtonText = "Купить!";
             _itemIsInCart = false;
+            
             _addToRemoveFromCartCommand = new RelayCommand(AddToRemoveFromCart, CanAddToRemoveFromCart);
+            _toItemList = new RelayCommand(ToItemList, CanToItemList);
         }
     }
 }

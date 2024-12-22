@@ -86,10 +86,12 @@ namespace GenosStore.ViewModel.Main {
         }
 
         private void DeleteCard(object parameter) {
-            int id = (int) parameter;
-            _services.Entity.Orders.BankCards.Delete(id);
-            _services.Entity.Orders.BankCards.Save();
-            CustomerBankCards = new ObservableCollection<BankCard>((_user as Customer)?.BankCards);
+            if (Utilities.SpawnQuestionMessageBox("Вопрос", "Вы уверены, что удалить карту?")) {
+                int id = (int)parameter;
+                _services.Entity.Orders.BankCards.Delete(id);
+                _services.Entity.Orders.BankCards.Save();
+                CustomerBankCards = new ObservableCollection<BankCard>((_user as Customer)?.BankCards);
+            }
         }
 
         private bool CanDeleteCard(object parameter) {

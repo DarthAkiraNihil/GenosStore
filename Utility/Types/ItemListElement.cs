@@ -6,5 +6,6 @@ namespace GenosStore.Utility.Types {
         public double? Price { get; set; }
         public double? DiscountedPrice { get; set; }
         public double? OldPrice { get; set; }
+        public string DiscountLabel { get; set; }
     }
 }

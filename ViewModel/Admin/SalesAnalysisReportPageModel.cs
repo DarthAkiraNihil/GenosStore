@@ -38,11 +38,11 @@ namespace GenosStore.ViewModel.Admin {
         }
 
         private void GenerateSalesReport(object parameter) {
-            string path = _services.Common.Saving.SpawnSaveDialog();
+            string path = _services.Common.Saving.SpawnSaveDialog($"Отчёт по продажам с {ReportFrom.ToString("dd/MM/yyyy")} по {ReportTo.ToString("dd/MM/yyyy")}");
             if (path != null) {
                 _services.Common.Reports.GenerateSalesAnalysisReport(ReportFrom, ReportTo, path);
                 
-                MessageBox.Show("CREATE REPORT");
+                Utilities.SpawnInfoMessageBox("Успех!", "Отчёт был успешно создан!");
             }
         }
 
